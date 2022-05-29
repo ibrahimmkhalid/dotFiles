@@ -17,11 +17,17 @@ Plug 'vim-airline/vim-airline' " status bar
 Plug 'ryanoasis/vim-devicons' " Developer Icons
 Plug 'preservim/tagbar' " Tagbar for code navigation
 Plug 'neoclide/coc.nvim'  " Auto Completion
+Plug 'tpope/vim-fugitive' " git plugin
+Plug 'ctrlpvim/ctrlp.vim' " fuzzy finder
+Plug 'airblade/vim-gitgutter' "git changes in file
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }" fuzzy finder
+Plug 'glepnir/dashboard-nvim' "start page
 
 call plug#end()
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
+let g:dashboard_default_executive ='fzf'
 
 
 nnoremap <C-f> :NERDTreeFocus<CR>

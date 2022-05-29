@@ -102,11 +102,11 @@ source $ZSH/oh-my-zsh.sh
 
 
 alias update='sudo apt update && sudo apt upgrade -y'
-alias laradock='docker-compose -f /home/ibrahim/Documents/GrocerApp/laradock/docker-compose.yml --env-file /home/ibrahim/Documents/GrocerApp/laradock/.env'
-alias laradock-up='laradock up -d nginx mysql phpmyadmin redis workspace'
-alias laradock-sh='laradock exec --user=laradock workspace zsh'
-alias pa='laradock exec --user=laradock workspace php /var/www/${PWD##*/}/artisan'
-alias composer='laradock exec --user=laradock workspace composer --working-dir=/var/www/${PWD##*/}'
+# alias laradock='docker-compose -f /home/ibrahim/Documents/GrocerApp/laradock/docker-compose.yml --env-file /home/ibrahim/Documents/GrocerApp/laradock/.env'
+# alias laradock-up='laradock up -d nginx mysql phpmyadmin redis workspace'
+# alias laradock-sh='laradock exec --user=laradock workspace zsh'
+# alias pa='laradock exec --user=laradock workspace php /var/www/${PWD##*/}/artisan'
+# alias composer='laradock exec --user=laradock workspace composer --working-dir=/var/www/${PWD##*/}'
 # alias npm='laradock exec --user=laradock workspace npm --prefix /var/www/${PWD##*/}'
 # alias node='laradock exec --user=laradock workspace node'
 # alias sh='laradock-sh cd ..'
