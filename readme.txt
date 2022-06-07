@@ -4,7 +4,7 @@ laradock config from: https://github.com/ibrahimmkhalid/grocerapp-laradock
 
 tmux conf from: https://github.com/gpakosz/.tmux.git
 
-nvim conf from: https://github.com/AstroNvim/AstroNvim
+nvim conf from: https://github.com/ibrahimmkhalid/AstroNvim
 
 programs installed:
 nvim
