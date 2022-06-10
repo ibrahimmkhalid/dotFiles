@@ -9,4 +9,3 @@ nvim conf from: https://github.com/ibrahimmkhalid/AstroNvim
 programs installed:
 nvim
 tmux
-vscode
