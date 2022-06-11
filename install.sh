@@ -3,7 +3,7 @@
 echo "---------------------"
 echo "Installing basic applications"
 sudo add-apt-repository universe
-sudo apt install make wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep -y
+sudo apt install make wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ -y
 
 
 echo "---------------------"
