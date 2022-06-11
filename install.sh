@@ -3,7 +3,7 @@
 echo "---------------------"
 echo "Installing basic applications"
 sudo add-apt-repository universe
-sudo apt install make git wget curl tmux zsh ranger htop xsel xclip libfuse2 -y
+sudo apt install make wget curl tmux zsh ranger htop xsel xclip libfuse2 -y
 
 echo "---------------------"
 echo "Cloning into submodules"
