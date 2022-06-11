@@ -18,11 +18,11 @@ echo "done"
 
 echo "---------------------"
 echo "adding configs to appropriate locations"
-ln -s $PWD/zshrc $HOME/.zshrc
-ln -s $PWD/tmux.conf $HOME/.tmux.conf
-ln -s $PWD/tmux.conf.local $HOME/.tmux.conf.local
-ln -s $PWD/nvim $HOME/.config/nvim
-ln -s $PWD/scripts/tmux-session $HOME/.mybin/tmux-session
+ln -s -f $PWD/zshrc $HOME/.zshrc
+ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
+ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
+ln -s -f $PWD/nvim $HOME/.config/nvim
+ln -s -f $PWD/scripts/tmux-session $HOME/.mybin/tmux-session
 
 echo "---------------------"
 echo "downloading firacode"
