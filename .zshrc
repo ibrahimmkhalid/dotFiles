@@ -102,6 +102,11 @@ source $ZSH/oh-my-zsh.sh
 
 
 alias update='sudo apt update && sudo apt upgrade -y'
+alias git-done="git add . && git commit -mupdate && git push"
+
+
+
+#GrocerApp laradock configurations
 alias laradock='docker-compose -f /home/ibrahim/Documents/GrocerApp/laradock/docker-compose.yml --env-file /home/ibrahim/Documents/GrocerApp/laradock/.env'
 alias laradock-up='laradock up -d nginx mysql phpmyadmin redis workspace'
 alias laradock-sh='laradock exec --user=laradock workspace zsh'
