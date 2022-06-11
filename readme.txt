@@ -1,5 +1,5 @@
 How to install:
-1. make an ssh key: ssh-keygen -t ed25519 -C "your_email@example.com"
+1. make an ssh key: ssh-keygen -t ed25519 -C "ibrahimmkhalid@gmail.com"
 2. add that key in github
 
 
