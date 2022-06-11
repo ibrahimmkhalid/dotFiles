@@ -27,10 +27,12 @@ ln -s -f $PWD/scripts/tmux-session $HOME/.mybin/tmux-session
 echo "---------------------"
 echo "downloading firacode"
 mkdir tmp && cd tmp
-wget https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
-unzip Fira_Code_v6.2.zip
-cd ttf
-mkdir -p $HOME/tmp/.local/share/fonts
-mv *.ttf $HOME/tmp/.local/share/fonts/
-cd ../..
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+unzip FiraCode.zip
+rm *Windows*
+rm Fura*
+rm *.otf
+mkdir -p $HOME/.local/share/fonts
+mv *.ttf $HOME/.local/share/fonts/
+cd ..
 rm -rf tmp
