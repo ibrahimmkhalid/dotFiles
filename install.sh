@@ -9,6 +9,7 @@ sudo apt install make wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep
 echo "---------------------"
 echo "Installing neovim"
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
 mkdir -p $HOME/.mybin/source
 mv $PWD/nvim.appimage $HOME/.mybin/source
 ln -s $HOME/.mybin/source/nvim.appimage $HOME/.mybin/nvim
