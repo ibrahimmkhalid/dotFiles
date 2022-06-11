@@ -2,7 +2,7 @@
 
 echo "---------------------"
 echo "Installing basic applications"
-sudo apt install make git wget curl tmux zsh ranger htop
+sudo apt install make git wget curl tmux zsh ranger htop xsel xclip
 
 echo "---------------------"
 echo "Cloning into submodules"
