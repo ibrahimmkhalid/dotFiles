@@ -1,3 +1,8 @@
+How to install:
+1. make an ssh key: ssh-keygen -t ed25519 -C "your_email@example.com"
+2. add that key in github
+
+
 download fonts from: https://github.com/ryanoasis/nerd-fonts
 
 laradock config from: https://github.com/ibrahimmkhalid/grocerapp-laradock
