@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ibrahim/.oh-my-zsh"
+export ZSH="/home/$USER/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -107,7 +107,7 @@ alias git-done="git add . && git commit && git push"
 
 
 #GrocerApp laradock configurations
-alias laradock='docker-compose -f /home/ibrahim/Documents/GrocerApp/laradock/docker-compose.yml --env-file /home/ibrahim/Documents/GrocerApp/laradock/.env'
+alias laradock='docker-compose -f /home/$USER/Documents/GrocerApp/laradock/docker-compose.yml --env-file /home/$USER/Documents/GrocerApp/laradock/.env'
 alias laradock-up='laradock up -d nginx mysql phpmyadmin redis workspace'
 alias laradock-sh='laradock exec --user=laradock workspace zsh'
 alias pa='laradock exec --user=laradock workspace php /var/www/${PWD##*/}/artisan'
@@ -117,9 +117,9 @@ alias composer='laradock exec --user=laradock workspace composer --working-dir=/
 # alias sh='laradock-sh cd ..'
 
 function openDocx(){
-	doc2pdf -o /home/ibrahim/tmp/openDocx.pdf $1
-	evince /home/ibrahim/tmp/openDocx.pdf
-	rm /home/ibrahim/tmp/openDocx.pdf
+	doc2pdf -o /home/$USER/tmp/openDocx.pdf $1
+	evince /home/$USER/tmp/openDocx.pdf
+	rm /home/$USER/tmp/openDocx.pdf
 }
 
 export NVM_DIR="$HOME/.nvm"
