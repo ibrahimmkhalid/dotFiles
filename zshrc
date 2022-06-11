@@ -102,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 alias update='sudo apt update && sudo apt upgrade -y'
-alias git-done="git add . && git commit -mupdate && git push"
+alias git-done="git add . && git commit && git push"
 
 
 
