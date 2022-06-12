@@ -58,6 +58,7 @@ cd gnome-backup
 sudo tar --extract --file gnome-icons.tar.gz -C /usr/share/icons/ --strip-components=1 --overwrite
 sudo tar --extract --file gnome-themes.tar.gz -C /usr/share/themes --strip-components=1 --overwrite
 dconf load /org/gnome/ < dconf-dump
+cd ..
 
 
 clear
