@@ -2,7 +2,7 @@
 
 echo "---------------------"
 echo "Installing basic applications"
-sudo add-apt-repository universe
+sudo add-apt-repository universe -y
 sudo add-apt-repository ppa:aslatter/ppa -y
 sudo apt update
 sudo apt install make wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ alacritty -y
@@ -39,6 +39,7 @@ ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
 ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
 ln -s -f $PWD/nvim $HOME/.config/nvim
 ln -s -f $PWD/scripts/tmux-session $HOME/.mybin/tmux-session
+ln -s -f $PWD/scripts/diskUse $HOME/.mybin/diskUse
 
 echo "---------------------"
 echo "downloading firacode"

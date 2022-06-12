@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "File/Folder sizes in this directory (GB)"
+du . -BG -d 1 -a
+echo "Percentage utilization of calling file system (GB)" 
+df -BG .
+
