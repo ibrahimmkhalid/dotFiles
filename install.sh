@@ -53,18 +53,18 @@ cd ..
 rm -rf tmp
 
 echo "---------------------"
+echo installing gnome extensions
+function regex1tmp(){ gawk 'match($0,/'$1'/, ary) {print ary['${2:-'1'}']}'; }
+mkdir tmp && cd tmp
+mkdir -p $HOME/.local/share/gnome-shell/extensions
+
+echo "---------------------"
 echo "restoring gnome settings"
 cd gnome-backup
 sudo tar --extract --file gnome-icons.tar.gz -C /usr/share/icons/ --strip-components=1 --overwrite
 sudo tar --extract --file gnome-themes.tar.gz -C /usr/share/themes --strip-components=1 --overwrite
 dconf load /org/gnome/ < dconf-dump
 cd ..
-
-echo "---------------------"
-echo installing gnome extensions
-function regex1tmp(){ gawk 'match($0,/'$1'/, ary) {print ary['${2:-'1'}']}'; }
-mkdir tmp && cd tmp
-mkdir -p $HOME/.local/share/gnome-shell/extensions
 
 declare -a extensionStrings=(
 "https://extensions.gnome.org/extension-data/todolisttomMoral.org.v12.shell-extension.zip"
