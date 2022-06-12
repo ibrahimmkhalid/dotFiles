@@ -2,7 +2,7 @@
 
 echo "---------------------"
 echo "Installing basic applications"
-sudo add-apt-repository universe
+sudo add-apt-repository universe -y
 sudo apt install make wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
