@@ -3,7 +3,7 @@
 echo "---------------------"
 echo "Installing basic applications"
 sudo add-apt-repository universe
-sudo add-apt-repository ppa:aslatter/ppa 
+sudo add-apt-repository ppa:aslatter/ppa -y
 sudo apt update
 sudo apt install make wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ alacritty -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
