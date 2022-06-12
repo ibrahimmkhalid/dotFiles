@@ -51,13 +51,13 @@ enable-hot-corners=true
 font-hinting='slight'
 font-name='Ubuntu 10'
 gtk-im-module='gtk-im-context-simple'
-gtk-theme='Nordic-Polar-Ib'
+gtk-theme='Nordic-Polar'
 icon-theme='Numix-Circle-Light'
 monospace-font-name='FiraCode Nerd Font 11'
 show-battery-percentage=true
 
 [desktop/notifications]
-application-children=['org-gnome-nautilus', 'apport-gtk', 'firefox', 'spotify', 'gnome-power-panel', 'gnome-network-panel', 'slack', 'postman', 'org-gnome-evolution-alarm-notify', 'update-manager', 'org-gnome-gedit', 'code', 'gnome-printers-panel', 'libreoffice-writer', 'jetbrains-phpstorm', 'org-gnome-screenshot', 'libreoffice-calc', 'org-gnome-extensions-desktop', 'org-gnome-chromegnomeshell', 'org-gnome-software', 'org-gnome-shell-extensions', 'google-chrome', 'autokey-gtk', 'org-gnome-fileroller', 'gnome-control-center']
+application-children=['org-gnome-nautilus', 'apport-gtk', 'firefox', 'spotify', 'gnome-power-panel', 'gnome-network-panel', 'slack', 'postman', 'org-gnome-evolution-alarm-notify', 'update-manager', 'org-gnome-gedit', 'code', 'gnome-printers-panel', 'libreoffice-writer', 'jetbrains-phpstorm', 'org-gnome-screenshot', 'libreoffice-calc', 'org-gnome-extensions-desktop', 'org-gnome-chromegnomeshell', 'org-gnome-software', 'org-gnome-shell-extensions', 'google-chrome', 'autokey-gtk', 'org-gnome-fileroller', 'gnome-control-center', 'firefox-firefox']
 show-banners=false
 
 [desktop/notifications/application/apport-gtk]
@@ -68,6 +68,9 @@ application-id='autokey-gtk.desktop'
 
 [desktop/notifications/application/code]
 application-id='code.desktop'
+
+[desktop/notifications/application/firefox-firefox]
+application-id='firefox_firefox.desktop'
 
 [desktop/notifications/application/firefox]
 application-id='firefox.desktop'
@@ -286,10 +289,11 @@ disable-user-extensions=false
 disabled-extensions=['ubuntu-dock@ubuntu.com', 'ubuntu-appindicators@ubuntu.com', 'ding@rastersoft.com', 'dash-to-panel@jderose9.github.com']
 enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-plank@hardpixel.eu', 'dash-to-dock@micxgx.gmail.com', 'todolist@tomMoral.org', 'guillotine@fopdoodle.net']
 favorite-apps=['org.gnome.Nautilus.desktop', 'slack.desktop', 'libreoffice-writer.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.gedit.desktop', 'com.getpostman.Postman.desktop', 'jetbrains-phpstorm.desktop', 'dbeaver-ce.desktop', 'sublime_text.desktop', 'google-chrome.desktop', 'com.spotify.Client.desktop', 'code.desktop', 'android-studio.desktop']
-had-bluetooth-devices-setup=true
+had-bluetooth-devices-setup=false
 welcome-dialog-last-shown-version='40.5'
 
 [shell/extensions/caffeine]
+nightlight-control='never'
 user-enabled=true
 
 [shell/extensions/custom-hot-corners/monitor-0-top-left]
@@ -344,7 +348,7 @@ left-active=false
 location=1
 
 [shell/extensions/user-theme]
-name='Nordic-Polar-Ib'
+name='Nordic-Polar'
 
 [software]
 check-timestamp=int64 1655029250
