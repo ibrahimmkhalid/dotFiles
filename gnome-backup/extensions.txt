@@ -1,0 +1,10 @@
+install each of the following extensions
+
+
+https://extensions.gnome.org/extension/615
+https://extensions.gnome.org/extension/517
+https://extensions.gnome.org/extension/779
+https://extensions.gnome.org/extension/307
+https://extensions.gnome.org/extension/3981
+https://extensions.gnome.org/extension/1104
+https://extensions.gnome.org/extension/19
