@@ -3,7 +3,7 @@
 echo "---------------------"
 echo "Installing basic applications"
 sudo add-apt-repository universe -y
-sudo apt install make gawk wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ dconf-editor -y
+sudo apt install make gawk wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ dconf-editor numix-icon-theme-circle -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 echo "---------------------"
@@ -60,10 +60,17 @@ mkdir -p $HOME/.local/share/gnome-shell/extensions
 
 echo "---------------------"
 echo "restoring gnome settings"
-cd gnome-backup
-sudo tar --extract --file gnome-icons.tar.gz -C /usr/share/icons/ --strip-components=1 --overwrite
-sudo tar --extract --file gnome-themes.tar.gz -C /usr/share/themes --strip-components=1 --overwrite
-dconf load /org/gnome/ < dconf-dump
+mkdir tmp && cd tmp
+wget https://github.com/EliverLara/Nordic/releases/download/v2.1.0/Nordic-Polar-v40.tar.xz
+wget https://github.com/EliverLara/Nordic/releases/download/v2.1.0/Nordic-Polar.tar.xz
+tar xvf Nordic-Polar-v40.tar.xz
+tar xvf Nordic-Polar.tar.xz
+sudo mv Nordic-Polar-v40 /usr/share/themes
+sudo mv Nordic-Polar /usr/share/themes
+cd ..
+rm -rf tmp
+
+dconf load /org/gnome/ < org-gnome.dconf.dump 
 cd ..
 
 declare -a extensionStrings=(
