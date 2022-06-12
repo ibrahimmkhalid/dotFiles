@@ -56,6 +56,6 @@ clear
 echo "Steps to do"
 echo "run nvim +PackerSync"
 echo "run nvm ls-remote and nvm install <version>"
-echo "go to $HOME/.local/share/nvim/site/pack/packer/opt/telescope-fzf-native.nvim and run make"
+echo "if telescope in nvim is not working, go to $HOME/.local/share/nvim/site/pack/packer/opt/telescope-fzf-native.nvim and run make"
 echo "in nvim, run :LspInstall <language server>"
 echo "in nvim, run :TSInstall <language server>"
