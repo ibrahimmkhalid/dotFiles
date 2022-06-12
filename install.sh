@@ -37,6 +37,7 @@ ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
 ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
 ln -s -f $PWD/nvim $HOME/.config/nvim
 ln -s -f $PWD/scripts/tmux-session $HOME/.mybin/tmux-session
+ln -s -f $PWD/scripts/diskUse $HOME/.mybin/diskUse
 
 echo "---------------------"
 echo "downloading firacode"
