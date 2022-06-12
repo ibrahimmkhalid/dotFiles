@@ -3,7 +3,7 @@
 echo "---------------------"
 echo "Installing basic applications"
 sudo add-apt-repository universe -y
-sudo apt install make wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ dconf-editor -y
+sudo apt install make gawk wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ dconf-editor -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 echo "---------------------"
@@ -60,6 +60,26 @@ sudo tar --extract --file gnome-themes.tar.gz -C /usr/share/themes --strip-compo
 dconf load /org/gnome/ < dconf-dump
 cd ..
 
+echo "---------------------"
+echo installing gnome extensions
+function regex1tmp(){ gawk 'match($0,/'$1'/, ary) {print ary['${2:-'1'}']}'; }
+mkdir tmp && cd tmp
+mkdir -p $HOME/.local/share/gnome-shell/extensions
+
+declare -a extensionStrings=(
+"https://extensions.gnome.org/extension-data/todolisttomMoral.org.v12.shell-extension.zip"
+"https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v44.shell-extension.zip"
+)
+
+for ext in "${extensionStrings[@]}"; do
+	curl $ext --output extension.zip
+  unzip extension.zip -d extension
+	mv extension $HOME/.local/share/gnome-shell/extensions/$(cat extension/metadata.json|grep uuid|regex1tmp '^.*".*".*"(.*)".*$')
+done
+
+cd ..
+rm -rf tmp
+
 
 clear
 echo "Steps to do"
@@ -68,4 +88,3 @@ echo "run nvm ls-remote and nvm install <version>"
 echo "if telescope in nvim is not working, go to $HOME/.local/share/nvim/site/pack/packer/opt/telescope-fzf-native.nvim and run make"
 echo "in nvim, run :LspInstall <language server>"
 echo "in nvim, run :TSInstall <language server>"
-cat gnome-backup/extensions.txt

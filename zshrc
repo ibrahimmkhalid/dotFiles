@@ -122,6 +122,10 @@ function openDocx(){
 	rm /home/$USER/tmp/openDocx.pdf
 }
 
+function regex1(){
+	gawk 'match($0,/'$1'/, ary) {print ary['${2:-'1'}']}';
+}
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
