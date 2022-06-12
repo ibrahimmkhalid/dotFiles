@@ -3,7 +3,7 @@
 echo "---------------------"
 echo "Installing basic applications"
 sudo add-apt-repository universe
-sudo apt install make wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ -y
+sudo apt install make wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ dconf-editor -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 echo "---------------------"
@@ -52,6 +52,13 @@ mv *.ttf $HOME/.local/share/fonts/
 cd ..
 rm -rf tmp
 
+echo "---------------------"
+echo "restoring gnome settings"
+cd gnome-backup
+sudo tar --extract --file gnome-icons.tar.gz -C /usr/share/icons/ --strip-components=1 --overwrite
+sudo tar --extract --file gnome-themes.tar.gz -C /usr/share/themes --strip-components=1 --overwrite
+dconf load /org/gnome/ < dconf-dump
+
 
 clear
 echo "Steps to do"
@@ -60,3 +67,4 @@ echo "run nvm ls-remote and nvm install <version>"
 echo "if telescope in nvim is not working, go to $HOME/.local/share/nvim/site/pack/packer/opt/telescope-fzf-native.nvim and run make"
 echo "in nvim, run :LspInstall <language server>"
 echo "in nvim, run :TSInstall <language server>"
+cat gnome-backup/extensions.txt
