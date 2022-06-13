@@ -103,7 +103,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias update='sudo apt update && sudo apt upgrade -y'
 alias git-done="git add . && git commit && git push"
-
+alias git-stash-save="git stash apply -m local"
+alisa git-stash-apply="git stash apply stash^{/local}"
 
 
 #GrocerApp laradock configurations
