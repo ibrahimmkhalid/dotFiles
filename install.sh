@@ -3,7 +3,7 @@
 echo "---------------------"
 echo "Installing basic applications"
 sudo add-apt-repository universe -y
-sudo apt install make wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ -y
+sudo apt install make gawk wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ dconf-editor numix-icon-theme-circle -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 echo "---------------------"
@@ -49,6 +49,46 @@ rm Fura*
 rm *.otf
 mkdir -p $HOME/.local/share/fonts
 mv *.ttf $HOME/.local/share/fonts/
+cd ..
+rm -rf tmp
+
+echo "---------------------"
+echo installing gnome extensions
+function regex1tmp(){ gawk 'match($0,/'$1'/, ary) {print ary['${2:-'1'}']}'; }
+mkdir tmp && cd tmp
+mkdir -p $HOME/.local/share/gnome-shell/extensions
+
+echo "---------------------"
+echo "restoring gnome settings"
+mkdir tmp && cd tmp
+wget https://github.com/EliverLara/Nordic/releases/download/v2.1.0/Nordic-Polar-v40.tar.xz
+wget https://github.com/EliverLara/Nordic/releases/download/v2.1.0/Nordic-Polar.tar.xz
+tar xvf Nordic-Polar-v40.tar.xz
+tar xvf Nordic-Polar.tar.xz
+sudo mv Nordic-Polar-v40 /usr/share/themes
+sudo mv Nordic-Polar /usr/share/themes
+cd ..
+rm -rf tmp
+
+dconf load /org/gnome/ < org-gnome.dconf.dump 
+cd ..
+
+declare -a extensionStrings=(
+"https://extensions.gnome.org/extension-data/todolisttomMoral.org.v12.shell-extension.zip"
+"https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v44.shell-extension.zip"
+"https://extensions.gnome.org/extension-data/guillotinefopdoodle.net.v15.shell-extension.zip"
+"https://extensions.gnome.org/extension-data/dash-to-dockmicxgx.gmail.com.v71.shell-extension.zip"
+"https://extensions.gnome.org/extension-data/caffeinepatapon.info.v39.shell-extension.zip"
+"https://extensions.gnome.org/extension-data/clipboard-indicatortudmotu.com.v38.shell-extension.zip"
+"https://extensions.gnome.org/extension-data/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip"
+)
+
+for ext in "${extensionStrings[@]}"; do
+	curl $ext --output extension.zip
+  unzip extension.zip -d extension
+	mv extension $HOME/.local/share/gnome-shell/extensions/$(cat extension/metadata.json|grep uuid|regex1tmp '^.*".*".*"(.*)".*$')
+done
+
 cd ..
 rm -rf tmp
 
