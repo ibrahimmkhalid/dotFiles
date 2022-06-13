@@ -3,7 +3,9 @@
 echo "---------------------"
 echo "Installing basic applications"
 sudo add-apt-repository universe -y
-sudo apt install make gawk wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ dconf-editor numix-icon-theme-circle -y
+sudo add-apt-repository ppa:aslatter/ppa -y
+sudo apt update
+sudo apt install make gawk wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ dconf-editor numix-icon-theme-circle alacritty -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 echo "---------------------"
