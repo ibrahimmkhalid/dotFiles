@@ -58,7 +58,7 @@ show-battery-percentage=true
 
 [desktop/notifications]
 application-children=['org-gnome-nautilus', 'apport-gtk', 'firefox', 'spotify', 'gnome-power-panel', 'gnome-network-panel', 'slack', 'postman', 'org-gnome-evolution-alarm-notify', 'update-manager', 'org-gnome-gedit', 'code', 'gnome-printers-panel', 'libreoffice-writer', 'jetbrains-phpstorm', 'org-gnome-screenshot', 'libreoffice-calc', 'org-gnome-extensions-desktop', 'org-gnome-chromegnomeshell', 'org-gnome-software', 'org-gnome-shell-extensions', 'google-chrome', 'autokey-gtk', 'org-gnome-fileroller', 'gnome-control-center', 'firefox-firefox']
-show-banners=false
+show-banners=true
 
 [desktop/notifications/application/apport-gtk]
 application-id='apport-gtk.desktop'
@@ -352,7 +352,7 @@ location=1
 name='Nordic-Polar'
 
 [software]
-check-timestamp=int64 1655029250
+check-timestamp=int64 1655097947
 install-timestamp=int64 1637561281
 online-updates-timestamp=int64 1654146021
 update-notification-timestamp=int64 1654576735
