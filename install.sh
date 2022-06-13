@@ -34,9 +34,11 @@ echo "done"
 
 echo "---------------------"
 echo "adding configs to appropriate locations"
+mkdir -p $HOME/.config/alacritty
 ln -s -f $PWD/zshrc $HOME/.zshrc
 ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
 ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
+ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s -f $PWD/nvim $HOME/.config/nvim
 ln -s -f $PWD/scripts/tmux-session $HOME/.mybin/tmux-session
 ln -s -f $PWD/scripts/diskUse $HOME/.mybin/diskUse
