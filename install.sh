@@ -3,7 +3,9 @@
 echo "---------------------"
 echo "Installing basic applications"
 sudo add-apt-repository universe -y
-sudo apt install make gawk wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ dconf-editor numix-icon-theme-circle -y
+sudo add-apt-repository ppa:aslatter/ppa -y
+sudo apt update
+sudo apt install make gawk wget curl tmux zsh ranger htop xsel xclip libfuse2 ripgrep gcc g++ dconf-editor numix-icon-theme-circle alacritty -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 echo "---------------------"
@@ -32,10 +34,12 @@ echo "done"
 
 echo "---------------------"
 echo "adding configs to appropriate locations"
+mkdir -p $HOME/.config/alacritty
 sed "s|HOME_DIR|$HOME|g" guillotine.json.tmp > guillotine.json
 ln -s -f $PWD/zshrc $HOME/.zshrc
 ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
 ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
+ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s -f $PWD/nvim $HOME/.config/nvim
 ln -s -f $PWD/guillotine.json $HOME/.config/guillotine.json
 ln -s -f $PWD/scripts $HOME/.mybin/script
