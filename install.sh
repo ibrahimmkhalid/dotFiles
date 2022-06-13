@@ -42,7 +42,7 @@ ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
 ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s -f $PWD/nvim $HOME/.config/nvim
 ln -s -f $PWD/guillotine.json $HOME/.config/guillotine.json
-ln -s -f $PWD/scripts $HOME/.mybin/script
+ln -s -f $PWD/scripts $HOME/.mybin/scripts
 ln -s -f $PWD/common-assets $HOME/.mybin/common-assets
 
 echo "---------------------"
