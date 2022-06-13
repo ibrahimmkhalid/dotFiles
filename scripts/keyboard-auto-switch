@@ -1,0 +1,78 @@
+#!/bin/bash
+keeb=$(xinput list | grep -E "SONiX Draconic Keyboard.*slave.*keyboard" | awk -F'=' '{print $2}' | awk '{print $1}')
+master=$(xinput list | grep -E "id=.*master.*keyboard" | awk -F'=' '{print $2}' | awk '{print $1}')
+integrated=$(xinput list | grep -E "AT Translated Set 2 keyboard.*slave.*keyboard" | awk -F'=' '{print $2}' | awk '{print $1}')
+error=0
+isKeeb=1
+integratedStatus=1
+keebStatus=1
+if [ -z "$integrated" ] # integrated keyboard may be floating
+then
+    integrated=$(xinput list | grep -E "AT Translated Set 2 keyboard.*floating.*slave" | awk -F'=' '{print $2}' | awk '{print $1}')
+    if [ -z "$integrated" ]
+    then # integrated keyboard is not found
+        error=1
+    else # integrated keyboard is floating
+        integratedStatus=0
+    fi
+fi
+
+if [ -z "$keeb" ] #keeb may be floting
+then
+    keeb=$(xinput list | grep -E "SONiX Draconic Keyboard.*floating.*slave" | awk -F'=' '{print $2}' | awk '{print $1}')
+    if [ -z "$keeb" ] #keeb is not found
+    then
+        isKeeb=0
+        keebStatus=0
+    else # keeb is found and floating
+        keebStatus=0
+    fi
+fi #keeb is attached and active
+
+if [ -z "$master" ]
+then
+    error=1
+fi
+
+if [ $error -eq 0 ]
+then
+echo "integrated found at: $integrated and status is: $integratedStatus"
+echo "Keeb found at: $keeb and status is: $keebStatus and isKeeb is: $isKeeb"
+echo "master found at: $master"
+if (( $integratedStatus == 0 && $isKeeb == 0 ))
+then
+    xinput reattach $integrated $master
+    echo "reattached integrated"
+    notify-send "keyboard Switch" "reattached integrated"
+elif (( $integratedStatus == 0 && $isKeeb == 1 && $keebStatus == 0 ))
+then
+    xinput reattach $keeb $master
+    echo "reattached keeb"
+    notify-send "keyboard Switch" "reattached keeb"
+elif (( $integratedStatus == 0 && $isKeeb == 1 && $keebStatus == 1 ))
+then
+    echo "nothing changed"
+    notify-send "keyboard Switch" "nothing changed"
+elif (( $integratedStatus == 1 && $isKeeb == 0 ))
+then
+    echo "nothing changed"
+    notify-send "keyboard Switch" "nothing changed"
+elif (( $integratedStatus == 1 && $isKeeb == 1 && $keebStatus == 0 ))
+then
+    xinput float $integrated
+    xinput reattach $keeb $master
+    echo "removed integrated and reattached keeb"
+    notify-send "keyboard Switch" "removed integrated and reattached keeb"
+elif (( $integratedStatus == 1 && $isKeeb == 1 && $keebStatus == 1 ))
+then
+    xinput float $integrated
+    echo "removed integrated"
+    notify-send "keyboard Switch" "removed integrated"
+fi
+else
+echo "There is an error, please check manually"
+notify-send "keyboard Switch" "There is an error, please check manually"
+fi
+
+
+

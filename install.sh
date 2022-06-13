@@ -35,13 +35,15 @@ echo "done"
 echo "---------------------"
 echo "adding configs to appropriate locations"
 mkdir -p $HOME/.config/alacritty
+sed "s|HOME_DIR|$HOME|g" guillotine.json.tmp > guillotine.json
 ln -s -f $PWD/zshrc $HOME/.zshrc
 ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
 ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
 ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s -f $PWD/nvim $HOME/.config/nvim
-ln -s -f $PWD/scripts/tmux-session $HOME/.mybin/tmux-session
-ln -s -f $PWD/scripts/diskUse $HOME/.mybin/diskUse
+ln -s -f $PWD/guillotine.json $HOME/.config/guillotine.json
+ln -s -f $PWD/scripts $HOME/.mybin/script
+ln -s -f $PWD/common-assets $HOME/.mybin/common-assets
 
 echo "---------------------"
 echo "downloading firacode"
