@@ -24,6 +24,10 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 echo "---------------------"
 echo "Cloning into submodules"
 git submodule update --init
+cd nvim
+git remote add upstream git@github.com:AstroNvim/AstorNvim.git
+cd ..
+
 
 echo "---------------------"
 echo "git configs"
