@@ -25,7 +25,7 @@ echo "---------------------"
 echo "Cloning into submodules"
 git submodule update --init
 cd nvim
-git remote add upstream git@github.com:AstroNvim/AstorNvim.git
+git remote add upstream https://github.com/AstroNvim/AstorNvim
 cd ..
 
 
