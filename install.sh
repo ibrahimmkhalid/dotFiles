@@ -12,9 +12,7 @@ echo "---------------------"
 echo "Installing neovim"
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
-mkdir -p $HOME/.mybin/source
-mv $PWD/nvim.appimage $HOME/.mybin/source
-ln -s $HOME/.mybin/source/nvim.appimage $HOME/.mybin/nvim
+mv $PWD/nvim.appimage $HOME/.local/bin/nvim
 
 
 echo "---------------------"
@@ -39,6 +37,9 @@ echo "done"
 echo "---------------------"
 echo "adding configs to appropriate locations"
 mkdir -p $HOME/.config/alacritty
+mkdir -p $HOME/.local/bin
+mkdir -p $HOME/.local/lib
+mkdir -p $HOME/.local/share
 sed "s|HOME_DIR|$HOME|g" guillotine.json.tmp > guillotine.json
 ln -s -f $PWD/zshrc $HOME/.zshrc
 ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
@@ -46,8 +47,11 @@ ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
 ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s -f $PWD/nvim $HOME/.config/nvim
 ln -s -f $PWD/guillotine.json $HOME/.config/guillotine.json
-ln -s -f $PWD/scripts $HOME/.mybin/scripts
-ln -s -f $PWD/common-assets $HOME/.mybin/common-assets
+for d in $(ls $PWD/scripts);
+do
+	ln -s -f $PWD/scripts/$d $HOME/.local/bin/$d;
+done
+ln -s -f $PWD/my-assets $HOME/.local/share/my-assets
 
 echo "---------------------"
 echo "downloading firacode"

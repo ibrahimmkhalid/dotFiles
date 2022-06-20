@@ -6,17 +6,17 @@
     {
       "type": "command",
       "title": "Keyboard Switch",
-      "command": "HOME_DIR/.mybin/scripts/keyboard-auto-switch",
+      "command": "HOME_DIR/.local/bin/keyboard-auto-switch",
       "instancing": "singleInstance",
-      "icon": "HOME_DIR/.mybin/common-assets/keyboard-solid.svg",
+      "icon": "HOME_DIR/.local/share/my-assets/common-assets/keyboard-solid.svg",
       "killOnDisable": false
     },
     {
       "type": "command",
       "title": "Integrated Kyeboard Toggle",
-      "command": "HOME_DIR/.mybin/scripts/toggle-laptop-keyboard",
+      "command": "HOME_DIR/.local/bin/toggle-laptop-keyboard",
       "instancing": "singleInstance",
-      "icon": "HOME_DIR/.mybin/common-assets/keyboard-solid.svg",
+      "icon": "HOME_DIR/.local/share/my-assets/common-assets/keyboard-solid.svg",
       "killOnDisable": false
     },
     {
