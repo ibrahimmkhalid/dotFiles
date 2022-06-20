@@ -4,10 +4,10 @@
 *Note: Intended for apt based systmes running Gnome 40.*
 
 ### How to install
-1. make an ssh key: ssh-keygen -t ed25519 -C "ibrahimmkhalid@gmail.com"
-2. add that key in github
-3. run sudo apt update && sudo apt upgrade -y && sudo apt install git -y
-4. run install.sh
+1. make an ssh key: `ssh-keygen -t ed25519 -C "ibrahimmkhalid@gmail.com"`
+2. add that key in GitHub Settings > SSH and GPG Keys > New SSH key
+3. run `sudo apt update && sudo apt upgrade -y && sudo apt install git -y`
+4. run `./install.sh`
 
 Grocerapp laradock config from: https://github.com/ibrahimmkhalid/grocerapp-laradock
 
