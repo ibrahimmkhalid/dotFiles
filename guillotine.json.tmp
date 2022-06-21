@@ -8,7 +8,7 @@
       "title": "Keyboard Switch",
       "command": "HOME_DIR/.local/bin/keyboard-auto-switch",
       "instancing": "singleInstance",
-      "icon": "HOME_DIR/.local/share/my-assets/common-assets/keyboard-solid.svg",
+      "icon": "HOME_DIR/.local/share/my-assets/keyboard-solid.svg",
       "killOnDisable": false
     },
     {
@@ -16,7 +16,7 @@
       "title": "Integrated Kyeboard Toggle",
       "command": "HOME_DIR/.local/bin/toggle-laptop-keyboard",
       "instancing": "singleInstance",
-      "icon": "HOME_DIR/.local/share/my-assets/common-assets/keyboard-solid.svg",
+      "icon": "HOME_DIR/.local/share/my-assets/keyboard-solid.svg",
       "killOnDisable": false
     },
     {
