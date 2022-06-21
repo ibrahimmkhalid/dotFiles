@@ -105,8 +105,6 @@ alias update='sudo apt update && sudo apt upgrade -y'
 alias git-done="git add . && git commit && git push"
 alias git-update="git add . && git commit -mupdate && git push"
 alias git-repeat="git add . && git commit -C HEAD@{1} && git push"
-alias git-stash-save="git stash apply -m local"
-alias git-stash-apply="git stash apply stash^{/local}"
 
 
 #GrocerApp laradock configurations
