@@ -113,6 +113,15 @@ alias laradock-up='laradock up -d nginx mysql phpmyadmin redis workspace'
 alias laradock-sh='laradock exec --user=laradock workspace zsh'
 alias pa='laradock exec --user=laradock workspace php /var/www/${PWD##*/}/artisan'
 alias composer='laradock exec --user=laradock workspace composer --working-dir=/var/www/${PWD##*/}'
+# alias mysql-grocerapp='docker exec -it laradock_mysql_1 mysql -udev_apps_user -h dev-db-apr.chhvlwh1pifl.us-west-2.rds.amazonaws.com -pWeHdJ,6aZ4X~ barfeemart -A'
+function mysql-grocerapp(){
+	if [ -z "$1" ]
+	then
+		docker exec -it laradock_mysql_1 mysql -udev_apps_user -h dev-db-apr.chhvlwh1pifl.us-west-2.rds.amazonaws.com -pWeHdJ,6aZ4X~ barfeemart -A
+	else
+		docker exec -it laradock_mysql_1 mysql -udev_apps_user -h dev-db-apr.chhvlwh1pifl.us-west-2.rds.amazonaws.com -pWeHdJ,6aZ4X~ barfeemart -A -e "$1"
+  fi
+}
 # alias npm='laradock exec --user=laradock workspace npm --prefix /var/www/${PWD##*/}'
 # alias node='laradock exec --user=laradock workspace node'
 # alias sh='laradock-sh cd ..'
@@ -130,4 +139,7 @@ function regex1(){
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+
 export PATH="$HOME/.local/bin:$PATH" 
