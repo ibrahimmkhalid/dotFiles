@@ -8,7 +8,7 @@
 2. add that key in GitHub Settings > SSH and GPG Keys > New SSH key
 3. run `sudo apt update && sudo apt upgrade -y && sudo apt install git -y`
 4. find a home for this repo and run `git clone git@github.com:ibrahimmkhalid/dotFiles.git`
-5. run `./install.sh`
+5. cd into `dotFiles` and run `./install.sh`
 
 Grocerapp laradock config from: https://github.com/ibrahimmkhalid/grocerapp-laradock
 
