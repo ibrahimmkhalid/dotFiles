@@ -52,7 +52,6 @@ do
 	ln -s -f $PWD/scripts/$d $HOME/.local/bin/$d;
 done
 ln -s -f $PWD/my-assets $HOME/.local/share/my-assets
-ln -s -f $PWD/wallpaper/wallpaper.png $HOME/.local/wallpaper
 
 echo "---------------------"
 echo "downloading firacode"
