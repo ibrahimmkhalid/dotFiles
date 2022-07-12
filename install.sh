@@ -88,6 +88,8 @@ rm -rf tmp
 dconf load /org/gnome/ < org-gnome.dconf.dump 
 cd ..
 
+./set-wallpaper.sh
+
 declare -a extensionStrings=(
 "https://extensions.gnome.org/extension-data/todolisttomMoral.org.v12.shell-extension.zip"
 "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v44.shell-extension.zip"
