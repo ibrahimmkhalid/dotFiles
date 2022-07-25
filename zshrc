@@ -164,3 +164,9 @@ load-nvmrc
 
 export PATH="$HOME/.local/bin:$PATH" 
 export EDITOR="nvim"
+
+
+if [[ -f $HOME/.localrc ]] then
+	source $HOME/.localrc
+fi
+
