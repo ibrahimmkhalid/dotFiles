@@ -87,7 +87,7 @@ rm -rf tmp
 dconf load /org/gnome/ < org-gnome.dconf.dump 
 cd ..
 
-./set-wallpaper.sh
+gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
 
 declare -a extensionStrings=(
 "https://extensions.gnome.org/extension-data/todolisttomMoral.org.v12.shell-extension.zip"
