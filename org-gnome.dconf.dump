@@ -33,7 +33,7 @@ translate=true
 [desktop/background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///home/ibrahim/.local/share/backgrounds/2022-01-31-15-48-32-wallhaven-1jkkpw.png'
+picture-uri='file:////home/ibrahim/tmp/dotFiles/wallpaper/wallpaper.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -219,7 +219,7 @@ active-plugins=['spell', 'time', 'docinfo', 'filebrowser', 'modelines']
 [gedit/plugins/filebrowser]
 root='file:///'
 tree-view=true
-virtual-root='file:///home/ibrahim/current-task'
+virtual-root='file:///home/ibrahim/.config'
 
 [gedit/preferences/editor]
 scheme='Yaru'
