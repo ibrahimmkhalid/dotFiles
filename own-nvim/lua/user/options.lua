@@ -1,19 +1,27 @@
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.clipboard = "unnamedplus"
-vim.opt.cmdheight = 2
-vim.opt.fileencoding = "utf-8"
-vim.opt.ignorecase = true
-vim.opt.mouse = "a"
-vim.opt.showmode = false
-vim.opt.showtabline = 2
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.undofile = false
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.wrap = false
+local options = {
+  number = true,
+  relativenumber = true,
+  clipboard = "unnamedplus",
+  cmdheight = 2,
+  fileencoding = "utf-8",
+  ignorecase = true,
+  mouse = "a",
+  showmode = false,
+  showtabline = 2,
+  smartcase = true,
+  smartindent = true,
+  splitbelow = true,
+  splitright = true,
+  undofile = false,
+  expandtab = true,
+  shiftwidth = 2,
+  tabstop = 2,
+  wrap = false
+}
+
+
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
+
 vim.cmd "set whichwrap+=<,>,[,],h,l"
