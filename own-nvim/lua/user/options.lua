@@ -3,6 +3,7 @@ local options = {
   relativenumber = true,
   clipboard = "unnamedplus",
   cmdheight = 2,
+  termguicolors = true,
   fileencoding = "utf-8",
   ignorecase = true,
   mouse = "a",
