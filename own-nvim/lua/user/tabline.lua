@@ -13,6 +13,9 @@ keymap('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
 keymap('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
 keymap('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
 
+keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", opts)
+keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
+
 -- Close buffers keybinds
 keymap('n', '<leader>c', '<Cmd>BufferClose<CR>', opts)
 keymap('n', '<leader>br', '<Cmd>BufferCloseBuffersRight<CR>', opts)
