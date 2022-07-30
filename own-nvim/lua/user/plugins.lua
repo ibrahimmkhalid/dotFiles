@@ -64,6 +64,19 @@ return packer.startup(function(use)
     requires = {'kyazdani42/nvim-web-devicons'}
   }
 
+  -- use { -- file explorer tree
+  --   'kyazdani42/nvim-tree.lua',
+  --   requires = {
+  --     'kyazdani42/nvim-web-devicons',
+  --   },
+  --   tag = 'nightly'
+  -- }
+
+  use {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = "v2.x",
+    requires = { "MunifTanjim/nui.nvim" },
+  }
 
   ------
   -- random
