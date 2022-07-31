@@ -42,6 +42,10 @@ keymap("n", "<S-k>", "10k", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":q<CR>", opts)
 
+
+-- WSL workaround for visual block mode
+keymap("n", "<M-v>", "<C-v>", opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
