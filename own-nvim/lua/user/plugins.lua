@@ -75,6 +75,12 @@ return packer.startup(function(use)
     tag = '0.1.0',
   }
 
+  use {
+    "akinsho/toggleterm.nvim",
+    tag = 'v2.*'
+  }
+
+
   ------
   -- random
   use { 
