@@ -16,6 +16,7 @@ local _term_commands = {
   h = "htop",
   n = "node",
   p = "python",
+  g = "lazygit",
 }
 
 _g_terms = {}
