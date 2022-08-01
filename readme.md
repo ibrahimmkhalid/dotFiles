@@ -10,8 +10,6 @@
 4. find a home for this repo and run `git clone git@github.com:ibrahimmkhalid/dotFiles.git`
 5. cd into `dotFiles` and run `./install.sh`
 
-Grocerapp laradock config from: https://github.com/ibrahimmkhalid/grocerapp-laradock
-
 ## Credits 
 tmux: https://github.com/gpakosz/.tmux.git  
 tmux-session: https://github.com/mislav/dotfiles/blob/master/bin/tmux-session  

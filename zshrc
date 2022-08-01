@@ -106,25 +106,13 @@ alias git-done="git add . && git commit && git push"
 alias git-update="git add . && git commit -mupdate && git push"
 alias git-repeat="git add . && git commit -C HEAD@{1} && git push"
 
-
-#GrocerApp laradock configurations
-alias laradock='docker-compose -f /home/$USER/Documents/GrocerApp/laradock/docker-compose.yml --env-file /home/$USER/Documents/GrocerApp/laradock/.env'
-alias laradock-up='laradock up -d nginx mysql phpmyadmin redis workspace'
-alias laradock-sh='laradock exec --user=laradock workspace zsh'
-alias pa='laradock exec --user=laradock workspace php /var/www/${PWD##*/}/artisan'
-alias composer='laradock exec --user=laradock workspace composer --working-dir=/var/www/${PWD##*/}'
-# alias mysql-grocerapp='docker exec -it laradock_mysql_1 mysql -udev_apps_user -h dev-db-apr.chhvlwh1pifl.us-west-2.rds.amazonaws.com -pWeHdJ,6aZ4X~ barfeemart -A'
-function mysql-grocerapp(){
-	if [ -z "$1" ]
-	then
-		docker exec -it laradock_mysql_1 mysql -udev_apps_user -h dev-db-apr.chhvlwh1pifl.us-west-2.rds.amazonaws.com -pWeHdJ,6aZ4X~ barfeemart -A
-	else
-		docker exec -it laradock_mysql_1 mysql -udev_apps_user -h dev-db-apr.chhvlwh1pifl.us-west-2.rds.amazonaws.com -pWeHdJ,6aZ4X~ barfeemart -A -e "$1"
-  fi
-}
-# alias npm='laradock exec --user=laradock workspace npm --prefix /var/www/${PWD##*/}'
-# alias node='laradock exec --user=laradock workspace node'
-# alias sh='laradock-sh cd ..'
+#Laradock configurations
+#get config from https://github.com/ibrahimmkhalid/laradock
+#alias laradock='docker-compose -f /path/to/laradock/docker-compose.yml --env-file /path/to/laradock/.env'
+#alias laradock-up='laradock up -d nginx mysql phpmyadmin redis workspace'
+#alias laradock-sh='laradock exec --user=laradock workspace zsh'
+#alias pa='laradock exec --user=laradock workspace php /var/www/${PWD##*/}/artisan'
+#alias composer='laradock exec --user=laradock workspace composer --working-dir=/var/www/${PWD##*/}'
 
 function openDocx(){
 	doc2pdf -o /home/$USER/tmp/openDocx.pdf $1
