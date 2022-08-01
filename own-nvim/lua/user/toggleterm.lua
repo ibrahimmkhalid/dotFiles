@@ -5,6 +5,7 @@ end
 
 toggleterm.setup {
   open_mapping = [[<c-\>]],
+  direction = 'horizontal'
 }
 
 local opts = { noremap = true, silent = true }
@@ -12,17 +13,18 @@ local keymap = vim.api.nvim_set_keymap
 
 local Terminal = require('toggleterm.terminal').Terminal
 local _term_commands = {
-  htop = "h",
-  node = "n",
-  python = "p",
+  h = "htop",
+  n = "node",
+  p = "python",
 }
 
 _g_terms = {}
 
 for k, v in pairs(_term_commands) do
-  _g_terms[k] = Terminal:new({cmd = k, hidden = true, direction = "float"})
-  keymap("n", "<leader>t" .. v, "<cmd>lua _g_terms."..k..":toggle()<cr>", opts)
+  _g_terms[v] = Terminal:new({cmd = v, hidden = true, direction = "float"})
+  keymap("n", "<leader>t" .. k, "<cmd>lua _g_terms."..v..":toggle()<cr>", opts)
 end
+keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts)
 
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)
 keymap("t", "<C-h>", "<c-\\><c-n><c-w>h", opts)
