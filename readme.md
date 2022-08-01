@@ -14,5 +14,4 @@ Grocerapp laradock config from: https://github.com/ibrahimmkhalid/grocerapp-lara
 
 ## Credits 
 tmux: https://github.com/gpakosz/.tmux.git  
-nvim: https://github.com/AstroNvim/AstroNvim  
 tmux-session: https://github.com/mislav/dotfiles/blob/master/bin/tmux-session  
