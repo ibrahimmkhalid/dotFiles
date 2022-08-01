@@ -35,13 +35,16 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- fast scrolling
-keymap("n", "<S-j>", "10j", opts)
-keymap("n", "<S-k>", "10k", opts)
+keymap("n", "<S-j>", "5j", opts)
+keymap("n", "<S-k>", "5k", opts)
 
 -- saving files and exiting nvim
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":q<CR>", opts)
 
+
+keymap("n", "<", "<<", opts)
+keymap("n", ">", ">>", opts)
 
 -- WSL workaround for visual block mode
 keymap("n", "<M-v>", "<C-v>", opts)
@@ -52,14 +55,16 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
+keymap("v", "J", "5j", opts)
+keymap("v", "K", "5k", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "J", "5j", opts)
+keymap("x", "K", "5k", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
