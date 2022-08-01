@@ -27,13 +27,6 @@ echo "---------------------"
 echo "Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-echo "---------------------"
-echo "Cloning into submodules"
-git submodule update --init
-cd nvim
-git remote add upstream https://github.com/AstroNvim/AstorNvim
-cd ..
-
 
 echo "---------------------"
 echo "git configs"
