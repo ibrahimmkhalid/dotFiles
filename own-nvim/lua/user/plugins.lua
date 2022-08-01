@@ -47,6 +47,10 @@ return packer.startup(function(use)
 
 --  use "morhetz/gruvbox" -- colorscheme
   use "ellisonleao/gruvbox.nvim"
+  use "folke/tokyonight.nvim"
+  use "sainnhe/gruvbox-material"
+  use "sainnhe/everforest"
+  use "rebelot/kanagawa.nvim"
   
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
