@@ -14,6 +14,14 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 mv $PWD/nvim.appimage $HOME/.local/bin/nvim
 
+echo "---------------------"
+echo "Installing lazygit"
+mkdir tmp && cd tmp
+curl -LO https://github.com/jesseduffield/lazygit/releases/download/v0.35/lazygit_0.35_Linux_x86_64.tar.gz
+tar xzf lazygit_0.35_Linux_x86_64.tar.gz
+mv $PWD/lazygit $HOME/.local/bin/lazygit
+cd ..
+rm -rf tmp
 
 echo "---------------------"
 echo "Installing oh-my-zsh"
