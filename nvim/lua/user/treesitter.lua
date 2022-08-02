@@ -7,6 +7,9 @@ configs.setup {
   ensure_installed = { "c", "cpp", "comment", "bash", "css", "dot", "html", "javascript", "jsdoc", "json", "json5", "latex", "markdown", "php", "python", "scss", "sql", "typescript", },
   sync_install = false, 
   ignore_install = { "" }, -- List of parsers to ignore installing
+  autopairs = {
+    enable = true
+  },
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "" }, -- list of language that will be disabled

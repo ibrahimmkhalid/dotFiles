@@ -85,6 +85,7 @@ return packer.startup(function(use)
     tag = 'v2.*'
   }
 
+  use "windwp/nvim-autopairs"
 
   -- Treesitter
   use {
