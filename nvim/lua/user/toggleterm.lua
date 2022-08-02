@@ -5,7 +5,7 @@ end
 
 toggleterm.setup {
   open_mapping = [[<c-\>]],
-  direction = 'horizontal'
+  direction = 'float'
 }
 
 local opts = { noremap = true, silent = true }
