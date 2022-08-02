@@ -87,12 +87,17 @@ return packer.startup(function(use)
 
   use "windwp/nvim-autopairs"
 
+  use "numToStr/Comment.nvim" -- Easily comment stuff
+
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
   use "p00f/nvim-ts-rainbow"
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+
 
   ------
   -- random
