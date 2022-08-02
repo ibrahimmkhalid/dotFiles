@@ -107,6 +107,7 @@ return packer.startup(function(use)
   use "xiyaowong/nvim-transparent"
 
   use "lewis6991/impatient.nvim"
+  use "lewis6991/gitsigns.nvim"
 
   use({
     "NTBBloodbath/galaxyline.nvim",
