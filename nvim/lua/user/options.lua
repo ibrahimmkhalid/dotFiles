@@ -26,3 +26,40 @@ for k, v in pairs(options) do
 end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
+
+
+local colorscheme = "tokyonight"
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+if not status_ok then
+  vim.notify("colorscheme " .. colorscheme .. " not found!")
+  return
+end
+
+local status_ok, colorizer = pcall(require, "colorizer")
+if not status_ok then
+  return
+end
+
+colorizer.setup()
+
+--local status_ok, transparent = pcall(require, "transparent")
+--if not status_ok then
+--  return
+--end
+--
+--transparent.setup({
+--  enable = true,
+--})
+
+local status_ok, impatient = pcall(require, "impatient")
+if not status_ok then
+  return
+end
+
+impatient.enable_profile()
+
+local status_ok, _ = pcall(require, "galaxyline.themes.eviline")
+if not status_ok then
+  return
+end
+
