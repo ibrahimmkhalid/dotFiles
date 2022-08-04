@@ -65,6 +65,11 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "jose-elias-alvarez/null-ls.nvim"
 
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
   use { -- tabline
     'romgrk/barbar.nvim',
     requires = {'kyazdani42/nvim-web-devicons'}
