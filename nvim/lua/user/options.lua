@@ -28,7 +28,7 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 
 
-local colorscheme = "gruvbox-material"
+local colorscheme = "tokyonight"
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
   vim.notify("colorscheme " .. colorscheme .. " not found!")
