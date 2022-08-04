@@ -103,6 +103,8 @@ return packer.startup(function(use)
   ------
   -- random
 
+  use "toppair/reach.nvim"
+
   use "norcalli/nvim-colorizer.lua"
 
   use "xiyaowong/nvim-transparent"
