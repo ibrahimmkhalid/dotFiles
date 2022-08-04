@@ -109,6 +109,7 @@ return packer.startup(function(use)
   -- random
 
   use "toppair/reach.nvim"
+  use "rmagatti/auto-session"
 
   use "norcalli/nvim-colorizer.lua"
 
