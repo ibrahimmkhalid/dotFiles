@@ -23,9 +23,9 @@ local options = {
     }
   },
   sections = {
-    lualine_a = {'branch', 'diff', 'diagnostics'},
-    lualine_b = {'filename'},
-    lualine_c = {},
+    lualine_a = {'branch'},
+    lualine_b = {'diff', 'diagnostics'},
+    lualine_c = {'filename'},
     lualine_x = {'encoding','filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
