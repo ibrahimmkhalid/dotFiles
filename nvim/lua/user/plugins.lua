@@ -51,7 +51,7 @@ return packer.startup(function(use)
   use "sainnhe/gruvbox-material"
   use "sainnhe/everforest"
   use "rebelot/kanagawa.nvim"
-  
+
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
@@ -115,11 +115,11 @@ return packer.startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true }
   })
 
-  use { 
-    "iamcco/markdown-preview.nvim", 
-    run = "cd app && npm install", 
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end, 
-    ft = { "markdown" }, 
+  use {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
   }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
