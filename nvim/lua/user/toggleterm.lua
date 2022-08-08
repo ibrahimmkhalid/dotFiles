@@ -19,11 +19,11 @@ local _term_commands = {
   g = "lazygit",
 }
 
-_g_terms = {}
+M_terms = {}
 
 for k, v in pairs(_term_commands) do
-  _g_terms[v] = Terminal:new({cmd = v, hidden = true, direction = "float"})
-  keymap("n", "<leader>t" .. k, "<cmd>lua _g_terms."..v..":toggle()<cr>", opts)
+  M_terms[v] = Terminal:new({cmd = v, hidden = true, direction = "float"})
+  keymap("n", "<leader>t" .. k, "<cmd>lua M_terms."..v..":toggle()<cr>", opts)
 end
 keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts)
 
