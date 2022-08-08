@@ -5,7 +5,7 @@ end
 
 configs.setup {
   ensure_installed = { "c", "cpp", "comment", "bash", "css", "dot", "html", "javascript", "jsdoc", "json", "json5", "latex", "markdown", "php", "python", "scss", "sql", "typescript", },
-  sync_install = false, 
+  sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {
     enable = true
