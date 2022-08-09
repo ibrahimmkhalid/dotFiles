@@ -105,11 +105,12 @@ else
 
   declare -a extensionStrings=(
   "https://extensions.gnome.org/extension-data/todolisttomMoral.org.v12.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v44.shell-extension.zip"
+  "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v49.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/guillotinefopdoodle.net.v15.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/dash-to-dockmicxgx.gmail.com.v71.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/caffeinepatapon.info.v39.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/clipboard-indicatortudmotu.com.v38.shell-extension.zip"
+  "https://extensions.gnome.org/extension-data/dash-to-paneljderose9.github.com.v50.shell-extension.zip"
+  "https://extensions.gnome.org/extension-data/caffeinepatapon.info.v41.shell-extension.zip"
+  "https://extensions.gnome.org/extension-data/clipboard-indicatortudmotu.com.v42.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip"
   )
 
