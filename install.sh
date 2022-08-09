@@ -8,6 +8,9 @@ sudo apt update
 sudo apt install gettext sassc make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
+mkdir -p $HOME/.local/bin
+mkdir -p $HOME/.local/lib
+mkdir -p $HOME/.local/share
 
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
   echo "done installing absic applications"
@@ -46,9 +49,6 @@ echo "done"
 
 echo "---------------------"
 echo "adding configs to appropriate locations"
-mkdir -p $HOME/.local/bin
-mkdir -p $HOME/.local/lib
-mkdir -p $HOME/.local/share
 ln -s -f $PWD/zshrc $HOME/.zshrc
 ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
 ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
