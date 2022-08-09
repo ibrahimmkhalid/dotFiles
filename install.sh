@@ -101,6 +101,7 @@ else
   dconf load /org/gnome/ < org-gnome.dconf.dump
 
   gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
+  gsettings set org.gnome.desktop.screensaver picture-uri file:////$PWD/wallpaper/wallpaper.png
 
   sudo rm -rf /usr/share/gnome-shell/extensions/*
 
