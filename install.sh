@@ -17,7 +17,7 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
 else
   sudo add-apt-repository ppa:aslatter/ppa -y
   sudo apt update
-  sudo apt install xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks -y
+  sudo apt install gnome-shell-extension-manager xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks -y
 fi
 
 echo "---------------------"
@@ -103,14 +103,12 @@ else
 
   gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
 
+  sudo rm -rf /usr/share/gnome-shell/extensions/*
+
   declare -a extensionStrings=(
   "https://extensions.gnome.org/extension-data/todolisttomMoral.org.v12.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v49.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/guillotinefopdoodle.net.v15.shell-extension.zip"
-  # "https://extensions.gnome.org/extension-data/dash-to-dockmicxgx.gmail.com.v71.shell-extension.zip"
-  # dash to dock for gnome 42 is not on master branch yet, use:
-  # https://github.com/micheleg/dash-to-dock/tree/ubuntu-dock
-  # see after for loop
   "https://extensions.gnome.org/extension-data/dash-to-paneljderose9.github.com.v50.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/caffeinepatapon.info.v41.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/clipboard-indicatortudmotu.com.v42.shell-extension.zip"
@@ -123,7 +121,7 @@ else
     mv extension $HOME/.local/share/gnome-shell/extensions/$(cat extension/metadata.json|grep uuid|regex1tmp '^.*".*".*"(.*)".*$')
   done
 
-  git clone https://github.com/micheleg/dash-to-dock.git -b ubuntu-dock
+  git clone https://github.com/micheleg/dash-to-dock.git
   make -C dash-to-dock install
   rm -rf dash-to-dock
 
