@@ -5,7 +5,7 @@ echo "---------------------"
 echo "Installing basic applications"
 sudo add-apt-repository universe -y
 sudo apt update
-sudo apt install make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ -y
+sudo apt install gettext sassc make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 
@@ -107,7 +107,10 @@ else
   "https://extensions.gnome.org/extension-data/todolisttomMoral.org.v12.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v49.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/guillotinefopdoodle.net.v15.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/dash-to-dockmicxgx.gmail.com.v71.shell-extension.zip"
+  # "https://extensions.gnome.org/extension-data/dash-to-dockmicxgx.gmail.com.v71.shell-extension.zip"
+  # dash to dock for gnome 42 is not on master branch yet, use:
+  # https://github.com/micheleg/dash-to-dock/tree/ubuntu-dock
+  # see after for loop
   "https://extensions.gnome.org/extension-data/dash-to-paneljderose9.github.com.v50.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/caffeinepatapon.info.v41.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/clipboard-indicatortudmotu.com.v42.shell-extension.zip"
@@ -119,6 +122,10 @@ else
     unzip extension.zip -d extension
     mv extension $HOME/.local/share/gnome-shell/extensions/$(cat extension/metadata.json|grep uuid|regex1tmp '^.*".*".*"(.*)".*$')
   done
+
+  git clone https://github.com/micheleg/dash-to-dock.git -b ubuntu-dock
+  make -C dash-to-dock install
+  rm -rf dash-to-dock
 
   cd ..
   rm -rf tmp
