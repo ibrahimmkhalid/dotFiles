@@ -1,7 +1,7 @@
 
 ## My dot files
 
-*Note: Intended for apt based systmes running Gnome 42.*
+*Note: Intended for apt based systmes running Gnome 40.*
 
 ### How to install
 1. make an ssh key: `ssh-keygen -t ed25519 -C "ibrahimmkhalid@gmail.com"`
