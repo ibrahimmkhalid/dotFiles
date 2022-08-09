@@ -98,8 +98,7 @@ else
   cd ..
   rm -rf tmp
 
-  dconf load /org/gnome/ < org-gnome.dconf.dump 
-  cd ..
+  dconf load /org/gnome/ < org-gnome.dconf.dump
 
   gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
 
