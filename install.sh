@@ -89,8 +89,8 @@ else
   echo "---------------------"
   echo "restoring gnome settings"
   mkdir tmp && cd tmp
-  wget https://github.com/EliverLara/Nordic/releases/download/v2.1.0/Nordic-Polar-v40.tar.xz
-  wget https://github.com/EliverLara/Nordic/releases/download/v2.1.0/Nordic-Polar.tar.xz
+  wget https://github.com/EliverLara/Nordic/releases/download/v2.2.0/Nordic-Polar-v40.tar.xz
+  wget https://github.com/EliverLara/Nordic/releases/download/v2.2.0/Nordic-Polar.tar.xz
   tar xvf Nordic-Polar-v40.tar.xz
   tar xvf Nordic-Polar.tar.xz
   sudo mv Nordic-Polar-v40 /usr/share/themes
