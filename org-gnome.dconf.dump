@@ -33,7 +33,7 @@ translate=true
 [desktop/background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:////home/ibrahim/tmp/dotFiles/wallpaper/wallpaper.png'
+picture-uri='file://///home/ib/.dot/dotFiles/wallpaper/wallpaper.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -157,7 +157,7 @@ report-technical-problems=true
 [desktop/screensaver]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///home/ibrahim/.local/share/backgrounds/2022-01-31-15-48-32-wallhaven-1jkkpw.png'
+picture-uri='file://///home/ib/.dot/dotFiles/wallpaper/wallpaper.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -287,8 +287,8 @@ overrides={'Gtk/ShellShowsAppMenu': <0>, 'Gtk/DecorationLayout': <'menu:minimize
 app-picker-layout=[{'software-properties-drivers.desktop': <{'position': <0>}>, 'org.gnome.Extensions.desktop': <{'position': <1>}>, 'com.gitlab.cunidev.Gestures.desktop': <{'position': <2>}>, 'htop.desktop': <{'position': <3>}>, 'display-im6.q16.desktop': <{'position': <4>}>, 'gnome-language-selector.desktop': <{'position': <5>}>, 'libreoffice-startcenter.desktop': <{'position': <6>}>, 'libreoffice-calc.desktop': <{'position': <7>}>, 'libreoffice-draw.desktop': <{'position': <8>}>, 'libreoffice-impress.desktop': <{'position': <9>}>, 'libreoffice-math.desktop': <{'position': <10>}>, 'gnome-control-center.desktop': <{'position': <11>}>, 'software-properties-livepatch.desktop': <{'position': <12>}>, 'org.gnome.PowerStats.desktop': <{'position': <13>}>, 'ranger.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'info.desktop': <{'position': <16>}>, 'snap-store_ubuntu-software.desktop': <{'position': <17>}>, 'vim.desktop': <{'position': <18>}>, 'code.desktop': <{'position': <19>}>, 'org.pwmt.zathura.desktop': <{'position': <20>}>, 'plank.desktop': <{'position': <21>}>}]
 command-history=['r']
 disable-user-extensions=false
-disabled-extensions=['ubuntu-dock@ubuntu.com', 'ubuntu-appindicators@ubuntu.com', 'ding@rastersoft.com', 'dash-to-panel@jderose9.github.com']
-enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-plank@hardpixel.eu', 'dash-to-dock@micxgx.gmail.com', 'todolist@tomMoral.org', 'guillotine@fopdoodle.net']
+disabled-extensions=['ubuntu-appindicators@ubuntu.com', 'ding@rastersoft.com', 'dash-to-panel@jderose9.github.com']
+enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'todolist@tomMoral.org', 'guillotine@fopdoodle.net']
 favorite-apps=['org.gnome.Nautilus.desktop', 'slack.desktop', 'libreoffice-writer.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.gedit.desktop', 'com.getpostman.Postman.desktop', 'jetbrains-phpstorm.desktop', 'dbeaver-ce.desktop', 'sublime_text.desktop', 'google-chrome.desktop', 'com.spotify.Client.desktop', 'code.desktop', 'android-studio.desktop']
 had-bluetooth-devices-setup=true
 welcome-dialog-last-shown-version='40.5'
