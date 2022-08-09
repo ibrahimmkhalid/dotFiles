@@ -5,16 +5,19 @@ echo "---------------------"
 echo "Installing basic applications"
 sudo add-apt-repository universe -y
 sudo apt update
-sudo apt install make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ -y
+sudo apt install gettext sassc make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
+mkdir -p $HOME/.local/bin
+mkdir -p $HOME/.local/lib
+mkdir -p $HOME/.local/share
 
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
   echo "done installing absic applications"
 else
   sudo add-apt-repository ppa:aslatter/ppa -y
   sudo apt update
-  sudo apt install xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks -y
+  sudo apt install gnome-shell-extension-manager xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks -y
 fi
 
 echo "---------------------"
@@ -46,9 +49,6 @@ echo "done"
 
 echo "---------------------"
 echo "adding configs to appropriate locations"
-mkdir -p $HOME/.local/bin
-mkdir -p $HOME/.local/lib
-mkdir -p $HOME/.local/share
 ln -s -f $PWD/zshrc $HOME/.zshrc
 ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
 ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
@@ -89,8 +89,8 @@ else
   echo "---------------------"
   echo "restoring gnome settings"
   mkdir tmp && cd tmp
-  wget https://github.com/EliverLara/Nordic/releases/download/v2.1.0/Nordic-Polar-v40.tar.xz
-  wget https://github.com/EliverLara/Nordic/releases/download/v2.1.0/Nordic-Polar.tar.xz
+  wget https://github.com/EliverLara/Nordic/releases/download/v2.2.0/Nordic-Polar-v40.tar.xz
+  wget https://github.com/EliverLara/Nordic/releases/download/v2.2.0/Nordic-Polar.tar.xz
   tar xvf Nordic-Polar-v40.tar.xz
   tar xvf Nordic-Polar.tar.xz
   sudo mv Nordic-Polar-v40 /usr/share/themes
@@ -98,18 +98,19 @@ else
   cd ..
   rm -rf tmp
 
-  dconf load /org/gnome/ < org-gnome.dconf.dump 
-  cd ..
+  dconf load /org/gnome/ < org-gnome.dconf.dump
 
   gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
+  gsettings set org.gnome.desktop.screensaver picture-uri file:////$PWD/wallpaper/wallpaper.png
+
+  sudo rm -rf /usr/share/gnome-shell/extensions/*
 
   declare -a extensionStrings=(
   "https://extensions.gnome.org/extension-data/todolisttomMoral.org.v12.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v44.shell-extension.zip"
+  "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v49.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/guillotinefopdoodle.net.v15.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/dash-to-dockmicxgx.gmail.com.v71.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/caffeinepatapon.info.v39.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/clipboard-indicatortudmotu.com.v38.shell-extension.zip"
+  "https://extensions.gnome.org/extension-data/caffeinepatapon.info.v41.shell-extension.zip"
+  "https://extensions.gnome.org/extension-data/clipboard-indicatortudmotu.com.v42.shell-extension.zip"
   "https://extensions.gnome.org/extension-data/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip"
   )
 
@@ -118,6 +119,10 @@ else
     unzip extension.zip -d extension
     mv extension $HOME/.local/share/gnome-shell/extensions/$(cat extension/metadata.json|grep uuid|regex1tmp '^.*".*".*"(.*)".*$')
   done
+
+  git clone https://github.com/micheleg/dash-to-dock.git
+  make -C dash-to-dock install
+  rm -rf dash-to-dock
 
   cd ..
   rm -rf tmp
