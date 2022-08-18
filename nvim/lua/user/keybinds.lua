@@ -43,6 +43,7 @@ keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":q<CR>", opts)
 
 
+keymap("n", "<leader>h", ":nohlsearch<CR>", opts)
 keymap("n", "<", "<<", opts)
 keymap("n", ">", ">>", opts)
 
