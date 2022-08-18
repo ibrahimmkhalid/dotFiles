@@ -18,9 +18,12 @@ keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
 
 -- Close buffers keybinds
 keymap('n', '<leader>c', '<Cmd>BufferClose<CR>', opts)
-keymap('n', '<leader>br', '<Cmd>BufferCloseBuffersRight<CR>', opts)
-keymap('n', '<leader>bl', '<Cmd>BufferCloseBuffersLeft<CR>', opts)
+keymap('n', '<leader>bl', '<Cmd>BufferCloseBuffersRight<CR>', opts)
+keymap('n', '<leader>bh', '<Cmd>BufferCloseBuffersLeft<CR>', opts)
 keymap('n', '<leader>bc', '<Cmd>BufferCloseAllButCurrent<CR>', opts)
+keymap('n', '<leader>bL', '<Cmd>BufferMoveNext<CR>', opts)
+keymap('n', '<leader>bH', '<Cmd>BufferMovePrevious<CR>', opts)
+keymap('n', '<leader>bb', '<Cmd>BufferMove<CR>', opts)
 
 local bar_status_ok, bar = pcall(require, "bufferline")
 if not bar_status_ok then
