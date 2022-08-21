@@ -41,6 +41,7 @@ keymap("n", "<S-k>", "5k", opts)
 -- saving files and exiting nvim
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":q<CR>", opts)
+keymap("n", "<leader>Q", ":qa<CR>", opts)
 
 
 keymap("n", "<leader>v", ":vsplit<CR>", opts)
