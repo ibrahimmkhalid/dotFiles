@@ -29,9 +29,9 @@ tree.setup {
       nowait = true,
     },
     mappings = {
-      ["<space>"] = {
+      ["n"] = {
           "toggle_node",
-          nowait = false,
+          nowait = true,
       },
       ["Z"] = "expand_all_nodes",
       ["m"] = {
