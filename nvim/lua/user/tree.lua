@@ -22,6 +22,7 @@ tree.setup {
     },
   },
   window = {
+    position = "right",
     width = 50,
     mapping_options = {
       noremap = true,
@@ -42,6 +43,8 @@ tree.setup {
       ["q"] = "close_window",
       ["R"] = "refresh",
       ["?"] = "show_help",
+      ["<leader>V"] = "open_split",
+      ["<leader>v"] = "open_vsplit",
       ["<"] = "prev_source",
       [">"] = "next_source",
     }
