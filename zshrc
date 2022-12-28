@@ -10,6 +10,16 @@ alias git-update="git add . && git commit -mupdate && git push"
 alias git-repeat="git add . && git commit -C HEAD@{1} && git push"
 alias lg="lazygit"
 
+# alias cpd="cp -rfv $(pwd) /mnt/c/Users/Ibrahim/Desktop"
+# alias cpm="cp -rfv $(pwd) /mnt/d/ibrahim/Projects"
+
+function cpm(){
+  cp -rfv $(pwd) /mnt/d/ibrahim/Projects
+}
+
+function cpd(){
+  cp -rfv $(pwd) /mnt/c/Users/Ibrahim/Desktop
+}
 #Laradock configurations
 #get config from https://github.com/ibrahimmkhalid/laradock
 #alias laradock='docker-compose -f /path/to/laradock/docker-compose.yml --env-file /path/to/laradock/.env'
