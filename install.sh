@@ -19,7 +19,7 @@ fi
 
 echo "---------------------"
 echo "Installing neovim"
-curl -LO https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage
+curl -LO https://github.com/neovim/neovim/releases/download/v0.8.3/nvim.appimage
 chmod u+x nvim.appimage
 mv $PWD/nvim.appimage $HOME/.local/bin/nvim
 
