@@ -3,18 +3,14 @@ set -e
 
 echo "---------------------"
 echo "Installing basic applications"
-sudo add-apt-repository universe -y
-sudo apt update
-sudo apt install make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ -y
+sudo dnf install make gawk wget curl tmux zsh ranger htop ripgrep gcc g++ -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
   echo "done installing absic applications"
 else
-  sudo add-apt-repository ppa:aslatter/ppa -y
-  sudo apt update
-  sudo apt install xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks -y
+  sudo dnf install xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks -y
 fi
 
 echo "---------------------"
