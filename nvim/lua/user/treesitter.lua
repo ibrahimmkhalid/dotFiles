@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup {
-  ensure_installed = { "c", "cpp", "comment", "bash", "css", "dot", "html", "javascript", "jsdoc", "json", "json5", "latex", "markdown", "php", "python", "scss", "sql", "typescript", },
+  ensure_installed = "all",
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {

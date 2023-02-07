@@ -51,6 +51,7 @@ return packer.startup(function(use)
   use "sainnhe/gruvbox-material"
   use "sainnhe/everforest"
   use "rebelot/kanagawa.nvim"
+  use 'nvim-tree/nvim-web-devicons'
 
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
