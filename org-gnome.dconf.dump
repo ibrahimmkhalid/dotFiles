@@ -14,7 +14,8 @@ window-position=(632, 181)
 word-size=64
 
 [control-center]
-last-panel='bluetooth'
+last-panel='info-overview'
+window-state=(980, 640, false)
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -33,7 +34,7 @@ translate=true
 [desktop/background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:////home/ibrahim/tmp/dotFiles/wallpaper/wallpaper.png'
+picture-uri='file://///home/ibrahim/dotFiles/wallpaper/wallpaper.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -48,10 +49,11 @@ clock-format='12h'
 cursor-theme='Yaru'
 document-font-name='Ubuntu 10'
 enable-hot-corners=true
+font-antialiasing='grayscale'
 font-hinting='slight'
 font-name='Ubuntu 10'
 gtk-im-module='gtk-im-context-simple'
-gtk-theme='Nordic-Polar'
+gtk-theme='Nordic-Polar-v40'
 icon-theme='Numix-Circle-Light'
 monospace-font-name='FiraCode Nerd Font 11'
 show-battery-percentage=true
@@ -139,7 +141,7 @@ application-id='spotify.desktop'
 application-id='update-manager.desktop'
 
 [desktop/peripherals/keyboard]
-numlock-state=true
+numlock-state=false
 
 [desktop/peripherals/mouse]
 accel-profile='default'
@@ -258,6 +260,11 @@ columns-order=[0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2
 sort-col=15
 sort-order=1
 
+[login-screen]
+enable-fingerprint-authentication=true
+enable-password-authentication=true
+enable-smartcard-authentication=false
+
 [mutter]
 dynamic-workspaces=true
 experimental-features=['x11-randr-fractional-scaling']
@@ -265,6 +272,7 @@ experimental-features=['x11-randr-fractional-scaling']
 [nautilus/preferences]
 default-folder-viewer='list-view'
 search-filter-time-type='last_modified'
+search-view='list-view'
 
 [nautilus/window-state]
 initial-size=(960, 753)
@@ -284,18 +292,18 @@ sleep-inactive-battery-timeout=1200
 overrides={'Gtk/ShellShowsAppMenu': <0>, 'Gtk/DecorationLayout': <'menu:minimize,maximize,close'>}
 
 [shell]
-app-picker-layout=[{'software-properties-drivers.desktop': <{'position': <0>}>, 'org.gnome.Extensions.desktop': <{'position': <1>}>, 'com.gitlab.cunidev.Gestures.desktop': <{'position': <2>}>, 'htop.desktop': <{'position': <3>}>, 'display-im6.q16.desktop': <{'position': <4>}>, 'gnome-language-selector.desktop': <{'position': <5>}>, 'libreoffice-startcenter.desktop': <{'position': <6>}>, 'libreoffice-calc.desktop': <{'position': <7>}>, 'libreoffice-draw.desktop': <{'position': <8>}>, 'libreoffice-impress.desktop': <{'position': <9>}>, 'libreoffice-math.desktop': <{'position': <10>}>, 'gnome-control-center.desktop': <{'position': <11>}>, 'software-properties-livepatch.desktop': <{'position': <12>}>, 'org.gnome.PowerStats.desktop': <{'position': <13>}>, 'ranger.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'info.desktop': <{'position': <16>}>, 'snap-store_ubuntu-software.desktop': <{'position': <17>}>, 'vim.desktop': <{'position': <18>}>, 'code.desktop': <{'position': <19>}>, 'org.pwmt.zathura.desktop': <{'position': <20>}>, 'plank.desktop': <{'position': <21>}>}]
+app-picker-layout=[{'org.fedoraproject.MediaWriter.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'htop.desktop': <{'position': <3>}>, 'org.gnome.clocks.desktop': <{'position': <4>}>, 'org.gnome.Maps.desktop': <{'position': <5>}>, 'org.gnome.Photos.desktop': <{'position': <6>}>, 'libreoffice-calc.desktop': <{'position': <7>}>, 'org.gnome.Totem.desktop': <{'position': <8>}>, 'libreoffice-impress.desktop': <{'position': <9>}>, 'org.gnome.Settings.desktop': <{'position': <10>}>, 'org.gnome.Boxes.desktop': <{'position': <11>}>, 'org.gnome.Rhythmbox3.desktop': <{'position': <12>}>, 'org.gnome.Cheese.desktop': <{'position': <13>}>, 'ranger.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'org.gnome.TextEditor.desktop': <{'position': <16>}>, 'org.gnome.Tour.desktop': <{'position': <17>}>}, {'Alacritty.desktop': <{'position': <0>}>, 'ca.desrt.dconf-editor.desktop': <{'position': <1>}>, 'org.gnome.Connections.desktop': <{'position': <2>}>, 'org.gnome.Calendar.desktop': <{'position': <3>}>, 'firefox.desktop': <{'position': <4>}>}]
 command-history=['r']
 disable-user-extensions=false
 disabled-extensions=['ubuntu-dock@ubuntu.com', 'ubuntu-appindicators@ubuntu.com', 'ding@rastersoft.com', 'dash-to-panel@jderose9.github.com']
 enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-plank@hardpixel.eu', 'dash-to-dock@micxgx.gmail.com', 'todolist@tomMoral.org', 'guillotine@fopdoodle.net']
-favorite-apps=['org.gnome.Nautilus.desktop', 'slack.desktop', 'libreoffice-writer.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.gedit.desktop', 'com.getpostman.Postman.desktop', 'jetbrains-phpstorm.desktop', 'dbeaver-ce.desktop', 'sublime_text.desktop', 'google-chrome.desktop', 'com.spotify.Client.desktop', 'code.desktop', 'android-studio.desktop']
+favorite-apps=['org.gnome.Nautilus.desktop', 'libreoffice-writer.desktop', 'org.gnome.Terminal.desktop', 'firefox.desktop']
 had-bluetooth-devices-setup=true
 welcome-dialog-last-shown-version='40.5'
 
 [shell/extensions/caffeine]
+indicator-position-max=2
 nightlight-control='never'
-user-enabled=true
 
 [shell/extensions/custom-hot-corners/monitor-0-top-left]
 action='toggleOverview'
@@ -349,13 +357,17 @@ left-active=false
 location=1
 
 [shell/extensions/user-theme]
-name='Nordic-Polar'
+name='Nordic-Polar-v40'
+
+[shell/world-clocks]
+locations=@av []
 
 [software]
-check-timestamp=int64 1655097947
+check-timestamp=int64 1675751746
+first-run=false
 install-timestamp=int64 1637561281
 online-updates-timestamp=int64 1654146021
-update-notification-timestamp=int64 1654576735
+update-notification-timestamp=int64 1675752031
 
 [system/location]
 enabled=false
