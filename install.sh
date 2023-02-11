@@ -3,7 +3,7 @@ set -e
 
 echo "---------------------"
 echo "Installing basic applications"
-sudo dnf install make gawk wget curl tmux zsh ranger htop ripgrep gcc g++ -y
+sudo dnf install make gawk wget curl tmux zsh ranger htop ripgrep chsh gcc g++ -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 
