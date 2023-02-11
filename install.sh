@@ -10,7 +10,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
   echo "done installing absic applications"
 else
-  sudo dnf install xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks -y
+  sudo dnf install xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks gnome-browser-connector -y
 fi
 
 echo "---------------------"
@@ -79,14 +79,13 @@ else
   echo "---------------------"
   echo installing gnome extensions
   function regex1tmp(){ gawk 'match($0,/'$1'/, ary) {print ary['${2:-'1'}']}'; }
-  mkdir tmp && cd tmp
   mkdir -p $HOME/.local/share/gnome-shell/extensions
 
   echo "---------------------"
   echo "restoring gnome settings"
   mkdir tmp && cd tmp
-  wget https://github.com/EliverLara/Nordic/releases/download/v2.1.0/Nordic-Polar-v40.tar.xz
-  wget https://github.com/EliverLara/Nordic/releases/download/v2.1.0/Nordic-Polar.tar.xz
+  wget https://github.com/EliverLara/Nordic/releases/latest/download/Nordic-Polar-v40.tar.xz
+  wget https://github.com/EliverLara/Nordic/releases/latest/download/Nordic-Polar.tar.xz
   tar xvf Nordic-Polar-v40.tar.xz
   tar xvf Nordic-Polar.tar.xz
   sudo mv Nordic-Polar-v40 /usr/share/themes
@@ -94,28 +93,17 @@ else
   cd ..
   rm -rf tmp
 
+  sudo dnf install -y curl wget jq unzip
+  sudo rm -rf /usr/share/gnome-shell/extensions/*
+  wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./extensions/install-gnome-extensions.sh
+  chmod +x extensions/install-gnome-extensions.sh 
+  ./extensions/install-gnome-extensions.sh --enable --file extensions/links.txt
+  rm -f ./extensions/install-gnome-extensions.sh 
+
   dconf load /org/gnome/ < org-gnome.dconf.dump 
-  cd ..
 
   gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
 
-  declare -a extensionStrings=(
-  "https://extensions.gnome.org/extension-data/todolisttomMoral.org.v12.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v44.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/guillotinefopdoodle.net.v15.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/dash-to-dockmicxgx.gmail.com.v71.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/caffeinepatapon.info.v39.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/clipboard-indicatortudmotu.com.v38.shell-extension.zip"
-  "https://extensions.gnome.org/extension-data/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip"
-  )
-
-  for ext in "${extensionStrings[@]}"; do
-    curl $ext --output extension.zip
-    unzip extension.zip -d extension
-    mv extension $HOME/.local/share/gnome-shell/extensions/$(cat extension/metadata.json|grep uuid|regex1tmp '^.*".*".*"(.*)".*$')
-  done
-
-  cd ..
   rm -rf tmp
 
 fi
