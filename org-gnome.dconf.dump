@@ -57,6 +57,7 @@ gtk-theme='Nordic-Polar-v40'
 icon-theme='Numix-Circle-Light'
 monospace-font-name='FiraCode Nerd Font 11'
 show-battery-percentage=true
+toolkit-accessibility=false
 
 [desktop/notifications]
 application-children=['org-gnome-nautilus', 'apport-gtk', 'firefox', 'spotify', 'gnome-power-panel', 'gnome-network-panel', 'slack', 'postman', 'org-gnome-evolution-alarm-notify', 'update-manager', 'org-gnome-gedit', 'code', 'gnome-printers-panel', 'libreoffice-writer', 'jetbrains-phpstorm', 'org-gnome-screenshot', 'libreoffice-calc', 'org-gnome-extensions-desktop', 'org-gnome-chromegnomeshell', 'org-gnome-software', 'org-gnome-shell-extensions', 'google-chrome', 'autokey-gtk', 'org-gnome-fileroller', 'gnome-control-center', 'firefox-firefox']
@@ -271,6 +272,7 @@ experimental-features=['x11-randr-fractional-scaling']
 
 [nautilus/preferences]
 default-folder-viewer='list-view'
+migrated-gtk-settings=true
 search-filter-time-type='last_modified'
 search-view='list-view'
 
@@ -292,7 +294,7 @@ sleep-inactive-battery-timeout=1200
 overrides={'Gtk/ShellShowsAppMenu': <0>, 'Gtk/DecorationLayout': <'menu:minimize,maximize,close'>}
 
 [shell]
-app-picker-layout=[{'org.fedoraproject.MediaWriter.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'htop.desktop': <{'position': <3>}>, 'org.gnome.clocks.desktop': <{'position': <4>}>, 'org.gnome.Maps.desktop': <{'position': <5>}>, 'org.gnome.Photos.desktop': <{'position': <6>}>, 'libreoffice-calc.desktop': <{'position': <7>}>, 'org.gnome.Totem.desktop': <{'position': <8>}>, 'libreoffice-impress.desktop': <{'position': <9>}>, 'org.gnome.Settings.desktop': <{'position': <10>}>, 'org.gnome.Boxes.desktop': <{'position': <11>}>, 'org.gnome.Rhythmbox3.desktop': <{'position': <12>}>, 'org.gnome.Cheese.desktop': <{'position': <13>}>, 'ranger.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'org.gnome.TextEditor.desktop': <{'position': <16>}>, 'org.gnome.Tour.desktop': <{'position': <17>}>}, {'Alacritty.desktop': <{'position': <0>}>, 'ca.desrt.dconf-editor.desktop': <{'position': <1>}>, 'org.gnome.Connections.desktop': <{'position': <2>}>, 'org.gnome.Calendar.desktop': <{'position': <3>}>, 'firefox.desktop': <{'position': <4>}>}]
+app-picker-layout=[{'org.fedoraproject.MediaWriter.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'htop.desktop': <{'position': <3>}>, 'org.gnome.clocks.desktop': <{'position': <4>}>, 'org.gnome.Maps.desktop': <{'position': <5>}>, 'org.gnome.Photos.desktop': <{'position': <6>}>, 'libreoffice-calc.desktop': <{'position': <7>}>, 'org.gnome.Totem.desktop': <{'position': <8>}>, 'libreoffice-impress.desktop': <{'position': <9>}>, 'org.gnome.Settings.desktop': <{'position': <10>}>, 'org.gnome.Boxes.desktop': <{'position': <11>}>, 'org.gnome.Rhythmbox3.desktop': <{'position': <12>}>, 'org.gnome.Cheese.desktop': <{'position': <13>}>, 'ranger.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'org.gnome.TextEditor.desktop': <{'position': <16>}>, 'org.gnome.Tour.desktop': <{'position': <17>}>}, {'Alacritty.desktop': <{'position': <0>}>, 'ca.desrt.dconf-editor.desktop': <{'position': <1>}>, 'org.gnome.Connections.desktop': <{'position': <2>}>, 'org.gnome.Calendar.desktop': <{'position': <3>}>}]
 command-history=['r']
 disable-user-extensions=false
 disabled-extensions=['ubuntu-dock@ubuntu.com', 'ubuntu-appindicators@ubuntu.com', 'ding@rastersoft.com', 'dash-to-panel@jderose9.github.com']
@@ -363,11 +365,11 @@ name='Nordic-Polar-v40'
 locations=@av []
 
 [software]
-check-timestamp=int64 1675751746
+check-timestamp=int64 1676080737
 first-run=false
 install-timestamp=int64 1637561281
 online-updates-timestamp=int64 1654146021
-update-notification-timestamp=int64 1675752031
+update-notification-timestamp=int64 1676080767
 
 [system/location]
 enabled=false
