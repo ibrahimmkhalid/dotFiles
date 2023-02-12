@@ -3,9 +3,13 @@ set -e
 
 echo "---------------------"
 echo "Installing basic applications"
-sudo dnf install make gawk wget curl tmux zsh ranger htop ripgrep chsh gcc g++ -y
+sudo dnf install update
+sudo dnf install make gawk wget curl tmux zsh ranger htop ripgrep gcc g++ -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
+mkdir -p $HOME/.local/bin
+mkdir -p $HOME/.local/lib
+mkdir -p $HOME/.local/share
 
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
   echo "done installing absic applications"
@@ -42,9 +46,6 @@ echo "done"
 
 echo "---------------------"
 echo "adding configs to appropriate locations"
-mkdir -p $HOME/.local/bin
-mkdir -p $HOME/.local/lib
-mkdir -p $HOME/.local/share
 ln -s -f $PWD/zshrc $HOME/.zshrc
 ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
 ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
@@ -58,6 +59,8 @@ ln -s -f $PWD/my-assets $HOME/.local/share/my-assets
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
   echo "done"
 else
+  mkdir -p $HOME/.local/share/gnome-shell/extensions
+  mkdir -p $HOME/.local/share/fonts
   mkdir -p $HOME/.config/alacritty
   sed "s|HOME_DIR|$HOME|g" guillotine.json.tmp > guillotine.json
   ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
@@ -71,7 +74,6 @@ else
   rm *Windows*
   rm Fura*
   rm *.otf
-  mkdir -p $HOME/.local/share/fonts
   mv *.ttf $HOME/.local/share/fonts/
   cd ..
   rm -rf tmp
@@ -79,7 +81,6 @@ else
   echo "---------------------"
   echo installing gnome extensions
   function regex1tmp(){ gawk 'match($0,/'$1'/, ary) {print ary['${2:-'1'}']}'; }
-  mkdir -p $HOME/.local/share/gnome-shell/extensions
 
   echo "---------------------"
   echo "restoring gnome settings"
