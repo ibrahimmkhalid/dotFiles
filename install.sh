@@ -100,7 +100,9 @@ else
   ./extensions/install-gnome-extensions.sh --enable --file extensions/links.txt
   rm -f ./extensions/install-gnome-extensions.sh 
 
-  dconf load /org/gnome/ < org-gnome.dconf.dump 
+  dconf load /org/gnome/shell/extensions < org-gnome-shell-extensions.dconf.dump
+  dconf load /org/gnome/shell/desktop/interface < org-gnome-shell-desktop-interface.dconf.dump
+  dconf load /org/gnome/shell/desktop/wm/preferences < org-gnome-shell-desktop-wm-preferences.dconf.dump
 
   gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
   gsettings set org.gnome.desktop.screensaver picture-uri file:////$PWD/wallpaper/wallpaper.png
