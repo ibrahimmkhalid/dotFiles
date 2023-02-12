@@ -103,6 +103,10 @@ else
   dconf load /org/gnome/ < org-gnome.dconf.dump 
 
   gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
+  gsettings set org.gnome.shell enabled-extensions ['user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'caff
+eine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-plank@hardpixel.eu', 'dash
+-to-dock@micxgx.gmail.com', 'todolist@tomMoral.org', 'guillotine@fopdoodle.net']
+
 
   rm -rf tmp
 
