@@ -103,6 +103,8 @@ else
 
   dconf load /org/gnome/ < org-gnome.dconf.dump
 
+  gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
+  gsettings set org.gnome.desktop.screensaver picture-uri file:////$PWD/wallpaper/wallpaper.png
   rm -rf tmp
 
 fi
