@@ -4,7 +4,7 @@ set -e
 echo "---------------------"
 echo "Installing basic applications"
 sudo dnf install update
-sudo dnf install make gawk wget curl tmux zsh ranger htop ripgrep gcc g++ -y
+sudo dnf install make gawk wget curl tmux zsh ranger htop ripgrep gcc g++ util-linux-user -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 mkdir -p $HOME/.local/bin
