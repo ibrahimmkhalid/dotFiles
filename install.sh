@@ -101,14 +101,7 @@ else
   ./extensions/install-gnome-extensions.sh --enable --file extensions/links.txt
   rm -f ./extensions/install-gnome-extensions.sh 
 
-  dconf load /org/gnome/shell/extensions/ < org-gnome-shell-extensions.dconf.dump
-  dconf load /org/gnome/shell/desktop/interface/ < org-gnome-shell-desktop-interface.dconf.dump
-  dconf load /org/gnome/shell/desktop/wm/preferences/ < org-gnome-shell-desktop-wm-preferences.dconf.dump
-
-  gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
-  gsettings set org.gnome.desktop.screensaver picture-uri file:////$PWD/wallpaper/wallpaper.png
-  gsettings set org.gnome.shell enabled-extensions "['user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-plank@hardpixel.eu', 'dash-to-dock@micxgx.gmail.com', 'todolist@tomMoral.org', 'guillotine@fopdoodle.net']"
-
+  dconf load /org/gnome/ < org-gnome.dconf.dump
 
   rm -rf tmp
 
