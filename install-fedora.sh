@@ -5,17 +5,14 @@ echo "---------------------"
 echo "Installing basic applications"
 sudo dnf update
 sudo dnf install make gawk wget curl tmux zsh ranger htop ripgrep gcc g++ util-linux-user -y
+sudo dnf install -y curl wget jq unzip
+sudo dnf install xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks gnome-browser-connector -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/lib
 mkdir -p $HOME/.local/share
 
-if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-  echo "done installing absic applications"
-else
-  sudo dnf install xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks gnome-browser-connector -y
-fi
 
 echo "---------------------"
 echo "Installing neovim"
@@ -56,58 +53,50 @@ do
 done
 ln -s -f $PWD/my-assets $HOME/.local/share/my-assets
 
-if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-  echo "done"
-else
-  mkdir -p $HOME/.local/share/gnome-shell/extensions
-  mkdir -p $HOME/.local/share/fonts
-  mkdir -p $HOME/.config/alacritty
-  sed "s|HOME_DIR|$HOME|g" guillotine.json.tmp > guillotine.json
-  ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
-  ln -s -f $PWD/guillotine.json $HOME/.config/guillotine.json
+mkdir -p $HOME/.local/share/gnome-shell/extensions
+mkdir -p $HOME/.local/share/fonts
+mkdir -p $HOME/.config/alacritty
+sed "s|HOME_DIR|$HOME|g" guillotine.json.tmp > guillotine.json
+ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+ln -s -f $PWD/guillotine.json $HOME/.config/guillotine.json
 
-  echo "---------------------"
-  echo "downloading firacode"
-  mkdir tmp && cd tmp
-  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
-  unzip FiraCode.zip
-  rm *Windows*
-  rm Fura*
-  rm *.otf
-  mv *.ttf $HOME/.local/share/fonts/
-  cd ..
-  rm -rf tmp
+echo "---------------------"
+echo "downloading firacode"
+mkdir tmp && cd tmp
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+unzip FiraCode.zip
+rm *Windows*
+rm Fura*
+rm *.otf
+mv *.ttf $HOME/.local/share/fonts/
+cd ..
+rm -rf tmp
 
-  echo "---------------------"
-  echo installing gnome extensions
-  function regex1tmp(){ gawk 'match($0,/'$1'/, ary) {print ary['${2:-'1'}']}'; }
+echo "---------------------"
+echo "restoring gnome settings"
 
-  echo "---------------------"
-  echo "restoring gnome settings"
-  mkdir tmp && cd tmp
-  wget https://github.com/EliverLara/Nordic/releases/latest/download/Nordic-Polar-v40.tar.xz
-  wget https://github.com/EliverLara/Nordic/releases/latest/download/Nordic-Polar.tar.xz
-  tar xvf Nordic-Polar-v40.tar.xz
-  tar xvf Nordic-Polar.tar.xz
-  sudo mv Nordic-Polar-v40 /usr/share/themes
-  sudo mv Nordic-Polar /usr/share/themes
-  cd ..
-  rm -rf tmp
+mkdir tmp && cd tmp
+wget https://github.com/EliverLara/Nordic/releases/latest/download/Nordic-Polar-v40.tar.xz
+wget https://github.com/EliverLara/Nordic/releases/latest/download/Nordic-Polar.tar.xz
+tar xvf Nordic-Polar-v40.tar.xz
+tar xvf Nordic-Polar.tar.xz
+sudo mv Nordic-Polar-v40 /usr/share/themes
+sudo mv Nordic-Polar /usr/share/themes
+cd ..
+rm -rf tmp
 
-  sudo dnf install -y curl wget jq unzip
-  sudo rm -rf /usr/share/gnome-shell/extensions/*
-  wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./extensions/install-gnome-extensions.sh
-  chmod +x extensions/install-gnome-extensions.sh 
-  ./extensions/install-gnome-extensions.sh --enable --file extensions/links.txt
-  rm -f ./extensions/install-gnome-extensions.sh 
+sudo rm -rf /usr/share/gnome-shell/extensions/*
+wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./extensions/install-gnome-extensions.sh
+chmod +x extensions/install-gnome-extensions.sh 
+./extensions/install-gnome-extensions.sh --enable --file extensions/links.txt
+rm -f ./extensions/install-gnome-extensions.sh 
 
-  dconf load /org/gnome/ < org-gnome.dconf.dump
+dconf load /org/gnome/ < org-gnome.dconf.dump
 
-  gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
-  gsettings set org.gnome.desktop.screensaver picture-uri file:////$PWD/wallpaper/wallpaper.png
-  rm -rf tmp
+gsettings set org.gnome.desktop.background picture-uri file:////$PWD/wallpaper/wallpaper.png
+gsettings set org.gnome.desktop.screensaver picture-uri file:////$PWD/wallpaper/wallpaper.png
+rm -rf tmp
 
-fi
 echo "---------------------"
 echo "------- done --------"
 echo "---------------------"
