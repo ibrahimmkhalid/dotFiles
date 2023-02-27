@@ -27,7 +27,7 @@ for k, v in pairs(_term_commands) do
 end
 keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts)
 keymap("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal size=20<cr>", opts)
-keymap("n", "<leader>tv", "<cmd>ToggleTerm direction=float size=100<cr>", opts)
+keymap("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical size=100<cr>", opts)
 
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)
 keymap("t", "<C-h>", "<c-\\><c-n><c-w>h", opts)
