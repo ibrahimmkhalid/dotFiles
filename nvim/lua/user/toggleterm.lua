@@ -26,6 +26,8 @@ for k, v in pairs(_term_commands) do
   keymap("n", "<leader>t" .. k, "<cmd>lua M_terms."..v..":toggle()<cr>", opts)
 end
 keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", opts)
+keymap("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal size=20<cr>", opts)
+keymap("n", "<leader>tv", "<cmd>ToggleTerm direction=float size=100<cr>", opts)
 
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)
 keymap("t", "<C-h>", "<c-\\><c-n><c-w>h", opts)
