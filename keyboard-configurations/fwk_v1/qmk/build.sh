@@ -10,3 +10,6 @@ fi
 
 qmk compile -kb fwk -km "$km"
 rm fwk
+cd ..
+mv fwk_"$km".hex ../../fwk_v1/qmk/output.hex
+rm -rf .build
