@@ -121,9 +121,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /**/[4]=LAYOUT(  /**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
     /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/           /*||*/         /**/KC_F7     ,/**/KC_F8     ,/**/KC_F9       ,/**/KC_F10       ,/**/KC_F11         ,/**/KC_F12    ,/**/
-    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_WREF ,/**/KC_F1     ,/**/KC_F2     ,/**/KC_F3       ,/**/KC_F4        ,/**/KC_F5          ,/**/KC_F6     ,/**/
+    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/LCTL(KC_R) ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_WREF ,/**/KC_F1     ,/**/KC_F2     ,/**/KC_F3       ,/**/KC_F4        ,/**/KC_F5          ,/**/KC_F6     ,/**/
     /**/KC_NO       ,/**/KC_LGUI   ,/**/KC_LALT    ,/**/KC_LCTL    ,/**/KC_LSFT    ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_WFWD ,/**/KC_LEFT   ,/**/KC_DOWN   ,/**/KC_UP       ,/**/KC_RGHT      ,/**/KC_NO          ,/**/KC_NO     ,/**/
-    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_WBAK ,/**/KC_HOME   ,/**/KC_PGDN   ,/**/KC_PGUP     ,/**/KC_END       ,/**/KC_NO          ,/**/KC_NO     ,/**/
+    /**/KC_NO       ,/**/LCTL(KC_Z),/**/LCTL(KC_X) ,/**/LCTL(KC_C) ,/**/LCTL(KC_V) ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_WBAK ,/**/KC_HOME   ,/**/KC_PGDN   ,/**/KC_PGUP     ,/**/KC_END       ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_NO      ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_ESC       ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
     /**/             /**/           /**/KC_TRNS    ,/**/KC_TAB     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_ESC      ,/**/MO(6)         /**/                /**/           /**/
     /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
@@ -138,15 +138,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/             /**/           /**/MO(6)      ,/**/KC_TAB     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_ESC      ,/**/KC_TRNS       /**/                /**/           /**/
     /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
 
-  
-    // /**/[5]=LAYOUT(  /**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
-    // /**/KC_NO       ,/**/KC_EXLM   ,/**/KC_AT      ,/**/KC_HASH    ,/**/KC_DLR     ,/**/KC_PERC   ,/**/           /*||*/         /**/KC_CIRC   ,/**/KC_AMPR   ,/**/KC_ASTR     ,/**/KC_UNDS      ,/**/KC_PLUS        ,/**/KC_NO     ,/**/
-    // /**/KC_NO       ,/**/KC_GRV    ,/**/KC_COMM    ,/**/KC_DOT     ,/**/KC_LCBR    ,/**/KC_LPRN   ,/**/KC_NO     ,/*||*/KC_CIRC ,/**/KC_RPRN   ,/**/KC_RCBR   ,/**/KC_COLN     ,/**/KC_MINS      ,/**/KC_EQL         ,/**/KC_NO     ,/**/
-    // /**/KC_NO       ,/**/KC_LGUI   ,/**/KC_LALT    ,/**/KC_LCTL    ,/**/KC_LSFT    ,/**/KC_LBRC   ,/**/KC_NO     ,/*||*/KC_AMPR ,/**/KC_RBRC   ,/**/KC_RSFT   ,/**/KC_RCTL     ,/**/KC_LALT      ,/**/KC_LGUI        ,/**/KC_NO     ,/**/
-    // /**/KC_NO       ,/**/KC_QUOT   ,/**/KC_DQUO    ,/**/KC_SLSH    ,/**/KC_SCLN    ,/**/KC_LT     ,/**/KC_NO     ,/*||*/KC_PLUS ,/**/KC_GT     ,/**/KC_PIPE   ,/**/KC_BSLS     ,/**/KC_QUES      ,/**/KC_TILD        ,/**/KC_NO     ,/**/
-    // /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_TAB     ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_ESC       ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
-    // /**/             /**/           /**/MO(6)      ,/**/KC_TAB     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_ESC      ,/**/KC_TRNS       /**/                /**/           /**/
-    // /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
 
     /**/[6]=LAYOUT(  /**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
     /**/QK_BOOT     ,/**/KC_NO     ,/**/KC_INS     ,/**/KC_SCRL    ,/**/KC_PAUS    ,/**/KC_NO     ,/**/           /*||*/         /**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
