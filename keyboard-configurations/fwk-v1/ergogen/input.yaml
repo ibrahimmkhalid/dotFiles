@@ -199,23 +199,6 @@ pcbs:
           shift: [0.5U, 7]
         params:
           net: "{{column_net}}"
-      rst_button_F:
-        what: button
-        where:
-          ref: main_ring_num
-          shift: [0, U]
-        params:
-          to: RST
-          from: GND
-      rst_button_B:
-        what: button
-        where:
-          ref: main_ring_num
-          shift: [0, U]
-        params:
-          to: RST
-          from: GND
-          side: B
       promicro:
         what: promicro
         where:
