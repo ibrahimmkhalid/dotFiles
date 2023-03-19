@@ -1,0 +1,236 @@
+points:
+  zones:
+    main:
+      columns:
+        outer:
+          key:
+            column_net: P3
+        pinky:
+          key:
+            column_net: P4
+        ring:
+          key:
+            column_net: P5
+            stagger: 7
+        middle:
+          key:
+            column_net: P6
+            stagger: 7
+        index:
+          key:
+            column_net: P7
+            stagger: -7
+        inner:
+          key:
+            column_net: P8
+        extra:
+          key:
+            column_net: P9
+            stagger: 8
+          rows:
+            num.skip: true
+      rows:
+        bottom:
+          row_net: P20
+        home:
+          row_net: P19
+        top:
+          row_net: P18
+        num:
+          row_net: P15
+    thumbfan:
+      anchor:
+        ref: main_index_bottom
+        shift: [0, -1.05U]
+      columns:
+        pos1:
+          key:
+            column_net: P6
+        pos2:
+          key:
+            column_net: P7
+            rotate: -10
+            shift: [2,-2]
+        pos3:
+          key:
+            column_net: P8
+            rotate: -20
+            shift: [4, -8]
+        pos4:
+          key:
+            column_net: P9
+            rotate: -18
+            shift: [-U-10, -6-U]
+        pos5:
+          key:
+            column_net: P10
+            rotate: -20
+            shift: [-U,-U-7]
+      rows:
+        bottom:
+          row_net: P21
+outlines:
+  _raw:
+    - what: rectangle #keys
+      where: true
+      size: [U+1,U+1]
+    - what: polygon # board
+      where:
+        ref: main_outer_bottom
+      points:
+        - shift: [-12.5,-12]
+        - shift: [0,100]
+        - shift: [112.5, 0]
+        - shift: [3, -9]
+        - shift: [20,0]
+        - shift: [27, -125]
+        - shift: [-15,-15]
+        - shift: [-60, 19.9]
+        - shift: [0,1.1]
+    - what: circle
+      where:
+        ref: main_outer_bottom
+        shift: [-10,-162]
+      radius: 150
+      operation: subtract
+    - what: polygon
+      where:
+        ref: main_outer_bottom
+        shift: [-9.5,-9]
+      points:
+        - shift: [-3,1]
+        - shift: [5,-5]
+        - shift: [-10,-6]
+      operation: subtract
+    - what: circle
+      where:
+        ref: main_outer_bottom
+        shift: [-8.4,-8.0]
+      radius: 4
+  _fwk_pcb:
+    - what: outline
+      name: _raw
+      fillet: 4
+  _fwk_case_pre:
+    - what: outline
+      name: _raw
+      expand: 5
+    - what: polygon #trrs case cutout
+      operation: subtract
+      where:
+        ref: main_inner_num
+        shift: [7.3,U-1.8]
+      points:
+        - shift: [-5,-5]
+        - shift: [0,25]
+        - shift: [10,0]
+        - shift: [30,-25]
+    - what: rectangle #promicro case cutout
+      operation: subtract
+      where:
+        ref: main_outer_num
+        shift: [0.5U-2.5,20]
+      size: [50,15]
+    - what: outline
+      name: _fwk_pcb
+      operation: add
+  fwk_case_base:
+    - what: outline
+      name: _fwk_case_pre
+      fillet: 3
+  fwk_case_walls:
+    - what: outline
+      name: fwk_case_base
+    - what: outline
+      name: _fwk_pcb
+      operation: subtract
+    - what: rectangle #promicro wall cutout
+      operation: subtract
+      where:
+        ref: main_outer_num
+        shift: [0.5U-2.5,20]
+      size: [50,15]
+    - what: rectangle #trrs wall cutout
+      operation: subtract
+      where:
+        ref: main_inner_num
+        shift: [27.3,21]
+      size: [50,15]
+  fwk_plate:
+    - what: outline
+      name: fwk_case_base
+    - what: rectangle
+      where: true
+      size: [14,14]
+      operation: subtract
+cases:
+  fwk_case_base:
+    - what: outline
+      name: fwk_case_base
+      extrude: 2.5
+pcbs:
+  _fwk_pcb:
+    outlines:
+      _fwk_pcb:
+        outline: _fwk_pcb
+    footprints:
+      keys:
+        what: mx
+        where: true
+        params:
+          keycaps: true
+          hotswap: true
+          reverse: true
+          from: "{{colrow}}"
+          to: "{{column_net}}"
+      diodes:
+        what: diode
+        where: true
+        adjust:
+          rotate: 180
+          shift: [0, -5]
+        params:
+          from: "{{row_net}}"
+          to: "{{colrow}}"
+      vias:
+        what: via
+        where: true
+        adjust:
+          shift: [0.5U, 7]
+        params:
+          net: "{{column_net}}"
+      rst_button_F:
+        what: button
+        where:
+          ref: main_ring_num
+          shift: [0, U]
+        params:
+          to: RST
+          from: GND
+      rst_button_B:
+        what: button
+        where:
+          ref: main_ring_num
+          shift: [0, U]
+        params:
+          to: RST
+          from: GND
+          side: B
+      promicro:
+        what: promicro
+        where:
+          ref: main_outer_num
+          shift: [0.5U-2.5,20]
+      trrs:
+        what: trrs
+        where: 
+          ref: main_inner_num
+          shift: [7.3,U-1.8]
+          rotate: -90+19
+        params:
+          reverse: true
+          symmetric: true
+          A: GND
+          B: GND
+          C: P2
+          D: VCC
