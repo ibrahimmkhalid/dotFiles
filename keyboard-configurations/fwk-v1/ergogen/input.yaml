@@ -169,7 +169,7 @@ cases:
       name: fwk_case_base
       extrude: 2.5
 pcbs:
-  _fwk_pcb:
+  fwk_pcb:
     outlines:
       _fwk_pcb:
         outline: _fwk_pcb
