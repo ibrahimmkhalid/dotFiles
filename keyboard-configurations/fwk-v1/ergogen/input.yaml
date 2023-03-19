@@ -50,22 +50,22 @@ points:
           key:
             column_net: P7
             rotate: -10
-            shift: [2,-2]
+            shift: [1.55,-1.7]
         pos3:
           key:
             column_net: P8
             rotate: -20
-            shift: [4, -8]
+            shift: [2.45, -7]
         pos4:
           key:
             column_net: P9
-            rotate: -18
-            shift: [-U-10, -6-U]
+            rotate: -20
+            shift: [-U-3.95, -5.75-U]
         pos5:
           key:
             column_net: P10
             rotate: -20
-            shift: [-U,-U-7]
+            shift: [-U-3.05,-U-7]
       rows:
         bottom:
           row_net: P21
