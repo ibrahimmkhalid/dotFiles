@@ -84,7 +84,7 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/[0]=LAYOUT(  /**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
-    /**/KC_NO       ,/**/KC_1      ,/**/KC_2       ,/**/KC_3       ,/**/KC_4       ,/**/KC_5      ,/**/           /*||*/         /**/KC_6      ,/**/KC_7      ,/**/KC_8        ,/**/KC_9         ,/**/KC_0           ,/**/KC_NO     ,/**/
+    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/           /*||*/         /**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KEY_POS_Q ,/**/KEY_POS_W  ,/**/KEY_POS_E  ,/**/KEY_POS_R  ,/**/KEY_POS_T ,/**/KC_MNXT   ,/*||*/KC_VOLU ,/**/KEY_POS_Y ,/**/KEY_POS_U ,/**/KEY_POS_I   ,/**/KEY_POS_O    ,/**/KEY_POS_P      ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KEY_MOD_A ,/**/KEY_MOD_S  ,/**/KEY_MOD_D  ,/**/KEY_MOD_F  ,/**/KEY_POS_G ,/**/KC_MPLY   ,/*||*/KC_MUTE ,/**/KEY_POS_H ,/**/KEY_MOD_J ,/**/KEY_MOD_K   ,/**/KEY_MOD_L    ,/**/KEY_MOD_SC     ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KEY_POS_Z ,/**/KEY_POS_X  ,/**/KEY_POS_C  ,/**/KEY_POS_V  ,/**/KEY_POS_B ,/**/KC_MPRV   ,/*||*/KC_VOLD ,/**/KEY_POS_N ,/**/KEY_POS_M ,/**/KEY_POS_COMM,/**/KEY_POS_DOT  ,/**/KEY_POS_SLSH   ,/**/KC_NO     ,/**/
@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/KC_TAB      ,/**/KEY_POS_Q ,/**/KEY_POS_W  ,/**/KEY_POS_E  ,/**/KEY_POS_R  ,/**/KEY_POS_T ,/**/KC_MNXT   ,/*||*/KC_VOLU ,/**/KEY_POS_Y ,/**/KEY_POS_U ,/**/KEY_POS_I   ,/**/KEY_POS_O    ,/**/KEY_POS_P      ,/**/KC_LALT   ,/**/
     /**/KC_LSFT     ,/**/KEY_MODG_A,/**/KEY_POS_S  ,/**/KEY_POS_D  ,/**/KEY_POS_F  ,/**/KEY_POS_G ,/**/KC_MPLY   ,/*||*/KC_MUTE ,/**/KEY_POS_H ,/**/KEY_POS_J ,/**/KEY_POS_K   ,/**/KEY_POS_L    ,/**/KEY_POS_SC     ,/**/KC_RSFT   ,/**/
     /**/KC_LCTL     ,/**/KEY_POS_Z ,/**/KEY_POS_X  ,/**/KEY_POS_C  ,/**/KEY_POS_V  ,/**/KEY_POS_B ,/**/KC_MPRV   ,/*||*/KC_VOLD ,/**/KEY_POS_N ,/**/KEY_POS_M ,/**/KEY_POS_COMM,/**/KEY_POS_DOT  ,/**/KEY_POS_SLSH   ,/**/KC_RCTL   ,/**/
-    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_RBRC    ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_ESC       ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
+    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_RBRC    ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/MO(6)        ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
     /**/             /**/           /**/MO(4)      ,/**/KC_LBRC    ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/LSFT(KC_TAB),/**/MO(5)         /**/                /**/           /**/
     /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
 
@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/KC_TAB      ,/**/KEY_POS_Q ,/**/KEY_POS_W  ,/**/KEY_POS_E  ,/**/KEY_POS_R  ,/**/KEY_POS_T ,/**/KC_MNXT   ,/*||*/KC_VOLU ,/**/KEY_POS_Y ,/**/KEY_POS_U ,/**/KEY_POS_I   ,/**/KEY_POS_O    ,/**/KEY_POS_P      ,/**/KC_LALT   ,/**/
     /**/KC_LSFT     ,/**/KEY_POS_A ,/**/KEY_POS_S  ,/**/KEY_POS_D  ,/**/KEY_POS_F  ,/**/KEY_POS_G ,/**/KC_MPLY   ,/*||*/KC_MUTE ,/**/KEY_POS_H ,/**/KEY_POS_J ,/**/KEY_POS_K   ,/**/KEY_POS_L    ,/**/KEY_POS_SC     ,/**/KC_RSFT   ,/**/
     /**/KC_LCTL     ,/**/KEY_POS_Z ,/**/KEY_POS_X  ,/**/KEY_POS_C  ,/**/KEY_POS_V  ,/**/KEY_POS_B ,/**/KC_MPRV   ,/*||*/KC_VOLD ,/**/KEY_POS_N ,/**/KEY_POS_M ,/**/KEY_POS_COMM,/**/KEY_POS_DOT  ,/**/KEY_POS_SLSH   ,/**/KC_RCTL   ,/**/
-    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_RBRC    ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_ESC       ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
+    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_RBRC    ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/MO(6)        ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
     /**/             /**/           /**/MO(4)      ,/**/KC_LBRC    ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/LSFT(KC_TAB),/**/MO(5)         /**/                /**/           /**/
     /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
 
@@ -120,12 +120,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
 
     /**/[4]=LAYOUT(  /**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
-    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/           /*||*/         /**/KC_F7     ,/**/KC_F8     ,/**/KC_F9       ,/**/KC_F10       ,/**/KC_F11         ,/**/KC_F12    ,/**/
-    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_WREF ,/**/KC_F1     ,/**/KC_F2     ,/**/KC_F3       ,/**/KC_F4        ,/**/KC_F5          ,/**/KC_F6     ,/**/
+    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/           /*||*/         /**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
+    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/LCTL(KC_R) ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_WREF ,/**/KC_TAB    ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_LGUI   ,/**/KC_LALT    ,/**/KC_LCTL    ,/**/KC_LSFT    ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_WFWD ,/**/KC_LEFT   ,/**/KC_DOWN   ,/**/KC_UP       ,/**/KC_RGHT      ,/**/KC_NO          ,/**/KC_NO     ,/**/
-    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_WBAK ,/**/KC_HOME   ,/**/KC_PGDN   ,/**/KC_PGUP     ,/**/KC_END       ,/**/KC_NO          ,/**/KC_NO     ,/**/
-    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_NO      ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_ESC       ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
-    /**/             /**/           /**/KC_TRNS    ,/**/KC_TAB     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_ESC      ,/**/MO(7)         /**/                /**/           /**/
+    /**/KC_NO       ,/**/LCTL(KC_Z),/**/LCTL(KC_X) ,/**/LCTL(KC_C) ,/**/LCTL(KC_V) ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_WBAK ,/**/KC_HOME   ,/**/KC_PGDN   ,/**/KC_PGUP     ,/**/KC_END       ,/**/KC_NO          ,/**/KC_NO     ,/**/
+    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_NO      ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_ENT       ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
+    /**/             /**/           /**/KC_TRNS    ,/**/KC_TAB     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_SPC      ,/**/MO(7)         /**/                /**/           /**/
     /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
 
     /**/[5]=LAYOUT(  /**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
@@ -133,23 +133,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/KC_NO       ,/**/KC_EXLM   ,/**/KC_AT      ,/**/KC_HASH    ,/**/KC_DLR     ,/**/KC_PERC   ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_CIRC   ,/**/KC_AMPR   ,/**/KC_ASTR     ,/**/KC_MINS      ,/**/KC_EQL         ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_LGUI   ,/**/KC_LALT    ,/**/KC_LCTL    ,/**/KC_LSFT    ,/**/KC_LPRN   ,/**/KC_GRV    ,/*||*/KC_TILD ,/**/KC_RPRN   ,/**/KC_RSFT   ,/**/KC_RCTL     ,/**/KC_LALT      ,/**/KC_LGUI        ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_QUOT   ,/**/KC_DQUO    ,/**/KC_PIPE    ,/**/KC_LBRC    ,/**/KC_LCBR   ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_RCBR   ,/**/KC_RBRC   ,/**/KC_BSLS     ,/**/KC_UNDS      ,/**/KC_PLUS        ,/**/KC_NO     ,/**/
-    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_NO      ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_ESC       ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
-    /**/             /**/           /**/KC_NO      ,/**/KC_TAB     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_ESC      ,/**/KC_TRNS       /**/                /**/           /**/
+    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_BSPC    ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_ESC       ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
+    /**/             /**/           /**/MO(7)      ,/**/KC_DEL     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_ESC      ,/**/KC_TRNS       /**/                /**/           /**/
     /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
 
 
     /**/[6]=LAYOUT(  /**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
     /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/           /*||*/         /**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_1      ,/**/KC_2       ,/**/KC_3       ,/**/KC_4       ,/**/KC_5      ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_6      ,/**/KC_7      ,/**/KC_8        ,/**/KC_9         ,/**/KC_0           ,/**/KC_NO     ,/**/
-    /**/KC_NO       ,/**/KC_LGUI   ,/**/KC_LALT    ,/**/KC_LCTL    ,/**/KC_LSFT    ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_NO     ,/**/KC_RSFT   ,/**/KC_RCTL     ,/**/KC_LALT      ,/**/KC_LGUI        ,/**/KC_NO     ,/**/
-    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
-    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_TAB     ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_ESC       ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
-    /**/             /**/           /**/MO(7)      ,/**/KC_TAB     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_ESC      ,/**/KC_TRNS       /**/                /**/           /**/
+    /**/KC_NO       ,/**/KC_LGUI   ,/**/KC_LALT    ,/**/KC_LCTL    ,/**/KC_LSFT    ,/**/KC_F6     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_F7     ,/**/KC_RSFT   ,/**/KC_RCTL     ,/**/KC_LALT      ,/**/KC_LGUI        ,/**/KC_NO     ,/**/
+    /**/KC_NO       ,/**/KC_F1     ,/**/KC_F2      ,/**/KC_F3      ,/**/KC_F4      ,/**/KC_F5     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_F8     ,/**/KC_F9     ,/**/KC_F10      ,/**/KC_F11       ,/**/KC_F12         ,/**/KC_NO     ,/**/
+    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_BSPC    ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_TRNS      ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
+    /**/             /**/           /**/KC_NO      ,/**/KC_DEL     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_ESC      ,/**/KC_NO       /**/                /**/           /**/
     /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
 
 
     /**/[7]=LAYOUT(  /**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
-    /**/QK_BOOT     ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/           /*||*/         /**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
+    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/           /*||*/         /**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/QK_BOOT   ,/**/KC_INS     ,/**/KC_SCRL    ,/**/KC_PAUS    ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_NO     ,/**/TG(1)     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_CAPS    ,/**/KC_PSCR    ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_NO     ,/**/TG(2)     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
