@@ -41,7 +41,7 @@ points:
     thumbfan:
       anchor:
         ref: main_index_bottom
-        shift: [0, -1.05U]
+        shift: [-U/2, -1.05U]
       columns:
         pos1:
           key:
@@ -83,8 +83,8 @@ outlines:
         - shift: [112.5, 0]
         - shift: [3, -9]
         - shift: [20,0]
-        - shift: [27, -125]
-        - shift: [-15,-15]
+        - shift: [15, -125]
+        - shift: [-15,-10]
         - shift: [-60, 19.9]
         - shift: [0,1.1]
     - what: circle
