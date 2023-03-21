@@ -116,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/KC_NO       ,/**/KC_LGUI   ,/**/KC_LALT    ,/**/KC_LCTL    ,/**/KC_LSFT    ,/**/KC_NO     ,/**/KC_ACL1   ,/*||*/KC_WFWD ,/**/KC_MS_L   ,/**/KC_MS_D   ,/**/KC_MS_U     ,/**/KC_MS_R      ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/LCTL(KC_Z),/**/LCTL(KC_X) ,/**/LCTL(KC_C) ,/**/LCTL(KC_V) ,/**/KC_NO     ,/**/KC_ACL2   ,/*||*/KC_WBAK ,/**/KC_HOME   ,/**/KC_PGDN   ,/**/KC_PGUP     ,/**/KC_END       ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_NO     ,/**/KC_TRNS    ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_MS_BTN5   ,/**/KC_MS_BTN1     ,/**/KC_MS_BTN3,/**/
-    /**/             /**/           /**/MO(4)      ,/**/KC_NO      ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_MS_BTN4  ,/**/KC_MS_BTN2    /**/                /**/           /**/
+    /**/             /**/           /**/KC_NO      ,/**/KC_NO      ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_MS_BTN4  ,/**/KC_MS_BTN2    /**/                /**/           /**/
     /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
 
     /**/[4]=LAYOUT(  /**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
@@ -133,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/KC_NO       ,/**/KC_EXLM   ,/**/KC_AT      ,/**/KC_HASH    ,/**/KC_DLR     ,/**/KC_PERC   ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_CIRC   ,/**/KC_AMPR   ,/**/KC_ASTR     ,/**/KC_MINS      ,/**/KC_EQL         ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_LGUI   ,/**/KC_LALT    ,/**/KC_LCTL    ,/**/KC_LSFT    ,/**/KC_LPRN   ,/**/KC_GRV    ,/*||*/KC_TILD ,/**/KC_RPRN   ,/**/KC_RSFT   ,/**/KC_RCTL     ,/**/KC_LALT      ,/**/KC_LGUI        ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_QUOT   ,/**/KC_DQUO    ,/**/KC_PIPE    ,/**/KC_LBRC    ,/**/KC_LCBR   ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_RCBR   ,/**/KC_RBRC   ,/**/KC_BSLS     ,/**/KC_UNDS      ,/**/KC_PLUS        ,/**/KC_NO     ,/**/
-    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_BSPC    ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_ESC       ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
+    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_BSPC    ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_NO        ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
     /**/             /**/           /**/MO(7)      ,/**/KC_DEL     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_ESC      ,/**/KC_TRNS       /**/                /**/           /**/
     /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
 
@@ -141,10 +141,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/[6]=LAYOUT(  /**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
     /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/           /*||*/         /**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_1      ,/**/KC_2       ,/**/KC_3       ,/**/KC_4       ,/**/KC_5      ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_6      ,/**/KC_7      ,/**/KC_8        ,/**/KC_9         ,/**/KC_0           ,/**/KC_NO     ,/**/
-    /**/KC_NO       ,/**/KC_LGUI   ,/**/KC_LALT    ,/**/KC_LCTL    ,/**/KC_LSFT    ,/**/KC_F6     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_F7     ,/**/KC_RSFT   ,/**/KC_RCTL     ,/**/KC_LALT      ,/**/KC_LGUI        ,/**/KC_NO     ,/**/
-    /**/KC_NO       ,/**/KC_F1     ,/**/KC_F2      ,/**/KC_F3      ,/**/KC_F4      ,/**/KC_F5     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_F8     ,/**/KC_F9     ,/**/KC_F10      ,/**/KC_F11       ,/**/KC_F12         ,/**/KC_NO     ,/**/
-    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_BSPC    ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_TRNS      ,/**/KC_BSPC        ,/**/KC_DEL    ,/**/
-    /**/             /**/           /**/KC_NO      ,/**/KC_DEL     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_ESC      ,/**/KC_NO       /**/                /**/           /**/
+    /**/KC_NO       ,/**/KC_LGUI   ,/**/KC_LALT    ,/**/KC_LCTL    ,/**/KC_LSFT    ,/**/KC_F11    ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_F12    ,/**/KC_RSFT   ,/**/KC_RCTL     ,/**/KC_LALT      ,/**/KC_LGUI        ,/**/KC_NO     ,/**/
+    /**/KC_NO       ,/**/KC_F1     ,/**/KC_F2      ,/**/KC_F3      ,/**/KC_F4      ,/**/KC_F5     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_F6     ,/**/KC_F7     ,/**/KC_F8       ,/**/KC_F9        ,/**/KC_F10         ,/**/KC_NO     ,/**/
+    /**/KC_ENT      ,/**/KC_SPC    ,/**/KC_BSPC    ,/**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/KC_TRNS      ,/**/KC_NO          ,/**/KC_NO     ,/**/
+    /**/             /**/           /**/KC_NO      ,/**/KC_DEL     ,/**/            /**/           /**/           /*||*/         /**/           /**/           /**/KC_NO       ,/**/MO(5)         /**/                /**/           /**/
     /**/)           ,/**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
 
 
