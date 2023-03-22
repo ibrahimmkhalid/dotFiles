@@ -149,7 +149,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
     /**/[7]=LAYOUT(  /**/           /**/            /**/            /**/            /**/           /**/           /*||*/         /**/           /**/           /**/             /**/              /**/                /**/           /**/
-    /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/           /*||*/         /**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
+    /**/QK_BOOT     ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/           /*||*/         /**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/QK_BOOT   ,/**/KC_INS     ,/**/KC_SCRL    ,/**/KC_PAUS    ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_NO     ,/**/TG(1)     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_CAPS    ,/**/KC_PSCR    ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_NO     ,/**/KC_NO     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
     /**/KC_NO       ,/**/KC_NO     ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO      ,/**/KC_NO     ,/**/KC_NO     ,/*||*/KC_NO   ,/**/KC_NO     ,/**/TG(2)     ,/**/KC_NO       ,/**/KC_NO        ,/**/KC_NO          ,/**/KC_NO     ,/**/
