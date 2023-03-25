@@ -1,19 +1,11 @@
 #!/bin/bash
-#Set source and destination paths
-SRC="./"
-DEST="../dotFiles-public-tmp/"
 
-# List of files and folders to exclude
-EXCLUDE=(
-    ".git"
-    ".gitsubmodules"
-    "./keyboard-configurations/tools/ergogen"
-    "./keyboard-configurations/tools/qmk_firmware"
-    "readme.md"
-)
+# Define the source and destination directories
+src_dir="./"
+dest_dir="../dotFiles-public"
 
-# Construct exclude list for find command
-EXCLUDE_FIND=$(printf " -path %s -o" "${EXCLUDE[@]}" | sed 's/ -o$//')
+# Define the list of files and directories to exclude
+exclude_list=".git .gitsubmodules update-public-repo.sh ./keyboard-configurations/tools/ergogen ./keyboard-configurations/tools/qmk_firmware readme.md"
 
-# Copy all files and directories except for the specified ones
-find "$SRC" -mindepth 1 \( $EXCLUDE_FIND \) -prune -o -exec cp -R '{}' "$DEST" \;
+# Copy the contents of the source directory to the destination directory, excluding the files and directories in the exclude list
+cp -r --parents $(find $src_dir -type f | grep -vE "$(echo $exclude_list | sed 's/ /|/g')") $dest_dir
