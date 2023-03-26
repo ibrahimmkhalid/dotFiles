@@ -20,7 +20,6 @@ for item in $exclude_list; do
   rm -rf $excluded_file_in_tmp_dir
 done
 
-ls $tmp_dir -la
 cp -rf $tmp_dir/* $dest_dir/
 cp -rf $tmp_dir/.gitignore $dest_dir/
 
