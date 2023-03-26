@@ -1,27 +1,22 @@
 #!/bin/bash
 
-# Define the source and destination directories
 src_dir="../dotFiles"
 dest_dir="../dotFiles-public-tmp"
 
-# Define the list of files and directories to exclude
-exclude_list="./.git ./.gitmodules ./update-public-repo.sh ./keyboard-configurations/tools/ergogen ./keyboard-configurations/tools/qmk_firmware ./readme.md"
+exclude_list="./exclude.txt"
+echo './.git' >> $exclude_list
+echo './.gitmodules' >> $exclude_list
+echo './update-public-repo.sh' >> $exclude_list
+echo './keyboard-configurations/tools/ergogen' >> $exclude_list
+echo './keyboard-configurations/tools/qmk_firmware' >> $exclude_list
+echo './readme.md' >> $exclude_list
 
-tmp_dir=$dest_dir.tmp
-cp $src_dir $tmp_dir -rf
+echo '!./**/.git' >> $exclude_list
+echo '!./**/.gitmodules' >> $exclude_list
+echo '!./**/update-public-repo.sh' >> $exclude_list
+echo '!./**/keyboard-configurations/tools/ergogen' >> $exclude_list
+echo '!./**/keyboard-configurations/tools/qmk_firmware' >> $exclude_list
+echo '!./**/readme.md' >> $exclude_list
 
-
-for item in $exclude_list; do
-  if [ "${item:0:1}" = "." ]; then
-    excluded_file_in_tmp_dir="$tmp_dir${item:1}"
-  else
-    excluded_file_in_tmp_dir="$tmp_dir/$item"
-  fi
-  rm -rf $excluded_file_in_tmp_dir
-done
-
-cp -rf $tmp_dir/* $dest_dir/
-cp -rf $tmp_dir/.gitignore $dest_dir/
-
-
-rm -rf $tmp_dir
+rsync -av --delete --exclude-from=$exclude_list $src_dir/ $dest_dir/
+rm $exclude_list
