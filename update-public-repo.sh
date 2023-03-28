@@ -7,6 +7,7 @@ tmp_dir="../dotFiles-tmp"
 cp -rf $src_dir $tmp_dir
 cd $tmp_dir
 rm './.git' -rf
+rm './nvim/README.txt' -rf
 rm './.gitmodules' -rf
 rm './update-public-repo.sh' -rf
 rm './keyboard-configurations/tools/ergogen' -rf
