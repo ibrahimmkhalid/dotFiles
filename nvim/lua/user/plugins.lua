@@ -53,19 +53,34 @@ return packer.startup(function(use)
   use "rebelot/kanagawa.nvim"
   use 'nvim-tree/nvim-web-devicons'
 
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "hrsh7th/cmp-emoji" --emoji completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp" -- lsp completions
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "jose-elias-alvarez/null-ls.nvim"
+use {
+  'VonHeikemen/lsp-zero.nvim',
+  branch = 'v1.x',
+  requires = {
+    -- LSP Support
+    {'neovim/nvim-lspconfig'},             -- Required
+    {                                      -- Optional
+      'williamboman/mason.nvim',
+      run = function()
+        pcall(vim.cmd, 'MasonUpdate')
+      end,
+    },
+    {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
+    -- Autocompletion
+    {'hrsh7th/nvim-cmp'},         -- Required
+    {'hrsh7th/cmp-nvim-lsp'},     -- Required
+    {'hrsh7th/cmp-buffer'},       -- Optional
+    {'hrsh7th/cmp-path'},         -- Optional
+    {'hrsh7th/cmp-emoji'},        -- Emoji completions
+    {'saadparwaiz1/cmp_luasnip'}, -- Optional
+    {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+    -- Snippets
+    {'L3MON4D3/LuaSnip'},             -- Required
+    {'rafamadriz/friendly-snippets'}, -- Optional
+  }
+}
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
