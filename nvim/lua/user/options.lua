@@ -9,6 +9,7 @@ local options = {
   mouse = "a",
   showmode = false,
   showtabline = 2,
+  signcolumn = "yes",
   smartcase = true,
   smartindent = true,
   splitbelow = true,
@@ -41,15 +42,6 @@ if not status_ok then
 end
 
 colorizer.setup()
-
---local status_ok, transparent = pcall(require, "transparent")
---if not status_ok then
---  return
---end
---
---transparent.setup({
---  enable = true,
---})
 
 local status_ok, autosession = pcall(require, 'auto-session')
 if not status_ok then
