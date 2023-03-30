@@ -40,12 +40,12 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
+  -- basic plugins
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
---  use "morhetz/gruvbox" -- colorscheme
+  -- Themes and icons
   use "ellisonleao/gruvbox.nvim"
   use "folke/tokyonight.nvim"
   use "sainnhe/gruvbox-material"
@@ -53,64 +53,42 @@ return packer.startup(function(use)
   use "rebelot/kanagawa.nvim"
   use 'nvim-tree/nvim-web-devicons'
 
-use {
-  'VonHeikemen/lsp-zero.nvim',
-  branch = 'v1.x',
-  requires = {
-    -- LSP Support
-    {'neovim/nvim-lspconfig'},             -- Required
-    {                                      -- Optional
-      'williamboman/mason.nvim',
-      run = function()
-        pcall(vim.cmd, 'MasonUpdate')
-      end,
-    },
-    {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},         -- Required
-    {'hrsh7th/cmp-nvim-lsp'},     -- Required
-    {'hrsh7th/cmp-buffer'},       -- Optional
-    {'hrsh7th/cmp-path'},         -- Optional
-    {'hrsh7th/cmp-emoji'},        -- Emoji completions
-    {'saadparwaiz1/cmp_luasnip'}, -- Optional
-    {'hrsh7th/cmp-nvim-lua'},     -- Optional
-
-    -- Snippets
-    {'L3MON4D3/LuaSnip'},             -- Required
-    {'rafamadriz/friendly-snippets'}, -- Optional
-  }
-}
+  -- LSP stuff
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v1.x',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},             -- Required
+      {                                      -- Optional
+        'williamboman/mason.nvim',
+        run = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},         -- Required
+      {'hrsh7th/cmp-nvim-lsp'},     -- Required
+      {'hrsh7th/cmp-buffer'},       -- Optional
+      {'hrsh7th/cmp-path'},         -- Optional
+      {'hrsh7th/cmp-emoji'},        -- Emoji completions
+      {'saadparwaiz1/cmp_luasnip'}, -- Optional
+      {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},             -- Required
+      {'rafamadriz/friendly-snippets'}, -- Optional
+    }
   }
 
-  use { -- tabline
-    'romgrk/barbar.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'}
-  }
-
+  -- file explorer
   use {
     'nvim-neo-tree/neo-tree.nvim',
     branch = "v2.x",
     requires = { "MunifTanjim/nui.nvim" },
   }
-
-  use {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.0',
-  }
-
-  use {
-    "akinsho/toggleterm.nvim",
-    tag = 'v2.*'
-  }
-
-  use "windwp/nvim-autopairs"
-
-  use "numToStr/Comment.nvim" -- Easily comment stuff
-
 
   -- Treesitter
   use {
@@ -120,23 +98,42 @@ use {
   use "p00f/nvim-ts-rainbow"
   use 'JoosepAlviste/nvim-ts-context-commentstring'
 
+  -- finder
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.0',
+  }
 
-  ------
+  -- status line
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+  -- tab line
+  use {
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
+
+  -- popup terminal in nvim
+  use {
+    "akinsho/toggleterm.nvim",
+    tag = 'v2.*'
+  }
+
   -- random
-
+  use "windwp/nvim-autopairs"
+  use "numToStr/Comment.nvim"
   use "toppair/reach.nvim"
   use "rmagatti/auto-session"
-
   use "norcalli/nvim-colorizer.lua"
-
   use "lewis6991/impatient.nvim"
   use "lewis6991/gitsigns.nvim"
-
   use({
     "NTBBloodbath/galaxyline.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true }
   })
-
   use {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
