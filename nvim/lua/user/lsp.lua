@@ -44,19 +44,24 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
   border = "rounded",
 })
 
-local function lsp_highlight_document(client)
-  -- Set autocommands conditional on server_capabilities
-  if client.server_capabilities.document_highlight then
-    vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
-      false
-    )
+local function lsp_highlight_document(client, bufnr)
+  if client.server_capabilities.documentHighlightProvider then
+    local gid = vim.api.nvim_create_augroup("lsp_document_highlight", {clear = true})
+    vim.api.nvim_create_autocmd("CursorHold" , {
+      group = gid,
+      buffer = bufnr,
+      callback = function ()
+        vim.lsp.buf.document_highlight()
+      end
+    })
+
+    vim.api.nvim_create_autocmd("CursorMoved" , {
+      group = gid,
+      buffer = bufnr,
+      callback = function ()
+        vim.lsp.buf.clear_references()
+      end
+    })
   end
 end
 
@@ -77,20 +82,7 @@ lsp.on_attach(function(client, bufrn)
   vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 
-  if client.server_capabilities.document_highlight then
-    vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
-      false
-    )
-  end
-
-  lsp_highlight_document(client)
+  lsp_highlight_document(client, bufrn)
 end)
 
 lsp.setup()
