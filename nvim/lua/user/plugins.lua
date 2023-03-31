@@ -122,6 +122,9 @@ return packer.startup(function(use)
     tag = 'v2.*'
   }
 
+  -- keymaps popup
+  use "folke/which-key.nvim"
+
   -- random
   use "windwp/nvim-autopairs"
   use "numToStr/Comment.nvim"
