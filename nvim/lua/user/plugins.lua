@@ -133,10 +133,6 @@ return packer.startup(function(use)
   use "norcalli/nvim-colorizer.lua"
   use "lewis6991/impatient.nvim"
   use "lewis6991/gitsigns.nvim"
-  use({
-    "NTBBloodbath/galaxyline.nvim",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true }
-  })
   use {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
