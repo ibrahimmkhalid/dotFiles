@@ -13,7 +13,7 @@ local keymap = vim.api.nvim_set_keymap
 
 local Terminal = require('toggleterm.terminal').Terminal
 local _term_commands = {
-  h = "htop",
+  H = "htop",
   n = "node",
   p = "python",
   g = "lazygit",
