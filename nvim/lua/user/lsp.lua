@@ -17,6 +17,18 @@ lsp.set_preferences({
   }
 })
 
+lsp.ensure_installed({
+  "bashls",
+  "clangd",
+  "eslint",
+  "intelephense",
+  "lua_ls",
+  "marksman",
+  "pyright",
+  "rust_analyzer",
+  "sqlls",
+  "tsserver",
+})
 
 local config = {
   -- disable virtual text
