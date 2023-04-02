@@ -19,7 +19,10 @@ local options = {
   expandtab = true,
   shiftwidth = 2,
   tabstop = 2,
-  wrap = false
+  wrap = false,
+  foldmethod = "expr",
+  foldexpr = "nvim_treesitter#foldexpr()",
+  foldlevel = 99,
 }
 
 
