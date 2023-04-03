@@ -126,6 +126,7 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
 
   -- random
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
   use "windwp/nvim-autopairs"
   use "numToStr/Comment.nvim"
   use "toppair/reach.nvim"
