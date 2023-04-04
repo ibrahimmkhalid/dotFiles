@@ -126,16 +126,16 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
 
   -- random
-  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
-  use "windwp/nvim-autopairs"
-  use "numToStr/Comment.nvim"
-  use "toppair/reach.nvim"
-  use "rmagatti/auto-session"
-  use "norcalli/nvim-colorizer.lua"
-  use "lewis6991/impatient.nvim"
-  use "lewis6991/gitsigns.nvim"
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'} -- better code folding
+  use "windwp/nvim-autopairs" -- auto pairing ({['""']})
+  use "numToStr/Comment.nvim" -- better commenting
+  use "toppair/reach.nvim" -- better mark switched
+  use "rmagatti/auto-session" -- restore previous session of current dir
+  use "norcalli/nvim-colorizer.lua" -- colors
+  use "lewis6991/impatient.nvim" -- optimizations
+  use "lewis6991/gitsigns.nvim" -- git info and keymaps
   use {
-    "iamcco/markdown-preview.nvim",
+    "iamcco/markdown-preview.nvim", -- markdown
     run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
