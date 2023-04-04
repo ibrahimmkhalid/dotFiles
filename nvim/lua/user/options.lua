@@ -40,24 +40,23 @@ end
 local status_ok, colorizer = pcall(require, "colorizer")
 if not status_ok then
   return
+else
+  colorizer.setup()
 end
-
-colorizer.setup()
 
 local status_ok, autosession = pcall(require, 'auto-session')
 if not status_ok then
   return
+else
+  autosession.setup {
+    log_level = 'info',
+    auto_session_suppress_dirs = {'/home/ibrahim/'}
+  }
 end
-
-autosession.setup {
-  log_level = 'info',
-  auto_session_suppress_dirs = {'/home/ibrahim/'}
-}
 
 local status_ok, impatient = pcall(require, "impatient")
 if not status_ok then
   return
+else
+  impatient.enable_profile()
 end
-
-impatient.enable_profile()
-
