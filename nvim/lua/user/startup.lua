@@ -1,5 +1,5 @@
 local alpha_ok, alpha = pcall(require, "alpha")
-local custom_functions= require("user.custom_functions")
+local session_manager = require("user.session")
 if not alpha_ok then
   return
 end
@@ -133,28 +133,14 @@ local function mru(start, cwd, items_number, opts)
     }
 end
 
-local function get_sessions()
-  local handle = io.popen("ls -t ~/.local/share/nvim/session")
-  local sessions = handle:read("*a")
-  handle:close()
-  return vim.split(sessions, "\n")
-end
-
 local function session_buttons()
-  local sessions = get_sessions()
+  local sessions = session_manager.get_sessions()
+  print(sessions[1])
   local buttons = {}
   local button_keymaps = { "u", "i", "o", "p", "y" }
-  local count = 5
-  local i = 1
-  for _, session in ipairs(sessions) do
-    if #session > 0 then
-      local path = custom_functions.convert_name_to_path(session)
-      local name = custom_functions.convert_path_to_read(path)
-      local button_tmp = button(button_keymaps[i], name, ":source ~/.local/share/nvim/session/" .. session .. "<CR>")
-      table.insert(buttons, button_tmp)
-      if count == i then break end
-      i = i + 1
-    end
+  for i, session in ipairs(sessions) do
+    local button_tmp = button(button_keymaps[i], session.name , ":source ~/.local/share/nvim/session/" .. session.file .. "<CR>")
+    table.insert(buttons, button_tmp)
   end
   return buttons
 end
@@ -250,5 +236,3 @@ local config = {
 }
 
 alpha.setup(config)
-
-
