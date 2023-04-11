@@ -130,10 +130,16 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- auto pairing ({['""']})
   use "numToStr/Comment.nvim" -- better commenting
   use "toppair/reach.nvim" -- better mark switched
-  use "rmagatti/auto-session" -- restore previous session of current dir
+  --[[ use "rmagatti/auto-session" -- restore previous session of current dir ]]
   use "norcalli/nvim-colorizer.lua" -- colors
   use "lewis6991/impatient.nvim" -- optimizations
   use "lewis6991/gitsigns.nvim" -- git info and keymaps
+
+
+  use "goolord/alpha-nvim"
+
+  use "startup-nvim/startup.nvim"
+
   use {
     "iamcco/markdown-preview.nvim", -- markdown
     run = "cd app && npm install",
