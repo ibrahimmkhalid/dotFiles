@@ -135,7 +135,6 @@ end
 
 local function session_buttons()
   local sessions = session_manager.get_sessions()
-  print(sessions[1])
   local buttons = {}
   local button_keymaps = { "u", "i", "o", "p", "y" }
   for i, session in ipairs(sessions) do
