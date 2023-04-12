@@ -80,6 +80,7 @@ function M.get_sessions()
         file = session
       }
     end
+    if i >= 5 then break end
   end
   return readable_session
 end
