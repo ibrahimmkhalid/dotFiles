@@ -1,0 +1,11 @@
+{
+  "everforest": { "branch": "master", "commit": "83a4361d0797ff8e0c96dd750e60947bfab936e4" },
+  "gruvbox-material": { "branch": "master", "commit": "53592367dc073cd5b5cbe5b6fae56ad82d0c29f6" },
+  "gruvbox.nvim": { "branch": "main", "commit": "e685aebb5967c2597858a41779a8d38321253509" },
+  "kanagawa.nvim": { "branch": "master", "commit": "7fe819624a47d94f0a2c9970f69b00db8516b3b8" },
+  "lazy.nvim": { "branch": "main", "commit": "eddee830ede0f95ced9802ca9abd3f8f662e5cc5" },
+  "nvim-web-devicons": { "branch": "master", "commit": "4ec26d67d419c12a4abaea02f1b6c57b40c08d7e" },
+  "plenary.nvim": { "branch": "master", "commit": "9ac3e9541bbabd9d73663d757e4fe48a675bb054" },
+  "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
+  "tokyonight.nvim": { "branch": "main", "commit": "c32540a6ae4432a745a1188f306879d9237ba691" }
+}
