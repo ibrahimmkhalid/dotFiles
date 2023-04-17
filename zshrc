@@ -10,6 +10,7 @@ alias git-update="git add . && git commit -mupdate && git push"
 alias git-repeat="git add . && git commit -C HEAD@{1} && git push"
 alias lg="lazygit"
 
+alias clera="clear"
 #Copy the current folder to either desktop or porjects directory in windows
 #to be used in WSL
 function cpm(){
