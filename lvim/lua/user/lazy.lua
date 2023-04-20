@@ -14,14 +14,24 @@ vim.opt.rtp:prepend(lazypath)
 local lazy_opts = {}
 
 local lazy_plugins = {
-  "nvim-lua/popup.nvim",
-  "nvim-lua/plenary.nvim",
-  "ellisonleao/gruvbox.nvim",
-  "folke/tokyonight.nvim",
-  "sainnhe/gruvbox-material",
-  "sainnhe/everforest",
-  "rebelot/kanagawa.nvim",
-  "nvim-tree/nvim-web-devicons",
+  { import = "user.plugins.basic-plugins" },
+  { import = "user.plugins.impatient" },
+  { import = "user.plugins.which-key" },
+  { import = "user.plugins.colorizer" },
+  { import = "user.plugins.lsp-cmp" },
+  { import = "user.plugins.neotree" },
+  { import = "user.plugins.treesitter" },
+  { import = "user.plugins.telescope" },
+  { import = "user.plugins.lualine" },
+  { import = "user.plugins.bufferline" },
+  { import = "user.plugins.toggleterm" },
+  { import = "user.plugins.nvim-ufo" },
+  { import = "user.plugins.autopairs" },
+  { import = "user.plugins.comments" },
+  { import = "user.plugins.reach" },
+  { import = "user.plugins.gitsigns" },
+  { import = "user.plugins.markdown"},
+  { import = "user.plugins.alpha"},
 }
 
 

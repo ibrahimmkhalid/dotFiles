@@ -5,7 +5,6 @@ vim.g.maplocalleader = " "
 
 require("user.options")
 require("user.lazy")
-require("user.plugins")
 require("user.keybinds")
 
 local colorscheme = "everforest"

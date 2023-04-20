@@ -20,12 +20,11 @@ local options = {
   expandtab = true,
   shiftwidth = 2,
   tabstop = 2,
-  wrap = false
+  wrap = false,
+  whichwrap = "<,>,[,],h,l",
 }
 
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
-vim.cmd "set whichwrap+=<,>,[,],h,l"
