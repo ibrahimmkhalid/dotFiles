@@ -29,5 +29,8 @@ return {
         }
       }
     })
+
+    Keymap("n", "<leader>f", ":Telescope find_files<cr>", "Find Files")
+    Keymap("n", "<leader>F", ":Telescope live_grep<cr>", "Find by text")
   end
 }

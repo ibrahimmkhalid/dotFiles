@@ -104,21 +104,31 @@ return {
     end
 
     lsp.on_attach(function(client, bufrn)
-      local opts = { noremap = true, silent = true, buffer = bufrn }
-
-      vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-      vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-      vim.keymap.set("n", "gk", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-      vim.keymap.set("n", "gF", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-      vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-      vim.keymap.set("n", "gK", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-      vim.keymap.set("n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-      vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-      vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-      vim.keymap.set("n", "gn", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-      vim.keymap.set("n", "gN", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-      vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
-
+      local keymap = vim.api.nvim_buf_set_keymap
+      keymap(bufrn, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>",
+      { noremap = true, silent = true, desc = "Go to declaration" })
+      keymap(bufrn, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>",
+      { noremap = true, silent = true, desc = "Go to definition" })
+      keymap(bufrn, "n", "gk", "<cmd>lua vim.lsp.buf.hover()<CR>",
+      { noremap = true, silent = true, desc = "Information" })
+      keymap(bufrn, "n", "gF", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true, desc = "Format" })
+      keymap(bufrn, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>",
+      { noremap = true, silent = true, desc = "Go to implementation" })
+      keymap(bufrn, "n", "gK", "<cmd>lua vim.lsp.buf.signature_help()<CR>",
+      { noremap = true, silent = true, desc = "Signature Help" })
+      keymap(bufrn, "n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true, desc = "Rename" })
+      keymap(bufrn, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>",
+      { noremap = true, silent = true, desc = "Find references" })
+      keymap(bufrn, "n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>",
+      { noremap = true, silent = true, desc = "Code action" })
+      keymap(bufrn, "n", "go", "<cmd>lua vim.lsp.buf.type_definition()<CR>",
+      { noremap = true, silent = true, desc = "Type definition" })
+      keymap(bufrn, "n", "gn", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
+      { noremap = true, silent = true, desc = "Go to next diagnostic" })
+      keymap(bufrn, "n", "gN", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
+      { noremap = true, silent = true, desc = "Go to previous disagnostic" })
+      keymap(bufrn, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
+      { noremap = true, silent = true, desc = "Open Float" })
       lsp_highlight_document(client, bufrn)
     end)
 

@@ -5,7 +5,7 @@ return {
     "MunifTanjim/nui.nvim"
   },
   config = function()
-    require("neo-tree").setup {
+    require("neo-tree").setup({
       close_if_last_window = true,
       default_component_configs = {
         git_status = {
@@ -79,6 +79,8 @@ return {
           position = "float"
         }
       }
-    }
+    })
+
+    Keymap("n", "<leader>e", ":NeoTreeFocusToggle<cr>", "Open file tree")
   end
 }

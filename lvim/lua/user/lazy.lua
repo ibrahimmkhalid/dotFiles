@@ -15,12 +15,11 @@ local lazy_opts = {}
 
 local lazy_plugins = {
   { import = "user.plugins.basic-plugins" },
-  { import = "user.plugins.impatient" },
-  { import = "user.plugins.which-key" },
-  { import = "user.plugins.colorizer" },
+  { import = "user.plugins.gitsigns" },
   { import = "user.plugins.lsp-cmp" },
   { import = "user.plugins.neotree" },
   { import = "user.plugins.treesitter" },
+  { import = "user.plugins.colorizer" },
   { import = "user.plugins.telescope" },
   { import = "user.plugins.lualine" },
   { import = "user.plugins.bufferline" },
@@ -29,9 +28,10 @@ local lazy_plugins = {
   { import = "user.plugins.autopairs" },
   { import = "user.plugins.comments" },
   { import = "user.plugins.reach" },
-  { import = "user.plugins.gitsigns" },
-  { import = "user.plugins.markdown"},
-  { import = "user.plugins.alpha"},
+  { import = "user.plugins.markdown" },
+  { import = "user.plugins.alpha" },
+  { import = "user.plugins.impatient" },
+  { import = "user.plugins.which-key" },
 }
 
 

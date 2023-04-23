@@ -1,14 +1,26 @@
-local vim = vim
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+function Keymap(mode, lhs, rhs, desc)
+  if type(rhs) == "string" then
+    vim.api.nvim_set_keymap(mode, lhs, rhs, {
+      noremap = true,
+      silent = true,
+      desc = desc
+    })
+  else
+    vim.api.nvim_set_keymap(mode, lhs, "", {
+      noremap = true,
+      silent = true,
+      desc = desc,
+      callback = function()
+        rhs()
+      end
+    })
+  end
+end
+
 require("user.options")
 require("user.lazy")
 require("user.keybinds")
-
-local colorscheme = "everforest"
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
-end

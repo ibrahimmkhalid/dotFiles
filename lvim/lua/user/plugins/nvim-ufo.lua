@@ -16,14 +16,14 @@ return {
     vim.o.foldlevelstart = 99
     vim.o.foldenable = false
 
-    vim.keymap.set('n', 'zR', ufo.openAllFolds)
-    vim.keymap.set('n', 'zM', ufo.closeAllFolds)
+    Keymap('n', 'zR', ufo.openAllFolds, "Open all folds")
+    Keymap('n', 'zM', ufo.closeAllFolds, "Close all folds")
 
-    vim.keymap.set('n', 'gk', function()
+    Keymap('n', 'zk', function()
       local winid = ufo.peekFoldedLinesUnderCursor()
       if not winid then
         vim.lsp.buf.hover()
       end
-    end)
+    end, "peek fold")
   end
 }
