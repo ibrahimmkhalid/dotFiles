@@ -49,7 +49,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 })
 vim.diagnostic.config(config)
 
-
 vim.fn.sign_define('DiagnosticSignWarn', {
   texthl = 'DiagnosticSignWarn',
   text = "",

@@ -26,8 +26,8 @@ return {
     { 'windwp/nvim-autopairs' },
   },
   config = function()
-    require("user.plugins.lsp.lsp")
     require("user.plugins.lsp.cmp")
+    require("user.plugins.lsp.lsp")
     require("user.plugins.lsp.etc")
   end
 }
