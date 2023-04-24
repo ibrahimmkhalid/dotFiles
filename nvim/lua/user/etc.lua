@@ -36,12 +36,6 @@ function M.open_nvim_config()
   local file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/init.lua"
   vim.cmd("cd " .. vim.fn.fnamemodify(file_path, ":h"))
   vim.cmd("edit " .. file_path)
-  file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/lua/user/etc.lua"
-  vim.cmd("edit " .. file_path)
-  file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/lua/user/options.lua"
-  vim.cmd("edit " .. file_path)
-  file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/lua/user/keybinds.lua"
-  vim.cmd("edit " .. file_path)
   file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/lua/user/lazy.lua"
   vim.cmd("edit " .. file_path)
 end
