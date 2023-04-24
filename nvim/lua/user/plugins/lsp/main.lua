@@ -28,6 +28,7 @@ return {
   config = function()
     require("user.plugins.lsp.cmp")
     require("user.plugins.lsp.lsp")
-    require("user.plugins.lsp.etc")
+    require("user.plugins.lsp.autopairs")
+    require("user.plugins.lsp.options")
   end
 }
