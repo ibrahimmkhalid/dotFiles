@@ -200,6 +200,7 @@ return {
         button("e", "New file", "<cmd>ene<CR>"),
         button("f", "Find file current dir", ":Telescope find_files<CR>"),
         button("g", "Live grep current dir", ":Telescope live_grep<CR>"),
+        button("d", "Open in different directory", ":lua require'user.etc'.open_dir()<CR>"),
         button("c", "NeoVim Configuration", ":lua require'user.etc'.open_nvim_config()<CR>"),
         button("s", "Sync plugins", "<cmd>Lazy sync<CR>"),
         button("q", "Quit", "<cmd>qa<CR>"),

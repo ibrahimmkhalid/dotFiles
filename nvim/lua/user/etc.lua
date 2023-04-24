@@ -7,6 +7,31 @@ function M.open_dot_files()
   vim.cmd("edit " .. file_path)
 end
 
+function M.open_dir()
+  vim.ui.input({
+      prompt = "Enter path: ",
+      completion = "dir"
+    },
+    function(path)
+      if type(path) == "nil" then
+        return
+      end
+      local Path = require("plenary.path")
+      local file = Path:new(path)
+      path = file:expand()
+      file = Path:new(path)
+      if file:exists() and file:is_dir() then
+        if string.sub(path, -1) == "/" then
+          path = string.sub(path, 1, -2)
+        end
+        path = file:absolute()
+        vim.cmd("edit " .. path)
+        vim.cmd("cd " .. path)
+      end
+    end
+  )
+end
+
 function M.open_nvim_config()
   local file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/init.lua"
   vim.cmd("cd " .. vim.fn.fnamemodify(file_path, ":h"))
