@@ -7,17 +7,17 @@ function M.open_dot_files()
   vim.cmd("edit " .. file_path)
 end
 
-function M.open_lvim_config()
-  local file_path = "~/repos/ibrahimmkhalid/dotFiles/lvim/init.lua"
+function M.open_nvim_config()
+  local file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/init.lua"
   vim.cmd("cd " .. vim.fn.fnamemodify(file_path, ":h"))
   vim.cmd("edit " .. file_path)
-  file_path = "~/repos/ibrahimmkhalid/dotFiles/lvim/lua/user/etc.lua"
+  file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/lua/user/etc.lua"
   vim.cmd("edit " .. file_path)
-  file_path = "~/repos/ibrahimmkhalid/dotFiles/lvim/lua/user/options.lua"
+  file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/lua/user/options.lua"
   vim.cmd("edit " .. file_path)
-  file_path = "~/repos/ibrahimmkhalid/dotFiles/lvim/lua/user/keybinds.lua"
+  file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/lua/user/keybinds.lua"
   vim.cmd("edit " .. file_path)
-  file_path = "~/repos/ibrahimmkhalid/dotFiles/lvim/lua/user/lazy.lua"
+  file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/lua/user/lazy.lua"
   vim.cmd("edit " .. file_path)
 end
 

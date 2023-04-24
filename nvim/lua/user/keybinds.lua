@@ -1,82 +1,61 @@
-local opts = { noremap = true, silent = true }
+Keymap("", "<Space>", "<Nop>", "")
 
-local term_opts = { silent = true }
-
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
-
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
--- Normal --
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+Keymap("n", "<C-h>", "<C-w>h", "Focus left window")
+Keymap("n", "<C-j>", "<C-w>j", "Focus bottom window")
+Keymap("n", "<C-k>", "<C-w>k", "Focus upper window")
+Keymap("n", "<C-l>", "<C-w>l", "Focus right window")
 
 -- redo
-keymap("n", "<S-u>", ":redo<CR>", opts)
+Keymap("n", "<S-u>", ":redo<CR>", "redo")
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+Keymap("n", "<C-Up>", ":resize +2<CR>", "Increase window horizontally")
+Keymap("n", "<C-Down>", ":resize -2<CR>", "Decrease window horizontally")
+Keymap("n", "<C-Left>", ":vertical resize -2<CR>", "Increase window verticaly")
+Keymap("n", "<C-Right>", ":vertical resize +2<CR>", "Decrease window verticaly")
 
 -- fast scrolling
-keymap("n", "<S-j>", "5j", opts)
-keymap("n", "<S-k>", "5k", opts)
+Keymap("n", "<S-j>", "5j", "5j")
+Keymap("n", "<S-k>", "5k", "5k")
 
 -- saving files and exiting nvim
-keymap("n", "<leader>w", ":w<CR>", opts)
-keymap("n", "<leader>q", ":q<CR>", opts)
-keymap("n", "<leader>Q", ":qa<CR>", opts)
+Keymap("n", "<leader>w", ":w<CR>", "save")
+Keymap("n", "<leader>q", ":q<CR>", "quit window")
+Keymap("n", "<leader>Q", ":qa<CR>", "quit all windows")
 
 
-keymap("n", "<leader>v", ":vsplit<CR>", opts)
-keymap("n", "<leader>V", ":split<CR>", opts)
+Keymap("n", "<leader>v", ":vsplit<CR>", "Vertical split")
+Keymap("n", "<leader>V", ":split<CR>", "Horizontal split")
 
-keymap("n", "<leader>h", ":nohlsearch<CR>", opts)
-keymap("n", "<", "<<", opts)
-keymap("n", ">", ">>", opts)
+Keymap("n", "<leader>h", ":nohlsearch<CR>", "hide search")
+Keymap("n", "<", "<<", "de-indent")
+Keymap("n", ">", ">>", "indent")
 
 -- WSL workaround for visual block mode
-keymap("n", "<M-v>", "<C-v>", opts)
+Keymap("n", "<M-v>", "<C-v>", "enter visual block mode")
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+Keymap("v", "<", "<gv", "de-indent")
+Keymap("v", ">", ">gv", "indent")
 
 -- Move text up and down
-keymap("v", "J", "5j", opts)
-keymap("v", "K", "5k", opts)
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
+Keymap("v", "J", "5j", "5j")
+Keymap("v", "K", "5k", "5k")
+Keymap("v", "<A-j>", ":m .+1<CR>==", "move selected text down")
+Keymap("v", "<A-k>", ":m .-2<CR>==", "move selected text up")
+Keymap("v", "p", '"_dP', "visual paste")
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", "5j", opts)
-keymap("x", "K", "5k", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+Keymap("x", "J", "5j", "5j")
+Keymap("x", "K", "5k", "5k")
+Keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", "move selected text down")
+Keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", "move selected text up")
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
+vim.api.nvim_set_keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true, desc = "Focus left window" })
+vim.api.nvim_set_keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true, desc = "Focus bottom window" })
+vim.api.nvim_set_keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, desc = "Focus upper window" })
+vim.api.nvim_set_keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, desc = "Focus right window" })

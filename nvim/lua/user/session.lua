@@ -1,8 +1,4 @@
 local Path = require("plenary.path")
-local vim = vim
-
-local keymap_opts = { noremap = true, silent = true }
-local keymap = vim.keymap.set
 
 local function convert_name_to_path(name)
   local path = string.gsub(name, "__----__", "/")
@@ -56,9 +52,8 @@ local function delete_session()
   end
 end
 
-keymap("n", "<leader>ss", save_session, keymap_opts)
-keymap("n", "<leader>sd", delete_session, keymap_opts)
-
+Keymap("n", "<leader>ss", save_session, "Save session")
+Keymap("n", "<leader>sd", delete_session, "Delete session")
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
   callback = autosave_existing_sessions
 })

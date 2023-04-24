@@ -1,3 +1,4 @@
+local vim = vim
 local options = {
   number = true,
   relativenumber = true,
@@ -19,44 +20,11 @@ local options = {
   expandtab = true,
   shiftwidth = 2,
   tabstop = 2,
-  wrap = false
+  wrap = false,
+  whichwrap = "<,>,[,],h,l",
 }
 
 
 for k, v in pairs(options) do
   vim.opt[k] = v
-end
-
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-
-
-local colorscheme = "everforest"
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
-  return
-end
-
-local status_ok, colorizer = pcall(require, "colorizer")
-if not status_ok then
-  return
-else
-  colorizer.setup()
-end
-
-local status_ok, autosession = pcall(require, 'auto-session')
-if not status_ok then
-  return
-else
-  autosession.setup {
-    log_level = 'info',
-    auto_session_suppress_dirs = {'/home/ibrahim/'}
-  }
-end
-
-local status_ok, impatient = pcall(require, "impatient")
-if not status_ok then
-  return
-else
-  impatient.enable_profile()
 end

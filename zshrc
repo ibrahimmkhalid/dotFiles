@@ -12,7 +12,6 @@ alias lg="lazygit"
 
 alias clera="clear"
 
-alias lvim="NVIM_APPNAME=lvim nvim"
 #Copy the current folder to either desktop or porjects directory in windows
 #to be used in WSL
 function cpm(){
