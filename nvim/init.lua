@@ -1,19 +1,26 @@
-require "user.options"
-require "user.keybinds"
-require "user.plugins"
-require "user.cmp"
-require "user.lsp"
-require "user.tabline"
-require "user.tree"
-require "user.telescope"
-require "user.toggleterm"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comments"
-require "user.gitsigns"
-require "user.reach"
-require "user.lualine"
-require "user.which"
-require "user.ufo"
-require "user.startup"
-require "user.session"
+vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+function Keymap(mode, lhs, rhs, desc)
+  if type(rhs) == "string" then
+    vim.api.nvim_set_keymap(mode, lhs, rhs, {
+      noremap = true,
+      silent = true,
+      desc = desc
+    })
+  else
+    vim.api.nvim_set_keymap(mode, lhs, "", {
+      noremap = true,
+      silent = true,
+      desc = desc,
+      callback = function()
+        rhs()
+      end
+    })
+  end
+end
+
+require("user.options")
+require("user.lazy")
+require("user.keybinds")
