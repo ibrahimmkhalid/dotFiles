@@ -2,11 +2,14 @@ return {
   "nvim-lua/popup.nvim",
   "nvim-lua/plenary.nvim",
   "nvim-tree/nvim-web-devicons",
-  "ellisonleao/gruvbox.nvim",
-  "folke/tokyonight.nvim",
-  "sainnhe/gruvbox-material",
   {
     "sainnhe/everforest",
+    dependencies = {
+      "ellisonleao/gruvbox.nvim",
+      "folke/tokyonight.nvim",
+      "sainnhe/gruvbox-material",
+      "rebelot/kanagawa.nvim",
+    },
     config = function()
       local colorscheme = "everforest"
       local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
@@ -15,5 +18,4 @@ return {
       end
     end
   },
-  "rebelot/kanagawa.nvim",
 }
