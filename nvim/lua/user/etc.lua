@@ -36,8 +36,6 @@ function M.open_nvim_config()
   local file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/init.lua"
   vim.cmd("cd " .. vim.fn.fnamemodify(file_path, ":h"))
   vim.cmd("edit " .. file_path)
-  file_path = "~/repos/ibrahimmkhalid/dotFiles/nvim/lua/user/lazy.lua"
-  vim.cmd("edit " .. file_path)
 end
 
 function M.get_lsp_name()
