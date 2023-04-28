@@ -53,6 +53,7 @@ local function delete_session()
 end
 
 Keymap("n", "<leader>ss", save_session, "Save session")
+Keymap("n", "<leader>sa", ":Alpha<CR>", "Home screen")
 Keymap("n", "<leader>sd", delete_session, "Delete session")
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
   callback = autosave_existing_sessions
