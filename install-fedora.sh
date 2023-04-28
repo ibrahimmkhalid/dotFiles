@@ -8,7 +8,7 @@ sudo dnf install make gawk wget curl tmux zsh ranger htop ripgrep gcc g++ util-l
 sudo dnf install -y curl wget jq unzip
 sudo dnf install xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks gnome-browser-connector -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/lib

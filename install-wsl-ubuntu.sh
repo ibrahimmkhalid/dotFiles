@@ -7,7 +7,7 @@ sudo add-apt-repository universe -y
 sudo apt update
 sudo apt install make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 echo "---------------------"
 echo "Installing neovim"
