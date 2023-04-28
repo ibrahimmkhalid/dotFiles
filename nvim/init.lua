@@ -52,6 +52,7 @@ local lazy_plugins = {
   { import = "user.plugins.markdown" },
   { import = "user.plugins.alpha" },
   { import = "user.plugins.impatient" },
+  { import = "user.plugins.tmux-nav" },
   { import = "user.plugins.which-key" },
 }
 

@@ -1,9 +1,9 @@
 Keymap("", "<Space>", "<Nop>", "")
 
-Keymap("n", "<C-h>", "<C-w>h", "Focus left window")
-Keymap("n", "<C-j>", "<C-w>j", "Focus bottom window")
-Keymap("n", "<C-k>", "<C-w>k", "Focus upper window")
-Keymap("n", "<C-l>", "<C-w>l", "Focus right window")
+--[[ Keymap("n", "<C-h>", "<C-w>h", "Focus left window") ]]
+--[[ Keymap("n", "<C-j>", "<C-w>j", "Focus bottom window") ]]
+--[[ Keymap("n", "<C-k>", "<C-w>k", "Focus upper window") ]]
+--[[ Keymap("n", "<C-l>", "<C-w>l", "Focus right window") ]]
 
 -- redo
 Keymap("n", "<S-u>", ":redo<CR>", "redo")
