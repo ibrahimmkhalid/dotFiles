@@ -2,8 +2,8 @@
 set -e
 
 ln -s -f $PWD/zshrc $HOME/.zshrc
-ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
-ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
+rm $HOME/.config/tmux -rf
+ln -s -f $PWD/tmux $HOME/.config/tmux
 rm $HOME/.config/nvim -rf
 ln -s -f $PWD/nvim $HOME/.config/nvim
 for d in $(ls $PWD/scripts);

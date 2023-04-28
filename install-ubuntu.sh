@@ -9,6 +9,7 @@ sudo apt update
 sudo apt install make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ -y
 sudo apt install xsel xclip dconf-editor numix-icon-theme-circle alacritty gnome-tweaks -y
 sudo apt install -y curl wget jq unzip
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
@@ -45,8 +46,7 @@ echo "done"
 echo "---------------------"
 echo "adding configs to appropriate locations"
 ln -s -f $PWD/zshrc $HOME/.zshrc
-ln -s -f $PWD/tmux.conf $HOME/.tmux.conf
-ln -s -f $PWD/tmux.conf.local $HOME/.tmux.conf.local
+ln -s -f $PWD/tmux $HOME/.config/tmux
 ln -s -f $PWD/nvim $HOME/.config/nvim
 for d in $(ls $PWD/scripts);
 do
