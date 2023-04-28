@@ -11,7 +11,6 @@
 5. cd into `dotFiles` and run `./install.sh`
 
 ## Credits 
-tmux configuration: https://github.com/gpakosz/.tmux.git  
 tmux-session script: https://github.com/mislav/dotfiles/blob/master/bin/tmux-session  
 install-gnome-extensions script: https://github.com/cyfrost/install-gnome-extensions  
 ergogen: https://github.com/ergogen/ergogen  
