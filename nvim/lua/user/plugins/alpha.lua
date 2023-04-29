@@ -202,7 +202,7 @@ return {
         button("g", "Live grep current dir", ":Telescope live_grep<CR>"),
         button("d", "Open in different directory", ":lua require'user.etc'.open_dir()<CR>"),
         button("c", "NeoVim Configuration", ":lua require'user.etc'.open_nvim_config()<CR>"),
-        button("s", "Sync plugins", "<cmd>Lazy sync<CR>"),
+        button("s", "Plugin settings", "<cmd>Lazy<CR>"),
         button("q", "Quit", "<cmd>qa<CR>"),
       },
       position = "left",
