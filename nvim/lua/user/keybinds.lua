@@ -1,3 +1,5 @@
+local vim = vim
+local Keymap = Keymap
 Keymap("", "<Space>", "<Nop>", "")
 
 --[[ Keymap("n", "<C-h>", "<C-w>h", "Focus left window") ]]
@@ -42,16 +44,16 @@ Keymap("v", ">", ">gv", "indent")
 -- Move text up and down
 Keymap("v", "J", "5j", "5j")
 Keymap("v", "K", "5k", "5k")
-Keymap("v", "<A-j>", ":m .+1<CR>==", "move selected text down")
-Keymap("v", "<A-k>", ":m .-2<CR>==", "move selected text up")
+Keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", "move selected text down")
+Keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", "move selected text up")
 Keymap("v", "p", '"_dP', "visual paste")
 
 -- Visual Block --
 -- Move text up and down
 Keymap("x", "J", "5j", "5j")
 Keymap("x", "K", "5k", "5k")
-Keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", "move selected text down")
-Keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", "move selected text up")
+Keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", "move selected text down")
+Keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", "move selected text up")
 
 -- Terminal --
 -- Better terminal navigation
