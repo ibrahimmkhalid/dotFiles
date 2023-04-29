@@ -11,6 +11,7 @@ alias git-repeat="git add . && git commit -C HEAD@{1} && git push"
 alias lg="lazygit"
 
 alias clera="clear"
+alias sl="ls"
 
 #Copy the current folder to either desktop or porjects directory in windows
 #to be used in WSL
