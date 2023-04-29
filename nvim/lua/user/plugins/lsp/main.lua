@@ -10,9 +10,7 @@ return {
     { 'williamboman/mason-lspconfig.nvim' },
 
     -- autocompletion
-    { 'hrsh7th/nvim-cmp',
-      lazy = false
-    },
+    { 'hrsh7th/nvim-cmp' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/cmp-path' },
