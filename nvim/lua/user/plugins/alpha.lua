@@ -197,6 +197,7 @@ return {
       val = {
         { type = "text",    val = "Commands", opts = { hl = "SpecialComment", position = "left" } },
         { type = "padding", val = 1 },
+        button(".", "Open here", "<cmd>e .<CR>"),
         button("e", "New file", "<cmd>ene<CR>"),
         button("f", "Find file current dir", ":Telescope find_files<CR>"),
         button("g", "Live grep current dir", ":Telescope live_grep<CR>"),
