@@ -37,8 +37,7 @@ end
 local lazy_opts = {}
 local lazy_plugins = {
   { import = "user.plugins.basic-plugins" },
-  { import = "user.plugins.gitsigns" },
-  { import = "user.plugins.fugitive" },
+  { import = "user.plugins.git" },
   { import = "user.plugins.lsp.main" },
   { import = "user.plugins.neotree" },
   { import = "user.plugins.treesitter" },

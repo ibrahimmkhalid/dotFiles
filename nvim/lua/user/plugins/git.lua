@@ -1,6 +1,10 @@
 return {
-  "lewis6991/gitsigns.nvim",
+  "tpope/vim-fugitive",
+  dependencies = {
+    "lewis6991/gitsigns.nvim",
+  },
   config = function()
+    -- gitsigns
     require("gitsigns").setup()
 
     Keymap('n', '<leader>gh', '<Cmd>Gitsigns reset_hunk<CR>', "Reset current hunk")
@@ -11,5 +15,8 @@ return {
     Keymap('n', '<leader>gk', '<Cmd>Gitsigns prev_hunk<CR>', "Go to previous change")
     Keymap('n', '<leader>gj', '<Cmd>Gitsigns next_hunk<CR>', "Go to next change")
     Keymap('n', '<leader>gl', '<Cmd>Gitsigns blame_line<CR>', "git blame")
+
+    -- fugitive
+    Keymap('n', '<leader>gg', '<Cmd>Git<CR>', "git blame")
   end
 }
