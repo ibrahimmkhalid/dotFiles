@@ -8,6 +8,7 @@ local options = {
   fileencoding = "utf-8",
   ignorecase = true,
   mouse = "a",
+  scrolloff = 10,
   showmode = false,
   showtabline = 2,
   signcolumn = "yes",
