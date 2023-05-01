@@ -60,3 +60,4 @@ local lazy_plugins = {
 require("user.options")
 require('lazy').setup(lazy_plugins, lazy_opts)
 require("user.keybinds")
+require("user.session")
