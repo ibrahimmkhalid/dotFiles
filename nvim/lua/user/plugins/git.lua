@@ -14,10 +14,12 @@ return {
     Keymap('n', '<leader>gp', '<Cmd>Gitsigns preview_hunk<CR>', "Preview changes")
     Keymap('n', '<leader>gk', '<Cmd>Gitsigns prev_hunk<CR>', "Go to previous change")
     Keymap('n', '<leader>gj', '<Cmd>Gitsigns next_hunk<CR>', "Go to next change")
-    Keymap('n', '<leader>gl', '<Cmd>Gitsigns blame_line<CR>', "Git blame")
     Keymap('n', '<leader>gd', '<Cmd>Gitsigns diffthis<CR>', "Git diff")
 
     -- fugitive
     Keymap('n', '<leader>gg', '<Cmd>Git<CR>', "Open git window")
+    Keymap('n', '<leader>gu', '<Cmd>Git push<CR>', "Git push")
+    Keymap('n', '<leader>gU', '<Cmd>Git pull<CR>', "Git pull")
+    Keymap('n', '<leader>gl', '<Cmd>Git blame<CR>', "Git blame")
   end
 }
