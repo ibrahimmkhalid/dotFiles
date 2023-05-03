@@ -2,7 +2,6 @@ local vim = vim
 local options = {
   number = true,
   relativenumber = true,
-  clipboard = "unnamedplus",
   cmdheight = 2,
   termguicolors = true,
   fileencoding = "utf-8",
