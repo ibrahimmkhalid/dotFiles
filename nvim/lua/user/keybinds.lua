@@ -17,8 +17,8 @@ Keymap("n", "<C-Left>", ":vertical resize -2<CR>", "Increase window verticaly")
 Keymap("n", "<C-Right>", ":vertical resize +2<CR>", "Decrease window verticaly")
 
 -- fast scrolling
-Keymap("n", "<C-I>", "<C-U>zz", "Scroll up")
-Keymap("n", "<C-U>", "<C-D>zz", "Scroll down")
+Keymap("n", "<C-U>", "<C-U>zz", "Scroll up")
+Keymap("n", "<C-D>", "<C-D>zz", "Scroll down")
 Keymap("n", "n", "nzzzv", "Next highlight")
 Keymap("n", "N", "Nzzzv", "Previous highlight")
 
