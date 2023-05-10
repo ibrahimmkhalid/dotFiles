@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/repos/ibrahimmkhalid ~/repos ~/.config -mindepth 1 -maxdepth 1 -type d,l | fzf)
+  selected=$((find ~/repos/ibrahimmkhalid ~/repos ~/.config -mindepth 1 -maxdepth 1 -type d,l; echo "/home/ibrahim")| fzf)
 fi
 
 if [[ -z $selected ]]; then
