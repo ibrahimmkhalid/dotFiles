@@ -1,5 +1,6 @@
 return {
   "romgrk/barbar.nvim",
+  version="1.6.2",
   config = function()
     require("bufferline").setup({
       maximum_length = 45
