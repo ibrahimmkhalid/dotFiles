@@ -3,14 +3,23 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-  selected=$((find ~/repos/ibrahimmkhalid ~/repos ~/.config ~/repos/ibrahimmkhalid/symlinked -mindepth 1 -maxdepth 1 -type d,l; echo "/home/ibrahim")| fzf)
+  selected=$((find ~/repos/ibrahimmkhalid ~/repos ~/.config -mindepth 1 -maxdepth 1 -type d,l; echo "home"; echo "personal")| fzf)
 fi
+
 
 if [[ -z $selected ]]; then
     exit 0
 fi
 
 selected_name=$(basename "$selected" | tr . _)
+
+if [[ $selected == "personal" ]]; then
+  selected="/home/ibrahim/repos/ibrahimmkhalid"
+fi
+
+if [[ "$selected" == "home" ]]; then
+  selected="/home/ibrahim"
+fi
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
