@@ -11,6 +11,7 @@ sudo apt install make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g
 git config --global user.name "Ibrahim Mansoor Khalid"
 git config --global user.email "ibrahimmkhalid@gmail.com"
 git config --global core.editor nvim
+git config --global init.defaultBranch main 
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/lib
 mkdir -p $HOME/.local/share
