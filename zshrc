@@ -75,3 +75,6 @@ if [[ -f $HOME/.localrc ]] then
 fi
 
 LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
