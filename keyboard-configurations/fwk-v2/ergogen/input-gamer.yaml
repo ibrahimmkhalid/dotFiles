@@ -26,7 +26,7 @@ points:
         extra:
           key:
             column_net: P9
-            stagger: 8
+            stagger: -5
           rows:
             num.skip: true
       rows:
@@ -70,7 +70,7 @@ points:
         bottom:
           row_net: P21
 outlines:
-  _raw:
+  raw:
     - what: rectangle #keys
       where: true
       size: [U+1,U+1]
@@ -107,13 +107,33 @@ outlines:
         ref: main_outer_bottom
         shift: [-8.4,-8.0]
       radius: 4
-  _fwk_pcb:
+  fwk_pcb:
     - what: outline
-      name: _raw
+      name: raw
       fillet: 4
-  _fwk_case_pre:
+  fwk_pcb_with_components:
     - what: outline
-      name: _raw
+      name: fwk_pcb
+    - what: rectangle
+      where: true
+      size: 18
+      operation: stack
+    - what: rectangle
+      where: 
+        ref: main_inner_num
+        shift: [7.3-5.4,U-1.8]
+        rotate: -90+19
+      size: [6, 14]
+      operation: stack
+    - what: rectangle
+      where:
+        ref: main_outer_num
+        shift: [0.5U-2.5,20]
+      size: [33, 17.6]
+      operation: stack
+  fwk_case_pre:
+    - what: outline
+      name: raw
       expand: 5
     - what: polygon #trrs case cutout
       operation: subtract
@@ -132,17 +152,17 @@ outlines:
         shift: [0.5U-2.5,20]
       size: [50,15]
     - what: outline
-      name: _fwk_pcb
+      name: fwk_pcb
       operation: add
   fwk_case_base:
     - what: outline
-      name: _fwk_case_pre
+      name: fwk_case_pre
       fillet: 3
   fwk_case_walls:
     - what: outline
       name: fwk_case_base
     - what: outline
-      name: _fwk_pcb
+      name: fwk_pcb
       operation: subtract
     - what: rectangle #promicro wall cutout
       operation: subtract
@@ -171,8 +191,8 @@ cases:
 pcbs:
   fwk_pcb:
     outlines:
-      _fwk_pcb:
-        outline: _fwk_pcb
+      fwk_pcb:
+        outline: fwk_pcb
     footprints:
       keys:
         what: mx

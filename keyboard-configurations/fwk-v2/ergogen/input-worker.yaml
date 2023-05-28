@@ -1,0 +1,109 @@
+points:
+  zones:
+    main:
+      columns:
+        pinky:
+          key:
+            column_net: P4
+        ring:
+          key:
+            column_net: P5
+            stagger: 7
+        middle:
+          key:
+            column_net: P6
+            stagger: 7
+        index:
+          key:
+            column_net: P7
+            stagger: -7
+        inner:
+          key:
+            column_net: P8
+        extra:
+          key:
+            column_net: P9
+            stagger: -5
+      rows:
+        bottom:
+          row_net: P20
+        home:
+          row_net: P19
+        top:
+          row_net: P18
+    thumbfan:
+      anchor:
+        ref: main_index_bottom
+        shift: [-U/2, -1.05U]
+      columns:
+        pos1:
+          key:
+            column_net: P6
+        pos2:
+          key:
+            column_net: P7
+            rotate: -10
+            shift: [1.55,-1.7]
+        pos3:
+          key:
+            column_net: P8
+            rotate: -20
+            shift: [2.45, -7]
+        pos4:
+          key:
+            column_net: P9
+            rotate: -20
+            shift: [-U-3.95, -5.75-U]
+        pos5:
+          key:
+            column_net: P10
+            rotate: -20
+            shift: [-U-3.05,-U-7]
+      rows:
+        bottom:
+          row_net: P21
+outlines:
+  raw:
+    - what: rectangle #keys
+      where: true
+      size: [U+1,U+1]
+    - what: polygon # board
+      where:
+        ref: main_pinky_bottom
+      points:
+        - shift: [-12.5,-12]
+        - shift: [0,100-U]
+        - shift: [115-U, 0]
+        - shift: [3, -9]
+        - shift: [20,0]
+        - shift: [15, -110]
+        - shift: [-15,-10]
+        - shift: [-60, 19.9]
+        - shift: [0,1.1]
+    - what: circle
+      where:
+        ref: main_pinky_bottom
+        shift: [-30,-161.5]
+      radius: 150
+      operation: subtract
+    - what: polygon
+      where:
+        ref: main_pinky_bottom
+        shift: [-9.5,-9]
+      points:
+        - shift: [-3,1]
+        - shift: [5,-5]
+        - shift: [-10,-6]
+      operation: subtract
+    - what: circle
+      where:
+        ref: main_pinky_bottom
+        shift: [-7.5,-8.2]
+      radius: 5
+  raw_with_keys:
+    - what: outline
+      name: raw
+    - what: rectangle
+      where: true
+      size: [18,18]
+      operation: stack
