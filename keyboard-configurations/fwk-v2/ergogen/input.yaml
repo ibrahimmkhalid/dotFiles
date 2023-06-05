@@ -1,0 +1,466 @@
+points:
+  zones:
+    main:
+      columns:
+        pinky:
+          key:
+            column_net: P4
+        ring:
+          key:
+            column_net: P5
+            stagger: 7
+        middle:
+          key:
+            column_net: P6
+            stagger: 7
+        index:
+          key:
+            column_net: P7
+            stagger: -7
+        inner:
+          key:
+            column_net: P8
+        extra:
+          key:
+            column_net: P9
+            stagger: -5
+      rows:
+        bottom:
+          row_net: P20
+        home:
+          row_net: P19
+        top:
+          row_net: P18
+    thumb:
+      anchor:
+        ref: main_index_bottom
+        shift: [-U/2, -1.05U]
+      columns:
+        pos1:
+          key:
+            column_net: P6
+        pos2:
+          key:
+            column_net: P7
+            rotate: -10
+            shift: [1.55,-1.7]
+        pos3:
+          key:
+            column_net: P8
+            rotate: -20
+            shift: [2.45, -7]
+        pos4:
+          key:
+            column_net: P9
+            rotate: -20
+            shift: [-U-3.95, -5.75-U]
+        pos5:
+          key:
+            column_net: P10
+            rotate: -20
+            shift: [-U-3.05,-U-7]
+      rows:
+        bottom:
+          row_net: P21
+    game:
+      anchor:
+        shift: [-U,0]
+      columns:
+        outer:
+          key:
+            column_net: P3
+        pinky:
+          key:
+            column_net: P4
+          rows:
+            bottom.skip: true
+            home.skip: true
+            top.skip: true
+        ring:
+          key:
+            column_net: P5
+            stagger: 7
+          rows:
+            bottom.skip: true
+            home.skip: true
+            top.skip: true
+        middle:
+          key:
+            column_net: P6
+            stagger: 7
+          rows:
+            bottom.skip: true
+            home.skip: true
+            top.skip: true
+        index:
+          key:
+            column_net: P7
+            stagger: -7
+          rows:
+            bottom.skip: true
+            home.skip: true
+            top.skip: true
+        inner:
+          key:
+            column_net: P8
+          rows:
+            bottom.skip: true
+            home.skip: true
+            top.skip: true
+      rows:
+        bottom:
+          row_net: P20
+        home:
+          row_net: P19
+        top:
+          row_net: P18
+        num:
+          row_net: P15
+outlines:
+  _work_keys:
+    - what: rectangle
+      where: /^main_.*/
+      size: [U,U]
+    - what: rectangle
+      where: /^thumb_.*/
+      size: [U,U]
+  _game_keys:
+    - what: rectangle # keys
+      where: true
+      size: [U,U]
+  _trrs:
+    - what: rectangle
+      size: [6, 14]
+  _promicro:
+    - what: rectangle
+      size: [33, 17.6]
+  _work_trrs:
+    - what: outline # _trrs
+      name: _trrs
+      where: 
+        ref: main_extra_top
+        shift: [3,U-1]
+        rotate: 14.03 #ra tri o/a 1/4
+  _work_promicro:
+    - what: outline # pro micro
+      name: _promicro
+      where:
+        ref: main_pinky_bottom
+        shift: [U/2-2,-1U]
+  _work_connect_polygon_round:
+    - what: circle
+      operation: stack
+      radius: 85
+      where: 
+        ref: main_middle_home
+        shift: [0.35U, -51]
+    - what: rectangle
+      operation: subtract
+      size: [100,300]
+      where: 
+        ref: main_middle_home
+        shift: [50+0.5U,0]
+    - what: rectangle
+      operation: subtract
+      size: [300,300]
+      where: 
+        ref: main_pinky_top
+        shift: [0,-150+0.5U]
+  _work_connect_polygon:
+    - what: polygon
+      points:
+        - ref: main_pinky_bottom
+          shift: [-0.5U, -0.5U]
+        - ref: main_pinky_bottom
+          shift: [-0.5U, -1.5U]
+        - ref: thumb_pos4_bottom
+          shift: [0.55U,-0.55U]
+        - ref: main_extra_top
+          shift: [14,-U]
+        - ref: main_index_top
+          shift: [14,-U]
+    - what: polygon
+      points:
+        - ref: thumb_pos5_bottom
+          shift: [0.5U,-0.5U]
+        - orient: 20
+          shift: [-19.3,0]
+        - shift: [0,10]
+    - what: polygon
+      where: 
+        ref: main_extra_top
+        shift: [32,-80]
+      points:
+        - shift: [0,0]
+        - shift: [-79.5,0]
+        - shift: [0,107]
+        - shift: [52.8,0]
+    - what: polygon
+      points:
+        - ref: thumb_pos5_bottom
+          shift: [0.5U, -0.5U]
+        - shift: [0,2U]
+        - shift: [-40,10]
+        - ref: thumb_pos5_bottom
+          shift: [-0.5U, -0.5U]
+    - what: polygon
+      points:
+        - ref: thumb_pos5_bottom
+          shift: [0.5U, -0.5U]
+        - shift: [0,3U]
+        - shift: [40,10]
+        - ref: thumb_pos5_bottom
+          shift: [U, -0.5U]
+      operation: subtract
+    - what: outline
+      name: _work_connect_polygon_round
+  _work_raw:
+    - what: outline
+      name: _work_keys
+    - what: outline
+      name: _work_trrs
+    - what: outline
+      name: _work_promicro
+    - what: outline
+      name: _work_connect_polygon
+  work_raw_stacked:
+    - what: outline
+      name: _work_keys
+      operation: stack
+    - what: outline
+      name: _work_trrs
+      operation: stack
+    - what: outline
+      name: _work_promicro
+      operation: stack
+    - what: outline
+      name: _work_connect_polygon
+      operation: stack
+  _game_trrs:
+    - what: outline # _trrs
+      name: _trrs
+      where: 
+        ref: main_extra_top
+        shift: [1,1.5U+4.5]
+        rotate: 14.03 #ra tri o/a 1/4
+  _game_promicro:
+    - what: outline # pro micro
+      name: _promicro
+      where:
+        ref: game_outer_bottom
+        shift: [U/2-2,-1U]
+  _game_connect_polygon_round:
+    - what: circle
+      operation: stack
+      radius: 85
+      where: 
+        ref: main_middle_home
+        shift: [0.35U, -36.4]
+    - what: rectangle
+      operation: subtract
+      size: [100,300]
+      where: 
+        ref: main_middle_home
+        shift: [50+0.5U,0]
+    - what: rectangle
+      operation: subtract
+      size: [300,300]
+      where: 
+        ref: game_outer_num
+        shift: [0,-150+0.5U]
+  _game_connect_polygon:
+    - what: polygon
+      points:
+        - ref: game_outer_bottom
+          shift: [-0.5U, -0.5U]
+        - ref: game_outer_bottom
+          shift: [-0.5U, -1.5U]
+        - ref: thumb_pos4_bottom
+          shift: [0.55U,-0.55U]
+        - ref: main_extra_top
+          shift: [14,-U]
+        - ref: main_index_top
+          shift: [14,-U]
+    - what: polygon
+      points:
+        - ref: thumb_pos5_bottom
+          shift: [0.5U,-0.5U]
+        - orient: 20
+          shift: [-19.3,0]
+        - shift: [0,10]
+    - what: polygon
+      where: 
+        ref: main_extra_top
+        shift: [32,-80]
+      points:
+        - shift: [0,0]
+        - shift: [-90.5,0]
+        - shift: [0,10]
+        - shift: [-14,0]
+        - shift: [0,92.5+U]
+        - shift: [76.8,0]
+    - what: polygon
+      points:
+        - ref: thumb_pos5_bottom
+          shift: [0.5U, -0.5U]
+        - shift: [0,2U]
+        - shift: [-40,10]
+        - ref: thumb_pos5_bottom
+          shift: [-0.5U, -0.5U]
+    - what: polygon
+      points:
+        - ref: thumb_pos5_bottom
+          shift: [0.5U, -0.5U]
+        - shift: [0,3U]
+        - shift: [40,10]
+        - ref: thumb_pos5_bottom
+          shift: [U, -0.5U]
+      operation: subtract
+    - what: outline
+      name: _game_connect_polygon_round
+      where:
+        ref: main_middle_home
+        shift: [-63, -33]
+  _game_raw:
+    - what: outline
+      name: _game_keys
+    - what: outline
+      name: _game_trrs
+    - what: outline
+      name: _game_promicro
+    - what: outline
+      name: _game_connect_polygon
+  game_raw_stacked:
+    - what: outline
+      name: _game_keys
+      operation: stack
+    - what: outline
+      name: _game_trrs
+      operation: stack
+    - what: outline
+      name: _game_promicro
+      operation: stack
+    - what: outline
+      name: _game_connect_polygon
+      operation: stack
+  work_pcb:
+    - what: outline
+      name: _work_raw
+  work_plate:
+    - what: outline
+      name: work_pcb
+    - what: rectangle
+      where: /^main_.*/
+      size: [14,14]
+      operation: subtract
+    - what: rectangle
+      where: /^thumb_.*/
+      size: [14,14]
+      operation: subtract
+  game_pcb:
+    - what: outline
+      name: _game_raw
+  game_plate:
+    - what: outline
+      name: game_pcb
+    - what: rectangle
+      where: true
+      size: [14,14]
+      operation: subtract
+pcbs:
+  work_pcb:
+    outlines:
+      work_pcb:
+        outline: work_pcb
+    footprints:
+      keys:
+        what: mx
+        where: /^(main_|thumb_).*/
+        params:
+          keycaps: true
+          hotswap: true
+          reverse: true
+          from: "{{colrow}}"
+          to: "{{column_net}}"
+      diodes:
+        what: diode
+        where: /^(main_|thumb_).*/
+        adjust:
+          rotate: 180
+          shift: [0, -5]
+        params:
+          from: "{{row_net}}"
+          to: "{{colrow}}"
+      vias:
+        what: via
+        where: /^(main_|thumb_).*/
+        adjust:
+          shift: [0.5U, 7]
+        params:
+          net: "{{column_net}}"
+      promicro:
+        what: promicro
+        where:
+          ref: main_pinky_bottom
+          shift: [U/2-2+1,-1U] # x = x+1
+      trrs:
+        what: trrs
+        where: 
+          ref: main_extra_top
+          shift: [3,U-1+7-0.8333333333] # y = y+7-0.8333333333
+          rotate: 14.03 #ra tri o/a 1/4
+        params:
+          reverse: true
+          symmetric: true
+          A: GND
+          B: GND
+          C: P2
+          D: VCC
+  game_pcb:
+    outlines:
+      game_pcb:
+        outline: game_pcb
+    footprints:
+      keys:
+        what: mx
+        where: true
+        params:
+          keycaps: true
+          hotswap: true
+          reverse: true
+          from: "{{colrow}}"
+          to: "{{column_net}}"
+      diodes:
+        what: diode
+        where: true
+        adjust:
+          rotate: 180
+          shift: [0, -5]
+        params:
+          from: "{{row_net}}"
+          to: "{{colrow}}"
+      vias:
+        what: via
+        where: true
+        adjust:
+          shift: [0.5U, 7]
+        params:
+          net: "{{column_net}}"
+      promicro:
+        what: promicro
+        where:
+          ref: game_outer_bottom
+          shift: [U/2-2+1,-1U] # x = x+1
+      trrs:
+        what: trrs
+        where: 
+          ref: main_extra_top
+          shift: [1+1,1.5U+4+7-0.8333333333] # y = y+7-0.8333333333 x=x+1
+          rotate: 14.03 #ra tri o/a 1/4
+        params:
+          reverse: true
+          symmetric: true
+          A: GND
+          B: GND
+          C: P2
+          D: VCC
