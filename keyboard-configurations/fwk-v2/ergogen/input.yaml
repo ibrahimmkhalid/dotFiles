@@ -124,10 +124,27 @@ outlines:
     - what: rectangle
       where: /^thumb_.*/
       size: [U,U]
+  _work_keys_plate:
+    - what: rectangle
+      where: /^main_.*/
+      size: [14,14]
+    - what: rectangle
+      where: /^thumb_.*/
+      size: [14,14]
+    - what: outline
+      name: _work_keys
+      operation: stack
   _game_keys:
     - what: rectangle # keys
       where: true
       size: [U,U]
+  _game_keys_plate:
+    - what: rectangle # keys
+      where: true
+      size: [14,14]
+    - what: outline
+      name: _game_keys
+      operation: stack
   _trrs:
     - what: rectangle
       size: [6, 14]
@@ -225,8 +242,7 @@ outlines:
       name: _work_connect_polygon
   work_raw_stacked:
     - what: outline
-      name: _work_keys
-      operation: stack
+      name: _work_keys_plate
     - what: outline
       name: _work_trrs
       operation: stack
@@ -332,7 +348,7 @@ outlines:
       name: _game_connect_polygon
   game_raw_stacked:
     - what: outline
-      name: _game_keys
+      name: _game_keys_plate
       operation: stack
     - what: outline
       name: _game_trrs
