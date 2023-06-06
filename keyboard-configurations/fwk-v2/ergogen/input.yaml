@@ -348,7 +348,7 @@ outlines:
       name: _work_raw
   work_plate:
     - what: outline
-      name: work_pcb
+      name: _work_raw
     - what: rectangle
       where: /^main_.*/
       size: [14,14]
@@ -362,7 +362,7 @@ outlines:
       name: _game_raw
   game_plate:
     - what: outline
-      name: game_pcb
+      name: _game_raw
     - what: rectangle
       where: true
       size: [14,14]
