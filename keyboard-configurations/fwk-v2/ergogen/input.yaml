@@ -38,30 +38,41 @@ points:
       columns:
         pos1:
           key:
-            column_net: P6
+            column_net: P9
+            shift: [-0.1,-U/2]
+          rows.cluster.skip: true
         pos2:
           key:
-            column_net: P7
+            column_net: P10
             rotate: -10
             shift: [1.55,-1.7]
+          rows.wextra.skip: true
+          rows.cluster.row_net: P15
         pos3:
           key:
-            column_net: P8
+            column_net: P10
             rotate: -20
             shift: [2.45, -7]
+          rows.wextra.skip: true
+          rows.cluster.row_net: P18
         pos4:
           key:
-            column_net: P9
+            column_net: P10
             rotate: -20
             shift: [-U-3.95, -5.75-U]
+          rows.wextra.skip: true
+          rows.cluster.row_net: P19
         pos5:
           key:
             column_net: P10
             rotate: -20
             shift: [-U-3.05,-U-7]
+          rows.wextra.skip: true
+          rows.cluster.row_net: P20
       rows:
-        bottom:
-          row_net: P21
+        cluster:
+        wextra:
+          row_net: P15
     game:
       anchor:
         shift: [-U,0]
@@ -190,7 +201,7 @@ outlines:
           shift: [-0.5U, -0.5U]
         - ref: main_pinky_bottom
           shift: [-0.5U, -1.5U]
-        - ref: thumb_pos4_bottom
+        - ref: thumb_pos4_cluster
           shift: [0.55U,-0.55U]
         - ref: main_extra_top
           shift: [14,-U]
@@ -198,7 +209,7 @@ outlines:
           shift: [14,-U]
     - what: polygon
       points:
-        - ref: thumb_pos5_bottom
+        - ref: thumb_pos5_cluster
           shift: [0.5U,-0.5U]
         - orient: 20
           shift: [-19.3,0]
@@ -214,19 +225,19 @@ outlines:
         - shift: [52.8,0]
     - what: polygon
       points:
-        - ref: thumb_pos5_bottom
+        - ref: thumb_pos5_cluster
           shift: [0.5U, -0.5U]
         - shift: [0,U]
         - shift: [-40,10]
-        - ref: thumb_pos5_bottom
+        - ref: thumb_pos5_cluster
           shift: [-0.5U, -0.5U]
     - what: polygon
       points:
-        - ref: thumb_pos5_bottom
+        - ref: thumb_pos5_cluster
           shift: [0.5U, -0.5U]
         - shift: [0,3U]
         - shift: [40,10]
-        - ref: thumb_pos5_bottom
+        - ref: thumb_pos5_cluster
           shift: [U, -0.5U]
       operation: subtract
     - what: outline
@@ -291,7 +302,7 @@ outlines:
           shift: [-0.5U, -0.5U]
         - ref: game_outer_bottom
           shift: [-0.5U, -1.5U]
-        - ref: thumb_pos4_bottom
+        - ref: thumb_pos4_cluster
           shift: [0.55U,-0.55U]
         - ref: main_extra_top
           shift: [14,-U]
@@ -299,7 +310,7 @@ outlines:
           shift: [14,-U]
     - what: polygon
       points:
-        - ref: thumb_pos5_bottom
+        - ref: thumb_pos5_cluster
           shift: [0.5U,-0.5U]
         - orient: 20
           shift: [-19.3,0]
@@ -317,19 +328,19 @@ outlines:
         - shift: [76.8,0]
     - what: polygon
       points:
-        - ref: thumb_pos5_bottom
+        - ref: thumb_pos5_cluster
           shift: [0.5U, -0.5U]
         - shift: [0,U]
         - shift: [-40,10]
-        - ref: thumb_pos5_bottom
+        - ref: thumb_pos5_cluster
           shift: [-0.5U, -0.5U]
     - what: polygon
       points:
-        - ref: thumb_pos5_bottom
+        - ref: thumb_pos5_cluster
           shift: [0.5U, -0.5U]
         - shift: [0,3U]
         - shift: [40,10]
-        - ref: thumb_pos5_bottom
+        - ref: thumb_pos5_cluster
           shift: [U, -0.5U]
       operation: subtract
     - what: outline
@@ -365,7 +376,7 @@ outlines:
     - what: circle
       radius: 1.1
       operation: subtract
-      where: /^(main_pinky_top|main_pinky_bottom|main_middle_bottom|main_extra_top|main_extra_bottom|thumb_pos4_bottom|main_middle_top)/
+      where: /^(main_pinky_top|main_pinky_bottom|main_middle_bottom|main_extra_top|main_extra_bottom|thumb_pos4_cluster|main_middle_top)/
       adjust:
         shift: [0,0.5U]
   work_plate:
@@ -385,7 +396,7 @@ outlines:
     - what: circle
       radius: 1.1
       operation: subtract
-      where: /^(game_outer_num|game_outer_bottom|main_middle_bottom|main_extra_top|main_extra_bottom|thumb_pos4_bottom|main_middle_top)/
+      where: /^(game_outer_num|game_outer_bottom|main_middle_bottom|main_extra_top|main_extra_bottom|thumb_pos4_cluster|main_middle_top)/
       adjust:
         shift: [0,0.5U]
   game_plate:
