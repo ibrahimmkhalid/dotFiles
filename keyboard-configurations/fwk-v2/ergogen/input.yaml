@@ -362,6 +362,12 @@ outlines:
   work_pcb:
     - what: outline
       name: _work_raw
+    - what: circle
+      radius: 1.1
+      operation: subtract
+      where: /^(main_pinky_top|main_pinky_bottom|main_middle_bottom|main_extra_top|main_extra_bottom|thumb_pos4_bottom|main_middle_top)/
+      adjust:
+        shift: [0,0.5U]
   work_plate:
     - what: outline
       name: _work_raw
@@ -376,6 +382,12 @@ outlines:
   game_pcb:
     - what: outline
       name: _game_raw
+    - what: circle
+      radius: 1.1
+      operation: subtract
+      where: /^(game_outer_num|game_outer_bottom|main_middle_bottom|main_extra_top|main_extra_bottom|thumb_pos4_bottom|main_middle_top)/
+      adjust:
+        shift: [0,0.5U]
   game_plate:
     - what: outline
       name: _game_raw
