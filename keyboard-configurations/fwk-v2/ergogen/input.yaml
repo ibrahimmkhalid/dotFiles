@@ -34,7 +34,7 @@ points:
     thumb:
       anchor:
         ref: main_index_bottom
-        shift: [-U/2, -1.05U]
+        shift: [0, -2U+16.5]
       columns:
         pos1:
           key:
@@ -156,8 +156,8 @@ outlines:
       name: _trrs
       where: 
         ref: main_extra_top
-        shift: [3,U-1]
-        rotate: 14.03 #ra tri o/a 1/4
+        shift: [-5,U-1]
+        rotate: 0 #ra tri o/a 1/4
   _work_promicro:
     - what: outline # pro micro
       name: _promicro
@@ -216,7 +216,7 @@ outlines:
       points:
         - ref: thumb_pos5_bottom
           shift: [0.5U, -0.5U]
-        - shift: [0,2U]
+        - shift: [0,U]
         - shift: [-40,10]
         - ref: thumb_pos5_bottom
           shift: [-0.5U, -0.5U]
@@ -257,8 +257,8 @@ outlines:
       name: _trrs
       where: 
         ref: main_extra_top
-        shift: [1,1.5U+4.5]
-        rotate: 14.03 #ra tri o/a 1/4
+        shift: [-5,1.5U+4.5]
+        rotate: 0 #ra tri o/a 1/4
   _game_promicro:
     - what: outline # pro micro
       name: _promicro
@@ -319,7 +319,7 @@ outlines:
       points:
         - ref: thumb_pos5_bottom
           shift: [0.5U, -0.5U]
-        - shift: [0,2U]
+        - shift: [0,U]
         - shift: [-40,10]
         - ref: thumb_pos5_bottom
           shift: [-0.5U, -0.5U]
@@ -423,8 +423,8 @@ pcbs:
         what: trrs
         where: 
           ref: main_extra_top
-          shift: [3,U-1+7-0.8333333333] # y = y+7-0.8333333333
-          rotate: 14.03 #ra tri o/a 1/4
+          shift: [-5+3.4,U-1+7-0.8333333333] # y = y+7-0.8333333333 x=x+3.4
+          rotate: 0 #ra tri o/a 1/4
         params:
           reverse: true
           symmetric: true
@@ -471,8 +471,8 @@ pcbs:
         what: trrs
         where: 
           ref: main_extra_top
-          shift: [1+1,1.5U+4+7-0.8333333333] # y = y+7-0.8333333333 x=x+1
-          rotate: 14.03 #ra tri o/a 1/4
+          shift: [-5+3.4,1.5U+4+7-0.8333333333] # y = y+7-0.8333333333 x=x+3.4
+          rotate: 0 #ra tri o/a 1/4
         params:
           reverse: true
           symmetric: true
