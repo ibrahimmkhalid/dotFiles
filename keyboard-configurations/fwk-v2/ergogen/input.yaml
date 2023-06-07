@@ -434,7 +434,7 @@ pcbs:
         what: via
         where: /^(main_|thumb_).*/
         adjust:
-          shift: [0.5U, 7]
+          shift: [0.45U, 7]
         params:
           net: "{{column_net}}"
       promicro:
@@ -482,7 +482,7 @@ pcbs:
         what: via
         where: true
         adjust:
-          shift: [0.5U, 7]
+          shift: [0.45U, 7]
         params:
           net: "{{column_net}}"
       promicro:
