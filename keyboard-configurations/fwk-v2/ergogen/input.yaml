@@ -1,3 +1,20 @@
+units:
+  screw_hole_size: 1.2
+  half_U: 0.5U
+  work_trrs_x: 2.5
+  work_trrs_y: 13
+  work_trrs_a: -90
+  game_trrs_x: 13
+  game_trrs_y: 9.5
+  game_trrs_a: 0
+  work_trrs_pcb_err_x: -14
+  work_trrs_pcb_err_y: 3
+  game_trrs_pcb_err_x: 2.1
+  game_trrs_pcb_err_y: 4.8
+  promicro_x: U/2-2
+  promicro_y: -1U
+  promicro_pcb_err_x: 1
+  promicro_pcb_err_y: 0
 points:
   zones:
     main:
@@ -128,260 +145,80 @@ points:
         num:
           row_net: P15
 outlines:
-  _work_keys:
-    - what: rectangle
-      where: /^main_.*/
-      size: [U,U]
-    - what: rectangle
-      where: /^thumb_.*/
-      size: [U,U]
-  _work_keys_plate:
-    - what: rectangle
-      where: /^main_.*/
-      size: [14,14]
-    - what: rectangle
-      where: /^thumb_.*/
-      size: [14,14]
-    - what: outline
-      name: _work_keys
-      operation: stack
-  _game_keys:
-    - what: rectangle # keys
-      where: true
-      size: [U,U]
-  _game_keys_plate:
-    - what: rectangle # keys
-      where: true
-      size: [14,14]
-    - what: outline
-      name: _game_keys
-      operation: stack
   _trrs:
     - what: rectangle
       size: [6, 14]
   _promicro:
     - what: rectangle
       size: [33, 17.6]
-  _work_trrs:
-    - what: outline # _trrs
-      name: _trrs
-      where: 
-        ref: main_extra_top
-        shift: [-5,U-1]
-        rotate: 0 #ra tri o/a 1/4
-  _work_promicro:
-    - what: outline # pro micro
-      name: _promicro
-      where:
-        ref: main_pinky_bottom
-        shift: [U/2-2,-1U]
-  _work_connect_polygon_round:
-    - what: circle
-      operation: stack
-      radius: 85
-      where: 
-        ref: main_middle_home
-        shift: [0.35U, -51]
-    - what: rectangle
-      operation: subtract
-      size: [100,300]
-      where: 
-        ref: main_middle_home
-        shift: [50+0.5U,0]
-    - what: rectangle
-      operation: subtract
-      size: [300,300]
-      where: 
-        ref: main_pinky_top
-        shift: [0,-150+0.5U]
+
   _work_connect_polygon:
     - what: polygon
       points:
-        - ref: main_pinky_bottom
-          shift: [-0.5U, -0.5U]
+        - ref: main_middle_top
+          shift: [-0.5U, 0.5U]
+        - shift: [-U, 0]
+        - ref: main_pinky_top
+          shift: [-0.5U, 0.5U]
         - ref: main_pinky_bottom
           shift: [-0.5U, -1.5U]
         - ref: thumb_pos4_cluster
-          shift: [0.55U,-0.55U]
-        - ref: main_extra_top
-          shift: [14,-U]
-        - ref: main_index_top
-          shift: [14,-U]
-    - what: polygon
-      points:
+          shift: [0.5U,-0.5U]
         - ref: thumb_pos5_cluster
           shift: [0.5U,-0.5U]
-        - orient: 20
-          shift: [-19.3,0]
-        - shift: [0,10]
-    - what: polygon
-      where: 
-        ref: main_extra_top
-        shift: [32,-80]
-      points:
-        - shift: [0,0]
-        - shift: [-79.5,0]
-        - shift: [0,107]
-        - shift: [52.8,0]
-    - what: polygon
-      points:
         - ref: thumb_pos5_cluster
-          shift: [0.5U, -0.5U]
-        - shift: [0,U]
-        - shift: [-40,10]
-        - ref: thumb_pos5_cluster
-          shift: [-0.5U, -0.5U]
-    - what: polygon
-      points:
-        - ref: thumb_pos5_cluster
-          shift: [0.5U, -0.5U]
-        - shift: [0,3U]
-        - shift: [40,10]
-        - ref: thumb_pos5_cluster
-          shift: [U, -0.5U]
-      operation: subtract
-    - what: outline
-      name: _work_connect_polygon_round
-  _work_raw:
-    - what: outline
-      name: _work_keys
-    - what: outline
-      name: _work_trrs
-    - what: outline
-      name: _work_promicro
-    - what: outline
-      name: _work_connect_polygon
+          shift: [0.5U,0.5U]
+        - ref: main_extra_top
+          shift: [0.5U, 0.5U]
+        - ref: main_extra_top
+          shift: [-0.5U, 0.5U]
+        - ref: main_inner_top
+          shift: [0.5U, 0.5U+7]
+        - ref: main_middle_top
+          shift: [0.5U, 0.5U]
+  _work_screw_holes:
+    - what: circle
+      radius: screw_hole_size
+      where: /^(main_pinky_top|main_middle_bottom|main_extra_top|thumb_pos3_cluster|main_middle_top)/
+      adjust:
+        shift: [0,-0.5U]
   work_raw_stacked:
-    - what: outline
-      name: _work_keys_plate
-    - what: outline
-      name: _work_trrs
+    - what: rectangle
+      where: /(^main_.*|^thumb_.*)/
+      size: [U,U]
+      operation: stack
+    - what: rectangle
+      where: /(^main_.*|^thumb_.*)/
+      size: [14,14]
       operation: stack
     - what: outline
-      name: _work_promicro
-      operation: stack
-    - what: outline
-      name: _work_connect_polygon
-      operation: stack
-  _game_trrs:
-    - what: outline # _trrs
       name: _trrs
       where: 
-        ref: main_extra_top
-        shift: [-5,1.5U+4.5]
-        rotate: 0 #ra tri o/a 1/4
-  _game_promicro:
-    - what: outline # pro micro
+        ref: main_inner_top
+        shift: [work_trrs_x,work_trrs_y]
+        rotate: work_trrs_a
+      operation: stack
+    - what: outline
       name: _promicro
       where:
-        ref: game_outer_bottom
-        shift: [U/2-2,-1U]
-  _game_connect_polygon_round:
-    - what: circle
-      operation: stack
-      radius: 85
-      where: 
-        ref: main_middle_home
-        shift: [0.35U, -36.4]
-    - what: rectangle
-      operation: subtract
-      size: [100,300]
-      where: 
-        ref: main_middle_home
-        shift: [50+0.5U,0]
-    - what: rectangle
-      operation: subtract
-      size: [300,300]
-      where: 
-        ref: game_outer_num
-        shift: [0,-150+0.5U]
-  _game_connect_polygon:
-    - what: polygon
-      points:
-        - ref: game_outer_bottom
-          shift: [-0.5U, -0.5U]
-        - ref: game_outer_bottom
-          shift: [-0.5U, -1.5U]
-        - ref: thumb_pos4_cluster
-          shift: [0.55U,-0.55U]
-        - ref: main_extra_top
-          shift: [14,-U]
-        - ref: main_index_top
-          shift: [14,-U]
-    - what: polygon
-      points:
-        - ref: thumb_pos5_cluster
-          shift: [0.5U,-0.5U]
-        - orient: 20
-          shift: [-19.3,0]
-        - shift: [0,10]
-    - what: polygon
-      where: 
-        ref: main_extra_top
-        shift: [32,-80]
-      points:
-        - shift: [0,0]
-        - shift: [-90.5,0]
-        - shift: [0,10]
-        - shift: [-14,0]
-        - shift: [0,92.5+U]
-        - shift: [76.8,0]
-    - what: polygon
-      points:
-        - ref: thumb_pos5_cluster
-          shift: [0.5U, -0.5U]
-        - shift: [0,U]
-        - shift: [-40,10]
-        - ref: thumb_pos5_cluster
-          shift: [-0.5U, -0.5U]
-    - what: polygon
-      points:
-        - ref: thumb_pos5_cluster
-          shift: [0.5U, -0.5U]
-        - shift: [0,3U]
-        - shift: [40,10]
-        - ref: thumb_pos5_cluster
-          shift: [U, -0.5U]
-      operation: subtract
-    - what: outline
-      name: _game_connect_polygon_round
-      where:
-        ref: main_middle_home
-        shift: [-63, -33]
-  _game_raw:
-    - what: outline
-      name: _game_keys
-    - what: outline
-      name: _game_trrs
-    - what: outline
-      name: _game_promicro
-    - what: outline
-      name: _game_connect_polygon
-  game_raw_stacked:
-    - what: outline
-      name: _game_keys_plate
+        ref: main_pinky_bottom
+        shift: [promicro_x, promicro_y]
       operation: stack
     - what: outline
-      name: _game_trrs
+      name: _work_connect_polygon
       operation: stack
     - what: outline
-      name: _game_promicro
-      operation: stack
-    - what: outline
-      name: _game_connect_polygon
+      name: _work_screw_holes
       operation: stack
   work_pcb:
     - what: outline
-      name: _work_raw
-    - what: circle
-      radius: 1.1
+      name: _work_connect_polygon
+    - what: outline
+      name: _work_screw_holes
       operation: subtract
-      where: /^(main_pinky_top|main_pinky_bottom|main_middle_bottom|main_extra_top|main_extra_bottom|thumb_pos4_cluster|main_middle_top)/
-      adjust:
-        shift: [0,0.5U]
   work_plate:
     - what: outline
-      name: _work_raw
+      name: _work_connect_polygon
     - what: rectangle
       where: /^main_.*/
       size: [14,14]
@@ -390,18 +227,82 @@ outlines:
       where: /^thumb_.*/
       size: [14,14]
       operation: subtract
+
+  _game_connect_polygon:
+    - what: polygon
+      points:
+        - ref: game_middle_num
+          shift: [-0.5U, 0.5U]
+        - shift: [-U, 0]
+        - ref: game_outer_num
+          shift: [-0.5U, 0.5U]
+        - ref: game_outer_bottom
+          shift: [-0.5U, -1.5U]
+        - ref: thumb_pos4_cluster
+          shift: [0.5U,-0.5U]
+        - ref: thumb_pos5_cluster
+          shift: [0.5U,-0.5U]
+        - ref: thumb_pos5_cluster
+          shift: [0.5U,0.5U]
+        - orient: 
+            ref: main_extra_top
+            shift: [0.5U, 0.5U]
+        - shift: [0,140]
+    - what: polygon
+      operation: subtract
+      points:
+        - ref: game_middle_num
+          shift: [-0.5U, 0.5U]
+        - shift: [4U, 0]
+        - shift: [0,30]
+  _game_screw_holes:
+    - what: circle
+      radius: screw_hole_size
+      where: /^(game_outer_num|main_middle_bottom|game_inner_num|thumb_pos3_cluster|game_middle_num)/
+      adjust:
+        shift: [0,-0.5U]
+    - what: circle
+      radius: screw_hole_size
+      where: main_pinky_bottom
+      adjust:
+        shift: [0.5U, -0.5U]
+  game_raw_stacked:
+    - what: outline
+      name: _game_connect_polygon
+      operation: stack
+    - what: outline # _trrs
+      name: _trrs
+      where: 
+        ref: game_inner_num
+        shift: [game_trrs_x,game_trrs_y]
+        rotate: game_trrs_a
+      operation: stack
+    - what: outline # pro micro
+      name: _promicro
+      where:
+        ref: game_outer_bottom
+        shift: [promicro_x, promicro_y]
+      operation: stack
+    - what: rectangle # keys
+      where: true
+      size: [14,14]
+      operation: stack
+    - what: rectangle # keys
+      where: true
+      size: [U,U]
+      operation: stack
+    - what: outline
+      name: _game_screw_holes
+      operation: stack
   game_pcb:
     - what: outline
-      name: _game_raw
-    - what: circle
-      radius: 1.1
+      name: _game_connect_polygon
+    - what: outline
+      name: _game_screw_holes
       operation: subtract
-      where: /^(game_outer_num|game_outer_bottom|main_middle_bottom|main_extra_top|main_extra_bottom|thumb_pos4_cluster|main_middle_top)/
-      adjust:
-        shift: [0,0.5U]
   game_plate:
     - what: outline
-      name: _game_raw
+      name: _game_connect_polygon
     - what: rectangle
       where: true
       size: [14,14]
@@ -441,13 +342,13 @@ pcbs:
         what: promicro
         where:
           ref: main_pinky_bottom
-          shift: [U/2-2+1,-1U] # x = x+1
+          shift: [promicro_x+promicro_pcb_err_x, promicro_y+promicro_pcb_err_y]
       trrs:
         what: trrs
         where: 
           ref: main_extra_top
-          shift: [-5+3.4,U-1+7-0.8333333333] # y = y+7-0.8333333333 x=x+3.4
-          rotate: 0 #ra tri o/a 1/4
+          shift: [work_trrs_x+work_trrs_pcb_err_x, work_trrs_y+work_trrs_pcb_err_y]
+          rotate: work_trrs_a
         params:
           reverse: true
           symmetric: true
@@ -489,13 +390,13 @@ pcbs:
         what: promicro
         where:
           ref: game_outer_bottom
-          shift: [U/2-2+1,-1U] # x = x+1
+          shift: [promicro_x+promicro_pcb_err_x, promicro_y+promicro_pcb_err_y]
       trrs:
         what: trrs
         where: 
-          ref: main_extra_top
-          shift: [-5+3.4,1.5U+4+7-0.8333333333] # y = y+7-0.8333333333 x=x+3.4
-          rotate: 0 #ra tri o/a 1/4
+          ref: game_inner_num
+          shift: [game_trrs_x+game_trrs_pcb_err_x, game_trrs_y+game_trrs_pcb_err_y]
+          rotate: game_trrs_a
         params:
           reverse: true
           symmetric: true
