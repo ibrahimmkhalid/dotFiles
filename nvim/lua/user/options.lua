@@ -22,6 +22,7 @@ local options = {
   tabstop = 2,
   wrap = false,
   whichwrap = "<,>,[,],h,l",
+  exrc = true,
 }
 
 
