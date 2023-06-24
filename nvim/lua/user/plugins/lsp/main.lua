@@ -24,10 +24,16 @@ return {
 
     -- etc
     { 'windwp/nvim-autopairs' },
+
+    -- dap
+    { 'mfussenegger/nvim-dap' },
+    { 'jay-babu/mason-nvim-dap.nvim' },
+    { 'rcarriga/nvim-dap-ui' },
   },
   config = function()
     require("user.plugins.lsp.cmp")
     require("user.plugins.lsp.lsp")
+    require("user.plugins.lsp.dap")
     require("user.plugins.lsp.autopairs")
     require("user.plugins.lsp.options")
   end
