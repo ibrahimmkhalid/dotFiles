@@ -35,11 +35,11 @@ dap.adapters.python = {
   args = {},
 }
 
-Keymap('n', '<leader>dT', dap.clear_breakpoints, "Clear all breakpoints")
+Keymap('n', '<leader>dP', dap.clear_breakpoints, "Clear all breakpoints")
 Keymap('n', '<leader>dd', dap.continue, "Debug start/continue")
 Keymap('n', '<leader>dr', dap.restart, "Debug restart")
 Keymap('n', '<leader>dq', dap.terminate, "End debugging")
-Keymap('n', '<leader>dt', dap.toggle_breakpoint, "Toggle breakpoint")
-Keymap('n', '<leader>dx', dap.step_into, "Step into")
-Keymap('n', '<leader>dc', dap.step_over, "Step over")
-Keymap('n', '<leader>dv', dap.step_out, "Step out")
+Keymap('n', '<leader>dp', dap.toggle_breakpoint, "Toggle breakpoint")
+Keymap('n', '<leader>di', dap.step_into, "Step into")
+Keymap('n', '<leader>do', dap.step_over, "Step over")
+Keymap('n', '<leader>du', dap.step_out, "Step out")
