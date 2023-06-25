@@ -4,12 +4,7 @@ require("mason-nvim-dap").setup({
   ensure_installed = { "python" }
 })
 
-dapui.setup({
-  icons = { expanded = "", collapsed = "", current_frame = "" },
-  controls = {
-    enabled = false,
-  },
-})
+dapui.setup({})
 
 local function debug_start()
   dapui.open({})
