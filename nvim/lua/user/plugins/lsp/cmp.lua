@@ -9,32 +9,33 @@ local check_backspace = function()
 end
 
 local kind_icons = {
-  Text = "󰉿",
-  Method = "m",
+  Text = "",
+  Method = "󰆧",
   Function = "󰊕",
-  Constructor = "",
-  Field = "",
-  Variable = "󰆧",
-  Class = "󰌗",
+  Constructor = "",
+  Field = "󰇽",
+  Variable = "󰂡",
+  Class = "󰠱",
   Interface = "",
-  Module = "󰏗",
-  Property = "",
+  Module = "",
+  Property = "󰜢",
   Unit = "",
   Value = "󰎠",
   Enum = "",
   Keyword = "󰌋",
-  Snippet = "",
+  Snippet = "",
   Color = "󰏘",
   File = "󰈙",
   Reference = "",
   Folder = "󰉋",
   EnumMember = "",
-  Constant = "󰇽",
+  Constant = "󰏿",
   Struct = "",
   Event = "",
   Operator = "󰆕",
-  TypeParameter = "󰊄",
+  TypeParameter = "󰅲",
 }
+
 cmp.setup {
   snippet = {
     expand = function(args)
