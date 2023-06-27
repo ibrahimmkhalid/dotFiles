@@ -61,6 +61,13 @@ cmp.setup {
     format = lspkind.cmp_format({
       mode = 'symbol', -- show only symbol annotations
       before = function (entry, vim_item)
+        vim_item.menu = ({
+          nvim_lsp = "[LSP]",
+          luasnip = "[Snippet]",
+          buffer = "[Buffer]",
+          emoji = "[Emoji]",
+          path = "[Path]",
+        })[entry.source.name]
         return vim_item
       end
     })
