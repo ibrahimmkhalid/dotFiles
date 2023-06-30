@@ -40,6 +40,7 @@ local lazy_plugins = {
   { import = "user.plugins.git" },
   { import = "user.plugins.lsp.main" },
   { import = "user.plugins.neotree" },
+  { import = "user.plugins.undotree" },
   { import = "user.plugins.treesitter" },
   { import = "user.plugins.colorizer" },
   { import = "user.plugins.telescope" },
