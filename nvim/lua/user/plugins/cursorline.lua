@@ -14,7 +14,6 @@ return {
         underline = true
       }
     else
-      print(bg_color)
       hl_attr = {
         underline = false,
         bg = bg_color
