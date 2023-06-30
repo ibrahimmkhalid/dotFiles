@@ -16,7 +16,7 @@ ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s -f $PWD/guillotine.json $HOME/.config/guillotine.json
 
 #fonts
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
 unzip FiraCode.zip
 rm *Windows*
 rm Fura*

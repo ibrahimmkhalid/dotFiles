@@ -17,6 +17,7 @@ return {
     { 'hrsh7th/cmp-emoji' },
     { 'saadparwaiz1/cmp_luasnip' },
     { 'hrsh7th/cmp-nvim-lua' },
+    { 'onsails/lspkind.nvim' },
 
     -- snippets
     { 'L3MON4D3/LuaSnip' },
