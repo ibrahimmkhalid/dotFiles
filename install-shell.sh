@@ -30,8 +30,8 @@ mv $PWD/nvim.appimage $HOME/.local/bin/nvim
 
 #lazy git
 mkdir tmp && cd tmp
-curl -LO https://github.com/jesseduffield/lazygit/releases/download/v0.37/lazygit_0.37_Linux_x86_64.tar.gz
-tar xzf lazygit_0.37_Linux_x86_64.tar.gz
+curl -LO https://github.com/jesseduffield/lazygit/releases/download/v0.38.2/lazygit_0.38.2_Linux_x86_64.tar.gz
+tar xzf lazygit_0.38.2_Linux_x86_64.tar.gz
 mv $PWD/lazygit $HOME/.local/bin/lazygit
 cd ..
 rm -rf tmp

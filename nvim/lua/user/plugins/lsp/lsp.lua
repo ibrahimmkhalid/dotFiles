@@ -17,31 +17,9 @@ require('mason-lspconfig').setup({
 
 local lspconfig = require('lspconfig')
 
-local function lsp_highlight_document(client, bufnr)
-  if client.server_capabilities.documentHighlightProvider then
-    local gid = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-    vim.api.nvim_create_autocmd("CursorHold", {
-      group = gid,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.document_highlight()
-      end
-    })
-
-    vim.api.nvim_create_autocmd("CursorMoved", {
-      group = gid,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.clear_references()
-      end
-    })
-  end
-end
-
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lsp_attach = function(client, bufnr)
   local keymap = vim.api.nvim_buf_set_keymap
-  lsp_highlight_document(client, bufnr)
 
   keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>",
     { noremap = true, silent = true, desc = "Go to declaration" })
