@@ -1,10 +1,10 @@
 return {
   "romgrk/barbar.nvim",
-  version="1.6.2",
+  version = '^1.0.0',
+  opts = {
+    maximum_length = 45,
+  },
   config = function()
-    require("bufferline").setup({
-      maximum_length = 45
-    })
     Keymap('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', "Goto buffer 1")
     Keymap('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', "Goto buffer 2")
     Keymap('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', "Goto buffer 3")
