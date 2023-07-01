@@ -23,10 +23,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
-#node version manager
-nvm_version=$(curl -s https://raw.githubusercontent.com/nvm-sh/nvm/master/README.md | grep -o 'nvm/v[0-9]*\.[0-9]*\.[0-9]*' | grep -o 'v[0-9]*\.[0-9]*\.[0-9]*' | head -1)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | bash
-
 #neovim
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod u+x nvim.appimage
@@ -54,11 +50,12 @@ do
   ln -s -f $PWD/scripts/$d $HOME/.local/bin/$d;
 done
 
+curl -L https://bit.ly/n-install | N_PREFIX=~/.local/share/n bash -s -- -y
+export N_PREFIX="$HOME/.local/share/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+
 #final installs
-# nvm install --lts
-# cd ~/.local/share/ergogen
-# npm install
-# echo "qmk setup -H ~/.local/share/qmk_firmware"
-# PATH=$PATH:$HOME/.local/bin
-# qmk setup -H ~/.local/share/qmk_firmware
-# ln -s -f ~/.local/share/ergogen/src/cli.js ~/.local/bin/ergogen
+cd ~/.local/share/ergogen
+npm install
+PATH=$PATH:$HOME/.local/bin
+qmk setup -H ~/.local/share/qmk_firmware -y
+ln -s -f ~/.local/share/ergogen/src/cli.js ~/.local/bin/ergogen

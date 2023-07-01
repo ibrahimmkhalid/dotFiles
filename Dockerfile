@@ -22,5 +22,5 @@ ENV USER tester
 
 # Change working directory
 WORKDIR /home/tester/projects/dotfiles
-
-CMD ["/bin/bash"]
+RUN ./install-shell.sh
+CMD ["/bin/zsh"]
