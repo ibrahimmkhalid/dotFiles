@@ -25,22 +25,11 @@ function cpm(){
 function cpd(){
   cp -rfv $(pwd) /mnt/c/Users/Ibrahim/Desktop
 }
-#Laradock configurations
-#get config from https://github.com/ibrahimmkhalid/laradock
-#alias laradock='docker-compose -f /path/to/laradock/docker-compose.yml --env-file /path/to/laradock/.env'
-#alias laradock-up='laradock up -d nginx mysql phpmyadmin redis workspace'
-#alias laradock-sh='laradock exec --user=laradock workspace zsh'
-#alias pa='laradock exec --user=laradock workspace php /var/www/${PWD##*/}/artisan'
-#alias composer='laradock exec --user=laradock workspace composer --working-dir=/var/www/${PWD##*/}'
 
 function openDocx(){
 	doc2pdf -o /home/$USER/tmp/openDocx.pdf $1
 	evince /home/$USER/tmp/openDocx.pdf
 	rm /home/$USER/tmp/openDocx.pdf
-}
-
-function regex1(){
-	gawk 'match($0,/'$1'/, ary) {print ary['${2:-'1'}']}';
 }
 
 export NVM_DIR="$HOME/.nvm"
@@ -78,6 +67,3 @@ if [[ -f $HOME/.localrc ]] then
 fi
 
 LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)

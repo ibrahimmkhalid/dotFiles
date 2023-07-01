@@ -5,7 +5,7 @@ set -e
 sudo add-apt-repository universe -y
 sudo add-apt-repository ppa:aslatter/ppa -y
 sudo apt update
-sudo apt install make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ unzip neofetch tldr lldb entr fzf xsel xclip -y
+sudo apt install make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ unzip neofetch tldr lldb entr fzf xsel xclip python3 python-is-python3 python3-pip -y
 
 #setups
 git config --global user.name "Ibrahim Mansoor Khalid"
@@ -15,6 +15,10 @@ git config --global init.defaultBranch main
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/lib
 mkdir -p $HOME/.local/share
+
+#zsh theme, ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
@@ -36,9 +40,10 @@ mv $PWD/lazygit $HOME/.local/bin/lazygit
 cd ..
 rm -rf tmp
 
-#zsh theme, ohmyzsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#ergogen and qmk
+git clone https://github.com/ergogen/ergogen ~/.local/share/ergogen
+git clone https://github.com/qmk/qmk_firmware ~/.local/share/qmk_firmware
+python3 -m pip install --user qmk
 
 #configs
 ln -s -f $PWD/zshrc $HOME/.zshrc
@@ -48,3 +53,12 @@ for d in $(ls $PWD/scripts);
 do
   ln -s -f $PWD/scripts/$d $HOME/.local/bin/$d;
 done
+
+#final installs
+# nvm install --lts
+# cd ~/.local/share/ergogen
+# npm install
+# echo "qmk setup -H ~/.local/share/qmk_firmware"
+# PATH=$PATH:$HOME/.local/bin
+# qmk setup -H ~/.local/share/qmk_firmware
+# ln -s -f ~/.local/share/ergogen/src/cli.js ~/.local/bin/ergogen

@@ -1,6 +1,6 @@
 #!/bin/bash
-cd ../../tools/qmk_firmware/keyboards
-ln -s ../../../fwk-v1/qmk/fwk/ fwk
+QMK_HOME=~/.local/share/qmk_firmware
+ln -s $PWD/fwk/ $QMK_HOME/keyboards/fwk
 
 if [ -z "$1" ]; then
   km="default"
@@ -9,7 +9,6 @@ else
 fi
 
 qmk compile -kb fwk -km "$km"
-rm fwk
-cd ..
-mv fwk_"$km".hex ../../fwk-v1/qmk/output.hex
-rm -rf .build
+rm $QMK_HOME/keyboards/fwk
+mv $QMK_HOME/fwk_"$km".hex $PWD/output.hex
+rm -rf $QMK_HOME/.build
