@@ -2,7 +2,7 @@
 set -e
 
 #install
-sudo apt install dconf-editor numix-icon-theme-circle alacritty gnome-tweaks -y
+sudo apt install dconf-editor numix-icon-theme-circle alacritty gnome-tweaks jq -y
 
 #setups
 mkdir -p $HOME/.local/share/gnome-shell/extensions
@@ -16,10 +16,12 @@ ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s -f $PWD/guillotine.json $HOME/.config/guillotine.json
 
 #fonts
+mkdir tmp && cd tmp
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
 unzip FiraCode.zip
 mv *.ttf $HOME/.local/share/fonts/
 cd ..
+rm -rf tmp
 
 #nordic theme
 mkdir tmp && cd tmp
@@ -34,7 +36,7 @@ rm -rf tmp
 
 #install extensions
 sudo rm -rf /usr/share/gnome-shell/extensions/*
-wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./extensions/install-gnome-extensions.sh
+wget -N -q "https://raw.githubusercontent.com/ToasterUwU/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./extensions/install-gnome-extensions.sh
 chmod +x extensions/install-gnome-extensions.sh 
 ./extensions/install-gnome-extensions.sh --enable --file extensions/links.txt
 rm -f ./extensions/install-gnome-extensions.sh 

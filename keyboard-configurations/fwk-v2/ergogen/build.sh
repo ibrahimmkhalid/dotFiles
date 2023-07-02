@@ -1,14 +1,17 @@
-cp ../../tools/ergogen/src/footprints/diode.js ../../tools/ergogen/src/footprints/diode.js.bak
-cp ./diode.js ../../tools/ergogen/src/footprints/diode.js
+#!/bin/bash
 
-cp ../../tools/ergogen/src/footprints/promicro.js ../../tools/ergogen/src/footprints/promicro.js.bak
-cp ./promicro.js ../../tools/ergogen/src/footprints/promicro.js
+ERGOGEN_HOME=~/.local/share/ergogen/src
+cp $ERGOGEN_HOME/footprints/diode.js $ERGOGEN_HOME/footprints/diode.js.bak
+cp ./diode.js $ERGOGEN_HOME/footprints/diode.js
 
-cp ../../tools/ergogen/src/footprints/via.js ../../tools/ergogen/src/footprints/via.js.bak
-cp ./via.js ../../tools/ergogen/src/footprints/via.js
+cp $ERGOGEN_HOME/footprints/promicro.js $ERGOGEN_HOME/footprints/promicro.js.bak
+cp ./promicro.js $ERGOGEN_HOME/footprints/promicro.js
 
-../../tools/ergogen/src/cli.js ./input.yaml -o output
+cp $ERGOGEN_HOME/footprints/via.js $ERGOGEN_HOME/footprints/via.js.bak
+cp ./via.js $ERGOGEN_HOME/footprints/via.js
 
-mv ../../tools/ergogen/src/footprints/diode.js.bak ../../tools/ergogen/src/footprints/diode.js
-mv ../../tools/ergogen/src/footprints/promicro.js.bak ../../tools/ergogen/src/footprints/promicro.js
-mv ../../tools/ergogen/src/footprints/via.js.bak ../../tools/ergogen/src/footprints/via.js
+ergogen ./input.yaml -o output
+
+mv $ERGOGEN_HOME/footprints/diode.js.bak $ERGOGEN_HOME/footprints/diode.js
+mv $ERGOGEN_HOME/footprints/promicro.js.bak $ERGOGEN_HOME/footprints/promicro.js
+mv $ERGOGEN_HOME/footprints/via.js.bak $ERGOGEN_HOME/footprints/via.js

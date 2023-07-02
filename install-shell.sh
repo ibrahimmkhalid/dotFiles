@@ -5,7 +5,7 @@ set -e
 sudo add-apt-repository universe -y
 sudo add-apt-repository ppa:aslatter/ppa -y
 sudo apt update
-sudo apt install make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ unzip neofetch tldr lldb entr fzf xsel xclip -y
+sudo apt install make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ unzip neofetch tldr lldb entr fzf xsel xclip python3 python-is-python3 python3-pip build-essential python3-venv -y
 
 #setups
 git config --global user.name "Ibrahim Mansoor Khalid"
@@ -16,12 +16,13 @@ mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/lib
 mkdir -p $HOME/.local/share
 
+#zsh theme, ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+sudo usermod -s `which zsh` $USER
+
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
-
-#node version manager
-nvm_version=$(curl -s https://raw.githubusercontent.com/nvm-sh/nvm/master/README.md | grep -o 'nvm/v[0-9]*\.[0-9]*\.[0-9]*' | grep -o 'v[0-9]*\.[0-9]*\.[0-9]*' | head -1)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | bash
 
 #neovim
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
@@ -36,15 +37,26 @@ mv $PWD/lazygit $HOME/.local/bin/lazygit
 cd ..
 rm -rf tmp
 
-#zsh theme, ohmyzsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#ergogen and qmk
+git clone https://github.com/ergogen/ergogen ~/.local/share/ergogen
+git clone https://github.com/qmk/qmk_firmware ~/.local/share/qmk_firmware
+python3 -m pip install --user qmk
 
 #configs
 ln -s -f $PWD/zshrc $HOME/.zshrc
-ln -s -f $PWD/tmux $HOME/.config/tmux
+ln -s -f $PWD/tmux/tmux.conf $HOME/.config/tmux/tmux.conf
 ln -s -f $PWD/nvim $HOME/.config/nvim
 for d in $(ls $PWD/scripts);
 do
   ln -s -f $PWD/scripts/$d $HOME/.local/bin/$d;
 done
+
+curl -L https://bit.ly/n-install | N_PREFIX=~/.local/share/n bash -s -- -y
+export N_PREFIX="$HOME/.local/share/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+
+#final installs
+cd ~/.local/share/ergogen
+npm install
+PATH=$PATH:$HOME/.local/bin
+qmk setup -H ~/.local/share/qmk_firmware -y
+ln -s -f ~/.local/share/ergogen/src/cli.js ~/.local/bin/ergogen
