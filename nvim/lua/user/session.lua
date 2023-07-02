@@ -1,19 +1,10 @@
 local Path = require("plenary.path")
 
-local function convert_name_to_path(name)
-  local path = string.gsub(name, "__----__", "/")
-  return path
-end
-
 local function convert_path_to_name(path)
   local name = string.gsub(path, "/", "__--__")
   return name
 end
 
-local function convert_path_to_read(path)
-  local read = string.match(path, "/([^/]+)$")
-  return read
-end
 local function save_session()
   local cwd = vim.fn.getcwd()
   local name = convert_path_to_name(cwd)
@@ -68,32 +59,7 @@ end
 
 Keymap("n", "<leader>ss", save_session, "Save session")
 Keymap("n", "<leader>sf", load_session, "Load session")
---[[ Keymap("n", "<leader>sa", ":Alpha<CR>", "Home screen") ]]
 Keymap("n", "<leader>sd", delete_session, "Delete session")
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
   callback = autosave_existing_sessions
 })
-
---[[ local M = {} ]]
---[[]]
---[[ function M.get_sessions() ]]
---[[   local handle = io.popen("ls -t ~/.local/share/nvim/session") ]]
---[[   local sessions_files = handle:read("*a") ]]
---[[   handle:close() ]]
---[[   local sessions = vim.split(sessions_files, "\n") ]]
---[[   local readable_session = {} ]]
---[[   for i, session in ipairs(sessions) do ]]
---[[     if #session > 0 then ]]
---[[       local path = convert_name_to_path(session) ]]
---[[       local name = convert_path_to_read(path) ]]
---[[       readable_session[i] = { ]]
---[[         name = name, ]]
---[[         file = session ]]
---[[       } ]]
---[[     end ]]
---[[     if i >= 5 then break end ]]
---[[   end ]]
---[[   return readable_session ]]
---[[ end ]]
---[[]]
---[[ return M ]]
