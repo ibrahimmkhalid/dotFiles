@@ -2,7 +2,7 @@
 set -e
 
 #install
-sudo apt install dconf-editor numix-icon-theme-circle alacritty gnome-tweaks -y
+sudo apt install dconf-editor numix-icon-theme-circle alacritty gnome-tweaks jq -y
 
 #setups
 mkdir -p $HOME/.local/share/gnome-shell/extensions
