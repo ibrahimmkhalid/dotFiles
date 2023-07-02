@@ -19,6 +19,7 @@ mkdir -p $HOME/.local/share
 #zsh theme, ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+sudo usermod -s `which zsh` $USER
 
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
@@ -43,7 +44,7 @@ python3 -m pip install --user qmk
 
 #configs
 ln -s -f $PWD/zshrc $HOME/.zshrc
-ln -s -f $PWD/tmux $HOME/.config/tmux
+ln -s -f $PWD/tmux/tmux.conf $HOME/.config/tmux/tmux.conf
 ln -s -f $PWD/nvim $HOME/.config/nvim
 for d in $(ls $PWD/scripts);
 do
