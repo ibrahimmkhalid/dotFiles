@@ -1,0 +1,2 @@
+- name: Everything else
+  ansible.builtin.shell: "{{ pwd }}/install-shell.sh"
