@@ -1,6 +1,0 @@
-[submodule "keyboard-configurations/tools/ergogen"]
-	path = keyboard-configurations/tools/ergogen
-	url = git@github.com:ergogen/ergogen.git
-[submodule "keyboard-configurations/tools/qmk_firmware"]
-	path = keyboard-configurations/tools/qmk_firmware
-	url = git@github.com:qmk/qmk_firmware.git
