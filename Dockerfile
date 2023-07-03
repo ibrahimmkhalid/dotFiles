@@ -3,6 +3,7 @@ FROM ubuntu
 # OS updates and install
 RUN apt update -y
 RUN apt upgrade -y
+RUN apt install ansible -y
 RUN apt install git sudo vim software-properties-common language-pack-en -qq -y
 RUN update-locale
 
