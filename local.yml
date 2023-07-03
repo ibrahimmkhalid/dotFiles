@@ -2,6 +2,7 @@
   vars:
     source_key: "./ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    pwd: "{{ lookup('env', 'PWD') }}"
   pre_tasks:
   - name: Update Apt
     become: true
@@ -11,3 +12,4 @@
       state: present
   tasks:
     - include: tasks/ssh.yml
+    - include: tasks/not_in_ansible_yet.yml
