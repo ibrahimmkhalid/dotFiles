@@ -1,13 +1,9 @@
 
 ## My dot files
 
-### How to install
-
-1. Basic install: `./install-shell.sh`
-2. GUI install (optional, requires Gnome 40+): `./install-gnome.sh`
-
-
-
+```
+sudo apt update -y && sudo apt install git ansible software-properties-common -y && git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && cd .dotFiles && ansible-playbook local.yml --ask-become-pass --ask-vault-pass
+```
 
 ## Credits 
 tmux-session script: https://github.com/mislav/dotfiles/blob/master/bin/tmux-session  
