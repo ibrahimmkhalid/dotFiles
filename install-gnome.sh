@@ -2,16 +2,14 @@
 set -e
 
 #install
-sudo apt install dconf-editor numix-icon-theme-circle alacritty gnome-tweaks jq -y
+sudo apt install dconf-editor numix-icon-theme-circle gnome-tweaks jq -y
 
 #setups
 mkdir -p $HOME/.local/share/gnome-shell/extensions
 mkdir -p $HOME/.local/share/fonts
-mkdir -p $HOME/.config/alacritty
 
 #configs
 sed "s|HOME_DIR|$HOME|g" guillotine.json.tmp > guillotine.json
-ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ln -s -f $PWD/guillotine.json $HOME/.config/guillotine.json
 
 #fonts

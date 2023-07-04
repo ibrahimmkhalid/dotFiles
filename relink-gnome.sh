@@ -3,5 +3,3 @@ set -e
 
 sed "s|HOME_DIR|$HOME|g" guillotine.json.tmp > guillotine.json
 ln -s -f $PWD/guillotine.json $HOME/.config/guillotine.json
-
-ln -s -f $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
