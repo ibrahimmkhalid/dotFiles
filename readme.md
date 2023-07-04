@@ -1,8 +1,14 @@
 
 ## My dot files
 
+WSL/terminal only install:
 ```
-sudo apt update -y && sudo apt install git ansible software-properties-common -y && git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && cd .dotFiles && ansible-playbook local.yml --ask-become-pass --ask-vault-pass
+sudo apt update -y && sudo apt install git ansible software-properties-common -y && git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && cd .dotFiles && ansible-playbook local.yml --ask-become-pass --ask-vault-pass -t shell
+```
+
+Gnome install:
+```
+sudo apt update -y && sudo apt install git ansible software-properties-common -y && git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && cd .dotFiles && ansible-playbook local.yml --ask-become-pass --ask-vault-pass -t gnome
 ```
 
 ## Credits 
