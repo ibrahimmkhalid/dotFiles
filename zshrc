@@ -6,7 +6,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-bindkey -s ^f "ts\n"
+bindkey -s ^f "tmux-sessionizer\n"
 
 alias update='sudo apt update && sudo apt upgrade -y'
 alias git-done="git add . && git commit && git push"
