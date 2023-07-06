@@ -7,6 +7,9 @@ return {
   config = function()
     -- gitsigns
     require("gitsigns").setup()
+    require("neogit").setup({
+      disable_commit_confirmation = true,
+    })
 
     Keymap('n', '<leader>gh', '<Cmd>Gitsigns reset_hunk<CR>', "Reset current hunk")
     Keymap('n', '<leader>gb', '<Cmd>Gitsigns reset_buffer<CR>', "Reset current buffer")
