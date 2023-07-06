@@ -1,7 +1,8 @@
 return {
-  "tpope/vim-fugitive",
+  "NeogitOrg/neogit",
   dependencies = {
     "lewis6991/gitsigns.nvim",
+    "tpope/vim-fugitive",
   },
   config = function()
     -- gitsigns
@@ -17,9 +18,11 @@ return {
     Keymap('n', '<leader>gd', '<Cmd>Gitsigns diffthis<CR>', "Git diff")
 
     -- fugitive
-    Keymap('n', '<leader>gg', '<Cmd>Git<CR>', "Open git window")
     Keymap('n', '<leader>gu', '<Cmd>Git push<CR>', "Git push")
     Keymap('n', '<leader>gU', '<Cmd>Git pull<CR>', "Git pull")
     Keymap('n', '<leader>gl', '<Cmd>Git blame<CR>', "Git blame")
+
+    -- neogit
+    Keymap('n', '<leader>gg', '<Cmd>Neogit kind=vsplit<CR>', "Open git window")
   end
 }
