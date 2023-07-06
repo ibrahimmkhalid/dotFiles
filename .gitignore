@@ -2,6 +2,4 @@ guillotine.json
 
 packer_compiled.lua
 
-tmux/plugins
-
 *.hex
