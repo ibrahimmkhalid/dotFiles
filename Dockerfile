@@ -13,6 +13,10 @@ RUN usermod -aG sudo tester
 # Set password for the user "tester"
 RUN echo 'tester:jjj' | chpasswd
 
+# Add local files
+ADD . /home/tester/dotfiles
+RUN chown -R tester:tester /home/tester
+
 # Switch testuser
 USER tester
 ENV HOME /home/tester
