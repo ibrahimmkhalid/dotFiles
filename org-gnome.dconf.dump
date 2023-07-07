@@ -7,7 +7,7 @@ font-antialiasing='grayscale'
 font-hinting='slight'
 font-name='Ubuntu 10'
 gtk-im-module='gtk-im-context-simple'
-gtk-theme='everforest-gtk'
+gtk-theme='Nordic-Polar-v40'
 icon-theme='Numix-Circle-Light'
 monospace-font-name='FiraCode Nerd Font 11'
 show-battery-percentage=true
@@ -102,7 +102,7 @@ left-active=false
 location=1
 
 [shell/extensions/user-theme]
-name='everforest-gtk'
+name='Nordic-Polar-v40'
 
 [terminal/legacy/profiles:]
 default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
