@@ -20,6 +20,18 @@ mv *.ttf $HOME/.local/share/fonts/
 cd ..
 rm -rf tmp
 
+#nordic theme
+mkdir tmp && cd tmp
+wget https://github.com/EliverLara/Nordic/releases/latest/download/Nordic-Polar-v40.tar.xz
+wget https://github.com/EliverLara/Nordic/releases/latest/download/Nordic-Polar.tar.xz
+tar xvf Nordic-Polar-v40.tar.xz
+tar xvf Nordic-Polar.tar.xz
+sudo mv Nordic-Polar-v40 /usr/share/themes
+sudo mv Nordic-Polar /usr/share/themes
+cd ..
+rm -rf tmp
+
+#everforest theme
 sudo git clone https://github.com/theory-of-everything/everforest-gtk /usr/share/themes/everforest-gtk
 
 #install extensions
