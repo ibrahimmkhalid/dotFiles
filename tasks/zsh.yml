@@ -22,11 +22,11 @@
 - name: Install omz autosuggestions
   ansible.builtin.git:
     repo: "https://github.com/zsh-users/zsh-autosuggestions"
-    dest: "/home/{{  lookup('env', 'USER')  }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
   tags:
     - shell
     - zsh
-- name: Create symbolic link for .zshrc
+- name: Create symbolic link for .zshrc (dot file management)
   become: yes
   ansible.builtin.file:
     src: "{{ playbook_dir }}/zshrc"
