@@ -13,7 +13,9 @@
     tags:
       - shell
       - gnome
+      - zsh
   tasks:
     - include: tasks/ssh.yml
+    - include: tasks/zsh.yml
     - include: tasks/shell_related.yml
     - include: tasks/gnome_related.yml

@@ -5,7 +5,7 @@ set -e
 sudo add-apt-repository universe -y
 sudo add-apt-repository ppa:aslatter/ppa -y
 sudo apt update
-sudo apt install make gawk wget curl tmux zsh ranger htop libfuse2 ripgrep gcc g++ unzip neofetch tldr lldb entr fzf xsel xclip python3 python-is-python3 python3-pip build-essential python3-venv ansible -y
+sudo apt install make gawk wget curl tmux ranger htop libfuse2 ripgrep gcc g++ unzip neofetch tldr lldb entr fzf xsel xclip python3 python-is-python3 python3-pip build-essential python3-venv ansible -y
 
 #setups
 git config --global user.name "Ibrahim Mansoor Khalid"
@@ -15,11 +15,6 @@ git config --global init.defaultBranch main
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/lib
 mkdir -p $HOME/.local/share
-
-#zsh theme, ohmyzsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-sudo usermod -s `which zsh` $USER
 
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
@@ -43,7 +38,6 @@ git clone https://github.com/qmk/qmk_firmware ~/.local/share/qmk_firmware
 python3 -m pip install --user qmk
 
 #configs
-ln -s -f $PWD/zshrc $HOME/.zshrc
 ln -s -f $PWD/tmux/tmux.conf $HOME/.config/tmux/tmux.conf
 ln -s -f $PWD/nvim $HOME/.config/nvim
 for d in $(ls $PWD/scripts);

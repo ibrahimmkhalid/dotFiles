@@ -1,0 +1,38 @@
+- name: Install zsh
+  become: true
+  apt:
+    name: ['zsh', 'curl']
+    state: present
+  tags:
+    - shell
+    - zsh
+- name: Change user's shell to zsh
+  become: yes
+  ansible.builtin.user:
+    name: "{{ lookup('env', 'USER') }}"
+    shell: "{{ lookup('pipe', 'which zsh') }}"
+  tags:
+    - shell
+    - zsh
+- name: Install Oh-my-zsh
+  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+  tags:
+    - shell
+    - zsh
+- name: Install omz autosuggestions
+  ansible.builtin.git:
+    repo: "https://github.com/zsh-users/zsh-autosuggestions"
+    dest: "/home/{{  lookup('env', 'USER')  }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  tags:
+    - shell
+    - zsh
+- name: Create symbolic link for .zshrc
+  become: yes
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    state: link
+    force: yes
+  tags:
+    - shell
+    - zsh
