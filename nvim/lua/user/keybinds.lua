@@ -51,7 +51,9 @@ Keymap("v", "p", '"_dP', "visual paste")
 Keymap("n", "<leader>y", '"+y', "Copy to system clipboard")
 Keymap("n", "<leader>Y", '"+Y', "Copy line to system clipboard")
 Keymap("n", "<leader>p", '"+p', "Paste from system clipboard")
-Keymap("n", "<leader>P", '"+P', "Paste line from system clipboard")
+Keymap("n", "<leader>P", '"+P', "Paste from system clipboard")
+Keymap("v", "<leader>y", '"+y', "Copy to system clipboard")
+Keymap("v", "<leader>p", '"+p', "Paste from system clipboard")
 
 -- Visual Block --
 -- Move text up and down
