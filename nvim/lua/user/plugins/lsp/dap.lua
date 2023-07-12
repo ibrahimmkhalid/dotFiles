@@ -30,6 +30,16 @@ dap.adapters.python = {
   args = {},
 }
 
+dap.configurations.python = {
+  {
+    type = 'python',
+    request = 'launch',
+    name = "Launch file",
+    program = "${file}",
+    pythonPath = "python"
+  }
+}
+
 Keymap('n', '<leader>dP', dap.clear_breakpoints, "Clear all breakpoints")
 Keymap('n', '<leader>dd', dap.continue, "Debug start/continue")
 Keymap('n', '<leader>dr', dap.restart, "Debug restart")
