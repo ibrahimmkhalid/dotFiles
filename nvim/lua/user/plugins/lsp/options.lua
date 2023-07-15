@@ -1,5 +1,5 @@
 local config = {
-  virtual_text = false,
+  virtual_text = true,
   update_in_insert = true,
   underline = true,
   severity_sort = true,
@@ -12,6 +12,24 @@ local config = {
     prefix = "",
   },
 }
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+  pattern = "*",
+  callback = function()
+    vim.diagnostic.config({
+      virtual_text = false,
+    })
+  end
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  callback = function()
+    vim.diagnostic.config({
+      virtual_text = true,
+    })
+  end
+})
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",

@@ -1,7 +1,7 @@
 local dap = require("dap")
 local dapui = require("dapui")
 require("mason-nvim-dap").setup({
-  ensure_installed = { "python" }
+  ensure_installed = { "python", "codelldb" }
 })
 
 dapui.setup({})
@@ -24,10 +24,43 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   debug_end()
 end
 
+dap.adapters.codelldb = {
+  type = 'server',
+  port = "${port}",
+  executable = {
+    command = 'codelldb',
+    args = { "--port", "${port}" },
+  }
+}
+
+dap.configurations.rust = {
+  {
+    name = "Rust debug",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = true,
+    showDisassembly = "never",
+  },
+}
+
 dap.adapters.python = {
   type = 'executable',
   command = 'debugpy-adapter',
   args = {},
+}
+
+dap.configurations.python = {
+  {
+    type = 'python',
+    request = 'launch',
+    name = "Launch file",
+    program = "${file}",
+    pythonPath = "python"
+  }
 }
 
 Keymap('n', '<leader>dP', dap.clear_breakpoints, "Clear all breakpoints")
