@@ -1,0 +1,25 @@
+- name: Install tmux
+  become: true
+  apt:
+    name: tmux
+    state: present
+  tags:
+    - shell
+    - tmux
+- name: Install tmux plugin manager
+  ansible.builtin.git:
+    repo: "https://github.com/tmux-plugins/tpm"
+    dest: "/home/{{  lookup('env', 'USER')  }}/.config/tmux/plugins/tpm"
+  tags:
+    - shell
+    - tmux
+- name: Create symbolic link for tmux
+  become: yes
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/tmux/tmux.conf"
+    dest: "{{ ansible_env.HOME }}/.config/tmux/tmux.conf"
+    state: link
+    force: yes
+  tags:
+    - shell
+    - tmux
