@@ -44,6 +44,7 @@ local lazy_plugins = {
   { import = "user.plugins.treesitter" },
   { import = "user.plugins.colorizer" },
   { import = "user.plugins.telescope" },
+  { import = "user.plugins.jupyter" },
   { import = "user.plugins.lualine" },
   { import = "user.plugins.bufferline" },
   { import = "user.plugins.toggleterm" },
