@@ -6,6 +6,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
 bindkey -s ^f "tmux-sessionizer\n"
 
 alias update='sudo apt update && sudo apt upgrade -y'
@@ -16,6 +17,7 @@ alias lg="lazygit"
 
 alias clera="clear"
 alias sl="ls"
+alias jupyter_ascending_make_base="python -m jupyter_ascending.scripts.make_pair --base"
 
 export N_PREFIX="$HOME/.local/share/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
