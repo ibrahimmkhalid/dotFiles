@@ -3,11 +3,6 @@ local luasnip = require("luasnip")
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
-local check_backspace = function()
-  local col = vim.fn.col "." - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
-
 local lspkind = require('lspkind')
 cmp.setup {
   snippet = {
@@ -16,45 +11,20 @@ cmp.setup {
     end,
   },
   mapping = {
+    ["<Up>"] = cmp.mapping.select_prev_item(),
+    ["<Down>"] = cmp.mapping.select_next_item(),
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-i>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i" }),
-    ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i" }),
+    ["<M-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i" }),
+    ["<M-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i" }),
     ["<C-C>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ["<C-e>"] = cmp.mapping {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     },
-    ["<CR>"] = cmp.mapping.confirm { select = false },
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expandable() then
-        luasnip.expand()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      elseif check_backspace() then
-        fallback()
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
-    ["<C-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
+    ["<Tab>"] = cmp.mapping.confirm { select = true },
+    ["<CR>"] = cmp.mapping.confirm { select = true },
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
