@@ -30,7 +30,7 @@ return {
       }
     })
 
-    Keymap("n", "<leader>f", ":Telescope find_files<cr>", "Find Files")
-    Keymap("n", "<leader>F", ":Telescope live_grep<cr>", "Find by text")
+    vim.api.nvim_set_keymap("n", "<leader>f", ":Telescope find_files<cr>", { silent = true, noremap = true, desc = "Find Files"})
+    vim.api.nvim_set_keymap("n", "<leader>F", ":Telescope live_grep<cr>", { silent = true, noremap = true, desc = "Find by text"})
   end
 }

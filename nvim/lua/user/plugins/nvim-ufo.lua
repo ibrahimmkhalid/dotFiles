@@ -16,14 +16,21 @@ return {
     vim.o.foldlevelstart = 99
     vim.o.foldenable = false
 
-    Keymap('n', 'zR', ufo.openAllFolds, "Open all folds")
-    Keymap('n', 'zM', ufo.closeAllFolds, "Close all folds")
+    vim.api.nvim_set_keymap('n', 'zR', '<Cmd>lua require("ufo").openAllFolds()<cr>',
+      { silent = true, noremap = true, desc = "Open all folds" })
+    vim.api.nvim_set_keymap('n', 'zM', '<Cmd>lua require("ufo").closeAllFolds()<cr>',
+      { silent = true, noremap = true, desc = "Close all folds" })
 
-    Keymap('n', 'zk', function()
-      local winid = ufo.peekFoldedLinesUnderCursor()
-      if not winid then
-        vim.lsp.buf.hover()
-      end
-    end, "peek fold")
+    vim.api.nvim_set_keymap('n', 'zk', '', {
+      callback = function()
+        local winid = ufo.peekFoldedLinesUnderCursor()
+        if not winid then
+          vim.lsp.buf.hover()
+        end
+      end,
+      desc = "peek fold",
+      silent = true,
+      noremap = true
+    })
   end
 }

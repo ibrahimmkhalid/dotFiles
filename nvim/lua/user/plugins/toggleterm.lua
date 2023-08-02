@@ -18,17 +18,17 @@ return {
 
     for k, v in pairs(_term_commands) do
       M_terms[v] = Terminal:new({ cmd = v, hidden = true, direction = "float" })
-      Keymap("n", "<leader>t" .. k, "<cmd>lua M_terms." .. v .. ":toggle()<cr>", "Open " .. v .. " in terminal")
+      vim.api.nvim_set_keymap("n", "<leader>t" .. k, "<cmd>lua M_terms." .. v .. ":toggle()<cr>", { silent = true, noremap = true, desc = "Open " .. v .. " in terminal" })
     end
 
-    Keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", "Open floating terminal")
-    Keymap("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal size=20<cr>", "Open bottom terminal")
-    Keymap("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical size=100<cr>", "Open side terminal")
+    vim.api.nvim_set_keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { silent = true, noremap = true, desc = "Open floating terminal"})
+    vim.api.nvim_set_keymap("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal size=20<cr>", { silent = true, noremap = true, desc = "Open bottom terminal"})
+    vim.api.nvim_set_keymap("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical size=100<cr>", { silent = true, noremap = true, desc = "Open side terminal"})
 
-    Keymap("t", "<Esc>", "<C-\\><C-n>", "")
-    Keymap("t", "<C-h>", "<c-\\><c-n><c-w>h", "")
-    Keymap("t", "<C-j>", "<c-\\><c-n><c-w>j", "")
-    Keymap("t", "<C-k>", "<c-\\><c-n><c-w>k", "")
-    Keymap("t", "<C-l>", "<c-\\><c-n><c-w>l", "")
+    vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true, noremap = true })
+    vim.api.nvim_set_keymap("t", "<C-h>", "<c-\\><c-n><c-w>h", { silent = true, noremap = true })
+    vim.api.nvim_set_keymap("t", "<C-j>", "<c-\\><c-n><c-w>j", { silent = true, noremap = true })
+    vim.api.nvim_set_keymap("t", "<C-k>", "<c-\\><c-n><c-w>k", { silent = true, noremap = true })
+    vim.api.nvim_set_keymap("t", "<C-l>", "<c-\\><c-n><c-w>l", { silent = true, noremap = true })
   end
 }
