@@ -38,8 +38,8 @@ vim.api.nvim_set_keymap("v", "<", "<gv", { silent = true, noremap = true, desc =
 vim.api.nvim_set_keymap("v", ">", ">gv", { silent = true, noremap = true, desc = "indent"})
 
 -- Move text up and down
-vim.api.nvim_set_keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true, desc = "move selected text down"})
-vim.api.nvim_set_keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true, desc = "move selected text up"})
+vim.api.nvim_set_keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true, desc = "move selected text down"})
+vim.api.nvim_set_keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true, desc = "move selected text up"})
 vim.api.nvim_set_keymap("v", "p", '"_dP', { silent = true, noremap = true, desc = "visual paste"})
 
 vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { silent = true, noremap = true, desc = "Copy to system clipboard"})
