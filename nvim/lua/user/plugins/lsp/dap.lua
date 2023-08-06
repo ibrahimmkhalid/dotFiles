@@ -67,6 +67,8 @@ vim.api.nvim_set_keymap('n', '<leader>dP', '<Cmd>lua require("dap").clear_breakp
   { silent = true, noremap = true, desc = "Clear all breakpoints" })
 vim.api.nvim_set_keymap('n', '<leader>dd', '<Cmd>lua require("dap").continue()<cr>',
   { silent = true, noremap = true, desc = "Debug start/continue" })
+vim.api.nvim_set_keymap('n', '<leader>dn', '<Cmd>lua require("dap").continue()<cr>',
+  { silent = true, noremap = true, desc = "Debug start/continue" })
 vim.api.nvim_set_keymap('n', '<leader>dr', '<Cmd>lua require("dap").restart()<cr>',
   { silent = true, noremap = true, desc = "Debug restart" })
 vim.api.nvim_set_keymap('n', '<leader>dq', '<Cmd>lua require("dap").terminate()<cr>',
