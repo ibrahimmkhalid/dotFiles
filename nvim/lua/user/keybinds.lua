@@ -60,5 +60,3 @@ vim.api.nvim_set_keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true, desc
 vim.api.nvim_set_keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true, desc = "Focus bottom window" })
 vim.api.nvim_set_keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, desc = "Focus upper window" })
 vim.api.nvim_set_keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, desc = "Focus right window" })
-vim.api.nvim_set_keymap("n", "<S-K>", "", {silent = true, noremap = true,}) -- removing bad habit
-vim.api.nvim_set_keymap("n", "<S-J>", "", {silent = true, noremap = true,})
