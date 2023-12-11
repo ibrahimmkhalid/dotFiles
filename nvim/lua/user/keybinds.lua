@@ -31,6 +31,8 @@ vim.api.nvim_set_keymap("n", ">", ">>", { silent = true, noremap = true, desc = 
 
 -- WSL workaround for visual block mode
 vim.api.nvim_set_keymap("n", "<M-v>", "<C-v>", { silent = true, noremap = true, desc = "enter visual block mode"})
+-- WSL workaround for pasting
+vim.api.nvim_set_keymap("n", "<leader>rw", ":%s/\\r//g<cr>", { silent = true, noremap = true, desc = "remove ^M from buffer"})
 
 -- Visual --
 -- Stay in indent mode
