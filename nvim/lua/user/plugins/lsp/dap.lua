@@ -21,6 +21,7 @@ dap.listeners.before.event_terminated["dapui_config"] = function()
   debug_end()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
+  vim.fn.input("Press Enter to continue...")
   debug_end()
 end
 
