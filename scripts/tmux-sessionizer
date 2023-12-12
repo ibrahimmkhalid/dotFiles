@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-  selected=$((find ~/repos/ibrahimmkhalid ~/repos -mindepth 1 -maxdepth 1 -type d,l; echo "home"; echo "personal"; echo "sjsu";)| fzf)
+    selected=$((find ~/repos/ibrahimmkhalid ~/repos/sjsu ~/repos -mindepth 1 -maxdepth 1 -type d,l; echo "home"; echo "personal";)| fzf)
 fi
 
 
@@ -15,10 +15,6 @@ selected_name=$(basename "$selected" | tr . _)
 
 if [[ $selected == "personal" ]]; then
   selected="/home/ibrahim/repos/ibrahimmkhalid"
-fi
-
-if [[ $selected == "sjsu" ]]; then
-  selected="/home/ibrahim/sjsu"
 fi
 
 if [[ "$selected" == "home" ]]; then

@@ -1,0 +1,17 @@
+#! /bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage: mklink <target> [link]"
+    echo "  target: path to target file or directory in windows path format"
+    echo "  link (optional): name of link to create in current directory"
+    exit 1
+fi
+
+target=$(wslpath -u $1)
+if [ -z "$2" ]; then
+    basename=$(basename $target)
+else
+    basename=$2
+fi
+link=$(pwd)/$basename
+ln -s $target $link
