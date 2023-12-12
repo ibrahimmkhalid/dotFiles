@@ -47,22 +47,6 @@ dap.configurations.rust = {
   },
 }
 
-dap.adapters.python = {
-  type = 'executable',
-  command = 'debugpy-adapter',
-  args = {},
-}
-
-dap.configurations.python = {
-  {
-    type = 'python',
-    request = 'launch',
-    name = "Launch file",
-    program = "${file}",
-    pythonPath = "python"
-  }
-}
-
 vim.api.nvim_set_keymap('n', '<leader>dP', '<Cmd>lua require("dap").clear_breakpoints()<cr>',
   { silent = true, noremap = true, desc = "Clear all breakpoints" })
 vim.api.nvim_set_keymap('n', '<leader>dd', '<Cmd>lua require("dap").continue()<cr>',
