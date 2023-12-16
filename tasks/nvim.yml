@@ -1,0 +1,35 @@
+- name: Install prerequisites
+  become: true
+  apt:
+    name: ["ninja-build", "gettext", "cmake", "unzip", "curl", "make", "build-essential", "gcc", "g++", "fzf", "lldb" ]
+  tags:
+    - shell
+    - nvim
+- name: Clone nvim
+  ansible.builtin.git:
+    repo: 'https://github.com/neovim/neovim.git'
+    dest: "/tmp/nvim"
+  tags:
+    - shell
+    - nvim
+- name: Build nvim
+  shell: "cd /tmp/nvim && make -j 20"
+  tags:
+    - shell
+    - nvim
+- name: Install nvim
+  become: true
+  shell: "cd /tmp/nvim && make install"
+  tags:
+    - shell
+    - nvim
+- name: Create symbolic link for nvim
+  become: yes
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/nvim"
+    dest: "{{ ansible_env.HOME }}/.config/nvim"
+    state: link
+    force: yes
+  tags:
+    - shell
+    - nvim
