@@ -15,25 +15,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-function Keymap(mode, lhs, rhs, desc)
-  if type(rhs) == "string" then
-    vim.api.nvim_set_keymap(mode, lhs, rhs, {
-      noremap = true,
-      silent = true,
-      desc = desc
-    })
-  else
-    vim.api.nvim_set_keymap(mode, lhs, "", {
-      noremap = true,
-      silent = true,
-      desc = desc,
-      callback = function()
-        rhs()
-      end
-    })
-  end
-end
-
 local lazy_opts = {}
 local lazy_plugins = {
   { import = "user.plugins.basic-plugins" },

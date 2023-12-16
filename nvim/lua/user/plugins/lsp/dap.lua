@@ -63,11 +63,21 @@ dap.configurations.python = {
   }
 }
 
-Keymap('n', '<leader>dP', dap.clear_breakpoints, "Clear all breakpoints")
-Keymap('n', '<leader>dd', dap.continue, "Debug start/continue")
-Keymap('n', '<leader>dr', dap.restart, "Debug restart")
-Keymap('n', '<leader>dq', dap.terminate, "End debugging")
-Keymap('n', '<leader>dp', dap.toggle_breakpoint, "Toggle breakpoint")
-Keymap('n', '<leader>di', dap.step_into, "Step into")
-Keymap('n', '<leader>do', dap.step_over, "Step over")
-Keymap('n', '<leader>du', dap.step_out, "Step out")
+vim.api.nvim_set_keymap('n', '<leader>dP', '<Cmd>lua require("dap").clear_breakpoints()<cr>',
+  { silent = true, noremap = true, desc = "Clear all breakpoints" })
+vim.api.nvim_set_keymap('n', '<leader>dd', '<Cmd>lua require("dap").continue()<cr>',
+  { silent = true, noremap = true, desc = "Debug start/continue" })
+vim.api.nvim_set_keymap('n', '<leader>dn', '<Cmd>lua require("dap").continue()<cr>',
+  { silent = true, noremap = true, desc = "Debug start/continue" })
+vim.api.nvim_set_keymap('n', '<leader>dr', '<Cmd>lua require("dap").restart()<cr>',
+  { silent = true, noremap = true, desc = "Debug restart" })
+vim.api.nvim_set_keymap('n', '<leader>dq', '<Cmd>lua require("dap").terminate()<cr>',
+  { silent = true, noremap = true, desc = "End debugging" })
+vim.api.nvim_set_keymap('n', '<leader>dp', '<Cmd>lua require("dap").toggle_breakpoint()<cr>',
+  { silent = true, noremap = true, desc = "Toggle breakpoint" })
+vim.api.nvim_set_keymap('n', '<leader>di', '<Cmd>lua require("dap").step_into()<cr>',
+  { silent = true, noremap = true, desc = "Step into" })
+vim.api.nvim_set_keymap('n', '<leader>do', '<Cmd>lua require("dap").step_over()<cr>',
+  { silent = true, noremap = true, desc = "Step over" })
+vim.api.nvim_set_keymap('n', '<leader>du', '<Cmd>lua require("dap").step_out()<cr>',
+  { silent = true, noremap = true, desc = "Step out" })

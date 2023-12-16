@@ -16,10 +16,12 @@ cmp.setup {
     end,
   },
   mapping = {
+    ["<Up>"] = cmp.mapping.select_prev_item(),
+    ["<Down>"] = cmp.mapping.select_next_item(),
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-i>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i" }),
-    ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i" }),
+    ["<M-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i" }),
+    ["<M-j>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i" }),
     ["<C-C>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ["<C-e>"] = cmp.mapping {
@@ -43,7 +45,7 @@ cmp.setup {
       "i",
       "s",
     }),
-    ["<C-Tab>"] = cmp.mapping(function(fallback)
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then

@@ -1,64 +1,58 @@
 local vim = vim
-local Keymap = Keymap
-Keymap("", "<Space>", "<Nop>", "")
-
---[[ Keymap("n", "<C-h>", "<C-w>h", "Focus left window") ]]
---[[ Keymap("n", "<C-j>", "<C-w>j", "Focus bottom window") ]]
---[[ Keymap("n", "<C-k>", "<C-w>k", "Focus upper window") ]]
---[[ Keymap("n", "<C-l>", "<C-w>l", "Focus right window") ]]
+vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { silent = true, noremap = true})
 
 -- redo
-Keymap("n", "<S-u>", ":redo<CR>", "redo")
+vim.api.nvim_set_keymap("n", "<S-u>", ":redo<CR>", { silent = true, noremap = true, desc = "redo"})
 
 -- Resize with arrows
-Keymap("n", "<C-Up>", ":resize +2<CR>", "Increase window horizontally")
-Keymap("n", "<C-Down>", ":resize -2<CR>", "Decrease window horizontally")
-Keymap("n", "<C-Left>", ":vertical resize -2<CR>", "Increase window verticaly")
-Keymap("n", "<C-Right>", ":vertical resize +2<CR>", "Decrease window verticaly")
+vim.api.nvim_set_keymap("n", "<C-Up>", ":resize +2<CR>", { silent = true, noremap = true, desc = "Increase window horizontally"})
+vim.api.nvim_set_keymap("n", "<C-Down>", ":resize -2<CR>", { silent = true, noremap = true, desc = "Decrease window horizontally"})
+vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true, noremap = true, desc = "Increase window verticaly"})
+vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true, noremap = true, desc = "Decrease window verticaly"})
 
 -- fast scrolling
-Keymap("n", "<C-U>", "<C-U>zz", "Scroll up")
-Keymap("n", "<C-D>", "<C-D>zz", "Scroll down")
-Keymap("n", "n", "nzzzv", "Next highlight")
-Keymap("n", "N", "Nzzzv", "Previous highlight")
+vim.api.nvim_set_keymap("n", "<C-U>", "<C-U>zz", { silent = true, noremap = true, desc = "Scroll up"})
+vim.api.nvim_set_keymap("n", "<C-D>", "<C-D>zz", { silent = true, noremap = true, desc = "Scroll down"})
+vim.api.nvim_set_keymap("n", "n", "nzzzv", { silent = true, noremap = true, desc = "Next highlight"})
+vim.api.nvim_set_keymap("n", "N", "Nzzzv", { silent = true, noremap = true, desc = "Previous highlight"})
 
 -- saving files and exiting nvim
-Keymap("n", "<leader>w", ":w<CR>", "save")
-Keymap("n", "<leader>q", ":q<CR>", "quit window")
-Keymap("n", "<leader>Q", ":qa<CR>", "quit all windows")
+vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { silent = true, noremap = true, desc = "save"})
+vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", { silent = true, noremap = true, desc = "quit window"})
+vim.api.nvim_set_keymap("n", "<leader>Q", ":qa<CR>", { silent = true, noremap = true, desc = "quit all windows"})
 
 
-Keymap("n", "<leader>v", ":vsplit<CR>", "Vertical split")
-Keymap("n", "<leader>V", ":split<CR>", "Horizontal split")
+vim.api.nvim_set_keymap("n", "<leader>v", ":vsplit<CR>", { silent = true, noremap = true, desc = "Vertical split"})
+vim.api.nvim_set_keymap("n", "<leader>V", ":split<CR>", { silent = true, noremap = true, desc = "Horizontal split"})
 
-Keymap("n", "<leader>h", ":nohlsearch<CR>", "hide search")
-Keymap("n", "<", "<<", "de-indent")
-Keymap("n", ">", ">>", "indent")
+vim.api.nvim_set_keymap("n", "<leader>h", ":nohlsearch<CR>", { silent = true, noremap = true, desc = "hide search"})
+vim.api.nvim_set_keymap("n", "<", "<<", { silent = true, noremap = true, desc = "de-indent"})
+vim.api.nvim_set_keymap("n", ">", ">>", { silent = true, noremap = true, desc = "indent"})
 
 -- WSL workaround for visual block mode
-Keymap("n", "<M-v>", "<C-v>", "enter visual block mode")
+vim.api.nvim_set_keymap("n", "<M-v>", "<C-v>", { silent = true, noremap = true, desc = "enter visual block mode"})
 
 -- Visual --
 -- Stay in indent mode
-Keymap("v", "<", "<gv", "de-indent")
-Keymap("v", ">", ">gv", "indent")
+vim.api.nvim_set_keymap("v", "<", "<gv", { silent = true, noremap = true, desc = "de-indent"})
+vim.api.nvim_set_keymap("v", ">", ">gv", { silent = true, noremap = true, desc = "indent"})
 
 -- Move text up and down
-Keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", "move selected text down")
-Keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", "move selected text up")
-Keymap("v", "p", '"_dP', "visual paste")
+vim.api.nvim_set_keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true, desc = "move selected text down"})
+vim.api.nvim_set_keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true, desc = "move selected text up"})
+vim.api.nvim_set_keymap("v", "p", '"_dP', { silent = true, noremap = true, desc = "visual paste"})
 
-Keymap("n", "<leader>y", '"+y', "Copy to system clipboard")
-Keymap("n", "<leader>Y", '"+Y', "Copy line to system clipboard")
-Keymap("n", "<leader>p", '"+p', "Paste from system clipboard")
-Keymap("n", "<leader>P", '"+P', "Paste from system clipboard")
-Keymap("v", "<leader>y", '"+y', "Copy to system clipboard")
-Keymap("v", "<leader>p", '"+p', "Paste from system clipboard")
+vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { silent = true, noremap = true, desc = "Copy to system clipboard"})
+vim.api.nvim_set_keymap("n", "<leader>Y", '"+Y', { silent = true, noremap = true, desc = "Copy line to system clipboard"})
+vim.api.nvim_set_keymap("n", "<leader>p", '"+p', { silent = true, noremap = true, desc = "Paste from system clipboard"})
+vim.api.nvim_set_keymap("n", "<leader>P", '"+P', { silent = true, noremap = true, desc = "Paste from system clipboard"})
+vim.api.nvim_set_keymap("v", "<leader>y", '"+y', { silent = true, noremap = true, desc = "Copy to system clipboard"})
+vim.api.nvim_set_keymap("v", "<leader>p", '"+p', { silent = true, noremap = true, desc = "Paste from system clipboard"})
 
 -- Visual Block --
 -- Move text up and down
-Keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", "move selected text down")
-Keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", "move selected text up")
+vim.api.nvim_set_keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true, desc = "move selected text down"})
+vim.api.nvim_set_keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true, desc = "move selected text up"})
 
 -- Terminal --
 -- Better terminal navigation

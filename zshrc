@@ -32,10 +32,14 @@ function cpd(){
   cp -rfv $(pwd) /mnt/c/Users/Ibrahim/Desktop
 }
 
+function cph() {
+  cp -rfv $(pwd) /home/ibrahim/tmp/
+}
+
 function openDocx(){
-	doc2pdf -o /home/$USER/tmp/openDocx.pdf $1
-	evince /home/$USER/tmp/openDocx.pdf
-	rm /home/$USER/tmp/openDocx.pdf
+	doc2pdf -o /tmp/openDocx___1.pdf $1
+	evince /tmp/openDocx___1.pdf
+	rm /tmp/openDocx___1.pdf
 }
 
 export PATH="$HOME/.local/bin:$PATH" 

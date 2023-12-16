@@ -4,10 +4,10 @@ return {
     vim.g.jupyter_ascending_default_mappings = false
   end,
   config = function ()
-    Keymap("n", "<leader>jx", "<Cmd>call jupyter_ascending#execute()<CR>", "Run current jupyter cell")
-    Keymap("n", "<leader>ja", "<Cmd>call jupyter_ascending#execute_all()<CR>", "Run jupyter notebook")
-    Keymap("n", "<leader>jr", "<Cmd>call jupyter_ascending#restart()<CR>", "Restart Jupyter notebook")
-    Keymap("n", "<leader>jc", "o<CR># %%<CR>", "New code block")
-    Keymap("n", "<leader>jm", "o<CR># %% [markdown]<CR># ", "New markdown block")
+    vim.api.nvim_set_keymap("n", "<leader>jx", "<Cmd>call jupyter_ascending#execute()<CR>", { silent = true, noremap = true, desc = "Run current jupyter cell"})
+    vim.api.nvim_set_keymap("n", "<leader>ja", "<Cmd>call jupyter_ascending#execute_all()<CR>", { silent = true, noremap = true, desc = "Run jupyter notebook"})
+    vim.api.nvim_set_keymap("n", "<leader>jr", "<Cmd>call jupyter_ascending#restart()<CR>", { silent = true, noremap = true, desc = "Restart Jupyter notebook"})
+    vim.api.nvim_set_keymap("n", "<leader>jc", "o<CR># %%<CR>", { silent = true, noremap = true, desc = "New code block"})
+    vim.api.nvim_set_keymap("n", "<leader>jm", "o<CR># %% [markdown]<CR># ", { silent = true, noremap = true, desc = "New markdown block"})
   end
 }

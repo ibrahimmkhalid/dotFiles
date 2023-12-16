@@ -46,7 +46,7 @@ return {
     })
     reach.buffers(buffer_options)
     reach.marks(marks_options)
-    Keymap("n", "<leader><Tab>", ":ReachOpen buffers<cr>", "reach open buffers")
-    Keymap("n", "<leader>m", ":ReachOpen marks<cr>", "reach open marks")
+    vim.api.nvim_set_keymap("n", "<leader><Tab>", ":ReachOpen buffers<cr>", { silent = true, noremap = true, desc = "reach open buffers"})
+    vim.api.nvim_set_keymap("n", "<leader>m", ":ReachOpen marks<cr>", { silent = true, noremap = true, desc = "reach open marks"})
   end
 }

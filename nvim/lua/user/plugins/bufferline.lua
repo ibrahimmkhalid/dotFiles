@@ -5,25 +5,43 @@ return {
     maximum_length = 45,
   },
   config = function()
-    Keymap('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', "Goto buffer 1")
-    Keymap('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', "Goto buffer 2")
-    Keymap('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', "Goto buffer 3")
-    Keymap('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', "Goto buffer 4")
-    Keymap('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', "Goto buffer 5")
-    Keymap('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', "Goto buffer 6")
-    Keymap('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', "Goto buffer 7")
-    Keymap('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', "Goto buffer 8")
-    Keymap('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', "Goto buffer 9")
-    Keymap('n', '<A-0>', '<Cmd>BufferLast<CR>', "Goto last buffer")
+    vim.api.nvim_set_keymap('n', '<A-1>', '<Cmd>BufferGoto 1<CR>',
+      { silent = true, noremap = true, desc = "Goto buffer 1" })
+    vim.api.nvim_set_keymap('n', '<A-2>', '<Cmd>BufferGoto 2<CR>',
+      { silent = true, noremap = true, desc = "Goto buffer 2" })
+    vim.api.nvim_set_keymap('n', '<A-3>', '<Cmd>BufferGoto 3<CR>',
+      { silent = true, noremap = true, desc = "Goto buffer 3" })
+    vim.api.nvim_set_keymap('n', '<A-4>', '<Cmd>BufferGoto 4<CR>',
+      { silent = true, noremap = true, desc = "Goto buffer 4" })
+    vim.api.nvim_set_keymap('n', '<A-5>', '<Cmd>BufferGoto 5<CR>',
+      { silent = true, noremap = true, desc = "Goto buffer 5" })
+    vim.api.nvim_set_keymap('n', '<A-6>', '<Cmd>BufferGoto 6<CR>',
+      { silent = true, noremap = true, desc = "Goto buffer 6" })
+    vim.api.nvim_set_keymap('n', '<A-7>', '<Cmd>BufferGoto 7<CR>',
+      { silent = true, noremap = true, desc = "Goto buffer 7" })
+    vim.api.nvim_set_keymap('n', '<A-8>', '<Cmd>BufferGoto 8<CR>',
+      { silent = true, noremap = true, desc = "Goto buffer 8" })
+    vim.api.nvim_set_keymap('n', '<A-9>', '<Cmd>BufferGoto 9<CR>',
+      { silent = true, noremap = true, desc = "Goto buffer 9" })
+    vim.api.nvim_set_keymap('n', '<A-0>', '<Cmd>BufferLast<CR>',
+      { silent = true, noremap = true, desc = "Goto last buffer" })
 
-    Keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", "Goto next buffer")
-    Keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", "Goto last buffer")
+    vim.api.nvim_set_keymap("n", "<S-l>", "<Cmd>BufferNext<CR>",
+      { silent = true, noremap = true, desc = "Goto next buffer" })
+    vim.api.nvim_set_keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>",
+      { silent = true, noremap = true, desc = "Goto last buffer" })
 
-    Keymap('n', '<leader>c', '<Cmd>BufferClose<CR>', "Close buffer")
-    Keymap('n', '<leader>bL', '<Cmd>BufferCloseBuffersRight<CR>', "Close all buffers right")
-    Keymap('n', '<leader>bH', '<Cmd>BufferCloseBuffersLeft<CR>', "Close all buffers left")
-    Keymap('n', '<leader>bc', '<Cmd>BufferCloseAllButCurrent<CR>', "Close all other buffers")
-    Keymap('n', '<leader>bl', '<Cmd>BufferMoveNext<CR>', "Move buffer to right")
-    Keymap('n', '<leader>bh', '<Cmd>BufferMovePrevious<CR>', "Move buffer to left")
+    vim.api.nvim_set_keymap('n', '<leader>c', '<Cmd>BufferClose<CR>',
+      { silent = true, noremap = true, desc = "Close buffer" })
+    vim.api.nvim_set_keymap('n', '<leader>bL', '<Cmd>BufferCloseBuffersRight<CR>',
+      { silent = true, noremap = true, desc = "Close all buffers right" })
+    vim.api.nvim_set_keymap('n', '<leader>bH', '<Cmd>BufferCloseBuffersLeft<CR>',
+      { silent = true, noremap = true, desc = "Close all buffers left" })
+    vim.api.nvim_set_keymap('n', '<leader>bc', '<Cmd>BufferCloseAllButCurrent<CR>',
+      { silent = true, noremap = true, desc = "Close all other buffers" })
+    vim.api.nvim_set_keymap('n', '<leader>bl', '<Cmd>BufferMoveNext<CR>',
+      { silent = true, noremap = true, desc = "Move buffer to right" })
+    vim.api.nvim_set_keymap('n', '<leader>bh', '<Cmd>BufferMovePrevious<CR>',
+      { silent = true, noremap = true, desc = "Move buffer to left" })
   end
 }

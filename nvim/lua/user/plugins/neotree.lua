@@ -81,6 +81,6 @@ return {
       }
     })
 
-    Keymap("n", "<leader>e", ":NeoTreeFocusToggle<cr>", "Open file tree")
+    vim.api.nvim_set_keymap("n", "<leader>e", ":NeoTreeFocusToggle<cr>", { silent = true, noremap = true, desc = "Open file tree"})
   end
 }
