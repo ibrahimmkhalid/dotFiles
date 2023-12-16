@@ -16,11 +16,6 @@ mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/lib
 mkdir -p $HOME/.local/share
 
-#neovim
-curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-chmod u+x nvim.appimage
-mv $PWD/nvim.appimage $HOME/.local/bin/nvim
-
 #lazy git
 mkdir tmp && cd tmp
 curl -LO https://github.com/jesseduffield/lazygit/releases/download/v0.38.2/lazygit_0.38.2_Linux_x86_64.tar.gz
@@ -35,7 +30,6 @@ git clone https://github.com/qmk/qmk_firmware ~/.local/share/qmk_firmware
 python3 -m pip install --user qmk
 
 #configs
-ln -s -f $PWD/nvim $HOME/.config/nvim
 for d in $(ls $PWD/scripts);
 do
   ln -s -f $PWD/scripts/$d $HOME/.local/bin/$d;
