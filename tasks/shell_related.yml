@@ -1,3 +1,8 @@
+- name: Install packages
+  become: true
+  apt:
+    name:
+      []
 - name: Everything else
   ansible.builtin.shell: "{{ pwd }}/install-shell.sh"
   tags:
