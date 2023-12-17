@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$((find ~/repos -mindepth 1 -maxdepth 2 -type d,l; echo "home";)| fzf)
+    selected=$((find ~/repos -mindepth 1 -maxdepth 2 -type d,l; echo "/home/$USER";)| fzf)
 fi
 
 
@@ -13,9 +13,6 @@ fi
 
 selected_name=$(basename "$selected" | tr . _)
 
-if [[ "$selected" == "home" ]]; then
-  selected="/home/ibrahim"
-fi
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
