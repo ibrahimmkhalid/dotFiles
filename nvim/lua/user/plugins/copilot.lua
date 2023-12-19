@@ -6,7 +6,10 @@ return {
     vim.g.copilot_no_maps = true
     vim.g.copilot_filetypes = {
       markdown = false,
+      txt = false,
+      ini = false,
       gitcommit = false,
+      NeogitCommitMessage = false,
       gitrebase = false,
       xml = false,
       json = false,
