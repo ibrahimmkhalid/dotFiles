@@ -28,10 +28,12 @@ return {
         if not status_ok then
           vim.notify("colorscheme " .. colorscheme .. " not found!")
         else
+          local everforest = require("everforest")
           vim.opt.background = background
-          require("everforest").setup({
+          everforest.setup({
             background = "hard"
           })
+          everforest.load()
         end
       end
     }
