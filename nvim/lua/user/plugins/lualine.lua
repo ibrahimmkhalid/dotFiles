@@ -43,7 +43,6 @@ return {
         lualine_x = { {
           get_lsp_name,
           icon = ' LSP:',
-          color = { gui = 'bold' }
         }, 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
