@@ -84,15 +84,6 @@ return {
       }
     })
 
-    _G.__neo_tree_toggle = function()
-      local bufnr = vim.api.nvim_get_current_buf()
-      local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
-      if ft == "neo-tree" then
-        vim.api.nvim_command("Neotree close")
-      else
-        vim.api.nvim_command("Neotree focus")
-      end
-    end
-    vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>lua __neo_tree_toggle()<cr>", { silent = true, noremap = true, desc = "Open file tree"})
+    vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>Neotree toggle<cr>", { silent = true, noremap = true, desc = "Open file tree"})
   end
 }
