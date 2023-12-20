@@ -18,23 +18,23 @@ return {
       harpoon:list():append()
     end})
 
-    vim.api.nvim_set_keymap("n", "<leader>mq", "", { silent = true, noremap = true, desc = "Select item 1 in harpoon list", callback = function ()
+    vim.api.nvim_set_keymap("n", "<leader>mq", "", { silent = true, noremap = true, desc = "Harpoon item 1", callback = function ()
       harpoon:list():select(1)
     end})
 
-    vim.api.nvim_set_keymap("n", "<leader>mw", "", { silent = true, noremap = true, desc = "Select item 2 in harpoon list", callback = function ()
+    vim.api.nvim_set_keymap("n", "<leader>mw", "", { silent = true, noremap = true, desc = "Harpoon item 2", callback = function ()
       harpoon:list():select(2)
     end})
 
-    vim.api.nvim_set_keymap("n", "<leader>me", "", { silent = true, noremap = true, desc = "Select item 3 in harpoon list", callback = function ()
+    vim.api.nvim_set_keymap("n", "<leader>me", "", { silent = true, noremap = true, desc = "Harpoon item 3", callback = function ()
       harpoon:list():select(3)
     end})
 
-    vim.api.nvim_set_keymap("n", "<leader>mr", "", { silent = true, noremap = true, desc = "Select item 4 in harpoon list", callback = function ()
+    vim.api.nvim_set_keymap("n", "<leader>mr", "", { silent = true, noremap = true, desc = "Harpoon item 4", callback = function ()
       harpoon:list():select(4)
     end})
 
-    vim.api.nvim_set_keymap("n", "<leader>mt", "", { silent = true, noremap = true, desc = "Select item 5 in harpoon list", callback = function ()
+    vim.api.nvim_set_keymap("n", "<leader>mt", "", { silent = true, noremap = true, desc = "Harpoon item 5", callback = function ()
       harpoon:list():select(5)
     end})
 
