@@ -17,7 +17,8 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_opts = {}
 local lazy_plugins = {
-  { import = "user.plugins.basic-plugins" },
+  { import = "user.plugins.dependencies" },
+  { import = "user.plugins.colorscheme" },
   { import = "user.plugins.copilot"},
   { import = "user.plugins.git" },
   { import = "user.plugins.lsp.main" },
