@@ -1,12 +1,12 @@
 return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
+  commit = "aa071ce65b610704c31767b9ac9184ff78638f56",
   config = function()
     local harpoon = require("harpoon")
     harpoon:setup({
       settings = {
         save_on_toggle = true,
-        sync_on_ui_close = true,
       }
     })
 
