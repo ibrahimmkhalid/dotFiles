@@ -5,14 +5,18 @@ return {
     vim.g.copilot_no_tab_map = true
     vim.g.copilot_no_maps = true
     vim.g.copilot_filetypes = {
-      markdown = false,
-      txt = false,
-      ini = false,
-      gitcommit = false,
-      NeogitCommitMessage = false,
-      gitrebase = false,
-      xml = false,
-      json = false,
+      ["markdown"] = false,
+      ["txt"] = false,
+      ["ini"] = false,
+      ["gitcommit"] = false,
+      ["gitrebase"] = false,
+      ["xml"] = false,
+      ["json"] = false,
+      ["help"] = false,
+      ["harpoon"] = false,
+      ["neo-tree"] = false,
+      ["NeogitStatus"] = false,
+      ["NeogitCommitMessage"] = false,
     }
 
     local check_copilot_global_status = function ()
