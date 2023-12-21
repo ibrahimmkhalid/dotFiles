@@ -56,12 +56,12 @@ return {
       end
     })
 
-    vim.api.nvim_set_keymap("i", "<C-y>", 'copilot#Accept("\\<CR>")', { replace_keycodes = false, expr = true, noremap = false })
-    vim.api.nvim_set_keymap("i", "<C-l>", '<Plug>(copilot-accept-word)', { noremap = false })
-    vim.api.nvim_set_keymap("i", "<C-j>", '<Plug>(copilot-next)', { noremap = false })
-    vim.api.nvim_set_keymap("i", "<C-k>", '<Plug>(copilot-previous)', { noremap = false })
-    vim.api.nvim_set_keymap("i", "<M-/>", '<Plug>(copilot-suggest)', { noremap = false })
-    vim.api.nvim_set_keymap("i", "<C-e>", '<Plug>(copilot-dismiss)', { noremap = false })
+    vim.api.nvim_set_keymap("i", "<C-y>", 'copilot#Accept("\\<CR>")', { replace_keycodes = false, expr = true, noremap = false, silent = true })
+    vim.api.nvim_set_keymap("i", "<C-l>", '<Plug>(copilot-accept-word)', { noremap = false, silent = true })
+    vim.api.nvim_set_keymap("i", "<C-j>", '<Plug>(copilot-next)', { noremap = false, silent = true })
+    vim.api.nvim_set_keymap("i", "<C-k>", '<Plug>(copilot-previous)', { noremap = false, silent = true })
+    vim.api.nvim_set_keymap("i", "<M-/>", '<Plug>(copilot-suggest)', { noremap = false, silent = true })
+    vim.api.nvim_set_keymap("i", "<C-e>", '<Plug>(copilot-dismiss)', { noremap = false, silent = true })
     vim.api.nvim_set_keymap("n", "<leader>agi", ":lua toggle_copilot_global_status()<CR>", { noremap = true, silent = true, desc = "Toggle Artificial Github Intelligence" })
   end
 }
