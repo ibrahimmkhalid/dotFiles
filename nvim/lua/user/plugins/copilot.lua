@@ -32,9 +32,11 @@ return {
       if status then
         vim.cmd("silent !echo 0 > " .. status_file)
         vim.cmd("Copilot disable")
+        vim.g.ibrahimmkhalid_copilot_indicator = false
       else
         vim.cmd("silent !echo 1 > " .. status_file)
         vim.cmd("Copilot enable")
+        vim.g.ibrahimmkhalid_copilot_indicator = true
       end
     end
 
@@ -43,9 +45,9 @@ return {
       callback = function ()
         local status = check_copilot_global_status()
         if status then
-          vim.g.copilot_enabled = true
+          vim.g.ibrahimmkhalid_copilot_indicator = true
         else
-          vim.g.copilot_enabled = false
+          vim.g.ibrahimmkhalid_copilot_indicator = false
         end
       end
     })
