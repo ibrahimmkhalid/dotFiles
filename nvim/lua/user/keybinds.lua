@@ -31,6 +31,8 @@ vim.api.nvim_set_keymap("n", ">", ">>", { silent = true, noremap = true, desc = 
 
 -- WSL workaround for visual block mode
 vim.api.nvim_set_keymap("n", "<M-v>", "<C-v>", { silent = true, noremap = true, desc = "enter visual block mode"})
+-- WSL workaround for pasting
+vim.api.nvim_set_keymap("n", "<leader>rw", ":%s/\\r//g<cr>", { silent = true, noremap = true, desc = "remove ^M from buffer"})
 
 -- Visual --
 -- Stay in indent mode
@@ -60,5 +62,3 @@ vim.api.nvim_set_keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true, desc
 vim.api.nvim_set_keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true, desc = "Focus bottom window" })
 vim.api.nvim_set_keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, desc = "Focus upper window" })
 vim.api.nvim_set_keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, desc = "Focus right window" })
-vim.api.nvim_set_keymap("n", "<S-K>", "", {silent = true, noremap = true,}) -- removing bad habit
-vim.api.nvim_set_keymap("n", "<S-J>", "", {silent = true, noremap = true,})

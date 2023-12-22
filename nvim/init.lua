@@ -17,7 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_opts = {}
 local lazy_plugins = {
-  { import = "user.plugins.basic-plugins" },
+  { import = "user.plugins.dependencies" },
+  { import = "user.plugins.colorscheme" },
+  { import = "user.plugins.copilot"},
   { import = "user.plugins.git" },
   { import = "user.plugins.lsp.main" },
   { import = "user.plugins.neotree" },
@@ -32,7 +34,7 @@ local lazy_plugins = {
   { import = "user.plugins.nvim-ufo" },
   { import = "user.plugins.comments" },
   { import = "user.plugins.cursorline" },
-  { import = "user.plugins.reach" },
+  { import = "user.plugins.harpoon" },
   { import = "user.plugins.markdown" },
   { import = "user.plugins.impatient" },
   { import = "user.plugins.tmux-nav" },

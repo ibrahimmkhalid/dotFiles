@@ -1,5 +1,6 @@
 return {
-  "yamatsum/nvim-cursorline",
+  "ibrahimmkhalid/nvim-cursorline",
+  branch = "bugfix-unsafe-check-on-cursorword-id",
   config = function()
     local function getVisualHighlightColor()
       local visual_hl = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID('Visual')), 'bg')

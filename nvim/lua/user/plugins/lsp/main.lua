@@ -37,5 +37,6 @@ return {
     require("user.plugins.lsp.dap")
     require("user.plugins.lsp.autopairs")
     require("user.plugins.lsp.options")
+    require("user.plugins.lsp.snippets")
   end
 }

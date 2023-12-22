@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  version = "0.1.1",
+  version = "0.1.5",
   config = function()
     local actions = require("telescope.actions")
     require("telescope").setup({

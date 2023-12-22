@@ -27,7 +27,7 @@ local lsp_attach = function(client, bufnr)
   keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>",
     { noremap = true, silent = true, desc = "Go to definition" })
 
-  keymap(bufnr, "n", "gk", "<cmd>lua vim.lsp.buf.hover()<CR>",
+  keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>",
     { noremap = true, silent = true, desc = "Information" })
 
   keymap(bufnr, "n", "gF", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true, desc = "Format" })
