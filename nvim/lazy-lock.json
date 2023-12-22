@@ -31,7 +31,7 @@
   "nvim-cursorline": { "branch": "bugfix-unsafe-check-on-cursorword-id", "commit": "aef39b54eec81882f59aa8363f48f099fa322708" },
   "nvim-dap": { "branch": "master", "commit": "f0dca670fa059eb89dda8869a6310c804241345c" },
   "nvim-dap-ui": { "branch": "master", "commit": "34160a7ce6072ef332f350ae1d4a6a501daf0159" },
-  "nvim-lspconfig": { "branch": "master", "commit": "e3371e11f8d8045a1d01905e59057530cea2b472" },
+  "nvim-lspconfig": { "branch": "master", "commit": "9099871a7c7e1c16122e00d70208a2cd02078d80" },
   "nvim-treesitter": { "branch": "master", "commit": "d496c5e08e853dadedc7f5d0a6541288d0441fd3" },
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "1277b4a1f451b0f18c0790e1a7f12e1e5fdebfee" },
   "nvim-ufo": { "branch": "main", "commit": "a15944ff8e3d570f504f743d55209275ed1169c4" },
