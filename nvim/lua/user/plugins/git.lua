@@ -25,6 +25,11 @@ return {
     vim.api.nvim_set_keymap('n', '<leader>gU', '<Cmd>Git pull<CR>', { silent = true, noremap = true, desc = "Git pull"})
     vim.api.nvim_set_keymap('n', '<leader>gl', '<Cmd>Git blame<CR>', { silent = true, noremap = true, desc = "Git blame"})
 
+    -- git resolve
+    vim.api.nvim_set_keymap('n', '<leader>grm', '<Cmd>Gdiffsplit!<CR>', { silent = true, noremap = true, desc = "Git resolve conflit"} )
+    vim.api.nvim_set_keymap('n', '<leader>grj', '<Cmd>diffget //2|diffupdate<CR>', { silent = true, noremap = true, desc = "Git resolve accept left"} )
+    vim.api.nvim_set_keymap('n', '<leader>grk', '<Cmd>diffget //3|diffupdate<CR>', { silent = true, noremap = true, desc = "Git resolve accept right"} )
+
     -- neogit
     vim.api.nvim_set_keymap('n', '<leader>gg', '<Cmd>Neogit kind=vsplit<CR>', { silent = true, noremap = true, desc = "Open git window"})
   end

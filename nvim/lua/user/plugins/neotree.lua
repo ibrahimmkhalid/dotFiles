@@ -1,6 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  branch = "v2.x",
+  branch = "v3.x",
   dependencies = {
     "MunifTanjim/nui.nvim"
   },
@@ -35,6 +35,7 @@ return {
             nowait = true,
           },
           ["Z"] = "expand_all_nodes",
+          ["z"] = "close_all_nodes",
           ["m"] = {
             "move",
             config = {
@@ -70,7 +71,9 @@ return {
             ["<leader>gj"] = "next_git_modified",
           }
         },
-        follow_current_file = true,
+        follow_current_file = {
+          enabled = true,
+        },
         hijack_netrw_behavior = "open_current",
         use_libuv_file_watcher = true,
       },
@@ -81,6 +84,6 @@ return {
       }
     })
 
-    vim.api.nvim_set_keymap("n", "<leader>e", ":NeoTreeFocusToggle<cr>", { silent = true, noremap = true, desc = "Open file tree"})
+    vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>Neotree toggle<cr>", { silent = true, noremap = true, desc = "Open file tree"})
   end
 }
