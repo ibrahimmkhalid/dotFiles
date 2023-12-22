@@ -1,6 +1,21 @@
 return {
   "nvim-lualine/lualine.nvim",
   config = function()
+    local function is_lsp_active()
+      local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+      local clients = vim.lsp.get_active_clients()
+      if next(clients) == nil then
+        return true
+      end
+      for _, client in ipairs(clients) do
+        local filetypes = client.config.filetypes
+        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+          return true
+        end
+      end
+      return false
+    end
+
     local function get_lsp_name()
       local msg = 'No Active Lsp'
       local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
@@ -63,16 +78,11 @@ return {
         lualine_a = { 'branch' },
         lualine_b = { 'diff', 'diagnostics' },
         lualine_c = { { 'filename', path = 1 } },
-        lualine_x = { {
-          get_lsp_name,
-          icon = ' LSP:',
-        }, 'filetype', {
-          function()
-            return "Copilot enabled"
-          end,
-          cond = get_copilot_status,
-          icon = ''
-        } },
+        lualine_x = {
+          'filetype',
+          { get_lsp_name, cond = is_lsp_active, icon = ' ', },
+          { function() return " AGI" end, cond = get_copilot_status }
+        },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
       },
