@@ -38,5 +38,12 @@ return {
       harpoon:list():select(5)
     end})
 
+    vim.api.nvim_set_keymap("n", "<leader>mp", "", { silent = true, noremap = true, desc = "Next harpoon item", callback = function ()
+      harpoon:list():next()
+    end})
+
+    vim.api.nvim_set_keymap("n", "<leader>mn", "", { silent = true, noremap = true, desc = "Previous harpoon item", callback = function ()
+      harpoon:list():prev()
+    end})
   end
 }
