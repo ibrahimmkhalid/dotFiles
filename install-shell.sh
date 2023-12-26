@@ -8,10 +8,6 @@ sudo apt update
 sudo apt install make gawk wget curl ranger htop libfuse2 ripgrep gcc g++ unzip neofetch tldr lldb entr fzf xsel xclip python3 python-is-python3 python3-pip build-essential python3-venv ansible -y
 
 #setups
-git config --global user.name "Ibrahim Mansoor Khalid"
-git config --global user.email "ibrahimmkhalid@gmail.com"
-git config --global core.editor nvim
-git config --global init.defaultBranch main 
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.local/lib
 mkdir -p $HOME/.local/share

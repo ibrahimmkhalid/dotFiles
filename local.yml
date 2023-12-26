@@ -15,10 +15,12 @@
       - gnome
       - zsh
       - tmux
+      - nvim
   tasks:
     - include: tasks/ssh.yml
     - include: tasks/zsh.yml
     - include: tasks/tmux.yml
     - include: tasks/nvim.yml
+    - include: tasks/git.yml
     - include: tasks/shell_related.yml
     - include: tasks/gnome_related.yml
