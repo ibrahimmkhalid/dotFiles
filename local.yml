@@ -17,8 +17,29 @@
       - zsh
       - tmux
       - nvim
+  - name: Ensure local bin directory exists
+    file:
+      dest: "{{ home }}/.local/bin"
+      mode: 0755
+      state: directory
+    tags:
+      - shell
+      - lazygit
+  - name: Ensure local lib directory exists
+    file:
+      dest: "{{ home }}/.local/lib"
+      mode: 0755
+      state: directory
+    tags:
+      - shell
+  - name: Ensure local share directory exists
+    file:
+      dest: "{{ home }}/.local/share"
+      mode: 0755
+      state: directory
+    tags:
+      - shell
   tasks:
-    - include: tasks/base.yml
     - include: tasks/ssh.yml
     - include: tasks/zsh.yml
     - include: tasks/tmux.yml
