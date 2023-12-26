@@ -1,0 +1,21 @@
+- name: Download Lazygit from archive
+  ansible.builtin.get_url:
+    url: 'https://github.com/jesseduffield/lazygit/releases/download/v0.38.2/lazygit_0.38.2_Linux_x86_64.tar.gz'
+    dest: "/tmp/lazygit.tar.gz"
+  tags:
+    - shell
+    - lazygit
+- name: Unarchiving Lazygit
+  ansible.builtin.unarchive:
+    src: "/tmp/lazygit.tar.gz"
+    dest: "/tmp"
+  tags:
+    - shell
+    - lazygit
+- name: Installing Lazygit
+  copy:
+    src: "/tmp//lazygit"
+    dest: "{{ home }}/.local/bin/lazygit"
+  tags:
+    - shell
+    - lazygit
