@@ -50,8 +50,10 @@ return {
         local status = check_copilot_global_status()
         if status then
           vim.g.ibrahimmkhalid_copilot_indicator = true
+          vim.g.copilot_enabled = true
         else
           vim.g.ibrahimmkhalid_copilot_indicator = false
+          vim.g.copilot_enabled = false
         end
       end
     })
