@@ -3,6 +3,7 @@
     source_key: "./ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     pwd: "{{ lookup('env', 'PWD') }}"
+    home: "{{ lookup('env', 'HOME') }}"
   pre_tasks:
   - name: Update Apt
     become: true
@@ -17,6 +18,7 @@
       - tmux
       - nvim
   tasks:
+    - include: tasks/base.yml
     - include: tasks/ssh.yml
     - include: tasks/zsh.yml
     - include: tasks/tmux.yml
