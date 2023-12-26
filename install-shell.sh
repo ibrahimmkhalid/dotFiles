@@ -7,11 +7,6 @@ sudo add-apt-repository ppa:aslatter/ppa -y
 sudo apt update
 sudo apt install make gawk wget curl ranger htop libfuse2 ripgrep gcc g++ unzip neofetch tldr lldb entr fzf xsel xclip python3 python-is-python3 python3-pip build-essential python3-venv ansible -y
 
-#setups
-mkdir -p $HOME/.local/bin
-mkdir -p $HOME/.local/lib
-mkdir -p $HOME/.local/share
-
 #lazy git
 mkdir tmp && cd tmp
 curl -LO https://github.com/jesseduffield/lazygit/releases/download/v0.38.2/lazygit_0.38.2_Linux_x86_64.tar.gz
