@@ -1,0 +1,32 @@
+- name: Set Git user name
+  ansible.builtin.git_config:
+    scope: global
+    name: user.name
+    value: "Ibrahim Mansoor Khalid"
+  tags:
+    - shell
+    - git
+- name: Set Git user email
+  ansible.builtin.git_config:
+    scope: global
+    name: user.email
+    value: "ibrahimmkhalid@gmail.com"
+  tags:
+    - shell
+    - git
+- name: Set Git editor
+  ansible.builtin.git_config:
+    scope: global
+    name: core.editor
+    value: "nvim"
+  tags:
+    - shell
+    - git
+- name: Set Git default branch
+  ansible.builtin.git_config:
+    scope: global
+    name: init.defaultBranch
+    value: "main"
+  tags:
+    - shell
+    - git
