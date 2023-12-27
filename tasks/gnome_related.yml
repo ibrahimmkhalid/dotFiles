@@ -1,4 +1,0 @@
-- name: Gnome specific
-  ansible.builtin.shell: "{{ pwd }}/install-gnome.sh"
-  tags:
-    - gnome
