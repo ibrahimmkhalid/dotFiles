@@ -29,7 +29,6 @@ local lazy_plugins = {
   { import = "user.plugins.telescope" },
   { import = "user.plugins.jupyter" },
   { import = "user.plugins.lualine" },
-  { import = "user.plugins.bufferline" },
   { import = "user.plugins.toggleterm" },
   { import = "user.plugins.nvim-ufo" },
   { import = "user.plugins.comments" },
