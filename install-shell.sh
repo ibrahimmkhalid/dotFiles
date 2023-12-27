@@ -12,12 +12,6 @@ git clone https://github.com/ergogen/ergogen ~/.local/share/ergogen
 git clone https://github.com/qmk/qmk_firmware ~/.local/share/qmk_firmware
 python3 -m pip install --user qmk
 
-#configs
-for d in $(ls $PWD/scripts);
-do
-  ln -s -f $PWD/scripts/$d $HOME/.local/bin/$d;
-done
-
 curl -L https://bit.ly/n-install | N_PREFIX=~/.local/share/n bash -s -- -y
 export N_PREFIX="$HOME/.local/share/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
 

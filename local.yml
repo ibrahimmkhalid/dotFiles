@@ -63,6 +63,11 @@
     import_tasks: tasks/git.yml
     tags:
       - shell
+  - name: Link scripts
+    import_tasks: tasks/scripts.yml
+    tags:
+      - shell
+      - scripts
   - name: Install Lazygit
     import_tasks: tasks/lazygit.yml
     tags:

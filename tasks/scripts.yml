@@ -1,0 +1,13 @@
+- name: Get list of scripts
+  ansible.builtin.find:
+    paths: "{{ playbook_dir }}/scripts"
+    recurse: no
+    patterns: "*"
+  register: script_files
+- name: Create symbolic links for scripts
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/scripts/{{ item.path | basename }}"
+    dest: "{{ home }}/.local/bin/{{ item.path | basename }}"
+    state: link
+    force: yes
+  with_items: "{{ script_files.files }}"
