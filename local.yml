@@ -73,10 +73,17 @@
     tags:
       - shell
       - lazygit
+  - name: Install n node version manager
+    import_tasks: tasks/nodejs.yml
+    tags:
+      - shell
+      - nodejs
   - name: All other shell configs
     ansible.builtin.shell: "{{ pwd }}/install-shell.sh"
     tags:
       - shell
+    environment:
+      PATH: "{{ home }}/.local/share/n/bin:{{ ansible_env.PATH }}"
   - name: All other gnome configs
     ansible.builtin.shell: "{{ pwd }}/install-gnome.sh"
     tags:
