@@ -43,5 +43,7 @@ return {
       { silent = true, noremap = true, desc = "Move buffer to right" })
     vim.api.nvim_set_keymap('n', '<leader>bh', '<Cmd>BufferMovePrevious<CR>',
       { silent = true, noremap = true, desc = "Move buffer to left" })
+
+    vim.opt.showtabline = 2
   end
 }
