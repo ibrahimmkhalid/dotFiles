@@ -3,29 +3,17 @@
   apt:
     name: ['zsh', 'curl']
     state: present
-  tags:
-    - shell
-    - zsh
 - name: Change user's shell to zsh
   become: yes
   ansible.builtin.user:
     name: "{{ lookup('env', 'USER') }}"
     shell: "{{ lookup('pipe', 'which zsh') }}"
-  tags:
-    - shell
-    - zsh
 - name: Install Oh-my-zsh
   shell: 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended'
-  tags:
-    - shell
-    - zsh
 - name: Install omz autosuggestions
   ansible.builtin.git:
     repo: "https://github.com/zsh-users/zsh-autosuggestions"
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
-  tags:
-    - shell
-    - zsh
 - name: Create symbolic link for .zshrc (dot file management)
   become: yes
   ansible.builtin.file:
@@ -33,6 +21,3 @@
     dest: "{{ ansible_env.HOME }}/.zshrc"
     state: link
     force: yes
-  tags:
-    - shell
-    - zsh

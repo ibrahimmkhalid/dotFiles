@@ -40,11 +40,39 @@
     tags:
       - shell
   tasks:
-  - include: tasks/ssh.yml
-  - include: tasks/zsh.yml
-  - include: tasks/tmux.yml
-  - include: tasks/nvim.yml
-  - include: tasks/git.yml
-  - include: tasks/lazygit.yml
-  - include: tasks/shell_related.yml
-  - include: tasks/gnome_related.yml
+  - name: Add ssh keys
+    import_tasks: tasks/ssh.yml
+    tags:
+      - shell
+  - name: Install Zsh and oh-my-zsh
+    import_tasks: tasks/zsh.yml
+    tags:
+      - shell
+      - zsh
+  - name: Install tmux
+    import_tasks: tasks/tmux.yml
+    tags:
+      - shell
+      - tmux
+  - name: Install NeoVim
+    import_tasks: tasks/nvim.yml
+    tags:
+      - shell
+      - nvim
+  - name: Do local git configs
+    import_tasks: tasks/git.yml
+    tags:
+      - shell
+  - name: Install Lazygit
+    import_tasks: tasks/lazygit.yml
+    tags:
+      - shell
+      - lazygit
+  - name: All other shell configs
+    ansible.builtin.shell: "{{ pwd }}/install-shell.sh"
+    tags:
+      - shell
+  - name: All other gnome configs
+    ansible.builtin.shell: "{{ pwd }}/install-gnome.sh"
+    tags:
+      - gnome
