@@ -6,8 +6,9 @@
   ansible.builtin.git:
     repo: 'https://github.com/neovim/neovim.git'
     dest: "/tmp/nvim"
+    version: stable
 - name: Build nvim
-  shell: "cd /tmp/nvim && make -j 20"
+  shell: "cd /tmp/nvim && make CMAKE_BUILD_TYPE=Release"
 - name: Install nvim
   become: true
   shell: "cd /tmp/nvim && make install"
