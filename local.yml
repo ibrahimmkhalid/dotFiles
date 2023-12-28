@@ -78,6 +78,11 @@
     tags:
       - shell
       - nodejs
+  - name: Install Ergogen
+    import_tasks: tasks/apps/ergogen.yml
+    tags:
+      - shell
+      - ergogen
   - name: All other shell configs
     ansible.builtin.shell: "{{ pwd }}/install-shell.sh"
     tags:
