@@ -4,17 +4,18 @@ return {
     "kevinhwang91/promise-async"
   },
   config = function()
+    vim.o.foldcolumn = '1'
+    vim.o.foldlevel = 99
+    vim.o.foldlevelstart = 99
+    vim.o.foldenable = true
+
     local ufo = require("ufo")
 
     ufo.setup({
       provider_selector = function(bufnr, filetype, buftype)
-        return { 'treesitter' }
+        return { 'lsp', 'indent' }
       end
     })
-    vim.o.foldcolumn = '0'
-    vim.o.foldlevel = 99
-    vim.o.foldlevelstart = 99
-    vim.o.foldenable = false
 
     vim.api.nvim_set_keymap('n', 'zR', '<Cmd>lua require("ufo").openAllFolds()<cr>',
       { silent = true, noremap = true, desc = "Open all folds" })
