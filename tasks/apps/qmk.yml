@@ -1,0 +1,17 @@
+- name: Remove qmk
+  file:
+    path: '{{ home }}/.local/share/qmk_firmware'
+    state: absent
+- name: Clone qmk
+  ansible.builtin.git:
+    repo: 'https://github.com/qmk/qmk_firmware'
+    dest: '{{ home }}/.local/share/qmk_firmware'
+- name: Ensure qmk prerequisites
+  apt:
+    name: python3
+    state: present
+- name: Install qmk
+  shell: "python3 -m pip install --user qmk"
+- name: Setup qmk
+  shell: "{{home}}/.local/bin/qmk setup -H {{ home }}/.local/share/qmk_firmware -y"
+
