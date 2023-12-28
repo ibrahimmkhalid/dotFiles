@@ -9,7 +9,6 @@ local options = {
   mouse = "a",
   scrolloff = 10,
   showmode = false,
-  showtabline = 2,
   signcolumn = "yes",
   smartcase = true,
   smartindent = true,
