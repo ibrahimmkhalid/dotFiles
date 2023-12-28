@@ -69,7 +69,7 @@
       - shell
       - scripts
   - name: Install Lazygit
-    import_tasks: tasks/lazygit.yml
+    import_tasks: tasks/apps/lazygit.yml
     tags:
       - shell
       - lazygit
