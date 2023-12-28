@@ -8,6 +8,12 @@
   ansible.builtin.user:
     name: "{{ lookup('env', 'USER') }}"
     shell: "{{ lookup('pipe', 'which zsh') }}"
+- name: Remove Oh-my-zsh
+  tags:
+    - clean
+  file:
+    path: "{{ home }}/.oh-my-zsh"
+    state: absent
 - name: Install Oh-my-zsh
   shell: 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended'
 - name: Install omz autosuggestions
