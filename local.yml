@@ -83,6 +83,11 @@
     tags:
       - shell
       - ergogen
+  - name: Install QMK
+    import_tasks: tasks/apps/qmk.yml
+    tags:
+      - shell
+      - qmk
   - name: All other shell configs
     ansible.builtin.shell: "{{ pwd }}/install-shell.sh"
     tags:
