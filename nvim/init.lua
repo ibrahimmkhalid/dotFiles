@@ -30,7 +30,6 @@ local lazy_plugins = {
   { import = "user.plugins.jupyter" },
   { import = "user.plugins.lualine" },
   { import = "user.plugins.toggleterm" },
-  { import = "user.plugins.nvim-ufo" },
   { import = "user.plugins.comments" },
   { import = "user.plugins.cursorline" },
   { import = "user.plugins.harpoon" },
