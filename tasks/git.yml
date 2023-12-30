@@ -18,3 +18,16 @@
     scope: global
     name: init.defaultBranch
     value: "main"
+- name: Unset git configs
+  tags:
+    - clean
+    - never
+  git_config:
+    scope: global
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - user.name
+    - user.email
+    - core.editor
+    - init.defaultBranch

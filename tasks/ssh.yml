@@ -18,3 +18,21 @@
     user: "{{ lookup('env', 'USER') }}"
     state: present
     key: "{{ lookup('file', lookup('env', 'HOME') + '/.ssh/id_ed25519.pub') }}"
+- name: Unset authorized key took from file
+  authorized_key:
+    user: "{{ lookup('env', 'USER') }}"
+    state: absent
+    key: "{{ lookup('file', lookup('env', 'HOME') + '/.ssh/id_ed25519.pub') }}"
+  tags:
+    - clean
+    - never
+- name: remove keys
+  file:
+    path: "{{ item }}" 
+    state: absent
+  with_items:
+    - "{{ dest_key }}"
+    - "{{ dest_key }}.pub"
+  tags:
+    - clean
+    - never

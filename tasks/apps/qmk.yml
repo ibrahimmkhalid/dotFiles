@@ -2,6 +2,8 @@
   file:
     path: '{{ home }}/.local/share/qmk_firmware'
     state: absent
+  tags:
+    - clean
 - name: Clone qmk
   ansible.builtin.git:
     repo: 'https://github.com/qmk/qmk_firmware'
@@ -14,4 +16,9 @@
   shell: "python3 -m pip install --user qmk"
 - name: Setup qmk
   shell: "{{home}}/.local/bin/qmk setup -H {{ home }}/.local/share/qmk_firmware -y"
+- name: Uninstall qmk
+  shell: "python3 -m pip uninstall qmk -y"
+  tags:
+    - clean
+    - never
 
