@@ -1,14 +1,31 @@
 
 ## My dot files
 
-WSL/terminal only install:
+Base install only (ssh, zsh, tmux, nvim, etc):
 ```
-sudo apt update -y && sudo apt install git ansible software-properties-common -y && git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && cd .dotFiles && ansible-playbook local.yml --ask-become-pass --ask-vault-pass -t shell
+sudo apt update -y && \
+sudo apt install git ansible software-properties-common -y && \
+git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && \
+cd .dotFiles && \
+ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never --tags base
 ```
 
-Gnome install:
+Regular install (base + ergogen, qmk, lazygit):
 ```
-sudo apt update -y && sudo apt install git ansible software-properties-common -y && git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && cd .dotFiles && ansible-playbook local.yml --ask-become-pass --ask-vault-pass -t gnome
+sudo apt update -y && \
+sudo apt install git ansible software-properties-common -y && \
+git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && \
+cd .dotFiles && \
+ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never --tags base,with-extra
+```
+
+Full install (regular + gnome configs):
+```
+sudo apt update -y && \
+sudo apt install git ansible software-properties-common -y && \
+git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && \
+cd .dotFiles && \
+ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never --tags base,with-extra,with-gnome
 ```
 
 ## Credits 
