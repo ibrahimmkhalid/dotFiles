@@ -1,3 +1,9 @@
+- name: Preparing for n node version manager download
+  tags:
+    - clean
+  file:
+    path: "/tmp/n"
+    state: absent
 - name: clone n node version manager
   ansible.builtin.git:
     repo: "https://github.com/tj/n"
@@ -9,3 +15,10 @@
   environment:
     N_PREFIX: "{{ home }}/.local/share/n"
     PATH: "{{ home }}/.local/share/n/bin:{{ ansible_env.PATH }}"
+- name: Uninstall n node version manager
+  tags:
+    - clean
+    - never
+  file:
+    path: "{{ home }}/.local/share/n"
+    state: absent

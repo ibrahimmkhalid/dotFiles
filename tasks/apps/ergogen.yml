@@ -5,6 +5,8 @@
   with_items:
     - "{{ home }}/.local/share/ergogen"
     - "{{ home }}/.local/bin/ergogen"
+  tags:
+    - clean
 - name: Clone ergogen
   ansible.builtin.git:
     repo: 'https://github.com/ergogen/ergogen'

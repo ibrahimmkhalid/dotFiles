@@ -1,12 +1,35 @@
+- name: Preparing for lazygit download
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "/tmp/lazygit.tar.gz"
+    - "/tmp/lazygit"
+  tags:
+    - clean
 - name: Download Lazygit from archive
   ansible.builtin.get_url:
     url: 'https://github.com/jesseduffield/lazygit/releases/download/v0.38.2/lazygit_0.38.2_Linux_x86_64.tar.gz'
     dest: "/tmp/lazygit.tar.gz"
+- name: Making unarchiving dir
+  file:
+    path: /tmp/lazygit
+    state: directory
 - name: Unarchiving Lazygit
   ansible.builtin.unarchive:
     src: "/tmp/lazygit.tar.gz"
-    dest: "/tmp"
+    dest: "/tmp/lazygit"
 - name: Installing Lazygit
+  become: true
   copy:
-    src: "/tmp//lazygit"
+    src: "/tmp/lazygit/lazygit"
     dest: "{{ home }}/.local/bin/lazygit"
+    mode: "0777"
+- name: Uninstalling Lazygit
+  become: true
+  file:
+    path: "{{ home }}/.local/bin/lazygit"
+    state: absent
+  tags:
+    - clean
+    - never

@@ -27,3 +27,10 @@
     dest: "{{ ansible_env.HOME }}/.zshrc"
     state: link
     force: yes
+- name: Unlink zshrc
+  file:
+    path: "{{ home }}/.zshrc"
+    state: absent
+  tags:
+    - clean
+    - never

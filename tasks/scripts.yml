@@ -1,4 +1,6 @@
 - name: Get list of scripts
+  tags:
+    - clean
   ansible.builtin.find:
     paths: "{{ playbook_dir }}/scripts"
     recurse: no
@@ -11,3 +13,11 @@
     state: link
     force: yes
   with_items: "{{ script_files.files }}"
+- name: Unlink scripts
+  ansible.builtin.file:
+    path: "{{ home }}/.local/bin/{{ item.path | basename }}"
+    state: absent
+  with_items: "{{ script_files.files }}"
+  tags:
+    - clean
+    - never
