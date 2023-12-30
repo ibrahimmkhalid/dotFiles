@@ -12,81 +12,86 @@
       update_cache: true
       state: present
     tags:
-      - shell
-      - gnome
-      - zsh
-      - tmux
-      - nvim
+      - always
   - name: Ensure local bin directory exists
     file:
       dest: "{{ home }}/.local/bin"
       mode: 0755
       state: directory
     tags:
-      - shell
+      - base
       - lazygit
+      - ergogen
+      - qmk
+      - scripts
   - name: Ensure local lib directory exists
     file:
       dest: "{{ home }}/.local/lib"
       mode: 0755
       state: directory
     tags:
-      - shell
+      - base
   - name: Ensure local share directory exists
     file:
       dest: "{{ home }}/.local/share"
       mode: 0755
       state: directory
     tags:
-      - shell
+      - base
+      - nodejs
+      - qmk
+      - ergogen
   tasks:
   - name: Add ssh keys
     import_tasks: tasks/ssh.yml
     tags:
-      - shell
+      - base
+      - ssh
   - name: Install Zsh and oh-my-zsh
     import_tasks: tasks/zsh.yml
     tags:
-      - shell
+      - base
       - zsh
   - name: Install tmux
     import_tasks: tasks/tmux.yml
     tags:
-      - shell
+      - base
       - tmux
   - name: Install NeoVim
     import_tasks: tasks/nvim.yml
     tags:
-      - shell
+      - base
       - nvim
   - name: Do local git configs
     import_tasks: tasks/git.yml
     tags:
-      - shell
+      - base
+      - git
   - name: Link scripts
     import_tasks: tasks/scripts.yml
     tags:
-      - shell
+      - base
       - scripts
-  - name: Install Lazygit
-    import_tasks: tasks/apps/lazygit.yml
-    tags:
-      - shell
-      - lazygit
   - name: Install n node version manager
     import_tasks: tasks/nodejs.yml
     tags:
-      - shell
+      - base
       - nodejs
+      - ergogen
+  - name: Install Lazygit
+    import_tasks: tasks/apps/lazygit.yml
+    tags:
+      - with-extra
+      - lazygit
   - name: Install Ergogen
     import_tasks: tasks/apps/ergogen.yml
     tags:
-      - shell
+      - with-extra
       - ergogen
   - name: Install QMK
     import_tasks: tasks/apps/qmk.yml
     tags:
-      - shell
+      - with-extra
       - qmk
   - name: Install misc apt packages
     become: true
@@ -101,8 +106,8 @@
         "python3-pip",  "build-essential",  "python3-venv",  "ansible"
       ]
     tags:
-      - shell
+      - always
   - name: All other gnome configs
     ansible.builtin.shell: "{{ pwd }}/install-gnome.sh"
     tags:
-      - gnome
+      - with-gnome
