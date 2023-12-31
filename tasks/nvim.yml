@@ -1,31 +1,31 @@
-- name: Preparing nvim
+- name: "[neovim] Removing/preparing nvim directories"
   tags:
     - clean
   file:
     path: "/tmp/nvim"
     state: absent
-- name: Install prerequisites
+- name: "[neovim] Ensure prerequisites for building nvim"
   become: true
   apt:
     name: ["ninja-build", "gettext", "cmake", "unzip", "curl", "make", "build-essential", "gcc", "g++", "fzf", "lldb" ]
-- name: Clone nvim
+- name: "[neovim] Clone nvim"
   ansible.builtin.git:
     repo: 'https://github.com/neovim/neovim.git'
     dest: "/tmp/nvim"
     version: stable
-- name: Build nvim
+- name: "[neovim] Build nvim"
   shell: "cd /tmp/nvim && make CMAKE_BUILD_TYPE=Release"
-- name: Install nvim
+- name: "[neovim] Install nvim"
   become: true
   shell: "cd /tmp/nvim && make install"
-- name: Create symbolic link for nvim
+- name: "[neovim] Create symbolic link for nvim"
   become: yes
   ansible.builtin.file:
     src: "{{ playbook_dir }}/nvim"
     dest: "{{ ansible_env.HOME }}/.config/nvim"
     state: link
     force: yes
-- name: Uninstall nvim
+- name: "[neovim] Uninstall nvim"
   become: true
   tags:
     - clean

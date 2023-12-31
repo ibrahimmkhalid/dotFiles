@@ -1,21 +1,21 @@
-- name: Preparing for n node version manager download
+- name: "[node version manager] Preparing for n node version manager download"
   tags:
     - clean
   file:
     path: "/tmp/n"
     state: absent
-- name: clone n node version manager
+- name: "[node version manager] clone n node version manager"
   ansible.builtin.git:
     repo: "https://github.com/tj/n"
     dest: "/tmp/n"
-- name: Build n node version manager
+- name: "[node version manager] Build n node version manager"
   shell: "cd /tmp/n && PREFIX={{ home }}/.local/share/n make install"
-- name: Install lts nodejs version
+- name: "[node version manager] Install lts nodejs version"
   shell: "n lts"
   environment:
     N_PREFIX: "{{ home }}/.local/share/n"
     PATH: "{{ home }}/.local/share/n/bin:{{ ansible_env.PATH }}"
-- name: Uninstall n node version manager
+- name: "[node version manager] Uninstall n node version manager"
   tags:
     - clean
     - never

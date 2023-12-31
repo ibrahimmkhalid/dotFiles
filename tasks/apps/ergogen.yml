@@ -1,4 +1,4 @@
-- name: Remove ergogen
+- name: "[apps: ergogen] Remove/prepare ergogen directories"
   file:
     path: '{{ item }}'
     state: absent
@@ -7,16 +7,16 @@
     - "{{ home }}/.local/bin/ergogen"
   tags:
     - clean
-- name: Clone ergogen
+- name: "[apps: ergogen] Clone ergogen repo"
   ansible.builtin.git:
     repo: 'https://github.com/ergogen/ergogen'
     dest: '{{ home }}/.local/share/ergogen'
-- name: Initialize ergogen
+- name: "[apps: ergogen] Initialize ergogen"
   shell: "cd {{ home }}/.local/share/ergogen && npm install"
   environment:
     N_PREFIX: "{{ home }}/.local/share/n"
     PATH: "{{ home }}/.local/share/n/bin:{{ ansible_env.PATH }}"
-- name: Install ergogen
+- name: "[apps: ergogen] Add ergogen cli to path"
   file:
     src: "{{ home }}/.local/share/ergogen/src/cli.js"
     dest: "{{ home }}/.local/bin/ergogen"
