@@ -1,4 +1,4 @@
-- name: Get list of scripts
+- name: "[personal scripts] Get list of scripts"
   tags:
     - clean
   ansible.builtin.find:
@@ -6,14 +6,14 @@
     recurse: no
     patterns: "*"
   register: script_files
-- name: Create symbolic links for scripts
+- name: "[personal scripts] Create symbolic links for scripts"
   ansible.builtin.file:
     src: "{{ playbook_dir }}/scripts/{{ item.path | basename }}"
     dest: "{{ home }}/.local/bin/{{ item.path | basename }}"
     state: link
     force: yes
   with_items: "{{ script_files.files }}"
-- name: Unlink scripts
+- name: "[personal scripts] Unlink scripts"
   ansible.builtin.file:
     path: "{{ home }}/.local/bin/{{ item.path | basename }}"
     state: absent

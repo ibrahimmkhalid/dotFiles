@@ -1,33 +1,33 @@
-- name: Install zsh
+- name: "[zsh config] Ensure/Install zsh and prerequisites"
   become: true
   apt:
     name: ['zsh', 'curl']
     state: present
-- name: Change user's shell to zsh
+- name: "[zsh config] Change user's shell to zsh"
   become: yes
   ansible.builtin.user:
     name: "{{ lookup('env', 'USER') }}"
     shell: "{{ lookup('pipe', 'which zsh') }}"
-- name: Remove Oh-my-zsh
+- name: "[zsh config] Remove/Prepare Oh-my-zsh directory"
   tags:
     - clean
   file:
     path: "{{ home }}/.oh-my-zsh"
     state: absent
-- name: Install Oh-my-zsh
+- name: "[zsh config] Install Oh-my-zsh"
   shell: 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended'
-- name: Install omz autosuggestions
+- name: "[zsh config] Install omz autosuggestions"
   ansible.builtin.git:
     repo: "https://github.com/zsh-users/zsh-autosuggestions"
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
-- name: Create symbolic link for .zshrc (dot file management)
+- name: "[zsh config] Create symbolic link for .zshrc"
   become: yes
   ansible.builtin.file:
     src: "{{ playbook_dir }}/zshrc"
     dest: "{{ ansible_env.HOME }}/.zshrc"
     state: link
     force: yes
-- name: Unlink zshrc
+- name: "[zsh config] Unlink zshrc"
   file:
     path: "{{ home }}/.zshrc"
     state: absent
