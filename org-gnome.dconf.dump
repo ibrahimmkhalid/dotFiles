@@ -109,12 +109,12 @@ default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
 list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']
 
 [terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-background-color='rgb(50,61,67)'
+background-color='rgb(255,251,239)'
 default-size-columns=160
 default-size-rows=48
 font='FiraCode Nerd Font 12'
-foreground-color='rgb(211,198,170)'
-palette=['rgb(75,86,92)', 'rgb(230,126,128)', 'rgb(167,192,128)', 'rgb(219,188,127)', 'rgb(127,187,179)', 'rgb(214,153,182)', 'rgb(131,192,146)', 'rgb(211,198,170)', 'rgb(75,86,92)', 'rgb(230,126,128)', 'rgb(167,192,128)', 'rgb(219,188,127)', 'rgb(127,187,179)', 'rgb(214,153,182)', 'rgb(131,192,146)', 'rgb(211,198,170)']
+foreground-color='rgb(92,106,114)'
+palette=['rgb(232,229,213)', 'rgb(248,85,82)', 'rgb(141,161,1)', 'rgb(223,160,0)', 'rgb(58,148,197)', 'rgb(223,105,186)', 'rgb(53,167,124)', 'rgb(92,106,114)', 'rgb(232,229,213)', 'rgb(248,85,82)', 'rgb(141,161,1)', 'rgb(223,160,0)', 'rgb(58,148,197)', 'rgb(223,105,186)', 'rgb(53,167,124)', 'rgb(92,106,114)']
 scrollbar-policy='never'
 use-system-font=false
 use-theme-colors=false
