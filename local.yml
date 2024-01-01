@@ -103,11 +103,33 @@
         "make",  "gawk",  "wget",  "curl",  "ranger",  "htop",  "libfuse2",
         "ripgrep",  "gcc",  "g++",  "unzip",  "neofetch",  "tldr",  "lldb",
         "entr",  "fzf",  "xsel",  "xclip",  "python3",  "python-is-python3",
-        "python3-pip",  "build-essential",  "python3-venv",  "ansible"
+        "python3-pip",  "build-essential",  "python3-venv",  "ansible", "jq"
       ]
     tags:
       - always
-  - name: All other gnome configs
-    ansible.builtin.shell: "{{ pwd }}/install-gnome.sh"
+  - name: Install misc apt packages (gnome)
+    become: true
     tags:
       - with-gnome
+    apt:
+      force_apt_get: true
+      update_cache: true
+      state: present
+      name: [
+        "dconf-editor", "numix-icon-theme-circle", "gnome-tweaks"
+      ]
+  - name: Install fonts
+    import_tasks: tasks/gnome/fonts.yml
+    tags:
+      - with-gnome
+      - fonts
+  - name: Install gnome extensions
+    import_tasks: tasks/gnome/extensions.yml
+    tags:
+      - with-gnome
+      - gnome-ext
+  - name: Set gnome settings
+    import_tasks: tasks/gnome/settings.yml
+    tags:
+      - with-gnome
+      - gnome-settings

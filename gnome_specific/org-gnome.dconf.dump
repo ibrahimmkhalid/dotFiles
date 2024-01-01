@@ -1,43 +1,15 @@
 [desktop/interface]
 clock-format='12h'
-cursor-theme='Yaru'
-document-font-name='Ubuntu 10'
 enable-hot-corners=true
 font-antialiasing='grayscale'
 font-hinting='slight'
-font-name='Ubuntu 10'
-gtk-im-module='gtk-im-context-simple'
-gtk-theme='Nordic-Polar-v40'
 icon-theme='Numix-Circle-Light'
 monospace-font-name='FiraCode Nerd Font 11'
 show-battery-percentage=true
 toolkit-accessibility=false
 
-[desktop/peripherals/keyboard]
-numlock-state=false
-
-[desktop/privacy]
-disable-microphone=false
-report-technical-problems=true
-
 [desktop/wm/preferences]
 button-layout='appmenu:minimize,maximize,close'
-num-workspaces=15
-titlebar-font='Ubuntu 10'
-
-[gnome-screenshot]
-border-effect='none'
-delay=0
-include-border=true
-include-pointer=false
-
-[gnome-system-monitor]
-current-tab='processes'
-maximized=true
-network-total-in-bits=false
-show-dependencies=false
-show-whose-processes='user'
-window-state=(1920, 1055, 0, 25)
 
 [nautilus/preferences]
 default-folder-viewer='list-view'
@@ -94,15 +66,6 @@ window-preview-title-position='TOP'
 [shell/extensions/desktop-icons]
 show-home=false
 show-trash=false
-
-[shell/extensions/executor]
-center-active=false
-center-index=1
-left-active=false
-location=1
-
-[shell/extensions/user-theme]
-name='Nordic-Polar-v40'
 
 [terminal/legacy/profiles:]
 default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'

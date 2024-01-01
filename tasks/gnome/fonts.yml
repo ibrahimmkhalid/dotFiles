@@ -1,0 +1,42 @@
+- name: "[fonts] Ensure local font directory exists"
+  file:
+    dest: "{{ home }}/.local/share/fonts"
+    mode: 0755
+    state: directory
+- name: "[fonts] Ensure download dir"
+  file:
+    path: "/tmp/fonts"
+    state: absent
+- name: "[fonts] Ensure download dir"
+  file:
+    path: "/tmp/fonts"
+    state: directory
+- name: "[fonts] Download Fira code nerd font"
+  ansible.builtin.get_url:
+    url: 'https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip'
+    dest: "/tmp/font.zip"
+- name: "[fonts] Unarchiving Fira code nerd font"
+  ansible.builtin.unarchive:
+    src: "/tmp/font.zip"
+    dest: "/tmp/fonts"
+- name: "[fonts] Find all ttf files"
+  ansible.builtin.find:
+    paths: "/tmp/fonts/"
+    patterns: "*.ttf"
+  register: ttf_files
+- name: "[fonts] Install fonts"
+  ansible.builtin.copy:
+    src: "{{ item.path }}"
+    dest: "{{ home }}/.local/share/fonts/{{ item.path | basename }}"
+  with_items: "{{ ttf_files.files }}"
+- name: "[fonts] Done"
+  file:
+    path: "/tmp/fonts"
+    state: absent
+- name: "[fonts] Uninstall fonts"
+  file:
+    path: "{{ home }}/.local/share/fonts"
+    state: absent
+  tags:
+    - clean
+    - never

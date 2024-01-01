@@ -1,0 +1,48 @@
+- name: "[gnome extensions] Ensure local gnome extensions directory exists"
+  file:
+    path: "{{ home }}/.local/share/gnome-shell/extensions"
+    mode: 0755
+    state: directory
+- name: "[gnome extensions] Remove all preinstalled extensions"
+  become: true
+  ansible.builtin.file:
+    path: "/usr/share/gnome-shell/extensions/"
+    state: absent
+- name: "[gnome extensions] Install user extensions in GNOME"
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/ToasterUwU/install-gnome-extensions/master/install-gnome-extensions.sh"
+    dest: "/tmp/install-gnome-extensions.sh"
+    mode: "0777"
+- name: "[gnome extensions] Enable GNOME extensions"
+  become: true
+  ansible.builtin.shell:
+    cmd: "/tmp/install-gnome-extensions.sh --enable --file {{ playbook_dir }}/gnome_specific/extension_links.txt"
+- name: "[gnome extensions] Remove installer script"
+  file:
+    path: "/tmp/install-gnome-extensions.sh"
+    state: absent
+- name: "[gnome extensions] Make a copy of guillotine.json.tmp as guillotine.json"
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/gnome_specific/guillotine.json.tmp"
+    dest: "{{ playbook_dir }}/gnome_specific/guillotine.json"
+- name: "[gnome extensions] Substitute HOME_DIR in guillotine.json"
+  ansible.builtin.replace:
+    path: "{{ playbook_dir }}/gnome_specific/guillotine.json"
+    regexp: 'HOME_DIR'
+    replace: "{{ home }}"
+- name: "[gnome extensions] Create symbolic link to guillotine.json for the guillotine extension"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/gnome_specific/guillotine.json"
+    dest: "{{ home }}/.config/guillotine.json"
+    state: link
+    force: yes
+- name: "[gnome extensions] Remove all extensions"
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ home }}/.config/guillotine.json"
+    - "{{ home }}/.local/share/gnome-shell/extensions"
+  tags:
+    - clean
+    - never
