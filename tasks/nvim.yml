@@ -35,4 +35,6 @@
     state: absent
   with_items:
     - "{{ home }}/.config/nvim"
+    - "{{ home }}/.local/share/nvim"
+    - "{{ home }}/.local/state/nvim"
     - "{{ lookup('pipe', 'which nvim | xargs dirname') }}"
