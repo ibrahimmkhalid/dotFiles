@@ -1,0 +1,20 @@
+- name: "[gnome settings] ensure dconf"
+  become: true
+  apt:
+    force_apt_get: true
+    update_cache: true
+    state: present
+    name: dconf
+- name: "[gnome settings] update dconf settings"
+  ansible.builtin.shell:
+    cmd "dconf load /org/gnome/ < {{ playbook_dir }}/gnome_specific/org-gnome.dconf.dump"
+- name: "[gnome settings] update desktop wallpaper"
+  community.general.dconf:
+    key: "/org/gnome/desktop/background/picture-uri"
+    value: "{{ playbook_dir }}/wallpaper/wallpaper.png"
+    state: present
+- name: "[gnome settings] update desktop screensaver"
+  community.general.dconf:
+    key: "/org/gnome/desktop/screensaver/picture-uri"
+    value: "{{ playbook_dir }}/wallpaper/wallpaper.png"
+    state: present

@@ -19,14 +19,38 @@ cd .dotFiles && \
 ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never --tags base,with-extra
 ```
 
-Full install (regular + gnome configs):
+Full install (Gnome + base + regular apps):
 ```
 sudo apt update -y && \
 sudo apt install git ansible software-properties-common -y && \
 git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && \
 cd .dotFiles && \
-ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never --tags base,with-extra,with-gnome
+ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never
 ```
+List of availabe tags for ansible-playbook:
+- meta tags
+    - base
+    - clean
+    - with-extra
+    - with-gnome
+    - never
+    - always
+- base tags
+    - git
+    - nodejs
+    - nvim
+    - scripts
+    - ssh
+    - tmux
+    - zsh
+- extra tags
+    - lazygit
+    - qmk
+    - ergogen
+- gnome tags
+    - gnome-ext
+    - gnome-settings
+    - fonts
 
 ## Credits 
 tmux-session script: https://github.com/mislav/dotfiles/blob/master/bin/tmux-session  
