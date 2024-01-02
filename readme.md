@@ -1,53 +1,40 @@
 
 ## My dot files
 
-Base install only (ssh, zsh, tmux, nvim, etc):
+Prepare for install:
 ```
 sudo apt update -y && \
 sudo apt install git ansible software-properties-common -y && \
 git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && \
-cd .dotFiles && \
-ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never --tags base
+cd .dotFiles
 ```
 
-Regular install (base + ergogen, qmk, lazygit):
+Do install (add required tags):
 ```
-sudo apt update -y && \
-sudo apt install git ansible software-properties-common -y && \
-git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && \
-cd .dotFiles && \
-ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never --tags base,with-extra
+ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never --tags 
 ```
 
-Full install (Gnome + base + regular apps):
-```
-sudo apt update -y && \
-sudo apt install git ansible software-properties-common -y && \
-git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && \
-cd .dotFiles && \
-ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never
-```
 List of availabe tags for ansible-playbook:
 - meta tags
     - base
-    - clean
     - with-extra
     - with-gnome
+    - clean (uninstall all the things)
     - never
     - always
-- base tags
+- base tags (base)
     - git
-    - nodejs
+    - nodejs (installs n package manager)
     - nvim
     - scripts
     - ssh
     - tmux
     - zsh
-- extra tags
+- extra tags (with-extra)
     - lazygit
     - qmk
-    - ergogen
-- gnome tags
+    - ergogen (will install n as well)
+- gnome tags (with-gnome)
     - gnome-ext
     - gnome-settings
     - fonts
@@ -58,3 +45,4 @@ install-gnome-extensions script: https://github.com/ToasterUwU/install-gnome-ext
 tmux-sessionizer script: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer  
 ergogen: https://github.com/ergogen/ergogen  
 qmk_firmware: https://github.com/qmk/qmk_firmware  
+n (node version manager): https://github.com/tj/n
