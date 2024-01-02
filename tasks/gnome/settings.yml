@@ -7,7 +7,7 @@
     name: dconf-cli
 - name: "[gnome settings] update dconf settings"
   ansible.builtin.shell:
-    cmd "dconf load /org/gnome/ < {{ playbook_dir }}/gnome_specific/org-gnome.dconf.dump"
+    cmd: "dconf load /org/gnome/ < {{ playbook_dir }}/gnome_specific/org-gnome.dconf.dump"
 - name: "[gnome settings] update desktop wallpaper"
   community.general.dconf:
     key: "/org/gnome/desktop/background/picture-uri"
