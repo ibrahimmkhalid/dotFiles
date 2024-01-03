@@ -19,28 +19,21 @@
       mode: 0755
       state: directory
     tags:
-      - base
-      - lazygit
-      - ergogen
-      - qmk
-      - scripts
+      - always
   - name: Ensure local lib directory exists
     file:
       dest: "{{ home }}/.local/lib"
       mode: 0755
       state: directory
     tags:
-      - base
+      - always
   - name: Ensure local share directory exists
     file:
       dest: "{{ home }}/.local/share"
       mode: 0755
       state: directory
     tags:
-      - base
-      - nodejs
-      - qmk
-      - ergogen
+      - always
   tasks:
   - name: Add ssh keys
     import_tasks: tasks/ssh.yml
