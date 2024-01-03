@@ -10,7 +10,7 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^t "global-todo\n"
 
-alias update='sudo apt update && sudo apt upgrade -y'
+alias update='sudo dnf update -y'
 alias git-done="git add . && git commit && git push"
 alias git-update="git add . && git commit -mupdate && git push"
 alias git-repeat="git add . && git commit -C HEAD@{1} && git push"

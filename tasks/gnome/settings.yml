@@ -1,10 +1,8 @@
 - name: "[gnome settings] ensure dconf"
   become: true
-  apt:
-    force_apt_get: true
-    update_cache: true
+  dnf:
     state: present
-    name: dconf-cli
+    name: dconf
 - name: "[gnome settings] update dconf settings"
   ansible.builtin.shell:
     cmd: "dconf load /org/gnome/ < {{ playbook_dir }}/gnome_specific/org-gnome.dconf.dump"

@@ -1,6 +1,6 @@
 - name: "[zsh config] Ensure/Install zsh and prerequisites"
   become: true
-  apt:
+  dnf:
     name: ['zsh', 'curl']
     state: present
 - name: "[zsh config] Change user's shell to zsh"

@@ -6,7 +6,7 @@
     state: absent
 - name: "[node version manager] Ensuring prerequisites"
   become: true
-  apt:
+  dnf:
     name: make
     state: present
 - name: "[node version manager] clone n node version manager"

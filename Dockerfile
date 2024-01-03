@@ -1,16 +1,15 @@
-FROM ubuntu
+FROM fedora
 
-ENV TZ=US/Pacific \
-    DEBIAN_FRONTEND=noninteractive
+ENV TZ=America/Los_Angeles \
+    LANG=C.utf8
+
 # OS updates and install
-RUN apt update -y
-RUN apt upgrade -y
-RUN apt install sudo vim software-properties-common language-pack-en git ansible -qq -y
-RUN update-locale
+RUN dnf upgrade -y
+RUN dnf install vim git ansible -y
 
 # Create test user and add to sudoers
-RUN useradd -m tester
-RUN usermod -aG sudo tester
+RUN useradd -m tester \
+    && usermod -aG wheel tester
 
 # Set password for the user "tester"
 RUN echo 'tester:jjj' | chpasswd

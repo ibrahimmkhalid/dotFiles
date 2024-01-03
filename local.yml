@@ -5,14 +5,6 @@
     pwd: "{{ lookup('env', 'PWD') }}"
     home: "{{ lookup('env', 'HOME') }}"
   pre_tasks:
-  - name: Update Apt
-    become: true
-    apt:
-      force_apt_get: true
-      update_cache: true
-      state: present
-    tags:
-      - always
   - name: Ensure local bin directory exists
     file:
       dest: "{{ home }}/.local/bin"
@@ -93,27 +85,23 @@
     tags:
       - with-extra
       - qmk
-  - name: Install misc apt packages
+  - name: Install misc dnf packages
     become: true
-    apt:
-      force_apt_get: true
-      update_cache: true
+    dnf:
       state: present
       name: [
-        "make",  "gawk",  "wget",  "curl",  "ranger",  "htop",  "libfuse2",
+        "make",  "gawk",  "wget",  "curl",  "ranger",  "htop",  "fuse-devel",
         "ripgrep",  "gcc",  "g++",  "unzip",  "neofetch",  "tldr",  "lldb",
-        "entr",  "fzf",  "xsel",  "xclip",  "python3",  "python-is-python3",
-        "python3-pip",  "build-essential",  "python3-venv",  "ansible", "jq"
+        "entr",  "fzf",  "xsel",  "xclip",  "python",
+        "python3-pip", "python3-virtualenv",  "ansible", "jq"
       ]
     tags:
       - always
-  - name: Install misc apt packages (gnome)
+  - name: Install misc packages (gnome)
     become: true
     tags:
       - with-gnome
-    apt:
-      force_apt_get: true
-      update_cache: true
+    dnf:
       state: present
       name: [
         "dconf-editor", "numix-icon-theme-circle", "gnome-tweaks"
@@ -133,3 +121,8 @@
     tags:
       - with-gnome
       - gnome-settings
+  - name: Fedora post install
+    import_tasks: tasks/fedora.yml
+    tags:
+      - fedora
+      - never

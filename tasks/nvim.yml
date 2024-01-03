@@ -6,8 +6,8 @@
     state: absent
 - name: "[neovim] Ensure prerequisites for building nvim"
   become: true
-  apt:
-    name: ["ninja-build", "gettext", "cmake", "unzip", "curl", "make", "build-essential", "gcc", "g++", "fzf", "lldb" ]
+  dnf:
+    name: ["ninja-build", "gettext", "cmake", "unzip", "curl", "make", "gcc", "g++", "fzf", "lldb" ]
 - name: "[neovim] Clone nvim"
   ansible.builtin.git:
     repo: 'https://github.com/neovim/neovim.git'

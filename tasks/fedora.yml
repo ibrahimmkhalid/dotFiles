@@ -1,0 +1,19 @@
+- name: "[fedora configs] Update dnf conf"
+  become: true
+  lineinfile:
+    path: "/etc/dnf/dnf.conf"
+    line: "{{ item }}"
+  with_items:
+    - "# better dnf settings"
+    - "fastestmirror=True"
+    - "max_parallel_downloads=6"
+    - "defaultyes=True"
+    - "keepcache=True"
+- name: "[fedora configs] Add RPMFusion to system"
+  become: true
+  shell:
+    cmd: "sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y"
+- name: "[fedora configs] Add RPMFusion to appstream"
+  become: true
+  shell:
+    cmd: "sudo dnf groupupdate core -y"

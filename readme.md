@@ -3,8 +3,8 @@
 
 Prepare for install:
 ```
-sudo apt update -y && \
-sudo apt install git ansible software-properties-common -y && \
+sudo dnf update -y && \
+sudo dnf install git ansible software-properties-common -y && \
 git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && \
 cd .dotFiles
 ```
@@ -46,3 +46,5 @@ tmux-sessionizer script: https://github.com/ThePrimeagen/.dotfiles/blob/master/b
 ergogen: https://github.com/ergogen/ergogen  
 qmk_firmware: https://github.com/qmk/qmk_firmware  
 n (node version manager): https://github.com/tj/n
+
+ansible-playbook local.yml --ask-become-pass --vault-pass-file ./vaultpass.txt --skip-tags never,nvim,tmux,zsh --tags base

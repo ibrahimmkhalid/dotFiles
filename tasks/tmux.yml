@@ -1,6 +1,6 @@
 - name: "[tmux config] Ensure/Install tmux"
   become: true
-  apt:
+  dnf:
     name: tmux
     state: present
 - name: "[tmux config] Install tmux plugin manager"
