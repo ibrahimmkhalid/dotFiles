@@ -4,7 +4,7 @@
 Prepare for install:
 ```
 sudo dnf update -y && \
-sudo dnf install git ansible -y && \
+sudo dnf install git ansible software-properties-common -y && \
 git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && \
 cd .dotFiles
 git checkout fedora
