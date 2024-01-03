@@ -4,9 +4,10 @@
 Prepare for install:
 ```
 sudo dnf update -y && \
-sudo dnf install git ansible software-properties-common -y && \
+sudo dnf install git ansible -y && \
 git clone https://github.com/ibrahimmkhalid/dotFiles .dotFiles && \
 cd .dotFiles
+git checkout fedora
 ```
 
 Do install (add required tags):
@@ -22,6 +23,7 @@ List of availabe tags for ansible-playbook:
     - clean (uninstall all the things)
     - never
     - always
+    - fedora (must be mentioned)
 - base tags (base)
     - git
     - nodejs (installs n package manager)
