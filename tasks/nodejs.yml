@@ -4,6 +4,11 @@
   file:
     path: "/tmp/n"
     state: absent
+- name: "[node version manager] Ensuring prerequisites"
+  become: true
+  apt:
+    name: make
+    state: present
 - name: "[node version manager] clone n node version manager"
   ansible.builtin.git:
     repo: "https://github.com/tj/n"
