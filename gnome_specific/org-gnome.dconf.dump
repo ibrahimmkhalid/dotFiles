@@ -1,5 +1,6 @@
 [desktop/interface]
 clock-format='12h'
+color-scheme='prefer-light'
 enable-hot-corners=true
 font-antialiasing='grayscale'
 font-hinting='slight'
@@ -7,6 +8,9 @@ icon-theme='Numix-Circle-Light'
 monospace-font-name='FiraCode Nerd Font 11'
 show-battery-percentage=true
 toolkit-accessibility=false
+
+[desktop/peripherals/touchpad]
+two-finger-scrolling-enabled=true
 
 [desktop/wm/preferences]
 button-layout='appmenu:minimize,maximize,close'
@@ -16,7 +20,12 @@ default-folder-viewer='list-view'
 
 [shell]
 disable-user-extensions=false
-enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-plank@hardpixel.eu', 'dash-to-dock@micxgx.gmail.com', 'todolist@tomMoral.org', 'guillotine@fopdoodle.net']
+enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-plank@hardpixel.eu', 'dash-to-dock@micxgx.gmail.com', 'guillotine@fopdoodle.net', 'todo.txt@bart.libert.gmail.com']
+
+[shell/extensions/TodoTxt]
+confirm-delete=false
+show-done-or-archive-button=false
+todotxt-location='/home/ibrahim/.todo'
 
 [shell/extensions/caffeine]
 indicator-position-max=2
@@ -66,6 +75,9 @@ window-preview-title-position='TOP'
 [shell/extensions/desktop-icons]
 show-home=false
 show-trash=false
+
+[terminal/legacy]
+theme-variant='light'
 
 [terminal/legacy/profiles:]
 default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
