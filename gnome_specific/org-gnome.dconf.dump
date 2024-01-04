@@ -77,6 +77,7 @@ show-home=false
 show-trash=false
 
 [terminal/legacy]
+confirm-close=false
 theme-variant='light'
 
 [terminal/legacy/profiles:]
