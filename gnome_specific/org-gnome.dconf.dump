@@ -46,6 +46,7 @@ extend-height=false
 force-straight-corner=false
 height-fraction=0.90000000000000002
 icon-size-fixed=false
+multi-monitor=true
 preferred-monitor=0
 scroll-action='switch-workspace'
 show-apps-at-top=false
