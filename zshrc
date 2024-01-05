@@ -49,4 +49,8 @@ if [[ -f $HOME/.localrc ]] then
 	source $HOME/.localrc
 fi
 
+if [[ -f .project_env ]]; then
+  source .project_env
+fi
+
 LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
