@@ -25,9 +25,12 @@ ls.add_snippets( "lua", {
 )
 
 ls.add_snippets( "all", {
-    s({name="Basic project environment for python on wayland", trig="pyproj"}, { t({
-      "export QT_QPA_PLATFORM=wayland",
+    s({name="Basic project environment for python", trig="pyproj"}, { t({
       "source ~/pyenv_sjsu/bin/activate",
+    })}),
+    s({name="Basic project environment for python on wayland", trig="pyprojgui"}, { t({
+      "source ~/pyenv_sjsu/bin/activate",
+      "export QT_QPA_PLATFORM=wayland",
     })})
   }
 )
