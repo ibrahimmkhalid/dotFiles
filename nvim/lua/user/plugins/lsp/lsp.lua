@@ -8,7 +8,7 @@ require('mason-lspconfig').setup({
     "intelephense",
     "lua_ls",
     "marksman",
-    "jedi_language_server",
+    "pyright",
     "rust_analyzer",
     "sqlls",
     "tsserver",
