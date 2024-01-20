@@ -28,6 +28,7 @@ List of availabe tags for ansible-playbook:
     - git
     - nodejs (installs n package manager)
     - turso (installs turso cli tool)
+    - golang
     - nvim
     - scripts
     - ssh

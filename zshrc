@@ -57,3 +57,6 @@ LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
 
 # Turso
 export PATH="/home/ibrahim/.turso:$PATH"
+
+# Go
+export PATH="$PATH:/usr/local/go/bin"

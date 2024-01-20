@@ -68,6 +68,11 @@
     tags:
       - base
       - turso
+  - name: Install Go
+    import_tasks: tasks/golang.yml
+    tags:
+      - base
+      - golang
   - name: Install Lazygit
     import_tasks: tasks/apps/lazygit.yml
     tags:
