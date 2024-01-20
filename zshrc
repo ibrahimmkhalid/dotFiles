@@ -54,3 +54,6 @@ if [[ -f .project_env ]]; then
 fi
 
 LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
+
+# Turso
+export PATH="/home/ibrahim/.turso:$PATH"
