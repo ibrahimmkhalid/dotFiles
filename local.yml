@@ -63,6 +63,11 @@
       - base
       - nodejs
       - ergogen
+  - name: Install Turso CLI
+    import_tasks: tasks/turso.yml
+    tags:
+      - base
+      - turso
   - name: Install Lazygit
     import_tasks: tasks/apps/lazygit.yml
     tags:
