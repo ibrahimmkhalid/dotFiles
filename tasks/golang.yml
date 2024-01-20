@@ -1,0 +1,23 @@
+- name: "[Go] Prepare for download"
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "/tmp/golang.tar.gz"
+- name: "[Go] Download golang installer from archive"
+  ansible.builtin.get_url:
+    url: 'https://go.dev/dl/go1.21.6.linux-amd64.tar.gz'
+    dest: "/tmp/golang.tar.gz"
+- name: "[Go] Installing golang"
+  become: true
+  ansible.builtin.unarchive:
+    src: "/tmp/golang.tar.gz"
+    dest: "/usr/local"
+- name: "[Go] Uninstalling Go"
+  become: true
+  file:
+    path: "/usr/local/go"
+    state: absent
+  tags:
+    - clean
+    - never
