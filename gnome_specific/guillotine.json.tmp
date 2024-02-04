@@ -5,6 +5,14 @@
   "menu": [
     {
       "type": "command",
+      "title": "Toggle dark mode",
+      "command": "HOME_DIR/.local/bin/toggle-dark-mode",
+      "instancing": "singleInstance",
+      "icon": "weather-clear-night",
+      "killOnDisable": false
+    },
+    {
+      "type": "command",
       "title": "Integrated Kyeboard Toggle",
       "command": "HOME_DIR/.local/bin/toggle-laptop-keyboard",
       "instancing": "singleInstance",
