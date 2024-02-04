@@ -13,6 +13,16 @@ else
 fi
 tmux source-file ~/.config/tmux/colormode.conf
 
+## nvim section
+if [ $color_mode == "dark" ]; then
+  nvim --server /tmp/nvim.pipe --remote-send ":set background=light<CR>"
+  nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').setup({background='hard'})<CR>"
+else
+  nvim --server /tmp/nvim.pipe --remote-send ":set background=dark<CR>"
+  nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').setup({background='medium'})<CR>"
+fi
+nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').load()<CR>"
+
 ## Set the new mode
 if [ $color_mode == "dark" ]; then
   echo "light" > $color_mode_file
