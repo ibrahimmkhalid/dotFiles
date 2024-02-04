@@ -3,17 +3,21 @@
   apt:
     name: tmux
     state: present
+- name: "[tmux config] Ensure colormode.conf exists"
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/tmux/lightmode.conf
+    dest: "{{ playbook_dir }}/tmux/colormode.conf"
+- name: "[tmux config] Create symbolic link for tmux"
+  become: yes
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/tmux"
+    dest: "{{ ansible_env.HOME }}/.config/tmux"
+    state: link
+    force: yes
 - name: "[tmux config] Install tmux plugin manager"
   ansible.builtin.git:
     repo: "https://github.com/tmux-plugins/tpm"
     dest: "/home/{{  lookup('env', 'USER')  }}/.config/tmux/plugins/tpm"
-- name: "[tmux config] Create symbolic link for tmux"
-  become: yes
-  ansible.builtin.file:
-    src: "{{ playbook_dir }}/tmux/tmux.conf"
-    dest: "{{ ansible_env.HOME }}/.config/tmux/tmux.conf"
-    state: link
-    force: yes
 - name: "[tmux config] Unlink tmux conf"
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.config/tmux"

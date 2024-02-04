@@ -1,0 +1,22 @@
+#!/bin/bash
+# Toggle dark mode
+
+## Get the current mode
+color_mode_file="$HOME/._.color-mode"
+color_mode=$(cat $color_mode_file)
+
+## tmux section
+if [ $color_mode == "dark" ]; then
+  cp ~/.config/tmux/lightmode.conf ~/.config/tmux/colormode.conf
+else
+  cp ~/.config/tmux/darkmode.conf ~/.config/tmux/colormode.conf
+fi
+
+tmux source-file ~/.config/tmux/colormode.conf
+
+## Set the new mode
+if [ $color_mode == "dark" ]; then
+  echo "light" > $color_mode_file
+else
+  echo "dark" > $color_mode_file
+fi
