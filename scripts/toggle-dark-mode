@@ -11,7 +11,6 @@ if [ $color_mode == "dark" ]; then
 else
   cp ~/.config/tmux/darkmode.conf ~/.config/tmux/colormode.conf
 fi
-
 tmux source-file ~/.config/tmux/colormode.conf
 
 ## Set the new mode
