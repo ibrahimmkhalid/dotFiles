@@ -20,6 +20,8 @@ alias clera="clear"
 alias sl="ls"
 alias jupyter_ascending_make_base="python -m jupyter_ascending.scripts.make_pair --base"
 
+alias nvim="nvim --listen /tmp/nvim.pipe"
+
 export N_PREFIX="$HOME/.local/share/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 #Copy the current folder to either desktop or porjects directory in windows
