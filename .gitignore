@@ -2,6 +2,9 @@
 
 packer_compiled.lua
 
+tmux/plugins
+tmux/colormode.conf
+
 *.hex
 
 vaultpass.txt
