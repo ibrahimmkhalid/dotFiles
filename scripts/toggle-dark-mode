@@ -5,6 +5,9 @@
 color_mode_file="$HOME/._.color-mode"
 color_mode=$(cat $color_mode_file)
 
+## Check if running on WSL
+running_windows=$(which powershell.exe)
+
 ## tmux section
 if [ $color_mode == "dark" ]; then
   cp ~/.config/tmux/lightmode.conf ~/.config/tmux/colormode.conf
@@ -22,6 +25,28 @@ else
   nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').setup({background='medium'})<CR>"
 fi
 nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').load()<CR>"
+
+if [ $running_windows ]; then
+  echo "Running on Windows"
+else
+  ## gnome-terminal section
+  if [ $color_mode == "dark" ]; then
+    dconf load /org/gnome/terminal/legacy/profiles:/ < ~/.dotFiles/gnome_specific/gnome-terminal-light.dconf.dump
+  else
+    dconf load /org/gnome/terminal/legacy/profiles:/ < ~/.dotFiles/gnome_specific/gnome-terminal-dark.dconf.dump
+  fi
+
+  ## gnome session section
+  if [ $color_mode == "dark" ]; then
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-sage'
+    gsettings set org.gnome.gedit.preferences.editor scheme 'Yaru'
+  else
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-sage-dark'
+    gsettings set org.gnome.gedit.preferences.editor scheme 'Yaru-dark'
+  fi
+fi
 
 ## Set the new mode
 if [ $color_mode == "dark" ]; then
