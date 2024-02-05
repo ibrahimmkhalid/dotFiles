@@ -1,0 +1,15 @@
+[/]
+default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']
+
+[:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='#2d353b'
+bold-color-same-as-fg=true
+default-size-columns=76
+default-size-rows=24
+font='FiraCode Nerd Font 11'
+foreground-color='#d3c6aa'
+palette=['#4b565c', '#e67e80', '#a7c080', '#dbbc7f', '#7fbbb3', '#d699b6', '#83c092', '#d3c6aa', '#4b565c', '#e67e80', '#a7c080', '#dbbc7f', '#7fbbb3', '#d699b6', '#83c092', '#d3c6aa']
+scrollbar-policy='never'
+use-system-font=false
+use-theme-colors=false
