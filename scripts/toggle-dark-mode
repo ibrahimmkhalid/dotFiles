@@ -29,7 +29,15 @@ fi
 nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').load()<CR>"
 
 if [ $running_windows ]; then
-  echo "Running on Windows"
+  ## Windows Terminal section
+  settings_file=$(wslpath $(wslvar USERPROFILE))/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json
+  if [ $color_mode == "dark" ]; then
+    sed 's/\("colorScheme": "Everforest \)Dark Medium\("\)/\1Light Hard\2/g' $settings_file -i
+    sed 's/\("theme": "\)dark\("\)/\1light\2/g' $settings_file -i
+  else
+    sed 's/\("colorScheme": "Everforest \)Light Hard\("\)/\1Dark Medium\2/g' $settings_file -i
+    sed 's/\("theme": "\)light\("\)/\1dark\2/g' $settings_file -i
+  fi
 else
   ## gnome-terminal section
   if [ $color_mode == "dark" ]; then
