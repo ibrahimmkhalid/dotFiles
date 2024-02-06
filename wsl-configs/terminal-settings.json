@@ -68,7 +68,7 @@
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             },
             {
-                "colorScheme": "One Half Light",
+                "colorScheme": "Campbell Powershell",
                 "font": 
                 {
                     "face": "FiraCode Nerd Font",
@@ -458,6 +458,6 @@
     ],
     "showTabsInTitlebar": true,
     "showTerminalTitleInTitlebar": true,
-    "theme": "system",
+    "theme": "light",
     "themes": []
 }
