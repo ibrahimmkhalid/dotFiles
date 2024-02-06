@@ -43,10 +43,12 @@ else
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
     gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-sage'
     gsettings set org.gnome.gedit.preferences.editor scheme 'Yaru'
+    dconf write /org/gnome/shell/extensions/user-theme/name "'Yaru-sage'"
   else
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-sage-dark'
     gsettings set org.gnome.gedit.preferences.editor scheme 'Yaru-dark'
+    dconf write /org/gnome/shell/extensions/user-theme/name "'Yaru-sage-dark'"
   fi
 fi
 
