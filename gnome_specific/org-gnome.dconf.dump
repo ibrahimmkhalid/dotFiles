@@ -87,3 +87,16 @@ name='Yaru-sage'
 [terminal/legacy]
 confirm-close=false
 theme-variant='system'
+
+[terminal/legacy/profiles:]
+default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']
+
+[terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+bold-color-same-as-fg=true
+default-size-columns=120
+default-size-rows=36
+font='FiraCode Nerd Font 11'
+scrollbar-policy='never'
+use-system-font=false
+use-theme-colors=false
