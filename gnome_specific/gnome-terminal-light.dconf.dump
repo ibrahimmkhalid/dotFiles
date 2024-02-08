@@ -3,13 +3,13 @@ default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
 list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']
 
 [:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-background-color='rgb(255,251,239)'
+background-color='#fffbef'
 bold-color-same-as-fg=true
 default-size-columns=76
 default-size-rows=24
 font='FiraCode Nerd Font 11'
-foreground-color='rgb(92,106,114)'
-palette=['rgb(232,229,213)', 'rgb(248,85,82)', 'rgb(141,161,1)', 'rgb(223,160,0)', 'rgb(58,148,197)', 'rgb(223,105,186)', 'rgb(53,167,124)', 'rgb(92,106,114)', 'rgb(232,229,213)', 'rgb(248,85,82)', 'rgb(141,161,1)', 'rgb(223,160,0)', 'rgb(58,148,197)', 'rgb(223,105,186)', 'rgb(53,167,124)', 'rgb(92,106,114)']
+foreground-color='#5c6a72'
+palette=['#e8e5d5', '#f85552', '#8da101', '#dfa000', '#3a94c5', '#df69ba', '#35a77c', '#5c6a72', '#e8e5d5', '#f85552', '#8da101', '#dfa000', '#3a94c5', '#df69ba', '#35a77c', '#5c6a72']
 scrollbar-policy='never'
 use-system-font=false
 use-theme-colors=false
