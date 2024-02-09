@@ -8,6 +8,12 @@ color_mode=$(cat $color_mode_file)
 ## Check if running on WSL
 running_windows=$(which powershell.exe)
 
+if [ $running_windows ]; then
+  vscode_settings_file=$(wslpath $(wslvar USERPROFILE))/AppData/Roaming/Code/User/settings.json
+else
+  vscode_settings_file="$HOME/.config/Code/User/settings.json"
+fi
+
 ## tmux section
 if [ $color_mode == "dark" ]; then
   cp ~/.config/tmux/lightmode.conf ~/.config/tmux/colormode.conf
@@ -27,6 +33,13 @@ else
   nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').setup({background='medium'})<CR>"
 fi
 nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').load()<CR>"
+
+## vscode section
+if [ $color_mode == "dark" ]; then
+  sed 's/\("workbench.colorTheme": ".*\)Dark\("\)/\1Light\2/g' $vscode_settings_file -i
+else
+  sed 's/\("workbench.colorTheme": ".*\)Light\("\)/\1Dark\2/g' $vscode_settings_file -i
+fi
 
 if [ $running_windows ]; then
   ## Windows Terminal section
