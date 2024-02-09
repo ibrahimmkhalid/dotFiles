@@ -13,7 +13,7 @@
     cmd: "dconf load /org/gnome/terminal/legacy/profiles:/ < {{ playbook_dir }}/gnome_specific/gnome-terminal-light.dconf.dump"
 - name: "[gnome settings] update desktop wallpaper"
   ansible.builtin.shell:
-    cmd: "dconf write {{ item }} \"file://{{ playbook_dir }}/wallpaper/wallpaper.png\""
+    cmd: "dconf write {{ item }} '\"file://{{ playbook_dir }}/wallpaper/wallpaper.png\"'"
   with_items:
     - "/org/gnome/desktop/background/picture-uri-dark"
     - "/org/gnome/desktop/background/picture-uri"
