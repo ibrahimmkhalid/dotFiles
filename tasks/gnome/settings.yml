@@ -10,10 +10,10 @@
     cmd: "dconf load /org/gnome/ < {{ playbook_dir }}/gnome_specific/org-gnome.dconf.dump"
 - name: "[gnome settings] update gnome terminal settings"
   ansible.builtin.shell:
-    cmd: "dconf load /org/gnome/terminal/legacy/profiles:/ < {{ playbook_dir }} ../../gnome_specific/gnome-terminal-light.dconf.dump"
-- name: "[gnome settings] update wallpapers"
+    cmd: "dconf load /org/gnome/terminal/legacy/profiles:/ < {{ playbook_dir }}/gnome_specific/gnome-terminal-light.dconf.dump"
+- name: "[gnome settings] update desktop wallpaper"
   community.general.dconf:
-    key: {{ item }}
+    key: "{{ item }}"
     value: "{{ playbook_dir }}/wallpaper/wallpaper.png"
     state: present
   with_items:
