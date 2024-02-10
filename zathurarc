@@ -1,0 +1,18 @@
+map h navigate previous
+map l navigate next
+map <Left> navigate previous
+map <Right> navigate next
+map J zoom out
+map K zoom in
+map r reload
+map R rotate
+map p print
+
+set font "FiraCode Nerd Font Regular 10"
+set selection-clipboard clipboard
+set adjust-open "width"
+
+set window-title-basename true
+set window-title-page true
+set statusbar-basename true
+set guioptions n

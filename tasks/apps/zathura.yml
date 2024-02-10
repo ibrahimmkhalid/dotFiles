@@ -1,0 +1,16 @@
+- name: "[apps: zathura] Install zathura from system package manager"
+  package:
+    name: zathura
+    state: present
+- name: "[apps: zathura] Symlink zathura configuration file"
+  file:
+    src: "{{ playbook_dir }}/zathurarc"
+    dest: "{{ home_dir }}/.config/zathura/zathurarc"
+    state: link
+- name: "[apps: zathura] Unlink zathura configuration file"
+  file:
+    path: "{{ home_dir }}/.config/zathura/zathurarc"
+    state: absent
+  tags:
+    - never
+    - clean

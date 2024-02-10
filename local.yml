@@ -85,6 +85,11 @@
     tags:
       - with-extra
       - lazygit
+  - name: Install Zathura
+    import_tasks: tasks/apps/zathura.yml
+    tags:
+      - with-extra
+      - zathura
   - name: Install QMK
     import_tasks: tasks/apps/qmk.yml
     tags:

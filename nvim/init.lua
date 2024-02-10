@@ -28,6 +28,7 @@ local lazy_plugins = {
   { import = "user.plugins.colorizer" },
   { import = "user.plugins.telescope" },
   { import = "user.plugins.jupyter" },
+  { import = "user.plugins.latex" },
   { import = "user.plugins.lualine" },
   { import = "user.plugins.toggleterm" },
   { import = "user.plugins.nvim-ufo" },
