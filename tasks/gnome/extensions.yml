@@ -14,7 +14,6 @@
     dest: "/tmp/install-gnome-extensions.sh"
     mode: "0777"
 - name: "[gnome extensions] Enable GNOME extensions"
-  become: true
   ansible.builtin.shell:
     cmd: "/tmp/install-gnome-extensions.sh --enable --file {{ playbook_dir }}/gnome_specific/extension_links.txt"
 - name: "[gnome extensions] Remove installer script"
