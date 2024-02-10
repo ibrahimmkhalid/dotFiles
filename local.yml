@@ -70,7 +70,6 @@
     tags:
       - base
       - nodejs
-      - ergogen
   - name: Install Turso CLI
     import_tasks: tasks/turso.yml
     tags:
@@ -86,11 +85,6 @@
     tags:
       - with-extra
       - lazygit
-  - name: Install Ergogen
-    import_tasks: tasks/apps/ergogen.yml
-    tags:
-      - with-extra
-      - ergogen
   - name: Install QMK
     import_tasks: tasks/apps/qmk.yml
     tags:

@@ -35,7 +35,6 @@ List of availabe tags for ansible-playbook:
 - extra tags (with-extra)
     - lazygit
     - qmk
-    - ergogen (will install n as well)
 - gnome tags (with-gnome)
     - gnome-ext
     - gnome-settings
@@ -47,6 +46,5 @@ List of availabe tags for ansible-playbook:
 tmux-session script: https://github.com/mislav/dotfiles/blob/master/bin/tmux-session  
 install-gnome-extensions script: https://github.com/ToasterUwU/install-gnome-extensions  
 tmux-sessionizer script: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer  
-ergogen: https://github.com/ergogen/ergogen  
 qmk_firmware: https://github.com/qmk/qmk_firmware  
 n (node version manager): https://github.com/tj/n
