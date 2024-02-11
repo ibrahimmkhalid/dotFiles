@@ -6,6 +6,7 @@ else
     selected=$((
       find ~/repos -mindepth 1 -maxdepth 2 -type d,l;
       find ~/ ~/.config -mindepth 0 -maxdepth 1 -type d,l;
+      find ~/repos/sjsu/uni/data-228 ~/repos/sjsu/uni/data-245 ~/repos/sjsu/uni/data-270 -mindepth 1 -maxdepth 1 -type d,l;
     )| fzf)
 fi
 
