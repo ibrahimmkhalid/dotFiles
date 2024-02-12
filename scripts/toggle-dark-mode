@@ -6,7 +6,7 @@ color_mode_file="$HOME/._.color-mode"
 color_mode=$(cat $color_mode_file)
 
 ## Check if running on WSL
-running_windows=$(which powershell.exe)
+running_windows=$(uname -a | grep -i "microsoft")
 
 if [ $running_windows ]; then
   vscode_settings_file=$(wslpath $(wslvar USERPROFILE))/AppData/Roaming/Code/User/settings.json
