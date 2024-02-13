@@ -10,9 +10,3 @@ map p print
 
 set font "FiraCode Nerd Font Regular 10"
 set selection-clipboard clipboard
-set adjust-open "width"
-
-set window-title-basename true
-set window-title-page true
-set statusbar-basename true
-set guioptions n
