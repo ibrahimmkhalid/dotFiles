@@ -43,7 +43,6 @@ List of availabe tags for ansible-playbook:
 (There are many references to my username 'ibrahim'. If you are not me and want to use this repo, then make sure to go over all those changes)
 
 ## Credits 
-tmux-session script: https://github.com/mislav/dotfiles/blob/master/bin/tmux-session  
 install-gnome-extensions script: https://github.com/ToasterUwU/install-gnome-extensions  
 tmux-sessionizer script: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer  
 qmk_firmware: https://github.com/qmk/qmk_firmware  
