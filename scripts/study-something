@@ -1,20 +1,23 @@
 #!/usr/bin/env bash
 
-find_path="$(realpath "$HOME/repos/sjsu/uni/")"/
+if [ -n "$1" ]; then
+    pdf_path="$1"
+else
+    find_path="$(realpath "$HOME/repos/sjsu/uni/")"/
 
-# if currently in a course folder, start searching from there
-courses=$(find $find_path -mindepth 1 -maxdepth 1 -type d,l)
-for course in $courses; do
-    if [[ $(realpath $PWD) == *$course* ]]; then
-        find_path="$course"
-        break
+    # if currently in a course folder, start searching from there
+    courses=$(find $find_path -mindepth 1 -maxdepth 1 -type d,l)
+    for course in $courses; do
+        if [[ $(realpath $PWD) == *$course* ]]; then
+            find_path="$course"
+            break
+        fi
+    done
+
+    pdf_path=$(find $find_path -name "*.pdf" | fzf)
+    if [ -z "$pdf_path" ]; then
+      exit 0
     fi
-done
-
-pdf_path=$(find $find_path -name "*.pdf" | fzf)
-
-if [ -z "$pdf_path" ]; then
-    exit 0
 fi
 
 zathura "$pdf_path" --fork
