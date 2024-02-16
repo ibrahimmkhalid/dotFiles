@@ -1,7 +1,5 @@
 map h navigate previous
 map l navigate next
-map <Left> navigate previous
-map <Right> navigate next
 map J zoom out
 map K zoom in
 map r reload
@@ -10,3 +8,6 @@ map p print
 
 set font "FiraCode Nerd Font Regular 10"
 set selection-clipboard clipboard
+
+set window-height 3000
+set window-width 3000
