@@ -19,7 +19,28 @@ alias lg="lazygit"
 
 alias clera="clear"
 alias sl="ls"
-alias jupyter_ascending_make_base="python -m jupyter_ascending.scripts.make_pair --base"
+
+# jupyter_ascending
+alias jamb="python -m jupyter_ascending.scripts.make_pair --base"
+
+function jaunsync() {
+  # find all files with <name>.sync.ipynb
+  ipynb_files=$(find . -name "*.sync.ipynb")
+
+  # go over both lists and remove the .sync from all files
+  while read -r file; do
+    mv $file ${file//.sync/}
+  done <<< "$ipynb_files" 
+}
+
+function jasync() {
+  # find all files with <name>.ipynb
+  ipynb_files=$(find . -name "*.ipynb")
+  # go over both lists and add the .sync to all files
+  while read -r file; do
+    mv $file ${file//.ipynb/.sync.ipynb}
+  done <<< "$ipynb_files" 
+}
 
 alias nvim="nvim --listen /tmp/nvim.pipe"
 
