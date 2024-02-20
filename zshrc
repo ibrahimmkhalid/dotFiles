@@ -25,7 +25,7 @@ alias jamb="python -m jupyter_ascending.scripts.make_pair --base"
 
 function jaunsync() {
   # find all files with <name>.sync.ipynb
-  ipynb_files=$(find . -name "*.sync.ipynb")
+  ipynb_files=$(find . -maxdepth 1 -name "*.sync.ipynb")
 
   # go over both lists and remove the .sync from all files
   while read -r file; do
@@ -35,7 +35,7 @@ function jaunsync() {
 
 function jasync() {
   # find all files with <name>.ipynb
-  ipynb_files=$(find . -name "*.ipynb")
+  ipynb_files=$(find . -maxdepth 1 -name "*.ipynb")
   # go over both lists and add the .sync to all files
   while read -r file; do
     mv $file ${file//.ipynb/.sync.ipynb}
