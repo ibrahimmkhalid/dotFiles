@@ -15,7 +15,12 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+# if selected is a uni course, then set the selected_name to the full path
+if [[ $selected == *repos/sjsu/uni* ]]; then
+  selected_name=$(echo $selected | sed 's/.*\/sjsu\/uni\///' | tr . _)
+else
+  selected_name=$(basename "$selected" | tr . _)
+fi
 
 tmux_running=$(pgrep tmux)
 
