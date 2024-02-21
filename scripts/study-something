@@ -20,4 +20,4 @@ else
     fi
 fi
 
-zathura "$pdf_path" --fork
+zathura "$pdf_path" --fork 2>/dev/null & disown
