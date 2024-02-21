@@ -28,6 +28,9 @@ ls.add_snippets( "all", {
     s({name="Basic project environment for python", trig="pyproj"}, { t({
       "source ~/pyenv_sjsu/bin/activate",
     })}),
+    s({name="Conda project environment for python", trig="condaproj"}, { t({
+      "source ~/conda_env/bin/activate",
+    })}),
     s({name="Basic project environment for python on wayland", trig="pyprojgui"}, { t({
       "source ~/pyenv_sjsu/bin/activate",
       "export QT_QPA_PLATFORM=wayland",
