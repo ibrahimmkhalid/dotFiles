@@ -6,7 +6,7 @@ else
     selected=$((
       find -L ~/repos -mindepth 1 -maxdepth 2 -type d,l;
       find -L ~/ ~/.config -mindepth 0 -maxdepth 1 -type d,l;
-      find -L ~/repos/sjsu/uni/data-228 ~/repos/sjsu/uni/data-245 ~/repos/sjsu/uni/data-270 -mindepth 0 -maxdepth 1 -type d,l;
+      find -L ~/repos/sjsu/data-228 ~/repos/sjsu/data-245 ~/repos/sjsu/data-270 -mindepth 1 -maxdepth 1 -type d,l;
     )| fzf)
 fi
 
@@ -16,8 +16,8 @@ if [[ -z $selected ]]; then
 fi
 
 # if selected is a uni course, then set the selected_name to the full path
-if [[ $selected == *repos/sjsu/uni* ]]; then
-  selected_name=$(echo $selected | sed 's/.*\/sjsu\/uni\///' | tr . _)
+if [[ "$selected" == *repos/sjsu* ]]; then
+  selected_name=$(echo "$selected" | sed 's/.*repos\/sjsu\///' | tr . _)
 else
   selected_name=$(basename "$selected" | tr . _)
 fi
@@ -25,12 +25,12 @@ fi
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
+    tmux new-session -s "$selected_name" -c "$selected"
     exit 0
 fi
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+if ! tmux has-session -t="$selected_name" 2> /dev/null; then
+    tmux new-session -ds "$selected_name" -c "$selected"
 fi
 
-tmux attach -t $selected_name || tmux switch-client -t $selected_name
+tmux attach -t "$selected_name" || tmux switch-client -t "$selected_name"
