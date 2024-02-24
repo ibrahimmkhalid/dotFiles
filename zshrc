@@ -42,6 +42,14 @@ function jasync() {
   done <<< "$ipynb_files" 
 }
 
+function jatopy() {
+  if [ -z "$1" ]; then
+    echo "Please provide a file name"
+    return
+  fi
+  jupytext --to py:percent $1
+}
+
 alias nvim="nvim --listen /tmp/nvim.pipe"
 
 export N_PREFIX="$HOME/.local/share/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
