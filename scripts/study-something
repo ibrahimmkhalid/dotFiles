@@ -3,7 +3,7 @@
 if [ -n "$1" ]; then
     pdf_path="$1"
 else
-    find_path="$(realpath "$HOME/repos/sjsu/uni/")"/
+    find_path="$(realpath "$HOME/repos/sjsu/")"/
 
     # if currently in a course folder, start searching from there
     courses=$(find $find_path -mindepth 1 -maxdepth 1 -type d,l)
