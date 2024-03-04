@@ -1,19 +1,6 @@
 require('mason').setup()
 
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    "bashls",
-    "clangd",
-    "eslint",
-    "intelephense",
-    "lua_ls",
-    "marksman",
-    "pyright",
-    "rust_analyzer",
-    "sqlls",
-    "tsserver",
-  }
-})
+require('mason-lspconfig').setup()
 
 local lspconfig = require('lspconfig')
 

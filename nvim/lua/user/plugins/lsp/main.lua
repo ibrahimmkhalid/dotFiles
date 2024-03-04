@@ -9,6 +9,9 @@ return {
     },
     { 'williamboman/mason-lspconfig.nvim' },
 
+    -- ensure installed
+    { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
+
     -- autocompletion
     { 'hrsh7th/nvim-cmp' },
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -35,6 +38,7 @@ return {
     { 'mhartington/formatter.nvim' },
   },
   config = function()
+    require("user.plugins.lsp.mason-installer")
     require("user.plugins.lsp.cmp")
     require("user.plugins.lsp.lsp")
     require("user.plugins.lsp.dap")
