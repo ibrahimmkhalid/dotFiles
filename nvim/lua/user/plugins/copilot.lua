@@ -6,6 +6,8 @@ return {
     vim.g.copilot_no_maps = true
     vim.g.copilot_filetypes = {
       ["markdown"] = false,
+      ["tex"] = false,
+      ["bib"] = false,
       ["txt"] = false,
       ["ini"] = false,
       ["gitcommit"] = false,
