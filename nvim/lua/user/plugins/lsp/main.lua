@@ -30,11 +30,15 @@ return {
     { 'mfussenegger/nvim-dap' },
     { 'jay-babu/mason-nvim-dap.nvim' },
     { 'rcarriga/nvim-dap-ui' },
+
+    -- formatters
+    { 'mhartington/formatter.nvim' },
   },
   config = function()
     require("user.plugins.lsp.cmp")
     require("user.plugins.lsp.lsp")
     require("user.plugins.lsp.dap")
+    require("user.plugins.lsp.formatter")
     require("user.plugins.lsp.autopairs")
     require("user.plugins.lsp.options")
     require("user.plugins.lsp.snippets")
