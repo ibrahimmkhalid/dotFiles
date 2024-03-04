@@ -21,6 +21,8 @@ vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { silent = true, noremap = t
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", { silent = true, noremap = true, desc = "quit window"})
 vim.api.nvim_set_keymap("n", "<leader>Q", ":qa<CR>", { silent = true, noremap = true, desc = "quit all windows"})
 
+-- equalize paragraph
+vim.api.nvim_set_keymap("n", "<leader><leader>", "vapgq", { silent = true, noremap = true, desc = "equalize paragraph"})
 
 vim.api.nvim_set_keymap("n", "<leader>v", ":vsplit<CR>", { silent = true, noremap = true, desc = "Vertical split"})
 vim.api.nvim_set_keymap("n", "<leader>V", ":split<CR>", { silent = true, noremap = true, desc = "Horizontal split"})
