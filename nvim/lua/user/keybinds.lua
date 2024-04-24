@@ -3,6 +3,10 @@ vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { silent = true, noremap = true}
 
 vim.api.nvim_set_keymap("n", "J", "mzJ`z", { silent = true, noremap = true, desc = "Concat next line"})
 
+-- navigate quick fix list
+vim.api.nvim_set_keymap("n", "<M-j>", "<Cmd>cnext<CR>zz", { silent = true, noremap = true, desc = "Next quick fix list item"})
+vim.api.nvim_set_keymap("n", "<M-k>", "<Cmd>cprev<CR>zz", { silent = true, noremap = true, desc = "Prev quick fix list item"})
+
 -- redo
 vim.api.nvim_set_keymap("n", "<S-u>", ":redo<CR>", { silent = true, noremap = true, desc = "redo"})
 
