@@ -63,10 +63,3 @@ vim.api.nvim_set_keymap("v", "<leader>p", '"+p', { silent = true, noremap = true
 -- Move text up and down
 vim.api.nvim_set_keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true, desc = "move selected text down"})
 vim.api.nvim_set_keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true, desc = "move selected text up"})
-
--- Terminal --
--- Better terminal navigation
-vim.api.nvim_set_keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true, desc = "Focus left window" })
-vim.api.nvim_set_keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true, desc = "Focus bottom window" })
-vim.api.nvim_set_keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, desc = "Focus upper window" })
-vim.api.nvim_set_keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, desc = "Focus right window" })
