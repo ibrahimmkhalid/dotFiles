@@ -14,8 +14,8 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end})
 
-    vim.api.nvim_set_keymap("n", "<leader>ma", "", { silent = true, noremap = true, desc = "Append to harpoon list", callback = function ()
-      harpoon:list():append()
+    vim.api.nvim_set_keymap("n", "<leader>ma", "", { silent = true, noremap = true, desc = "Add to harpoon list", callback = function ()
+      harpoon:list():add()
     end})
 
     vim.api.nvim_set_keymap("n", "<M-r>", "", { silent = true, noremap = true, desc = "Harpoon item 1", callback = function ()
