@@ -6,7 +6,7 @@
     - "/tmp/golang.tar.gz"
 - name: "[Go] Download golang installer from archive"
   ansible.builtin.get_url:
-    url: 'https://go.dev/dl/go1.21.6.linux-amd64.tar.gz'
+    url: "https://go.dev/dl/go1.22.4.linux-amd64.tar.gz"
     dest: "/tmp/golang.tar.gz"
 - name: "[Go] Installing golang"
   become: true
