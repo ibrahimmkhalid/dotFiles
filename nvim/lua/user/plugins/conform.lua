@@ -22,5 +22,6 @@ return {
         timeout_ms = 1000,
       },
     })
+    vim.api.nvim_set_keymap("n", "<leader>Ct", "<cmd>lua require('conform').setup({format_on_save=false})<CR>", { noremap = true, silent = true })
   end,
 }
