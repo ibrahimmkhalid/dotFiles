@@ -32,29 +32,6 @@ return {
       return msg
     end
 
-    local function get_copilot_status()
-      local status = false
-      local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-      if not buf_ft or buf_ft == '' then
-        return status
-      end
-
-      if vim.g.ibrahimmkhalid_copilot_indicator == true then
-        local copilot_allowed_on_ft = true
-        for ft, _ in pairs(vim.g.copilot_filetypes) do
-          if ft == buf_ft then
-            copilot_allowed_on_ft = false
-            break
-          end
-        end
-
-        if copilot_allowed_on_ft then
-          status = true
-        end
-      end
-      return status
-    end
-
     require("lualine").setup({
       options = {
         icons_enabled = true,
@@ -81,7 +58,6 @@ return {
         lualine_x = {
           'filetype',
           { get_lsp_name, cond = is_lsp_active, icon = ' ', },
-          { function() return " AGI" end, cond = get_copilot_status }
         },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
