@@ -13,5 +13,7 @@ require('mason-tool-installer').setup {
     "texlab",
     "codelldb",
     "debugpy",
+    "gopls",
+    "tailwindcss",
   },
 }
