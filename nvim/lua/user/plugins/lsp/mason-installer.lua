@@ -5,7 +5,7 @@ require('mason-tool-installer').setup {
     "eslint",
     "lua_ls",
     "marksman",
-    "pyright",
+    "basedpyright",
     "rust_analyzer",
     "sqlls",
     "tsserver",

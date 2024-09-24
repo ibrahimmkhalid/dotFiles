@@ -54,3 +54,18 @@ require('mason-lspconfig').setup_handlers({
     })
   end,
 })
+
+lspconfig.basedpyright.setup({
+  on_attach = lsp_attach,
+  capabilities = lsp_capabilities,
+  settings = {
+    basedpyright = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "openFilesOnly",
+        useLibraryCodeForTypes = true,
+        typeCheckingMode = "standard",
+      }
+    }
+  }
+})
