@@ -37,3 +37,24 @@ ls.add_snippets( "all", {
     })})
   }
 )
+
+ls.add_snippets("python", {
+  s({ name = "Load base_path for data applications", trig = "loadenv" }, { t({
+    "try:",
+    "    from google.colab import drive",
+    "",
+    "    drive.mount('/content/drive')",
+    "    base_path = 'REPLACE ME'",
+    "    print('Running on google colab')",
+    "except:",
+    "    import dotenv",
+    "    import os",
+    "",
+    "    dotenv.load_dotenv()",
+    "    base_path = os.getenv('DATASET_BASE_PATH', './data')",
+    "    print('Running on local instance')",
+    "print('Base path:', base_path)",
+    "",
+    "# %%",
+  }) })
+})
