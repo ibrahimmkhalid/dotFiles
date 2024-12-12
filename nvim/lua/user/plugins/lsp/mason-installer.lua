@@ -8,7 +8,7 @@ require('mason-tool-installer').setup {
     "basedpyright",
     "rust_analyzer",
     "sqlls",
-    "tsserver",
+    "ts_ls",
     "black",
     "texlab",
     "codelldb",
