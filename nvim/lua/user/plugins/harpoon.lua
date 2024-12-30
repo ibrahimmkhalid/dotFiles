@@ -70,6 +70,46 @@ return {
         end
       })
 
+    vim.api.nvim_set_keymap("n", "<M-S-r>", "",
+      {
+        silent = true,
+        noremap = true,
+        desc = "Harpoon item 5",
+        callback = function()
+          harpoon:list():select(5)
+        end
+      })
+
+    vim.api.nvim_set_keymap("n", "<M-S-e>", "",
+      {
+        silent = true,
+        noremap = true,
+        desc = "Harpoon item 6",
+        callback = function()
+          harpoon:list():select(6)
+        end
+      })
+
+    vim.api.nvim_set_keymap("n", "<M-S-w>", "",
+      {
+        silent = true,
+        noremap = true,
+        desc = "Harpoon item 7",
+        callback = function()
+          harpoon:list():select(7)
+        end
+      })
+
+    vim.api.nvim_set_keymap("n", "<M-S-q>", "",
+      {
+        silent = true,
+        noremap = true,
+        desc = "Harpoon item 8",
+        callback = function()
+          harpoon:list():select(8)
+        end
+      })
+
     vim.api.nvim_set_keymap("n", "<M-n>", "",
       {
         silent = true,
