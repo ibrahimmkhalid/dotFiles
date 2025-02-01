@@ -32,7 +32,7 @@
     "alwaysShowTabs": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+    "defaultProfile": "{5b9bf344-418b-43b8-b36f-7da6eb2e2ccc}",
     "experimental.rendering.forceFullRepaint": false,
     "newTabMenu": 
     [
@@ -56,16 +56,16 @@
                 "backgroundImageOpacity": 0.03,
                 "bellStyle": "taskbar",
                 "colorScheme": "Everforest Light Hard",
+                "commandline": "ubuntu",
                 "font": 
                 {
                     "cellHeight": "1.2",
                     "face": "FiraCode Nerd Font",
                     "size": 11.0
                 },
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "guid": "{5b9bf344-418b-43b8-b36f-7da6eb2e2ccc}",
                 "hidden": false,
-                "name": "Ubuntu",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+                "name": "Ubuntu"
             },
             {
                 "colorScheme": "Campbell Powershell",
@@ -82,6 +82,12 @@
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
             }
         ]
     },
