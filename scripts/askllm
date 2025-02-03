@@ -1,0 +1,74 @@
+#!/bin/python3
+
+
+message = input("user\n")
+print()
+print()
+
+import os
+from openai import OpenAI
+import time
+
+
+def get_thread_assistant_msg(client, assistant, thread):
+    run = client.beta.threads.runs.create(
+        thread_id=thread.id, assistant_id=assistant.id
+    )
+    while True:
+        run_status = client.beta.threads.runs.retrieve(
+            thread_id=thread.id, run_id=run.id
+        )
+        if run_status.status == "completed":
+            break
+        time.sleep(1)
+    time.sleep(1)
+    thread_messages = client.beta.threads.messages.list(thread.id)
+    last = thread_messages.data[0]
+    print(last.role)
+    print(last.content[0].text.value)
+    print()
+    print()
+
+
+client = None
+thread = None
+assistant = None
+
+try:
+    openai_key = os.environ["OPENAI_API_KEY"]
+    client = OpenAI(api_key=openai_key)
+
+    assistant = client.beta.assistants.create(
+        instructions="Give succinct answers in the least number of words possible but still fully answering the question. Do not use markdown formatting, just use plain text.",
+        name="AskLLM_Bash",
+        model="gpt-4o-mini",
+    )
+
+    thread = client.beta.threads.create()
+
+    first = True
+    while True:
+        if not first:
+            message = input("user\n")
+            print()
+            print()
+        first = False
+        client.beta.threads.messages.create(thread.id, role="user", content=message)
+        time.sleep(0.75)
+        get_thread_assistant_msg(client, assistant, thread)
+except Exception as e:
+    if client is not None and thread is not None:
+        client.beta.threads.delete(thread.id)
+    if client is not None and assistant is not None:
+        client.beta.assistants.delete(assistant.id)
+    print("Unexpected error: ", e)
+    input("Press enter to close...")
+    exit()
+except KeyboardInterrupt:
+    print()
+    print("closing...")
+    if client is not None and thread is not None:
+        client.beta.threads.delete(thread.id)
+    if client is not None and assistant is not None:
+        client.beta.assistants.delete(assistant.id)
+    exit()

@@ -10,6 +10,7 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^t "global-todo\n"
 bindkey -s ^y "toggle-dark-mode\n"
+bindkey -s ^o "askllm\n"
 
 alias update='sudo apt update && sudo apt upgrade -y'
 alias git-done="git add . && git commit && git push"
