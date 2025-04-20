@@ -14,7 +14,7 @@ return {
         json = { "prettier" },
         yaml = { "prettier" },
         markdown = { "prettier" },
-        python = { "black" },
+        python = { "ruff format" },
       },
       format_on_save = {
         lsp_fallback = true,
@@ -22,6 +22,5 @@ return {
         timeout_ms = 1000,
       },
     })
-    vim.api.nvim_set_keymap("n", "<leader>Ct", "<cmd>lua require('conform').setup({format_on_save=false})<CR>", { noremap = true, silent = true })
   end,
 }

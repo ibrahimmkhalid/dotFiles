@@ -9,7 +9,7 @@ require('mason-tool-installer').setup {
     "rust_analyzer",
     "sqlls",
     "ts_ls",
-    "black",
+    "ruff",
     "texlab",
     "codelldb",
     "debugpy",
