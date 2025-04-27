@@ -1,6 +1,24 @@
 #!/bin/bash
-echo "File/Folder sizes in this directory (GB)"
-du . -BG -d 1 -a
-echo "Percentage utilization of calling file system (GB)" 
-df -BG .
-
+block_size="G"
+if [ "$#" -gt 0 ]; then
+  case "$1" in
+    [kK])
+      block_size="k" ;;
+    [mM])
+      block_size="M"
+      ;;
+    [gG])
+      block_size="G"
+      ;;
+    [tT])
+      block_size="T"
+      ;;
+    *)
+      echo "Invalid block size specified. Using default (G)."
+      ;;
+  esac
+fi
+echo "File/Folder sizes in this directory (${block_size}B)"
+du . -B"$block_size" -d 1 -a
+echo "Percentage utilization of calling file system (${block_size}B)"
+df -B"$block_size" .
