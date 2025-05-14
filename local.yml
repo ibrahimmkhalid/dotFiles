@@ -70,11 +70,6 @@
     tags:
       - base
       - nodejs
-  - name: Install Turso CLI
-    import_tasks: tasks/turso.yml
-    tags:
-      - base
-      - turso
   - name: Install Go
     import_tasks: tasks/golang.yml
     tags:
