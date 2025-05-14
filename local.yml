@@ -70,6 +70,11 @@
     tags:
       - base
       - nodejs
+  - name: Install Python stuff
+    import_tasks: tasks/python.yml
+    tags:
+      - base
+      - python
   - name: Install Go
     import_tasks: tasks/golang.yml
     tags:

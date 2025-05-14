@@ -25,7 +25,7 @@ List of availabe tags for ansible-playbook:
 - base tags (base)
     - git
     - nodejs (installs n package manager)
-    - turso (installs turso cli tool)
+    - python (install uv package manager)
     - golang
     - nvim
     - scripts
@@ -47,3 +47,4 @@ install-gnome-extensions script: https://github.com/ToasterUwU/install-gnome-ext
 tmux-sessionizer script: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer  
 qmk_firmware: https://github.com/qmk/qmk_firmware  
 n (node version manager): https://github.com/tj/n
+uv (python package manager): https://github.com/astral-sh/uv
