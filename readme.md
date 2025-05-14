@@ -35,6 +35,7 @@ List of availabe tags for ansible-playbook:
 - extra tags (with-extra)
     - lazygit
     - qmk
+    - zathura
 - gnome tags (with-gnome)
     - gnome-ext
     - gnome-settings

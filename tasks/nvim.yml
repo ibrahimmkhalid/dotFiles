@@ -8,10 +8,6 @@
   become: true
   apt:
     name: ["ninja-build", "gettext", "cmake", "unzip", "curl", "make", "build-essential", "gcc", "g++", "fzf", "lldb" ]
-- name: "[neovim] Ensure prerequisites for plugins"
-  become: true
-  apt:
-    name: ["texlive-full"]
 - name: "[neovim] Clone nvim"
   ansible.builtin.git:
     repo: 'https://github.com/neovim/neovim.git'
