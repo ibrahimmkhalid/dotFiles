@@ -14,6 +14,13 @@
     dest: "{{ ansible_env.HOME }}/.config/tmux"
     state: link
     force: yes
+- name: "[tmux config] Create symbolic link for tmux-sessionizer helper"
+  become: yes
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/tmux-sessionizer"
+    dest: "{{ ansible_env.HOME }}/.tmux-sessionizer"
+    state: link
+    force: yes
 - name: "[tmux config] Install tmux plugin manager"
   ansible.builtin.git:
     repo: "https://github.com/tmux-plugins/tpm"
