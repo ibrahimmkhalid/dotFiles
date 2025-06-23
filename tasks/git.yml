@@ -13,6 +13,11 @@
     scope: global
     name: core.editor
     value: "nvim"
+- name: "[git config] Set Git global ignorefile"
+  ansible.builtin.git_config:
+    scope: global
+    name: core.excludesfile
+    value: "{{ playbook_dir }}/.gitignore_global"
 - name: "[git config] Set Git default branch"
   ansible.builtin.git_config:
     scope: global
@@ -30,4 +35,5 @@
     - user.name
     - user.email
     - core.editor
+    - core.excludesfile
     - init.defaultBranch
