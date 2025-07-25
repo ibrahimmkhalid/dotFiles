@@ -8,6 +8,13 @@
   ansible.builtin.file:
     path: "/usr/share/gnome-shell/extensions/"
     state: absent
+- name: "[gnome extensions] Install gnome extension shell for browser"
+  become: true
+  apt:
+    name: gnome-shell-extensions
+    state: present
+    update_cache: true
+    force_apt_get: true
 - name: "[gnome extensions] Install user extensions in GNOME"
   ansible.builtin.get_url:
     url: "https://raw.githubusercontent.com/ToasterUwU/install-gnome-extensions/master/install-gnome-extensions.sh"
