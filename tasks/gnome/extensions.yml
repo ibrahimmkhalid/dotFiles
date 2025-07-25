@@ -20,6 +20,10 @@
   file:
     path: "/tmp/install-gnome-extensions.sh"
     state: absent
+- name: "[gnome extensions][Todo] create blank .todo file"
+  file:
+    path: "{{ home }}/.todo"
+    state: touch
 - name: "[gnome extensions] Remove all extensions"
   file:
     path: "{{ item }}"
