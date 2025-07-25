@@ -15,6 +15,14 @@ Do install (add required tags):
 ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never --tags
 ```
 
+Fix git remote after ssh keys installed
+
+```
+git remote remove origin && \
+git remote add origin git@github.com:ibrahimmkhalid/dotFiles.git && \
+git push --set-upstream origin main
+```
+
 List of availabe tags for ansible-playbook:
 
 - meta tags
