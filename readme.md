@@ -1,7 +1,7 @@
-
 ## My dot files
 
 Prepare for install:
+
 ```
 sudo apt update -y && \
 sudo apt install git ansible software-properties-common -y && \
@@ -10,40 +10,43 @@ cd .dotFiles
 ```
 
 Do install (add required tags):
+
 ```
-ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never --tags 
+ansible-playbook local.yml --ask-become-pass --ask-vault-pass --skip-tags never --tags
 ```
 
 List of availabe tags for ansible-playbook:
+
 - meta tags
-    - base
-    - with-extra
-    - with-gnome
-    - clean (uninstall all the things)
-    - never
-    - always
+  - base
+  - with-extra
+  - with-gnome
+  - clean (uninstall all the things)
+  - never
+  - always
 - base tags (base)
-    - git
-    - nodejs (installs n package manager)
-    - python (install uv package manager)
-    - golang
-    - nvim
-    - scripts
-    - ssh
-    - tmux
-    - zsh
+  - git
+  - nodejs (installs n package manager)
+  - python (install uv package manager)
+  - golang
+  - nvim
+  - scripts
+  - ssh
+  - tmux
+  - zsh
 - extra tags (with-extra)
-    - lazygit
-    - qmk
-    - zathura
+  - lazygit
+  - qmk
+  - zathura
 - gnome tags (with-gnome)
-    - gnome-ext
-    - gnome-settings
-    - fonts
- 
+  - gnome-ext
+  - gnome-settings
+  - fonts
+
 (There are many references to my username 'ibrahim'. If you are not me and want to use this repo, then make sure to go over all those changes)
 
-## Credits 
+## Credits
+
 install-gnome-extensions script: https://github.com/ToasterUwU/install-gnome-extensions  
 tmux-sessionizer script: https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer  
 qmk_firmware: https://github.com/qmk/qmk_firmware  
