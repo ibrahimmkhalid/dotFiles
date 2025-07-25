@@ -1,5 +1,8 @@
 ## My dot files
 
+### Installer
+
+Verified working on Ubuntu 24.04
 Prepare for install:
 
 ```
