@@ -7,14 +7,27 @@
 - name: "[neovim] Ensure prerequisites for building nvim"
   become: true
   apt:
-    name: ["ninja-build", "gettext", "cmake", "unzip", "curl", "make", "build-essential", "gcc", "g++", "fzf", "lldb" ]
+    name:
+      [
+        "ninja-build",
+        "gettext",
+        "cmake",
+        "unzip",
+        "curl",
+        "make",
+        "build-essential",
+        "gcc",
+        "g++",
+        "fzf",
+        "lldb",
+      ]
 - name: "[neovim] Clone nvim"
   ansible.builtin.git:
-    repo: 'https://github.com/neovim/neovim.git'
+    repo: "https://github.com/neovim/neovim.git"
     dest: "/tmp/nvim"
-    version: stable
+    version: v0.10.2
 - name: "[neovim] Build nvim"
-  shell: "cd /tmp/nvim && make CMAKE_BUILD_TYPE=Release"
+  shell: "cd /tmp/nvim && make CMAKE_BUILD_TYPE=RelWithDebInfo"
 - name: "[neovim] Install nvim"
   become: true
   shell: "cd /tmp/nvim && make install"

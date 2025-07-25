@@ -24,7 +24,7 @@ default-folder-viewer='list-view'
 
 [shell]
 disable-user-extensions=false
-enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-plank@hardpixel.eu', 'dash-to-dock@micxgx.gmail.com', 'guillotine@fopdoodle.net', 'todo.txt@bart.libert.gmail.com']
+enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-plank@hardpixel.eu', 'dash-to-dock@micxgx.gmail.com', 'todo.txt@bart.libert.gmail.com']
 
 [shell/extensions/TodoTxt]
 confirm-delete=false
