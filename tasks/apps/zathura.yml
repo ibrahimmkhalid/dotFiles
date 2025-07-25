@@ -1,6 +1,6 @@
 - name: "[apps: zathura] Install zathura from system package manager"
-  package:
   become: true
+  package:
     name: zathura
     state: present
 - name: "[apps: zathura] Ensure config directory exists"
