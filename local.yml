@@ -75,6 +75,8 @@
     tags:
       - base
       - python
+      - with-extra
+      - qmk
   - name: Install Go
     import_tasks: tasks/golang.yml
     tags:

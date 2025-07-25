@@ -8,14 +8,6 @@
   ansible.builtin.git:
     repo: "https://github.com/qmk/qmk_firmware"
     dest: "{{ home }}/.local/share/qmk_firmware"
-- name: "[apps: qmk] Ensure qmk prerequisites"
-  become: true
-  apt:
-    force_apt_get: true
-    update_cache: true
-    name:
-      ["python3", "python-is-python3", "python3-pip", "python3-full", "pipx"]
-    state: present
 - name: "[apps: qmk] Install qmk"
   shell: "python3 -m pipx install qmk"
 - name: "[apps: qmk] Setup qmk"
