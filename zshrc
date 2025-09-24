@@ -1,4 +1,4 @@
-export ZSH="/home/$USER/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 plugins=(
   git
@@ -6,7 +6,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+source <(fzf --zsh)
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^t "global-todo\n"
 bindkey -s ^y "toggle-dark-mode\n"
