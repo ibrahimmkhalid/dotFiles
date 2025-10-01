@@ -8,3 +8,5 @@ tmux/colormode.conf
 *.hex
 
 vaultpass.txt
+
+.DS_Store
