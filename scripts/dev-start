@@ -1,8 +1,15 @@
 #!/bin/bash
 
 tmux rename-window "editor"
+tmux send-keys "nvim" C-m
+
 tmux new-window -n "agent"
+tmux send-keys "opencode" C-m
+
 tmux new-window -n "runner"
 tmux split-window -h
+if [ -f "package.json" ]; then
+  tmux send-keys "npm run dev" C-m
+fi
 tmux new-window
 tmux select-window -t 1
