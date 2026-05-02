@@ -8,7 +8,7 @@ tmux send-keys "opencode" C-m
 
 tmux new-window -n "runner"
 if [ -f "package.json" ]; then
-  tmux send-keys "npm run dev" C-m
+  tmux send-keys "bun run dev" C-m
 fi
 tmux new-window
 tmux select-window -t 1
