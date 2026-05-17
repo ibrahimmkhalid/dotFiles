@@ -46,16 +46,12 @@ local lsp_attach = function(client, bufnr)
     { noremap = true, silent = true, desc = "Open Float" })
 end
 
-require('mason-lspconfig').setup_handlers({
-  function(server_name)
-    lspconfig[server_name].setup({
-      on_attach = lsp_attach,
-      capabilities = lsp_capabilities,
-    })
-  end,
+vim.lsp.config("*", {
+  on_attach = lsp_attach,
+  capabilities = lsp_capabilities,
 })
 
-lspconfig.basedpyright.setup({
+vim.lsp.config("python", {
   on_attach = lsp_attach,
   capabilities = lsp_capabilities,
   settings = {

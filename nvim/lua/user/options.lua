@@ -3,6 +3,7 @@ local options = {
   number = true,
   relativenumber = true,
   cmdheight = 2,
+  winborder = "rounded",
   termguicolors = true,
   fileencoding = "utf-8",
   ignorecase = true,

@@ -23,7 +23,7 @@ vim.api.nvim_set_keymap("n", "n", "nzzzv", { silent = true, noremap = true, desc
 vim.api.nvim_set_keymap("n", "N", "Nzzzv", { silent = true, noremap = true, desc = "Previous highlight"})
 
 -- saving files and exiting nvim
-vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { silent = true, noremap = true, desc = "save"})
+vim.api.nvim_set_keymap("n", "<leader>w", ":w!<CR>", { silent = true, noremap = true, desc = "save"})
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", { silent = true, noremap = true, desc = "quit window"})
 vim.api.nvim_set_keymap("n", "<leader>Q", ":qa<CR>", { silent = true, noremap = true, desc = "quit all windows"})
 
