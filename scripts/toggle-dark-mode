@@ -22,15 +22,18 @@ else
 fi
 tmux source-file ~/.config/tmux/colormode.conf
 
-## nvim section
-if [ $color_mode == "dark" ]; then
-  nvim --server /tmp/nvim.pipe --remote-send ":set background=light<CR>"
-  nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').setup({background='hard'})<CR>"
-else
-  nvim --server /tmp/nvim.pipe --remote-send ":set background=dark<CR>"
-  nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').setup({background='medium'})<CR>"
-fi
-nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').load()<CR>"
+#### #### notes to self
+#### #### nvim upstream made it so that there can be only one nvim client started with a specific server(fact check?), i.e. sending commands to that server will only affest that one particular instance of nvim, not all of them.
+#### #### TODO: Will figure out how to send a command to all instances later, manually change dark/light mode for now
+# ## nvim section
+# if [ $color_mode == "dark" ]; then
+#   nvim --server /tmp/nvim.pipe --remote-send ":set background=light<CR>"
+#   nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').setup({background='hard'})<CR>"
+# else
+#   nvim --server /tmp/nvim.pipe --remote-send ":set background=dark<CR>"
+#   nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').setup({background='medium'})<CR>"
+# fi
+# nvim --server /tmp/nvim.pipe --remote-send ":lua require('everforest').load()<CR>"
 
 ## vscode section
 if [ $color_mode == "dark" ]; then
