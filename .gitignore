@@ -4,6 +4,7 @@ packer_compiled.lua
 
 tmux/plugins
 tmux/colormode.conf
+macos_specific/ghostty/colormode.conf
 
 *.hex
 

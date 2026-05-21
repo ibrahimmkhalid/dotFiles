@@ -7,11 +7,16 @@ color_mode=$(cat $color_mode_file)
 
 ## Check if running on WSL
 running_windows=$(uname -a | grep -i "microsoft")
+running_macos=$(uname -a | grep -i "darwin")
 
 if [[ -n $running_windows ]]; then
   vscode_settings_file=$(wslpath $(wslvar USERPROFILE))/AppData/Roaming/Code/User/settings.json
 else
-  vscode_settings_file="$HOME/.config/Code/User/settings.json"
+  if [[ -n $running_macos ]]; then
+    vscode_settings_file="$HOME/Library/Application Support/Code/User/settings.json"
+  else
+    vscode_settings_file="$HOME/.config/Code/User/settings.json"
+  fi
 fi
 
 ## tmux section
@@ -37,9 +42,9 @@ tmux source-file ~/.config/tmux/colormode.conf
 
 ## vscode section
 if [ $color_mode == "dark" ]; then
-  sed 's/\("workbench.colorTheme": ".*\)Dark\("\)/\1Light\2/g' $vscode_settings_file -i
+  sed -i '' 's/\("workbench.colorTheme": ".*\)Dark\("\)/\1Light\2/g' "$vscode_settings_file"
 else
-  sed 's/\("workbench.colorTheme": ".*\)Light\("\)/\1Dark\2/g' $vscode_settings_file -i
+  sed -i '' 's/\("workbench.colorTheme": ".*\)Light\("\)/\1Dark\2/g' "$vscode_settings_file"
 fi
 
 if [[ -n $running_windows ]]; then
@@ -53,24 +58,41 @@ if [[ -n $running_windows ]]; then
     sed 's/\("theme": "\)light\("\)/\1dark\2/g' $settings_file -i
   fi
 else
-  ## gnome-terminal section
-  if [ $color_mode == "dark" ]; then
-    dconf load /org/gnome/terminal/legacy/profiles:/ < ~/.dotFiles/gnome_specific/gnome-terminal-light.dconf.dump
-  else
-    dconf load /org/gnome/terminal/legacy/profiles:/ < ~/.dotFiles/gnome_specific/gnome-terminal-dark.dconf.dump
-  fi
+  if [[ -n $running_macos ]]; then
+    ## macos
+    if [ $color_mode == "dark" ]; then
+      osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
+    else
+      osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
+    fi
 
-  ## gnome session section
-  if [ $color_mode == "dark" ]; then
-    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-    gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-sage'
-    gsettings set org.gnome.gedit.preferences.editor scheme 'Yaru'
-    dconf write /org/gnome/shell/extensions/user-theme/name "'Yaru-sage'"
+    ## ghostty section
+    if [ $color_mode == "dark" ]; then
+      cp ~/.config/ghostty/light.conf ~/.config/ghostty/colormode.conf
+    else
+      cp ~/.config/ghostty/dark.conf ~/.config/ghostty/colormode.conf
+    fi
+    kill -SIGUSR2 $(pgrep -x ghostty)
   else
-    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-sage-dark'
-    gsettings set org.gnome.gedit.preferences.editor scheme 'Yaru-dark'
-    dconf write /org/gnome/shell/extensions/user-theme/name "'Yaru-sage-dark'"
+    ## gnome-terminal section
+    if [ $color_mode == "dark" ]; then
+      dconf load /org/gnome/terminal/legacy/profiles:/ < ~/.dotFiles/gnome_specific/gnome-terminal-light.dconf.dump
+    else
+      dconf load /org/gnome/terminal/legacy/profiles:/ < ~/.dotFiles/gnome_specific/gnome-terminal-dark.dconf.dump
+    fi
+
+    ## gnome session section
+    if [ $color_mode == "dark" ]; then
+      gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+      gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-sage'
+      gsettings set org.gnome.gedit.preferences.editor scheme 'Yaru'
+      dconf write /org/gnome/shell/extensions/user-theme/name "'Yaru-sage'"
+    else
+      gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+      gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-sage-dark'
+      gsettings set org.gnome.gedit.preferences.editor scheme 'Yaru-dark'
+      dconf write /org/gnome/shell/extensions/user-theme/name "'Yaru-sage-dark'"
+    fi
   fi
 fi
 
