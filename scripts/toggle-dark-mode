@@ -72,7 +72,7 @@ else
     else
       cp ~/.config/ghostty/dark.conf ~/.config/ghostty/colormode.conf
     fi
-    kill -SIGUSR2 $(pgrep -x ghostty)
+    kill -SIGUSR2 $(pgrep -ax ghostty)
   else
     ## gnome-terminal section
     if [ $color_mode == "dark" ]; then
