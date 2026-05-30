@@ -12,7 +12,6 @@ bindkey -s ^t "global-todo\n"
 bindkey -s ^y "toggle-dark-mode\n"
 bindkey -s ^o "askllm\n"
 
-alias update='sudo apt update && sudo apt upgrade -y'
 alias git-done="git add . && git commit && git push"
 alias git-update="git add . && git commit -mupdate && git push"
 alias git-repeat="git add . && git commit -C HEAD@{1} && git push"
@@ -23,6 +22,14 @@ alias sl="ls"
 
 # jupyter_ascending
 alias jamb="python -m jupyter_ascending.scripts.make_pair --base"
+
+funciton update() {
+if [[ $(uname) == "Darwin" ]]; then
+  brew update && brew upgrade
+else
+  sudo apt update && sudo apt upgrade -y
+fi
+}
 
 function jaunsync() {
   # find all files with <name>.sync.ipynb
