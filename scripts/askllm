@@ -17,7 +17,7 @@ try:
 
     while True:
         response = client.responses.create(
-            model="gpt-4.1-nano-2025-04-14",
+            model="gpt-5.4-nano",
             instructions="Give succinct answers in the least number of words possible but still fully answering the question. Do not use markdown formatting, just use plain text.",
             input=[{"role": "user", "content": message}],
             previous_response_id=previous_response_id,
