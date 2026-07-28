@@ -23,6 +23,8 @@ alias sl="ls"
 # jupyter_ascending
 alias jamb="python -m jupyter_ascending.scripts.make_pair --base"
 
+alias cl="codellm"
+
 funciton update() {
 if [[ $(uname) == "Darwin" ]]; then
   brew update && brew upgrade

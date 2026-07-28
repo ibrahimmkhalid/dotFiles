@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+
+CLAUDE_LAUNCH_COMMAND="claude --dangerously-skip-permissions"
+CURSOR_LAUNCH_COMMAND="agent --force"
+CODEX_LAUNCH_COMMAND="codex --dangerously-bypass-approvals-and-sandbox"
+OPENCODE_LAUNCH_COMMAND="opencode --auto"
+
+if [ -z "$DEFAULT_CODING_AGENT" ]; then
+  export DEFAULT_CODING_AGENT="claude"
+fi
+
+if [ -n "$1" ]; then
+  CHOSEN_CODING_AGENT="$1"
+else
+  CHOSEN_CODING_AGENT="$DEFAULT_CODING_AGENT"
+fi
+
+case "$CHOSEN_CODING_AGENT" in
+  "claude")
+    exec ${(z)CLAUDE_LAUNCH_COMMAND}
+    ;;
+  "cursor")
+    exec ${(z)CURSOR_LAUNCH_COMMAND}
+    ;;
+  "codex")
+    exec ${(z)CODEX_LAUNCH_COMMAND}
+    ;;
+  "opencode")
+    exec ${(z)OPENCODE_LAUNCH_COMMAND}
+    ;;
+  *)
+    echo "Unknown coding agent: $CHOSEN_CODING_AGENT"
+    echo "Available coding agents: claude, cursor, codex, opencode"
+    exit 1
+    ;;
+esac

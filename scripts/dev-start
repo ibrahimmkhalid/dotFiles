@@ -4,7 +4,7 @@ tmux rename-window "editor"
 tmux send-keys "nvim" C-m
 
 tmux new-window -n "agent"
-tmux send-keys "opencode" C-m
+tmux send-keys "codellm" C-m
 
 tmux new-window -n "runner"
 if [ -f "package.json" ]; then
