@@ -1,3 +1,5 @@
 .nvim.lua
 .project_env
 .todo
+
+**/.claude/settings.local.json
