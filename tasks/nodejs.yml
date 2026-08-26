@@ -27,3 +27,14 @@
   file:
     path: "{{ home }}/.local/share/n"
     state: absent
+- name: "[bun] Install bun"
+  shell: "curl -fsSL https://bun.sh/install | bash"
+  args:
+    creates: "{{ home }}/.bun/bin/bun"
+- name: "[bun] Uninstall bun"
+  tags:
+    - clean
+    - never
+  file:
+    path: "{{ home }}/.bun"
+    state: absent
