@@ -39,6 +39,7 @@ List of availabe tags for ansible-playbook:
   - git
   - nodejs (installs n package manager)
   - python (install uv package manager)
+  - agents
   - golang
   - nvim
   - scripts
@@ -63,3 +64,4 @@ tmux-sessionizer script: https://github.com/ThePrimeagen/.dotfiles/blob/master/b
 qmk_firmware: https://github.com/qmk/qmk_firmware  
 n (node version manager): https://github.com/tj/n
 uv (python package manager): https://github.com/astral-sh/uv
+Agentic Skills: https://github.com/mattpocock/skills, https://github.com/cursor/plugins/tree/main/pstack/skills

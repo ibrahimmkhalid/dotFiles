@@ -1,0 +1,103 @@
+- name: "[agent cli] Install Claude Code"
+  ansible.builtin.shell: "curl -fsSL https://claude.ai/install.sh | bash"
+  args:
+    creates: "{{ home }}/.local/bin/claude"
+- name: "[agent cli] Install Cursor CLI"
+  ansible.builtin.shell: "curl https://cursor.com/install -fsS | bash"
+  args:
+    creates: "{{ home }}/.local/bin/cursor-agent"
+- name: "[agent cli] Install npm-based agents"
+  ansible.builtin.command: "npm install -g {{ item }}"
+  with_items:
+    - "@openai/codex"
+    - "opencode-ai"
+    - "t3@nightly"
+
+- name: "[agent instructions] Ensure Codex config directory exists"
+  ansible.builtin.file:
+    path: "{{ home }}/.codex"
+    state: directory
+    mode: 0755
+- name: "[agent instructions] Ensure Claude config directory exists"
+  ansible.builtin.file:
+    path: "{{ home }}/.claude"
+    state: directory
+    mode: 0755
+- name: "[agent instructions] Ensure opencode config directory exists"
+  ansible.builtin.file:
+    path: "{{ home }}/.config/opencode"
+    state: directory
+    mode: 0755
+- name: "[agent instructions] Create global AGENTS.md links"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/agent_specific/AGENTS.md"
+    dest: "{{ item }}"
+    state: link
+    force: yes
+  with_items:
+    - "{{ home }}/.codex/AGENTS.md"
+    - "{{ home }}/.config/opencode/AGENTS.md"
+- name: "[agent instructions] Create global CLAUDE.md link"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/agent_specific/CLAUDE.md"
+    dest: "{{ home }}/.claude/CLAUDE.md"
+    state: link
+    force: yes
+# cursor has no global instructions file and no CLI way to set one. its User
+# Rules are account-synced, so they reach the CLI, but only if pasted in once
+# via the GUI (Settings -> Rules). re-paste agent_specific/AGENTS.md there.
+- name: "[agent instructions] Reminder to sync Cursor User Rules"
+  ansible.builtin.debug:
+    msg: "Paste agent_specific/AGENTS.md into Cursor Settings -> Rules -> User Rules"
+- name: "[agent skills] Link skills into every agent directory"
+  ansible.builtin.command: "{{ playbook_dir }}/agent_specific/skills/install.sh"
+  register: agent_skills_link
+  changed_when: agent_skills_link.stdout != ""
+
+- name: "[agent instructions] Unlink global agent instructions"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ home }}/.codex/AGENTS.md"
+    - "{{ home }}/.claude/CLAUDE.md"
+    - "{{ home }}/.config/opencode/AGENTS.md"
+  tags:
+    - clean
+    - never
+- name: "[agent skills] Unlink skills from every agent directory"
+  ansible.builtin.command: "{{ playbook_dir }}/agent_specific/skills/install.sh clean"
+  register: agent_skills_unlink
+  changed_when: agent_skills_unlink.stdout != ""
+  tags:
+    - clean
+    - never
+- name: "[agent cli] Uninstall Claude Code"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ home }}/.local/bin/claude"
+    - "{{ home }}/.local/share/claude"
+  tags:
+    - clean
+    - never
+- name: "[agent cli] Uninstall Cursor CLI"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ home }}/.local/bin/cursor-agent"
+    - "{{ home }}/.local/bin/agent"
+  tags:
+    - clean
+    - never
+- name: "[agent cli] Uninstall npm-based agents"
+  ansible.builtin.command: "npm uninstall -g {{ item }}"
+  with_items:
+    - "@openai/codex"
+    - "opencode-ai"
+    - "t3"
+  tags:
+    - clean
+    - never

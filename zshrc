@@ -104,3 +104,5 @@ export PATH="$HOME/.turso:$PATH"
 
 # Go
 export PATH="$PATH:/usr/local/go/bin"
+
+export OPENCODE_DISABLE_CLAUDE_CODE_SKILLS=1
