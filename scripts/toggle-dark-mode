@@ -19,9 +19,6 @@ else
   fi
 fi
 
-## tmux section
-tmux source-file ~/.config/tmux/tmux.conf
-
 ## vscode section
 if [ $color_mode == "dark" ]; then
   sed -i '' 's/\("workbench.colorTheme": ".*\)Dark\("\)/\1Light\2/g' "$vscode_settings_file"
@@ -84,3 +81,8 @@ if [ $color_mode == "dark" ]; then
 else
   echo "dark" > $color_mode_file
 fi
+
+# relies of value of color_mode_file
+
+## tmux section
+tmux source-file ~/.config/tmux/tmux.conf
