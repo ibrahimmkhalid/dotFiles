@@ -22,7 +22,14 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+proj_name=$(basename "$selected" | tr . _)
+org_name=$(basename "$(dirname "$selected")" | tr . _)
+
+if [[ "$org_name" == "main" || "$org_name" == "ibrahim" ]]; then
+  selected_name="$proj_name"
+else
+  selected_name="$org_name/$proj_name"
+fi
 
 tmux_running=$(pgrep tmux)
 
