@@ -16,6 +16,8 @@
     state: absent
 - name: "[zsh config] Install Oh-my-zsh"
   shell: 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended'
+- name : "[zsh config] Apply oh-my-zsh agnoster git patch"
+  shell: '{{ playbook_dir }}/patches/agnoster/apply.sh'
 - name: "[zsh config] Install omz autosuggestions"
   ansible.builtin.git:
     repo: "https://github.com/zsh-users/zsh-autosuggestions"
