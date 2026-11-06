@@ -1,5 +1,6 @@
 .nvim.lua
 .project_env
 .todo
+.DS_Store
 
 **/.claude/settings.local.json
