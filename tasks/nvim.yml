@@ -25,7 +25,7 @@
   ansible.builtin.git:
     repo: "https://github.com/neovim/neovim.git"
     dest: "/tmp/nvim"
-    version: v0.10.2
+    version: v0.12.2
 - name: "[neovim] Build nvim"
   shell: "cd /tmp/nvim && make CMAKE_BUILD_TYPE=RelWithDebInfo"
 - name: "[neovim] Install nvim"
