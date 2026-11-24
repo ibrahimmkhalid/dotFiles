@@ -3,10 +3,6 @@
   apt:
     name: tmux
     state: present
-- name: "[tmux config] Ensure colormode.conf exists"
-  ansible.builtin.copy:
-    src: "{{ playbook_dir }}/tmux/lightmode.conf"
-    dest: "{{ playbook_dir }}/tmux/colormode.conf"
 - name: "[tmux config] Create symbolic link for tmux"
   become: yes
   ansible.builtin.file:
