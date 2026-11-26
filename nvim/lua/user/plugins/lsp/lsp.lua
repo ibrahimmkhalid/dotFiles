@@ -4,6 +4,11 @@ require('mason-lspconfig').setup()
 
 local lspconfig = require('lspconfig')
 
+local toggle_virtual_text = function()
+  vim.g.diagnostic_virtual_text = not vim.g.diagnostic_virtual_text
+  vim.diagnostic.config({ virtual_text = vim.g.diagnostic_virtual_text })
+end
+
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lsp_attach = function(client, bufnr)
   local keymap = vim.api.nvim_buf_set_keymap
@@ -44,6 +49,9 @@ local lsp_attach = function(client, bufnr)
 
   keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
     { noremap = true, silent = true, desc = "Open Float" })
+
+  keymap(bufnr, "n", "gG", "",
+    { noremap = true, silent = true, callback = toggle_virtual_text, desc = "Toggle diagnostics" })
 end
 
 vim.lsp.config("*", {

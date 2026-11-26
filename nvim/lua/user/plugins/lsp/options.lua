@@ -1,5 +1,7 @@
+vim.g.diagnostic_virtual_text = true
+
 local config = {
-  virtual_text = true,
+  virtual_text = vim.g.diagnostic_virtual_text,
   update_in_insert = true,
   underline = true,
   severity_sort = true,
@@ -26,7 +28,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = "*",
   callback = function()
     vim.diagnostic.config({
-      virtual_text = true,
+      virtual_text = vim.g.diagnostic_virtual_text,
     })
   end
 })
